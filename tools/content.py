@@ -275,7 +275,7 @@ HOME = {
     ),
     # ------------------------------------------------------------------ Swedish
     "sv": dict(
-        title="Körlogg – körjournal för skatten, milersättning och förmånsbil",
+        title="Körlogg – automatisk körjournal för förmånsbil och milersättning",
         desc="Körlogg loggar dina bilresor automatiskt. Svep tjänst eller privat och exportera körjournalen med de uppgifter Skatteverket frågar efter. Inget konto.",
         h1="Körjournalen som sköter sig själv",
         lede="Körlogg märker när du börjar köra och loggar resan med GPS. Du sveper tjänst eller privat – och rapporten är klar när du behöver den.",
@@ -497,8 +497,8 @@ TAX = {
                    example="Example: 2,000 business kilometres in your own car in Germany = €600.",
                    note="Official rates in force for 2026, checked on 10 October 2026. These are the countries' rates – not the price of Körlogg.")),
     "sv": dict(
-        h1="Körjournal för skatten – utan att du skriver.",
-        lede="Milersättning, förmånsbil och Skatteverkets uppgifter – Körlogg loggar varje resa automatiskt.",
+        h1="Automatisk körjournal för förmånsbil och milersättning.",
+        lede="Varje resa loggas av sig själv – med uppgifterna Skatteverket kräver.",
         who=dict(h2="Vem är Körlogg för?", cards=[
             ("Du som har förmånsbil", "Visa att den privata körningen håller sig inom ringa omfattning – högst 10 tillfällen och 100 mil per år – med en körjournal som för sig själv."),
             ("Du som har egen firma", "Kör du i tjänsten med egen bil får du göra avdrag per mil. Körlogg samlar underlaget: datum, adresser, ärende och kilometer, resa för resa."),

@@ -12,7 +12,7 @@ ICON = APP / "Korlogg/Resources/Assets.xcassets/AppIcon.appiconset/icon-1024.png
 LOCALES = {"en": "en-GB", "sv": "sv", "de": "de-DE", "da": "da", "no": "no", "nl": "nl-NL", "fi": "fi", "pl": "pl"}
 OG_LINES = {
     "en": ("Your mileage log for taxes", "– kept automatically."),
-    "sv": ("Körjournal för skatten", "– utan att du skriver."),
+    "sv": ("Automatisk körjournal", "för förmånsbil och", "milersättning."),
     "de": ("Ihr Fahrtenbuch fürs Finanzamt", "– automatisch geführt."),
     "da": ("Kørebog til skatten", "– helt automatisk."),
     "no": ("Kjørebok for skatten", "– helt automatisk."),
@@ -75,9 +75,10 @@ def og(rounded):
         bg.paste(ic, (70, 80), ic)
         dr = ImageDraw.Draw(bg)
         dr.text((210, 108), "Körlogg", font=bold, fill="white")
-        l1, l2 = OG_LINES[lang]
-        dr.text((70, 300), l1, font=big, fill="white")
-        dr.text((70, 368), l2, font=big, fill="white")
+        lines = OG_LINES[lang]
+        y0 = 300 if len(lines) == 2 else 262
+        for i, line in enumerate(lines):
+            dr.text((70, y0 + 68 * i), line, font=big, fill="white")
         dr.text((70, 520), "korlogg.com", font=ImageFont.truetype("/System/Library/Fonts/HelveticaNeue.ttc", 34), fill=(205, 222, 248))
         bg.save(d / f"{lang}.png", optimize=True)
         subprocess.run(["pngquant", "--force", "--quality", "70-90", "--ext", ".png", str(d / f"{lang}.png")], check=False)
