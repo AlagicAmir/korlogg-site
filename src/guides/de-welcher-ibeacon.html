@@ -1,0 +1,76 @@
+<!-- title: Welchen iBeacon für Körlogg kaufen? – Ratgeber -->
+<!-- description: Jeder gängige iBeacon funktioniert mit Körlogg. Worauf Sie achten sollten, welche Marken automatisch gefunden werden, warum AirTag nicht geht und was ein Beacon kostet. -->
+<!-- v2: true -->
+<h1>Welchen iBeacon sollte ich für Körlogg kaufen?</h1>
+<p class="lede">Kurz gesagt: jeden Beacon, der im Apple-Format <strong>iBeacon</strong> sendet. Sie brauchen weder eine bestimmte Marke noch ein teures Modell noch ein Abo. Dieser Ratgeber erklärt, worauf es ankommt, welche Marken Körlogg selbst findet und warum ein AirTag nicht funktioniert.</p>
+
+<h2>Was der Beacon in Körlogg macht</h2>
+<p>Ein Beacon ist ein kleiner, batteriebetriebener Bluetooth-Sender, der im Auto bleibt. Er tut nichts anderes, als einige Male pro Sekunde eine kurze Funknachricht zu wiederholen – seine ID. Kommt Ihr iPhone in seine Nähe, weckt iOS Körlogg; die App beginnt die Aufzeichnung und ordnet die Fahrt dem Fahrzeug zu, zu dem der Beacon gehört. Die Fahrt endet wie gewohnt, wenn das Auto einige Minuten steht.</p>
+<p>Damit bekommen Sie zwei Dinge, die der Bewegungssensor des iPhones allein nicht leisten kann:</p>
+<ul>
+<li><strong>Automatisch das richtige Fahrzeug.</strong> Mit einem Beacon pro Auto landet die Fahrt bei dem Fahrzeug, das Sie tatsächlich gefahren sind, nicht beim Standardfahrzeug.</li>
+<li><strong>Nur Ihr eigenes Auto, wenn Sie möchten.</strong> Mit „Nur mit Beacon aufzeichnen“ werden Fahrten nur dann automatisch erfasst, wenn der Beacon Ihres Autos in der Nähe ist – nicht im Taxi, im Bus oder als Mitfahrer. Manuelle Fahrten funktionieren wie bisher.</li>
+</ul>
+<p>Der Beacon ist Teil von Körlogg Pro. Der Standortzugriff muss auf „Immer“ stehen, damit das iPhone die App wecken kann, wenn Sie einsteigen.</p>
+
+<h2>Worauf es ankommt: iBeacon</h2>
+<p>iBeacon ist ein von Apple veröffentlichtes Format für Bluetooth-Low-Energy-Beacons. Jeder Beacon sendet drei Werte:</p>
+<ul>
+<li>eine <strong>UUID</strong> – eine lange ID wie <code>FDA50693-A4E2-4FB1-AFCF-C6EB07647825</code>, oft bei allen Beacons eines Herstellers gleich;</li>
+<li>eine <strong>Major</strong>- und eine <strong>Minor</strong>-Nummer – zwei Zahlen von 0 bis 65535, die Beacons mit derselben UUID unterscheiden.</li>
+</ul>
+<p>Viele Beacons können zusätzlich Eddystone (das Google-Format) oder AltBeacon senden. Das ist kein Problem: Sie wählen iBeacon in der App des Herstellers. Prüfen Sie vor dem Kauf, ob in der Produktbeschreibung ausdrücklich <em>iBeacon</em> steht.</p>
+
+<h2>Marken, die Körlogg automatisch findet</h2>
+<p>Ein iPhone kann nur nach Beacons suchen, deren UUID es kennt – es kann nicht einfach alle Beacons in der Umgebung auflisten. Deshalb sucht Körlogg nach den Werks-UUIDs der verbreitetsten Hersteller. Beacons dieser Marken erscheinen mit Werkseinstellungen in der Liste, wenn Sie auf „Nach Beacons suchen“ tippen:</p>
+<table>
+<thead><tr><th>Marke</th><th>Wird von der Suche gefunden</th></tr></thead>
+<tbody>
+<tr><td>Minew</td><td>Ja (Werks-UUID)</td></tr>
+<tr><td>Feasycom und viele andere Beacons mit derselben UUID</td><td>Ja (Werks-UUID)</td></tr>
+<tr><td>Kontakt.io</td><td>Ja (Werks-UUID)</td></tr>
+<tr><td>Estimote</td><td>Ja (Werks-UUID)</td></tr>
+<tr><td>Jeder andere iBeacon</td><td>Funktioniert – ID manuell eingeben</td></tr>
+</tbody>
+</table>
+
+<h2>Andere Marken: ID selbst eingeben</h2>
+<p>Wird Ihr Beacon nicht gefunden, liegt das fast immer daran, dass Körlogg nicht nach seiner UUID sucht. Öffnen Sie die App des Beacons und kopieren Sie die UUID (am besten auch Major und Minor). Öffnen Sie dann in Körlogg <em>Fahrzeuge</em>, tippen Sie auf das Auto, wählen Sie <em>Bluetooth-Beacon</em> und nutzen Sie <em>ID manuell eingeben</em>. Major und Minor sind optional; bleiben sie leer, zählt jeder Beacon mit dieser UUID. Haben Sie zwei Beacons derselben Marke in zwei Autos, geben Sie deshalb Major und Minor ein, damit jedes Fahrzeug eindeutig erkannt wird.</p>
+
+<h2>Warum AirTag, SmartTag und Tile nicht funktionieren</h2>
+<p>Tracker wie Apples AirTag, Samsungs Galaxy SmartTag oder Tile sind dafür gebaut, verlorene Dinge über ihr eigenes Netzwerk wiederzufinden. Ein AirTag funktioniert nur mit Apples App „Wo ist?“ und wechselt absichtlich ständig seine Kennung, damit ihm niemand folgen kann. Genau diese Datenschutzfunktion verhindert, dass eine andere App ihn als „Ihr Auto“ erkennt. Für SmartTag und Tile gilt dasselbe. Körlogg braucht einen Beacon, der dauerhaft dieselbe iBeacon-ID sendet.</p>
+
+<h2>Worauf Sie beim Kauf achten sollten</h2>
+<ul>
+<li><strong>iBeacon in der Beschreibung.</strong> Die einzige zwingende Voraussetzung.</li>
+<li><strong>Eine App zur Einrichtung.</strong> Damit lesen Sie UUID, Major und Minor aus und wählen das Format iBeacon. Die meisten Hersteller bieten eine solche App an.</li>
+<li><strong>Batterie.</strong> Die meisten Beacons fürs Auto laufen mit einer Knopfzelle oder zwei AA/AAA-Batterien und halten je nach Sendehäufigkeit einige Monate bis einige Jahre. Eine austauschbare Batterie ist von Vorteil.</li>
+<li><strong>Sendeintervall.</strong> Ein kürzeres Intervall (etwa mehrmals pro Sekunde) wird schneller erkannt, kostet aber mehr Batterie. Die Werkseinstellung ist meist ein vernünftiger Mittelweg.</li>
+<li><strong>Hitze und Kälte.</strong> Im Auto wird es im Sommer heiß und im Winter kalt, und Knopfzellen verlieren bei Kälte Leistung. Achten Sie auf die Betriebstemperatur und legen Sie den Beacon nicht in die pralle Sonne auf das Armaturenbrett.</li>
+<li><strong>Modelle mit USB-Stromversorgung.</strong> Manche Beacons stecken in einer USB-Buchse. In einem Auto, dessen USB-Buchse nur bei eingeschalteter Zündung Strom hat, sendet ein solcher Beacon nur, wenn das Auto läuft – und braucht nie eine neue Batterie.</li>
+</ul>
+<p>Ein Beacon kostet meist etwa 10–30 €. Apple selbst verkauft keine Beacons.</p>
+
+<h2>Wohin damit?</h2>
+<p>Bluetooth reicht einige Meter weit, also funktioniert jeder Platz im Auto: Handschuhfach, Türfach oder unter dem Sitz. Meiden Sie Metallboxen, die das Signal abschirmen. Teilen Sie Garage oder Einfahrt mit einem anderen Auto mit Beacon, geben Sie jedem Beacon eine eigene Major- und Minor-Nummer, damit sie nie verwechselt werden.</p>
+
+<h2>Wenn die Batterie leer ist</h2>
+<p>Auf der Seite des Beacons zeigt Körlogg, wann er zuletzt gesehen wurde. Wurde er zwei Wochen lang nicht gesehen, während Sie gefahren sind, erinnert Sie eine Karte in der Fahrtenliste daran, die Batterie zu prüfen. Fahrten starten trotzdem von selbst, landen dann aber beim Standardfahrzeug. Ist „Nur mit Beacon aufzeichnen“ eingeschaltet, werden bei leerer Batterie keine Fahrten automatisch erfasst – dann erscheint die Erinnerung schon nach drei Tagen.</p>
+
+<h2>So richten Sie den Beacon in Körlogg ein</h2>
+<ol>
+<li>Schalten Sie den Beacon ein und wählen Sie in der Hersteller-App iBeacon, falls er mehrere Formate unterstützt.</li>
+<li>Öffnen Sie in Körlogg <em>Fahrzeuge</em>, tippen Sie auf das Auto und wählen Sie <em>Bluetooth-Beacon</em>.</li>
+<li>Halten Sie den Beacon neben das iPhone, tippen Sie auf <em>Nach Beacons suchen</em> und dann auf den Beacon in der Liste – oder geben Sie die ID manuell ein.</li>
+<li>Prüfen Sie unter <em>Einstellungen</em>, dass der Standortzugriff auf „Immer“ steht und die automatische Aufzeichnung eingeschaltet ist.</li>
+</ol>
+<p>Weitere Fragen beantwortet die <a href="{{help}}">Hilfe und häufige Fragen</a>.</p>
+
+<section class="sources"><h2>Quellen</h2>
+<ul>
+<li><a href="https://developer.apple.com/ibeacon/">iBeacon – Apple Developer</a> (das Format iBeacon, englisch)</li>
+<li><a href="https://developer.apple.com/documentation/corelocation/determining-the-proximity-to-an-ibeacon-device">Determining the proximity to an iBeacon device – Apple Developer</a> (Suche nach Beacons anhand der UUID, englisch)</li>
+<li><a href="https://support.apple.com/de-de/102577">Wenn du eine Warnung erhältst, dass ein AirTag oder Zubehör des „Wo ist?“-Netzwerks bei dir ist – Apple Support</a> (AirTag wechselt Kennungen zum Schutz der Privatsphäre)</li>
+<li>Körlogg 2.0: Such-UUIDs, manuelle ID und Batterie-Erinnerungen wie oben beschrieben.</li>
+</ul>
+<p class="checked">Geprüft am 10. Oktober 2026.</p></section>

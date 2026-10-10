@@ -1,0 +1,76 @@
+<!-- title: Which iBeacon should I buy for Körlogg? A buyer's guide -->
+<!-- description: Any standard iBeacon works with Körlogg. What to look for, which brands are found automatically, why AirTag and Tile don't work, and what a beacon costs. -->
+<!-- v2: true -->
+<h1>Which iBeacon should I buy for Körlogg?</h1>
+<p class="lede">Short answer: any beacon that broadcasts in Apple's <strong>iBeacon</strong> format. You don't need a particular brand, an expensive model or a subscription. This guide explains what to look for, which brands Körlogg finds by itself, and why an AirTag can't do the job.</p>
+
+<h2>What the beacon does in Körlogg</h2>
+<p>A beacon is a small battery-powered Bluetooth tag that stays in the car. It does nothing but repeat a short radio message – its ID – a few times a second. When your iPhone comes close to it, iOS wakes Körlogg, which starts logging the trip and puts it on the car the beacon belongs to. The trip ends as usual when the car has stood still for a few minutes.</p>
+<p>That gives you two things the phone's motion sensor alone can't:</p>
+<ul>
+<li><strong>The right car, automatically.</strong> With one beacon in each car, a trip lands on the car you actually drove, not on the default vehicle.</li>
+<li><strong>Only your own car, if you want.</strong> With “Only record with a beacon” switched on, trips are logged automatically only when your car's beacon is nearby – not when you take a taxi, a bus or ride with a friend. Manual trips work as before.</li>
+</ul>
+<p>The beacon is part of Körlogg Pro, and the location permission must be set to “Always” so that iPhone can wake the app when you get into the car.</p>
+
+<h2>The one thing that matters: iBeacon</h2>
+<p>iBeacon is a format Apple published for Bluetooth Low Energy beacons. Each beacon sends three numbers:</p>
+<ul>
+<li>a <strong>UUID</strong> – a long ID such as <code>FDA50693-A4E2-4FB1-AFCF-C6EB07647825</code>, often the same for every beacon from one maker;</li>
+<li>a <strong>major</strong> and a <strong>minor</strong> – two numbers from 0 to 65535 that tell beacons with the same UUID apart.</li>
+</ul>
+<p>Many beacons can also broadcast Eddystone (Google's format) or AltBeacon. That's fine: you choose iBeacon in the maker's own app. Before you buy, check that the product description actually says <em>iBeacon</em>.</p>
+
+<h2>Brands Körlogg finds automatically</h2>
+<p>An iPhone can only look for beacons whose UUID it has been told about – it can't list every beacon around it. So Körlogg's search looks for the factory UUIDs of the most common makers. Beacons from these brands, with their factory settings, appear in the list when you tap “Search for beacons”:</p>
+<table>
+<thead><tr><th>Brand</th><th>Found by the search</th></tr></thead>
+<tbody>
+<tr><td>Minew</td><td>Yes (factory UUID)</td></tr>
+<tr><td>Feasycom, and many generic beacons using the same UUID</td><td>Yes (factory UUID)</td></tr>
+<tr><td>Kontakt.io</td><td>Yes (factory UUID)</td></tr>
+<tr><td>Estimote</td><td>Yes (factory UUID)</td></tr>
+<tr><td>Any other iBeacon</td><td>Works – enter its ID manually</td></tr>
+</tbody>
+</table>
+
+<h2>Other brands: enter the ID yourself</h2>
+<p>If your beacon isn't found, it's almost always because its UUID is one Körlogg doesn't search for. Open the beacon's own app, copy its UUID (and preferably the major and minor), then in Körlogg open <em>Vehicles</em>, tap the car, choose <em>Bluetooth beacon</em> and use <em>Enter ID manually</em>. Major and minor are optional; left empty, every beacon with that UUID counts – so if you have two beacons of the same brand in two cars, enter the major and minor so each car is recognised separately.</p>
+
+<h2>Why AirTag, SmartTag and Tile don't work</h2>
+<p>Trackers like Apple's AirTag, Samsung's Galaxy SmartTag and Tile are built for finding lost things through their own networks. An AirTag only works with Apple's Find My app and changes its identity all the time on purpose, so that nobody can follow it. That privacy feature is exactly why another app can't recognise it as “your car”. The same applies to SmartTag and Tile. Körlogg needs a beacon that keeps sending the same iBeacon ID.</p>
+
+<h2>What to look for when you buy</h2>
+<ul>
+<li><strong>iBeacon in the description.</strong> The only hard requirement.</li>
+<li><strong>A configuration app.</strong> You'll want to read the UUID, major and minor, and choose the iBeacon format. Most makers have a free app for this.</li>
+<li><strong>Battery.</strong> Most car beacons run on a coin cell or a pair of AA/AAA batteries and last from months to a few years, depending on how often they broadcast. A replaceable battery is worth having.</li>
+<li><strong>Broadcast interval.</strong> A shorter interval (for example a few times a second) is noticed faster but uses the battery quicker. The factory setting is usually a sensible middle.</li>
+<li><strong>Heat and cold.</strong> A car gets hot in summer and cold in winter, and coin cells lose power in the cold. Look at the operating temperature, and avoid leaving the beacon on the dashboard in direct sun.</li>
+<li><strong>USB-powered models.</strong> Some beacons plug into a USB socket. In a car whose USB socket is only powered with the ignition on, such a beacon broadcasts only while the car is running and never needs a battery change.</li>
+</ul>
+<p>Prices are typically around €10–30 per beacon. Apple doesn't sell beacons itself.</p>
+
+<h2>Where to put it</h2>
+<p>Bluetooth reaches a few metres, so anywhere inside the car works: the glove box, a door pocket or under a seat. Avoid metal boxes, which block the signal. If you share a garage or a driveway with another car that has a beacon, give each beacon its own major and minor so they're never mixed up.</p>
+
+<h2>When the battery runs out</h2>
+<p>Körlogg shows on the beacon's page when it was last seen. If it hasn't been seen for two weeks while you've been driving, a card in the trip list reminds you to check the battery. Trips still start by themselves, but land on the default car. With “Only record with a beacon” switched on, no trips are logged automatically while the beacon is flat, so the reminder appears after three days instead.</p>
+
+<h2>Setting it up in Körlogg</h2>
+<ol>
+<li>Switch the beacon on and set it to iBeacon in the maker's app if it supports several formats.</li>
+<li>In Körlogg, open <em>Vehicles</em>, tap the car and choose <em>Bluetooth beacon</em>.</li>
+<li>Hold the beacon next to the phone and tap <em>Search for beacons</em>, then tap it in the list – or enter its ID manually.</li>
+<li>Check that location access is “Always” and that automatic logging is on under <em>Settings</em>.</li>
+</ol>
+<p>More questions are answered in the <a href="{{help}}">Help and FAQ</a>.</p>
+
+<section class="sources"><h2>Sources</h2>
+<ul>
+<li><a href="https://developer.apple.com/ibeacon/">iBeacon – Apple Developer</a> (the iBeacon format)</li>
+<li><a href="https://developer.apple.com/documentation/corelocation/determining-the-proximity-to-an-ibeacon-device">Determining the proximity to an iBeacon device – Apple Developer documentation</a> (an app ranges for beacons by UUID)</li>
+<li><a href="https://support.apple.com/en-us/102577">What to do if you get an alert that an AirTag, Find My network accessory or set of AirPods is with you – Apple Support</a> (AirTag identifiers rotate for privacy)</li>
+<li>Körlogg 2.0 app behaviour: the search UUIDs, manual ID entry and battery reminders described above.</li>
+</ul>
+<p class="checked">Checked on 10 October 2026.</p></section>

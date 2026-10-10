@@ -1,0 +1,549 @@
+#!/usr/bin/env python3
+"""Build korlogg.com: plain HTML into the repo root (served by GitHub Pages from main).
+
+    python3 tools/build.py
+
+Sources: tools/content.py (marketing copy), src/legal/<lang>/*.html (privacy,
+terms, support, deletion – ported from korklar-legal), src/guides/*.html,
+src/help/help.json (tools/extract_help.py), assets/ (tools/images.py).
+Switches: tools/config.py (KORLOGG_2_0_RELEASED and the support email).
+"""
+import html, json, pathlib, re, shutil, sys
+from datetime import date
+
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+import config as C
+from content import LANGS, UI, HOME, HELP_LANG, BEACON_SHOTS, BEACON_HERO_SHOT, COUNTRY_LIST
+
+ROOT = pathlib.Path(__file__).resolve().parent.parent
+SRC = ROOT / "src"
+TODAY = date.today().isoformat()
+GENERATED = [l["prefix"].strip("/") for k, l in LANGS.items() if k != "en"] + \
+            ["help", "support", "privacy", "terms", "delete-data", "guides"]
+
+# --------------------------------------------------------------------- pages
+PAGES = []          # dicts: lang, cluster, path, title, desc, body, noindex, canonical, jsonld, og
+CLUSTERS = {}       # cluster -> {lang: path}  (only indexable pages)
+
+def add(lang, cluster, path, title, desc, body, noindex=False, canonical=None, jsonld=None, main_class=""):
+    PAGES.append(dict(lang=lang, cluster=cluster, path=path, title=title, desc=desc, body=body,
+                      noindex=noindex, canonical=canonical or path, jsonld=jsonld or [], main_class=main_class))
+    if not noindex and cluster:
+        CLUSTERS.setdefault(cluster, {})[lang] = path
+
+def P(lang, page):
+    """Path of a standard page in a language."""
+    pre = LANGS[lang]["prefix"]
+    return pre if page == "home" else f"{pre}{page}/"
+
+GUIDES = {   # file stem -> (lang, path, cluster)
+    "en-which-ibeacon": ("en", "/guides/which-ibeacon/", "guide-beacon"),
+    "sv-vilken-ibeacon": ("sv", "/se/guider/vilken-ibeacon/", "guide-beacon"),
+    "de-welcher-ibeacon": ("de", "/de/ratgeber/welcher-ibeacon/", "guide-beacon"),
+    "sv-korjournal-innehall": ("sv", "/se/guider/vad-ska-en-korjournal-innehalla/", None),
+    "sv-formansbil-ringa-omfattning": ("sv", "/se/guider/formansbil-privat-korning-ringa-omfattning/", None),
+    "de-fahrtenbuch-inhalt": ("de", "/de/ratgeber/was-muss-ein-fahrtenbuch-enthalten/", None),
+    "de-fahrtenbuch-oesterreich": ("de", "/de/ratgeber/fahrtenbuch-oesterreich-sachbezug-kilometergeld/", None),
+}
+GUIDE_INDEX = {"en": "/guides/", "sv": "/se/guider/", "de": "/de/ratgeber/"}
+LEGAL_LANGS = {"en", "sv", "de", "nl", "fi"}      # privacy/terms exist in these languages
+DELETE_LANGS = {"en", "sv", "de"}
+
+def esc(s): return html.escape(s, quote=True)
+
+def store_url(lang):
+    cc = LANGS[lang]["store"]
+    return f"https://apps.apple.com/{cc + '/' if cc else ''}app/id{C.APP_ID}"
+
+def v2_label(lang):
+    return UI[lang]["v2_released" if C.KORLOGG_2_0_RELEASED else "v2_pending"]
+
+def store_button(lang, extra=""):
+    return (f'<a class="store-btn{extra}" href="{store_url(lang)}">'
+            f'<svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22"><path fill="currentColor" d="M12 3a1 1 0 0 1 1 1v9.6l3.3-3.3a1 1 0 1 1 1.4 1.4l-5 5a1 1 0 0 1-1.4 0l-5-5a1 1 0 1 1 1.4-1.4l3.3 3.3V4a1 1 0 0 1 1-1zM5 19h14a1 1 0 1 1 0 2H5a1 1 0 1 1 0-2z"/></svg>'
+            f'<span>{esc(UI[lang]["store_btn"])}</span></a>')
+
+def placeholders(text, lang):
+    def link(page, l):
+        if page == "delete":
+            l = l if l in DELETE_LANGS else "en"; return P(l, "delete-data")
+        if page in ("privacy", "terms"):
+            l = l if l in LEGAL_LANGS else "en"
+        return P(l, page)
+    for page in ("privacy", "terms", "support", "delete", "home", "help"):
+        text = text.replace("{{%s}}@en" % page, link(page, "en"))
+        text = text.replace("{{%s}}" % page, link(page, lang))
+    return text
+
+def shot_img(lang, n, alt, sizes="(min-width: 900px) 260px, 62vw", eager=False):
+    base = f"/assets/shots/{lang}/{n}"
+    load = 'fetchpriority="high"' if eager else 'loading="lazy"'
+    return (f'<img src="{base}-400.webp" srcset="{base}-400.webp 400w, {base}-800.webp 800w" sizes="{sizes}" '
+            f'width="400" height="869" alt="{esc(alt)}" {load} decoding="async">')
+
+def shot_numbers(lang):
+    return sorted(int(p.name.split("-")[0]) for p in (ROOT / "assets/shots" / lang).glob("*-400.webp"))
+
+# ------------------------------------------------------------------- layout
+def layout(pg):
+    lang, ui = pg["lang"], UI[pg["lang"]]
+    L = LANGS[lang]
+    url = C.SITE + pg["path"]
+    alts = ""
+    if not pg["noindex"] and pg["cluster"]:
+        group = CLUSTERS[pg["cluster"]]
+        for l, p in group.items():
+            alts += f'<link rel="alternate" hreflang="{LANGS[l]["hreflang"]}" href="{C.SITE}{p}">\n'
+            if l == "de":
+                alts += f'<link rel="alternate" hreflang="de-AT" href="{C.SITE}{p}">\n'
+        if "en" in group:
+            alts += f'<link rel="alternate" hreflang="x-default" href="{C.SITE}{group["en"]}">\n'
+    robots = '<meta name="robots" content="noindex, follow">\n' if pg["noindex"] else ""
+    og_img = f"{C.SITE}/assets/og/{lang}.png"
+    jsonld = "".join(f'<script type="application/ld+json">{json.dumps(j, ensure_ascii=False)}</script>\n' for j in pg["jsonld"])
+    home = P(lang, "home")
+    guides_link = f'<a href="{GUIDE_INDEX[lang]}">{esc(ui["nav_guides"])}</a>' if lang in GUIDE_INDEX else ""
+    # language switcher: same page in other languages when it exists, else that language's home
+    group = CLUSTERS.get(pg["cluster"], {}) if pg["cluster"] else {}
+    items = "".join(
+        f'<li><a href="{group.get(l, P(l, pg["cluster"]) if pg["cluster"] in ("help", "support", "privacy", "terms") else P(l, "home"))}" hreflang="{v["hreflang"]}" lang="{v["html"]}"'
+        f'{" aria-current=\"true\"" if l == lang else ""}>{v["name"]}</a></li>' for l, v in LANGS.items())
+    foot_legal = (f'<a href="{P(lang, "privacy")}">{esc(ui["privacy"])}</a>'
+                  f'<a href="{P(lang, "terms")}">{esc(ui["terms"])}</a>'
+                  f'<a href="{P(lang, "support")}">{esc(ui["support"])}</a>'
+                  f'<a href="{P(lang, "help")}">{esc(ui["help"])}</a>'
+                  + (f'<a href="{GUIDE_INDEX[lang]}">{esc(ui["guides"])}</a>' if lang in GUIDE_INDEX else ""))
+    return f"""<!doctype html>
+<html lang="{L["html"]}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{esc(pg["title"])}</title>
+<meta name="description" content="{esc(pg["desc"])}">
+{robots}<link rel="canonical" href="{C.SITE}{pg["canonical"]}">
+{alts}<meta name="apple-itunes-app" content="app-id={C.APP_ID}">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#1669d9" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0b1220" media="(prefers-color-scheme: dark)">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Körlogg">
+<meta property="og:title" content="{esc(pg["title"])}">
+<meta property="og:description" content="{esc(pg["desc"])}">
+<meta property="og:url" content="{url}">
+<meta property="og:image" content="{og_img}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="{ {"en": "en_GB", "sv": "sv_SE", "de": "de_DE", "da": "da_DK", "no": "nb_NO", "nl": "nl_NL", "fi": "fi_FI", "pl": "pl_PL"}[lang] }">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{esc(pg["title"])}">
+<meta name="twitter:description" content="{esc(pg["desc"])}">
+<meta name="twitter:image" content="{og_img}">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/assets/favicon-32.png" type="image/png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="stylesheet" href="/assets/site.css?v={CSS_VERSION}">
+{jsonld}</head>
+<body>
+<a class="skip" href="#main">{esc(ui["skip"])}</a>
+<header class="site-header">
+<div class="wrap bar">
+<a class="brand" href="{home}"><img src="/assets/logo-96.webp" width="32" height="32" alt=""><span>Körlogg</span></a>
+<nav class="nav" aria-label="Körlogg">
+<a href="{home}#features">{esc(ui["nav_features"])}</a>
+<a href="{P(lang, "help")}">{esc(ui["nav_help"])}</a>
+{guides_link}
+<a href="{P(lang, "support")}">{esc(ui["nav_support"])}</a>
+</nav>
+<details class="lang">
+<summary aria-label="{esc(ui["lang_label"])}"><svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18"><path fill="none" stroke="currentColor" stroke-width="1.8" d="M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zm-9 9h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></svg><span>{lang.upper()}</span></summary>
+<ul>{items}</ul>
+</details>
+</div>
+</header>
+<main id="main" class="{pg["main_class"]}">
+{pg["body"]}
+</main>
+<footer class="site-footer">
+<div class="wrap">
+<div class="foot-top">
+<a class="brand" href="{home}"><img src="/assets/logo-96.webp" width="28" height="28" alt="" loading="lazy"><span>Körlogg</span></a>
+{store_button(lang, " small")}
+</div>
+<nav class="foot-links" aria-label="{esc(ui["support"])}">{foot_legal}</nav>
+<p>{esc(ui["independent"])}</p>
+<p>{esc(ui["publisher"])} <a href="mailto:{C.SUPPORT_EMAIL}">{C.SUPPORT_EMAIL}</a></p>
+<ul class="foot-langs">{"".join(f'<li><a href="{P(l, "home")}" hreflang="{v["hreflang"]}" lang="{v["html"]}">{v["name"]}</a></li>' for l, v in LANGS.items())}</ul>
+<p class="small">App Store is a service mark of Apple Inc. iPhone and iPad are trademarks of Apple Inc.</p>
+</div>
+</footer>
+</body>
+</html>
+"""
+
+# ------------------------------------------------------------------ helpers
+def app_jsonld(lang):
+    h = HOME[lang]
+    return {"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Körlogg",
+            "operatingSystem": "iOS, iPadOS", "applicationCategory": "BusinessApplication",
+            "description": h["desc"], "url": C.SITE + P(lang, "home"), "inLanguage": LANGS[lang]["html"],
+            "image": f"{C.SITE}/assets/icon-512.png", "installUrl": store_url(lang), "downloadUrl": store_url(lang),
+            "screenshot": [f"{C.SITE}/assets/shots/{lang}/{n}-800.webp" for n in shot_numbers(lang)[:4]],
+            "author": {"@type": "Person", "name": "Amir Alagic"},
+            "publisher": {"@type": "Person", "name": "Amir Alagic"}}
+
+def breadcrumb(lang, items):
+    return {"@context": "https://schema.org", "@type": "BreadcrumbList",
+            "itemListElement": [{"@type": "ListItem", "position": i + 1, "name": n, "item": C.SITE + u}
+                                for i, (n, u) in enumerate(items)]}
+
+def read_guide(stem):
+    raw = (SRC / "guides" / f"{stem}.html").read_text()
+    meta = dict(re.findall(r"<!-- (\w+): (.*?) -->", raw))
+    body = re.sub(r"<!-- \w+: .*? -->\n?", "", raw)
+    return meta, body
+
+def gallery(lang):
+    h = HOME[lang]
+    beacon = set(BEACON_SHOTS[lang])
+    nums = [n for n in shot_numbers(lang) if C.KORLOGG_2_0_RELEASED or n not in beacon]
+    figs = "".join(f'<li>{shot_img(lang, n, h["alts"][n - 1])}</li>' for n in nums)
+    return f'<ul class="gallery" role="list">{figs}</ul>'
+
+# --------------------------------------------------------------------- home
+def build_home(lang):
+    h, ui = HOME[lang], UI[lang]
+    full = lang in ("en", "sv", "de")
+    trust = "".join(f'<li><svg aria-hidden="true" viewBox="0 0 20 20" width="18" height="18"><path fill="currentColor" d="M8.2 13.6 4.6 10l-1.2 1.2 4.8 4.8 9-9-1.2-1.2z"/></svg>{esc(t)}</li>' for t in h["trust"])
+    at = (f'<p class="hero-note">{esc(h["at_note"])} <a href="https://apps.apple.com/at/app/id{C.APP_ID}">{esc(h["at_link"])}</a></p>'
+          if lang == "de" else "")
+    hero = f"""<section class="hero">
+<div class="wrap hero-grid">
+<div class="hero-text">
+<h1>{esc(h["h1"])}</h1>
+<p class="lede">{esc(h["lede"])}</p>
+<div class="cta-row">{store_button(lang)}</div>
+<p class="hero-note">{esc(ui["platform"])}</p>
+{at}
+<ul class="trust" role="list">{trust}</ul>
+</div>
+<div class="hero-shot">{shot_img(lang, 1, h["alts"][0], sizes="(min-width: 900px) 320px, 70vw", eager=True)}</div>
+</div>
+</section>"""
+    steps = ""
+    if "steps" in h:
+        st = "".join(f'<li><span class="step-n" aria-hidden="true">{i + 1}</span><h3>{esc(a)}</h3><p>{esc(b)}</p></li>' for i, (a, b) in enumerate(h["steps"]))
+        steps = f"""<section class="section steps-band">
+<div class="wrap">
+<h2>{esc(h["steps_h2"])}</h2>
+<ol class="steps">{st}</ol>
+<div class="center">{store_button(lang)}</div>
+</div>
+</section>"""
+    feats = "".join(f'<li class="card"><h3>{esc(t)}</h3><p>{esc(x)}</p></li>' for t, x in h["features"])
+    features = f"""<section id="features" class="section">
+<div class="wrap">
+<h2>{esc(h["features_h2"])}</h2>
+<ul class="cards" role="list">{feats}</ul>
+</div>
+</section>"""
+    b = h["beacon"]
+    bshot = BEACON_HERO_SHOT.get(lang, 2)
+    blist = "".join(f"<li>{esc(x)}</li>" for x in b["bullets"])
+    blink = (f'<p><a class="more" href="{[p for s, (l, p, c) in GUIDES.items() if l == lang and c == "guide-beacon"][0]}">{esc(b["link"])} →</a></p>'
+             if b.get("link") else "")
+    beacon = f"""<section class="section alt" id="ibeacon">
+<div class="wrap split">
+<div>
+<p class="badge">{esc(v2_label(lang))}</p>
+<h2>{esc(b["h2"])}</h2>
+<p>{esc(b["text"])}</p>
+{f'<ul class="ticks">{blist}</ul>' if blist else ""}
+{blink}
+</div>
+<div class="split-shot">{shot_img(lang, bshot, h["alts"][bshot - 1], sizes="(min-width: 900px) 280px, 62vw")}</div>
+</div>
+</section>"""
+    countries = ""
+    if "countries" in h:
+        c = h["countries"]
+        cl = "".join(f"<li>{x}</li>" for x in c.get("bullets", []))
+        countries = f"""<section class="section">
+<div class="wrap narrow">
+<h2>{esc(c["h2"])}</h2>
+<p>{esc(c["text"])}</p>
+{f'<ul class="ticks">{cl}</ul>' if cl else ""}
+{f'<p>{esc(c["more"])}</p>' if c.get("more") else ""}
+</div>
+</section>"""
+    report = build_report_table(lang) if full else ""
+    privacy = ""
+    if "privacy" in h:
+        privacy = f"""<section class="section privacy-band">
+<div class="wrap narrow">
+<h2>{esc(h["privacy"]["h2"])}</h2>
+<p>{esc(h["privacy"]["text"])}</p>
+<p><a class="more" href="{P(lang, "privacy")}">{esc(ui["privacy"])} →</a></p>
+</div>
+</section>"""
+    shots = f"""<section class="section" aria-label="Screenshots">
+<div class="wrap">{gallery(lang)}</div>
+</section>"""
+    pro = ""
+    if "pro" in h:
+        pl = "".join(f"<li>{esc(x)}</li>" for x in h["pro"]["bullets"])
+        pro = f"""<section class="section alt">
+<div class="wrap narrow">
+<h2>{esc(h["pro"]["h2"])}</h2>
+<ul class="ticks cols">{pl}</ul>
+<p class="muted">{esc(h["pro"]["note"])}</p>
+</div>
+</section>"""
+    elif "pro_note" in h:
+        pro = f'<section class="section alt"><div class="wrap narrow"><h2>Körlogg Pro</h2><p>{esc(h["pro_note"])}</p></div></section>'
+    guides = ""
+    if lang in GUIDE_INDEX:
+        items = ""
+        for stem, (l, path, _) in GUIDES.items():
+            if l != lang: continue
+            meta, _b = read_guide(stem)
+            items += f'<li class="card link-card"><a href="{path}"><h3>{re.search(r"<h1>(.*?)</h1>", _b).group(1)}</h3><p>{esc(meta["description"])}</p></a></li>'
+        guides = f"""<section class="section">
+<div class="wrap">
+<h2>{esc(h["guides_h2"])}</h2>
+<ul class="cards" role="list">{items}</ul>
+</div>
+</section>"""
+    faq = build_home_faq(lang)
+    helpsec = f"""<section class="section">
+<div class="wrap narrow">
+<h2>{esc(h["help_h2"])}</h2>
+{faq}
+<p>{esc(h["help_text"])} <a class="more" href="{P(lang, "help")}">{esc(ui["help"])} →</a></p>
+</div>
+</section>"""
+    cta = f"""<section class="section cta-band">
+<div class="wrap narrow center">
+<h2>{esc(h["cta_h2"])}</h2>
+<p>{esc(h["cta_text"])}</p>
+{store_button(lang)}
+<p class="hero-note">{esc(ui["platform"])}</p>
+</div>
+</section>"""
+    body = hero + steps + features + beacon + countries + report + shots + privacy + pro + guides + helpsec + cta
+    add(lang, "home", P(lang, "home"), h["title"], h["desc"], body, jsonld=[app_jsonld(lang)], main_class="home")
+
+def build_report_table(lang):
+    """What the exported log contains – the facts, not a promise (en/sv/de)."""
+    T = {
+        "en": ("What the exported log contains", ["Field", "In Körlogg"], [
+            ("Date, start and end time", "Every trip"), ("Start and end address", "Every trip"),
+            ("Distance and odometer at start and end", "Every trip; calculated readings marked ≈"),
+            ("Purpose, places, companies and people visited", "Business trips"),
+            ("Driver and car (registration number)", "Every trip"),
+            ("Changes made afterwards", "Listed in the export"),
+            ("Business and private totals", "Per month and year")],
+            "Whether a log is accepted is decided by the tax office or employer that receives it."),
+        "sv": ("Det här innehåller den exporterade körjournalen", ["Uppgift", "I Körlogg"], [
+            ("Datum, start- och sluttid", "Varje resa"), ("Start- och slutadress", "Varje resa"),
+            ("Sträcka och mätarställning vid start och slut", "Varje resa; beräknade värden märks ≈"),
+            ("Ärende, besökta platser, företag och kontaktpersoner", "Tjänsteresor"),
+            ("Förare och bil (registreringsnummer)", "Varje resa"),
+            ("Ändringar i efterhand", "Redovisas i exporten"),
+            ("Summa tjänst och privat", "Per månad och år")],
+            "Om en körjournal godtas avgör Skatteverket eller arbetsgivaren som tar emot den."),
+        "de": ("Das steht im exportierten Fahrtenbuch", ["Angabe", "In Körlogg"], [
+            ("Datum, Beginn und Ende", "Jede Fahrt"), ("Start- und Zieladresse", "Jede Fahrt"),
+            ("Strecke und Kilometerstand zu Beginn und Ende", "Jede Fahrt; berechnete Werte mit ≈ markiert"),
+            ("Reisezweck, besuchte Orte, Firmen und Personen", "Dienstfahrten"),
+            ("Fahrer und Fahrzeug (Kennzeichen)", "Jede Fahrt"),
+            ("Nachträgliche Änderungen", "Im Änderungsprotokoll des Exports"),
+            ("Summen dienstlich und privat", "Pro Monat und Jahr")],
+            "Ob ein Fahrtenbuch anerkannt wird, entscheidet das Finanzamt."),
+    }
+    h2, head, rows, note = T[lang]
+    tr = "".join(f"<tr><th scope=\"row\">{esc(a)}</th><td>{esc(b)}</td></tr>" for a, b in rows)
+    return f"""<section class="section">
+<div class="wrap narrow">
+<h2>{esc(h2)}</h2>
+<div class="table-wrap"><table class="facts"><thead><tr><th scope="col">{esc(head[0])}</th><th scope="col">{esc(head[1])}</th></tr></thead><tbody>{tr}</tbody></table></div>
+<p class="muted">{esc(note)}</p>
+</div>
+</section>"""
+
+# --------------------------------------------------------------------- help
+HELP = json.loads((SRC / "help/help.json").read_text())
+
+def help_text(lang, key):
+    t = HELP["strings"][HELP_LANG.get(lang, lang)][key]
+    t = t.replace("{authority}", LANGS[lang]["authority"])
+    if lang == "de":   # the site speaks to Germany and Austria at once
+        t = t.replace("das Kilometergeld des Autos", "die Kilometerpauschale bzw. das Kilometergeld des Autos")
+        t = t.replace("Kilometergeld und Abgleich", "Kilometerpauschale bzw. Kilometergeld und Abgleich")
+    if lang == "sv":
+        t = t.replace("Skatteverket frågar efter", "Skatteverket frågar efter")
+    return t
+
+def build_home_faq(lang):
+    keys = ["faqStartHow", "faqOdoHow", "faqStartMissed", "faqProWhat", "faqPrivacyWhere", "faqProCancel"]
+    return '<div class="faq">' + "".join(
+        f'<details><summary>{esc(help_text(lang, k + "Q"))}</summary><p>{esc(help_text(lang, k + "A"))}</p></details>'
+        for k in keys) + "</div>"
+
+def build_help(lang):
+    ui = UI[lang]
+    sections, qa = "", []
+    for tp in HELP["topics"]:
+        badge = f'<p class="badge">{esc(v2_label(lang))}</p>' if tp["key"] == "faqBeacon" else ""
+        items = ""
+        for q in tp["questions"]:
+            Q, A = help_text(lang, q + "Q"), help_text(lang, q + "A")
+            anchor = re.sub(r"(?<!^)(?=[A-Z])", "-", q[3:]).lower()
+            items += f'<details id="{anchor}"><summary>{esc(Q)}</summary><p>{esc(A)}</p></details>'
+            qa.append({"@type": "Question", "name": Q, "acceptedAnswer": {"@type": "Answer", "text": A}})
+        sections += f'<section class="help-topic">{badge}<h2>{esc(help_text(lang, tp["key"] + "Title"))}</h2><div class="faq">{items}</div></section>'
+    contact = (f'<section class="card contact"><h2>{esc(help_text(lang, "faqContactTitle"))}</h2>'
+               f'<p><a class="btn" href="{P(lang, "support")}">{esc(help_text(lang, "faqContactButton"))}</a></p></section>')
+    body = f"""<div class="wrap narrow page">
+<h1>{esc(help_text(lang, "faqRow"))}</h1>
+<p class="lede">{esc(ui["help_intro"])}</p>
+{sections}
+{contact}
+</div>"""
+    jl = [{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": qa}]
+    add(lang, "help", P(lang, "help"), ui["help_title"], ui["help_desc"], body, jsonld=jl)
+
+# ------------------------------------------------------------------ support
+def contact_block(lang):
+    ui = UI[lang]
+    s = f'<p>{esc(ui["support_email_intro"])} <a href="mailto:{C.SUPPORT_EMAIL}?subject=K%C3%B6rlogg%20support">{C.SUPPORT_EMAIL}</a>. {esc(ui["support_email_note"])}</p>'
+    if not C.SUPPORT_EMAIL_LIVE:
+        s += f'<p>{esc(ui["support_email_fallback"])} <a href="mailto:{C.FALLBACK_EMAIL}?subject=K%C3%B6rlogg%20support">{C.FALLBACK_EMAIL}</a>.</p>'
+    return s
+
+def build_support(lang):
+    ui = UI[lang]
+    src = SRC / "legal" / lang / "support.html"
+    if src.exists():
+        inner = placeholders(src.read_text(), lang).replace("{{contact}}", contact_block(lang))
+        inner = inner.replace("</h1>", f'</h1>\n<p class="help-pointer">{esc(ui["support_help"])} <a href="{P(lang, "help")}">{esc(ui["help"])}</a>.</p>', 1)
+    else:
+        inner = (f'<h1>{esc(ui["support_title"].split(" – ")[0])}</h1>{contact_block(lang)}'
+                 f'<p>{esc(ui["support_help"])} <a href="{P(lang, "help")}">{esc(ui["help"])}</a>.</p>'
+                 f'<ul><li><a href="{P(lang if lang in LEGAL_LANGS else "en", "privacy")}">{esc(ui["privacy"])}</a></li>'
+                 f'<li><a href="{P(lang if lang in LEGAL_LANGS else "en", "terms")}">{esc(ui["terms"])}</a></li>'
+                 f'<li><a href="{P("en", "delete-data")}">{esc(ui["delete"])}</a></li></ul>')
+    add(lang, "support", P(lang, "support"), ui["support_title"], ui["support_desc"],
+        f'<div class="wrap narrow page"><article class="card legal">{inner}</article></div>')
+
+# -------------------------------------------------------------------- legal
+def build_legal(lang, page):
+    ui = UI[lang]
+    key = {"privacy": "privacy", "terms": "terms", "delete-data": "delete"}[page]
+    title_key = {"privacy": "privacy_title", "terms": "terms_title", "delete-data": "delete_title"}[page]
+    desc_key = {"privacy": "privacy_desc", "terms": "terms_desc", "delete-data": "delete_desc"}[page]
+    note = ""
+    src = SRC / "legal" / lang / f"{page}.html"
+    if src.exists():
+        inner, noindex, canonical, src_lang = src.read_text(), False, None, lang
+        if ui.get("translation_note"):
+            note = f'<p class="note">{esc(ui["translation_note"])} <a href="{P("en", page)}" hreflang="en" lang="en">English</a></p>'
+    else:   # da/no/pl: localized header, English text below, canonical to the English page
+        inner, noindex, canonical, src_lang = (SRC / "legal/en" / f"{page}.html").read_text(), True, P("en", page), "en"
+        others = " · ".join(f'<a href="{P(l, page)}" hreflang="{LANGS[l]["hreflang"]}">{LANGS[l]["name"]}</a>' for l in ("en", "nl", "fi"))
+        note = f'<p class="note">{esc(ui["en_only"])} {others}</p>'
+    inner = placeholders(inner, src_lang if src_lang != lang else lang)
+    site_note = ""
+    if page == "privacy":
+        site_note = f'<aside class="site-note"><h2>{esc(ui["site_note_h"])}</h2><p>{ui["site_note"]}</p></aside>'
+    body_lang = f' lang="en"' if src_lang != lang else ""
+    title = ui[title_key] or UI["en"][title_key]
+    desc = ui[desc_key] or UI["en"][desc_key]
+    add(lang, page, P(lang, page), title, desc,
+        f'<div class="wrap narrow page">{note}<article class="card legal"{body_lang}>{inner}</article>{site_note}</div>',
+        noindex=noindex, canonical=canonical)
+
+# ------------------------------------------------------------------- guides
+def build_guides():
+    for stem, (lang, path, cluster) in GUIDES.items():
+        meta, body = read_guide(stem)
+        body = placeholders(body, lang)
+        badge = f'<p class="badge">{esc(v2_label(lang))}</p>' if meta.get("v2") == "true" else ""
+        h1 = re.search(r"<h1>(.*?)</h1>", body).group(1)
+        crumbs = f'<nav class="crumbs" aria-label="Breadcrumb"><a href="{P(lang, "home")}">Körlogg</a> › <a href="{GUIDE_INDEX[lang]}">{esc(UI[lang]["guides"])}</a></nav>'
+        cta = (f'<aside class="card guide-cta"><img src="/assets/logo-96.webp" width="56" height="56" alt="" loading="lazy">'
+               f'<div><p><strong>Körlogg</strong> – {esc(HOME[lang]["h1"])}.</p>{store_button(lang, " small")}</div></aside>')
+        article = {"@context": "https://schema.org", "@type": "Article", "headline": re.sub("<[^>]+>", "", h1),
+                   "description": meta["description"], "inLanguage": LANGS[lang]["html"], "dateModified": "2026-10-10",
+                   "author": {"@type": "Person", "name": "Amir Alagic"}, "mainEntityOfPage": C.SITE + path,
+                   "image": f"{C.SITE}/assets/og/{lang}.png"}
+        add(lang, cluster, path, meta["title"], meta["description"],
+            f'<div class="wrap narrow page">{crumbs}{badge}<article class="guide">{body}</article>{cta}</div>',
+            jsonld=[article, breadcrumb(lang, [("Körlogg", P(lang, "home")), (UI[lang]["guides"], GUIDE_INDEX[lang]), (re.sub("<[^>]+>", "", h1), path)])])
+    for lang, path in GUIDE_INDEX.items():
+        ui = UI[lang]
+        items = ""
+        for stem, (l, p, _) in GUIDES.items():
+            if l != lang: continue
+            meta, _b = read_guide(stem)
+            h1 = re.search(r"<h1>(.*?)</h1>", _b).group(1)
+            items += f'<li class="card link-card"><a href="{p}"><h2>{h1}</h2><p>{esc(meta["description"])}</p></a></li>'
+        others = " · ".join(f'<a href="{p}" hreflang="{LANGS[l]["hreflang"]}">{LANGS[l]["name"]}</a>' for l, p in GUIDE_INDEX.items() if l != lang)
+        body = (f'<div class="wrap narrow page"><h1>{esc(ui["guides_h1"])}</h1><p class="lede">{esc(ui["guides_intro"])}</p>'
+                f'<ul class="cards one" role="list">{items}</ul><p class="muted">{esc(ui["other_lang_guides"])}: {others}</p></div>')
+        add(lang, "guides", path, ui["guides_title"], ui["guides_desc"], body)
+
+# ---------------------------------------------------------------------- 404
+def build_404():
+    blocks = "".join(f'<section lang="{LANGS[l]["html"]}"><h2>{esc(UI[l]["nf_h1"])}</h2><p>{esc(UI[l]["nf_text"])} <a href="{P(l, "home")}">{esc(UI[l]["nf_home"])}</a></p></section>'
+                     for l in ("en", "sv", "de"))
+    body = (f'<div class="wrap narrow page center"><h1>404</h1>{blocks}'
+            f'<p class="muted">{" · ".join(f"<a href=\"{P(l, "home")}\">{v["name"]}</a>" for l, v in LANGS.items())}</p></div>')
+    PAGES.append(dict(lang="en", cluster=None, path="/404.html", title=UI["en"]["nf_title"], desc=UI["en"]["nf_text"],
+                      body=body, noindex=True, canonical="/", jsonld=[], main_class=""))
+
+# --------------------------------------------------------------------- main
+def clean():
+    for d in GENERATED:
+        p = ROOT / d
+        if p.is_dir(): shutil.rmtree(p)
+    for f in ("index.html", "404.html", "sitemap.xml", "robots.txt"):
+        (ROOT / f).unlink(missing_ok=True)
+
+def write(path, text):
+    out = ROOT / (path.lstrip("/") + ("index.html" if path.endswith("/") else ""))
+    out.parent.mkdir(parents=True, exist_ok=True)
+    out.write_text(text)
+
+def main():
+    global CSS_VERSION
+    import hashlib
+    CSS_VERSION = hashlib.sha1((ROOT / "assets/site.css").read_bytes()).hexdigest()[:8]
+    clean()
+    for lang in LANGS:
+        build_home(lang); build_help(lang); build_support(lang)
+        build_legal(lang, "privacy"); build_legal(lang, "terms")
+        if lang in DELETE_LANGS: build_legal(lang, "delete-data")
+    build_guides(); build_404()
+    for pg in PAGES:
+        write(pg["path"], layout(pg))
+    # sitemap with hreflang alternates
+    urls = ""
+    for pg in PAGES:
+        if pg["noindex"]: continue
+        alt = ""
+        if pg["cluster"]:
+            for l, p in CLUSTERS[pg["cluster"]].items():
+                alt += f'<xhtml:link rel="alternate" hreflang="{LANGS[l]["hreflang"]}" href="{C.SITE}{p}"/>'
+                if l == "de": alt += f'<xhtml:link rel="alternate" hreflang="de-AT" href="{C.SITE}{p}"/>'
+            if "en" in CLUSTERS[pg["cluster"]]:
+                alt += f'<xhtml:link rel="alternate" hreflang="x-default" href="{C.SITE}{CLUSTERS[pg["cluster"]]["en"]}"/>'
+        urls += f"<url><loc>{C.SITE}{pg['path']}</loc><lastmod>{TODAY}</lastmod>{alt}</url>\n"
+    (ROOT / "sitemap.xml").write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" '
+                                      'xmlns:xhtml="http://www.w3.org/1999/xhtml">\n' + urls + "</urlset>\n")
+    (ROOT / "robots.txt").write_text(f"User-agent: *\nAllow: /\nDisallow: /src/\nDisallow: /tools/\nDisallow: /docs/\n\nSitemap: {C.SITE}/sitemap.xml\n")
+    print(f"{len(PAGES)} pages; 2.0 released: {C.KORLOGG_2_0_RELEASED}")
+
+CSS_VERSION = "0"
+if __name__ == "__main__":
+    main()
