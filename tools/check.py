@@ -79,7 +79,9 @@ def main():
         problems += [f"{path}: {e}" for e in p.errors]
         dup = {i for i in p.ids if p.ids.count(i) > 1}
         if dup: problems.append(f"{path}: duplicate ids {dup}")
-        text = " ".join(p.text)
+        # the official per-km rates block (id="rates") is meant to contain amounts; check the rest
+        q = Page(); q.feed(re.sub(r'(?s)<section class="section money" id="rates">.*?</section>', "", body.decode())); q.close()
+        text = " ".join(q.text)
         for b in BANNED:
             if b == r"geocod" and re.search(r"/(privacy|terms|delete-data)/$", path): continue   # verbatim legal text
             if "kr" in b and ("ibeacon" in path or "/help/" in path): continue   # third-party beacon prices

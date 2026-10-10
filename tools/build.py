@@ -13,7 +13,7 @@ from datetime import date
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 import config as C
-from content import LANGS, UI, HOME, HELP_LANG, BEACON_SHOTS, BEACON_HERO_SHOT, COUNTRY_LIST
+from content import LANGS, UI, HOME, HELP_LANG, BEACON_SHOTS, BEACON_HERO_SHOT, COUNTRY_LIST, TAX, STORE_LABEL, SOURCE_WORD
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 SRC = ROOT / "src"
@@ -59,9 +59,10 @@ def v2_label(lang):
     return UI[lang]["v2_released" if C.KORLOGG_2_0_RELEASED else "v2_pending"]
 
 def store_button(lang, extra=""):
-    return (f'<a class="store-btn{extra}" href="{store_url(lang)}">'
-            f'<svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22"><path fill="currentColor" d="M12 3a1 1 0 0 1 1 1v9.6l3.3-3.3a1 1 0 1 1 1.4 1.4l-5 5a1 1 0 0 1-1.4 0l-5-5a1 1 0 1 1 1.4-1.4l3.3 3.3V4a1 1 0 0 1 1-1zM5 19h14a1 1 0 1 1 0 2H5a1 1 0 1 1 0-2z"/></svg>'
-            f'<span>{esc(UI[lang]["store_btn"])}</span></a>')
+    small, big = STORE_LABEL[lang]
+    return (f'<a class="store-btn{extra}" href="{store_url(lang)}" aria-label="{esc(UI[lang]["store_btn"])}">'
+            f'<svg aria-hidden="true" viewBox="0 0 24 24" width="26" height="26"><rect x="6" y="2.5" width="12" height="19" rx="3" fill="none" stroke="currentColor" stroke-width="1.8"/><path fill="currentColor" d="M12 7.2a.9.9 0 0 1 .9.9v4.6l1.6-1.6a.9.9 0 1 1 1.3 1.3l-3.1 3.1a.9.9 0 0 1-1.3 0l-3.1-3.1a.9.9 0 1 1 1.3-1.3l1.5 1.6V8.1a.9.9 0 0 1 .9-.9z"/></svg>'
+            f'<span class="sb-text"><span class="sb-small">{esc(small)}</span><span class="sb-big">{esc(big)}</span></span></a>')
 
 def placeholders(text, lang):
     def link(page, l):
@@ -211,8 +212,14 @@ def gallery(lang):
     return f'<ul class="gallery" role="list">{figs}</ul>'
 
 # --------------------------------------------------------------------- home
+def device(lang, alt, eager=True):
+    base = f"/assets/hero/{lang}"
+    load = 'fetchpriority="high"' if eager else 'loading="lazy"'
+    return (f'<div class="device"><img src="{base}-360.webp" srcset="{base}-360.webp 360w, {base}-720.webp 720w" '
+            f'sizes="(min-width: 900px) 340px, 72vw" width="360" height="782" alt="{esc(alt)}" {load} decoding="async"></div>')
+
 def build_home(lang):
-    h, ui = HOME[lang], UI[lang]
+    h, ui, tx = HOME[lang], UI[lang], TAX[lang]
     full = lang in ("en", "sv", "de")
     trust = "".join(f'<li><svg aria-hidden="true" viewBox="0 0 20 20" width="18" height="18"><path fill="currentColor" d="M8.2 13.6 4.6 10l-1.2 1.2 4.8 4.8 9-9-1.2-1.2z"/></svg>{esc(t)}</li>' for t in h["trust"])
     at = (f'<p class="hero-note">{esc(h["at_note"])} <a href="https://apps.apple.com/at/app/id{C.APP_ID}">{esc(h["at_link"])}</a></p>'
@@ -220,30 +227,47 @@ def build_home(lang):
     hero = f"""<section class="hero">
 <div class="wrap hero-grid">
 <div class="hero-text">
-<h1>{esc(h["h1"])}</h1>
-<p class="lede">{esc(h["lede"])}</p>
+<h1>{esc(tx["h1"])}</h1>
+<p class="lede">{esc(tx["lede"])}</p>
 <div class="cta-row">{store_button(lang)}</div>
 <p class="hero-note">{esc(ui["platform"])}</p>
 {at}
-<ul class="trust" role="list">{trust}</ul>
 </div>
-<div class="hero-shot">{shot_img(lang, 1, h["alts"][0], sizes="(min-width: 900px) 320px, 70vw", eager=True)}</div>
+<div class="hero-shot">{device(lang, h["alts"][0])}</div>
+</div>
+<div class="wrap"><ul class="trust" role="list">{trust}</ul></div>
+</section>"""
+    who = "".join(f'<li class="card who-card"><span class="who-n" aria-hidden="true">{i + 1}</span><h3>{esc(t)}</h3><p>{esc(x)}</p></li>'
+                  for i, (t, x) in enumerate(tx["who"]["cards"]))
+    whosec = f"""<section class="section" id="who">
+<div class="wrap">
+<h2 class="center">{esc(tx["who"]["h2"])}</h2>
+<ul class="cards three" role="list">{who}</ul>
 </div>
 </section>"""
-    steps = ""
-    if "steps" in h:
-        st = "".join(f'<li><span class="step-n" aria-hidden="true">{i + 1}</span><h3>{esc(a)}</h3><p>{esc(b)}</p></li>' for i, (a, b) in enumerate(h["steps"]))
-        steps = f"""<section class="section steps-band">
-<div class="wrap">
-<h2>{esc(h["steps_h2"])}</h2>
-<ol class="steps">{st}</ol>
-<div class="center">{store_button(lang)}</div>
+    m = tx["money"]
+    if "rows" in m:
+        rows = "".join(f'<tr><th scope="row">{esc(c)}</th><td>{esc(r)}</td><td><a href="{s[1]}">{esc(s[0].split(" – ")[0])}</a></td></tr>' for c, r, s in m["rows"])
+        figures = (f'<div class="table-wrap"><table class="facts rates"><thead><tr><th scope="col">{esc(m["head"][0])}</th>'
+                   f'<th scope="col">{esc(m["head"][1])}</th><th scope="col">{esc(SOURCE_WORD[lang])}</th></tr></thead><tbody>{rows}</tbody></table></div>')
+        srcs = ""
+    else:
+        figures = '<ul class="stats" role="list">' + "".join(f'<li><span class="stat-v">{esc(v)}</span><span class="stat-l">{esc(l)}</span></li>' for v, l in m["stats"]) + "</ul>"
+        srcs = f'<p class="src">{esc(SOURCE_WORD[lang])}: ' + " · ".join(f'<a href="{u}">{esc(t)}</a>' for t, u in m["sources"]) + "</p>"
+    money = f"""<section class="section money" id="rates">
+<div class="wrap narrow center">
+<h2>{esc(m["h2"])}</h2>
+<p class="section-intro">{esc(m["intro"])}</p>
+{figures}
+<p class="example">{esc(m["example"])}</p>
+<p class="muted small-note">{esc(m["note"])}</p>
+{srcs}
 </div>
 </section>"""
     feats = "".join(f'<li class="card"><h3>{esc(t)}</h3><p>{esc(x)}</p></li>' for t, x in h["features"])
-    features = f"""<section id="features" class="section">
+    features = f"""<section id="features" class="section alt">
 <div class="wrap">
-<h2>{esc(h["features_h2"])}</h2>
+<h2 class="center">{esc(h["features_h2"])}</h2>
 <ul class="cards" role="list">{feats}</ul>
 </div>
 </section>"""
@@ -252,7 +276,7 @@ def build_home(lang):
     blist = "".join(f"<li>{esc(x)}</li>" for x in b["bullets"])
     blink = (f'<p><a class="more" href="{[p for s, (l, p, c) in GUIDES.items() if l == lang and c == "guide-beacon"][0]}">{esc(b["link"])} →</a></p>'
              if b.get("link") else "")
-    beacon = f"""<section class="section alt" id="ibeacon">
+    beacon = f"""<section class="section" id="ibeacon">
 <div class="wrap split">
 <div>
 <p class="badge">{esc(v2_label(lang))}</p>
@@ -264,19 +288,10 @@ def build_home(lang):
 <div class="split-shot">{shot_img(lang, bshot, h["alts"][bshot - 1], sizes="(min-width: 900px) 280px, 62vw")}</div>
 </div>
 </section>"""
-    countries = ""
-    if "countries" in h:
-        c = h["countries"]
-        cl = "".join(f"<li>{x}</li>" for x in c.get("bullets", []))
-        countries = f"""<section class="section">
-<div class="wrap narrow">
-<h2>{esc(c["h2"])}</h2>
-<p>{esc(c["text"])}</p>
-{f'<ul class="ticks">{cl}</ul>' if cl else ""}
-{f'<p>{esc(c["more"])}</p>' if c.get("more") else ""}
-</div>
-</section>"""
     report = build_report_table(lang) if full else ""
+    shots = f"""<section class="section alt" aria-label="Screenshots">
+<div class="wrap">{gallery(lang)}</div>
+</section>"""
     privacy = ""
     if "privacy" in h:
         privacy = f"""<section class="section privacy-band">
@@ -286,21 +301,17 @@ def build_home(lang):
 <p><a class="more" href="{P(lang, "privacy")}">{esc(ui["privacy"])} →</a></p>
 </div>
 </section>"""
-    shots = f"""<section class="section" aria-label="Screenshots">
-<div class="wrap">{gallery(lang)}</div>
-</section>"""
-    pro = ""
     if "pro" in h:
         pl = "".join(f"<li>{esc(x)}</li>" for x in h["pro"]["bullets"])
-        pro = f"""<section class="section alt">
+        pro = f"""<section class="section">
 <div class="wrap narrow">
 <h2>{esc(h["pro"]["h2"])}</h2>
 <ul class="ticks cols">{pl}</ul>
 <p class="muted">{esc(h["pro"]["note"])}</p>
 </div>
 </section>"""
-    elif "pro_note" in h:
-        pro = f'<section class="section alt"><div class="wrap narrow"><h2>Körlogg Pro</h2><p>{esc(h["pro_note"])}</p></div></section>'
+    else:
+        pro = f'<section class="section"><div class="wrap narrow"><h2>Körlogg Pro</h2><p>{esc(h["pro_note"])}</p></div></section>'
     guides = ""
     if lang in GUIDE_INDEX:
         items = ""
@@ -308,18 +319,19 @@ def build_home(lang):
             if l != lang: continue
             meta, _b = read_guide(stem)
             items += f'<li class="card link-card"><a href="{path}"><h3>{re.search(r"<h1>(.*?)</h1>", _b).group(1)}</h3><p>{esc(meta["description"])}</p></a></li>'
-        guides = f"""<section class="section">
-<div class="wrap">
+        guides = f"""<div class="guides-block">
 <h2>{esc(h["guides_h2"])}</h2>
 <ul class="cards" role="list">{items}</ul>
-</div>
-</section>"""
+</div>"""
     faq = build_home_faq(lang)
-    helpsec = f"""<section class="section">
-<div class="wrap narrow">
+    helpsec = f"""<section class="section alt">
+<div class="wrap">
+<div class="narrow faq-block">
 <h2>{esc(h["help_h2"])}</h2>
 {faq}
 <p>{esc(h["help_text"])} <a class="more" href="{P(lang, "help")}">{esc(ui["help"])} →</a></p>
+</div>
+{guides}
 </div>
 </section>"""
     cta = f"""<section class="section cta-band">
@@ -330,7 +342,7 @@ def build_home(lang):
 <p class="hero-note">{esc(ui["platform"])}</p>
 </div>
 </section>"""
-    body = hero + steps + features + beacon + countries + report + shots + privacy + pro + guides + helpsec + cta
+    body = hero + whosec + money + features + report + shots + beacon + privacy + pro + helpsec + cta
     add(lang, "home", P(lang, "home"), h["title"], h["desc"], body, jsonld=[app_jsonld(lang)], main_class="home")
 
 def build_report_table(lang):

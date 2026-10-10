@@ -7,6 +7,8 @@ import websockets
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+import sys
+PREFIX = sys.argv[1] if len(sys.argv) > 1 else ""
 PAGES = {"en": "/", "sv": "/se/", "de": "/de/"}
 SIZES = {"phone": (390, 844, 3, True), "desktop": (1440, 900, 1, False)}
 
@@ -36,7 +38,7 @@ async def shoot(ws_url):
                     await call("Emulation.setDeviceMetricsOverride", width=w, height=full_h, deviceScaleFactor=1, mobile=mobile)
                     await asyncio.sleep(2.0)
                     shot = await call("Page.captureScreenshot", format="png")
-                    out = ROOT / f"docs/screens/{lang}-{name}-{scheme}.png"
+                    out = ROOT / f"docs/screens/{PREFIX}{lang}-{name}-{scheme}.png"
                     out.write_bytes(base64.b64decode(shot["data"]))
                     print(out.name, w, full_h)
 
@@ -45,7 +47,7 @@ def main():
                              "--user-data-dir=/tmp/korlogg-screens-profile", "about:blank"],
                             stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
     try:
-        for _ in range(50):
+        for _ in range(150):
             try:
                 tabs = json.load(urllib.request.urlopen("http://127.0.0.1:9333/json")); break
             except Exception: time.sleep(0.2)

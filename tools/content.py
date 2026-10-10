@@ -244,7 +244,7 @@ COUNTRY_LIST = {
 HOME = {
     # ------------------------------------------------------------------ English
     "en": dict(
-        title="Körlogg – the mileage log that keeps itself (iPhone app)",
+        title="Körlogg – automatic mileage log for taxes and allowances",
         desc="Körlogg logs your car trips automatically. Swipe business or private, then export a mileage log with date, addresses, purpose and odometer. No account.",
         h1="The mileage log that keeps itself",
         lede="Körlogg notices when you start driving and logs the trip with GPS. You swipe business or private – and the report is ready when you need it.",
@@ -275,7 +275,7 @@ HOME = {
     ),
     # ------------------------------------------------------------------ Swedish
     "sv": dict(
-        title="Körlogg – körjournal som sköter sig själv (app för iPhone)",
+        title="Körlogg – körjournal för skatten, milersättning och förmånsbil",
         desc="Körlogg loggar dina bilresor automatiskt. Svep tjänst eller privat och exportera körjournalen med de uppgifter Skatteverket frågar efter. Inget konto.",
         h1="Körjournalen som sköter sig själv",
         lede="Körlogg märker när du börjar köra och loggar resan med GPS. Du sveper tjänst eller privat – och rapporten är klar när du behöver den.",
@@ -287,7 +287,7 @@ HOME = {
             ("Tjänst eller privat med ett svep", "Svep åt höger för tjänst och åt vänster för privat. Fyll i ärende, besökta företag och kontaktpersoner när det passar dig."),
             ("Uppgifterna Skatteverket frågar efter", "Datum och tid, start- och slutadress, sträcka, ärende, mätarställningar, förare och bil. Ändringar som görs i en resa i efterhand redovisas i exporten."),
             ("Mätarställningen ifylld", "Läs av mätaren en gång, så fyller Körlogg i mätarställningen vid start och slut för varje resa. Beräknade värden märks med ≈; det du själv skriver in ändras aldrig."),
-            ("Milersättning och förmånsbil", "Med Pro räknas milersättningen ut efter Skatteverkets schablon, och en räknare håller koll på privat körning i ringa omfattning med förmånsbil: högst 10 tillfällen och 100 mil per år."),
+            ("Regler för åtta länder", "Varje bil följer ett lands regler: Sverige, Danmark, Norge, Finland, Tyskland, Österrike, Nederländerna och Polen. Språket väljer du för sig, så att byta språk ändrar aldrig dina siffror."),
             ("Snål med batteriet", "GPS är bara på medan du kör, och iOS visar alltid när den används. En missad resa lägger du till själv, eller loggar som en fast rutt med ett tryck."),
         ],
         beacon=dict(h2="En iBeacon i bilen startar resan",
@@ -308,7 +308,7 @@ HOME = {
     ),
     # ------------------------------------------------------------------ German
     "de": dict(
-        title="Körlogg – das Fahrtenbuch, das sich von selbst führt (iPhone)",
+        title="Körlogg – Fahrtenbuch-App fürs Finanzamt, automatisch geführt",
         desc="Körlogg zeichnet Ihre Fahrten automatisch auf. Dienstlich oder privat per Wischen, Export mit allen Angaben fürs Fahrtenbuch. Für Deutschland und Österreich.",
         h1="Das Fahrtenbuch, das sich von selbst führt",
         lede="Körlogg erkennt, wenn Sie losfahren, und zeichnet die Fahrt per GPS auf. Sie wischen nur noch: dienstlich oder privat. Der Bericht ist fertig, wenn Sie ihn brauchen.",
@@ -321,7 +321,7 @@ HOME = {
             ("Alle Pflichtangaben fürs Fahrtenbuch", "Datum und Uhrzeit, Start- und Zieladresse, Strecke, Zweck, besuchte Geschäftspartner, Kilometerstände, Fahrer und Fahrzeug."),
             ("Nachvollziehbar statt nachträglich", "Sieben Tage lang können Sie Angaben und Kilometer ergänzen, danach ist die Fahrt fixiert. Fahrten werden nicht gelöscht, sondern mit Begründung storniert, und jede Änderung steht im Änderungsprotokoll des Exports."),
             ("Kilometerstand eingetragen", "Einmal ablesen, und Körlogg trägt den Kilometerstand zu Beginn und Ende jeder Fahrt ein. Berechnete Werte sind mit ≈ markiert; was Sie selbst eingeben, wird nie verändert."),
-            ("Akkuschonend", "GPS läuft nur während der Fahrt, und iOS zeigt immer an, wenn es aktiv ist. Eine verpasste Fahrt tragen Sie selbst nach oder erfassen sie als feste Route mit einem Tippen."),
+            ("Deutschland und Österreich", "Sie wählen für jedes Fahrzeug das Land; Sätze, Regeln und Bericht folgen ihm. Auch für Schweden, Dänemark, Norwegen, Finnland, die Niederlande und Polen."),
         ],
         countries=dict(h2="Für Deutschland und Österreich",
                        text="Sie wählen für jedes Fahrzeug das Land; Sätze, Regeln und Bericht folgen ihm.",
@@ -345,7 +345,7 @@ HOME = {
     ),
     # ------------------------------------------------------------------ Danish
     "da": dict(
-        title="Körlogg – kørebogen, der passer sig selv (app til iPhone)",
+        title="Körlogg – kørebog til skatten og kørselsgodtgørelse (iPhone)",
         desc="Körlogg registrerer dine bilture automatisk. Stryg erhverv eller privat og eksportér kørebogen med dato, adresser, formål og kilometerstand. Intet login.",
         h1="Kørebogen, der passer sig selv",
         lede="Körlogg opdager, når du begynder at køre, og registrerer turen med GPS. Du stryger erhverv eller privat – og rapporten står klar, når du skal bruge den.",
@@ -367,7 +367,7 @@ HOME = {
     ),
     # ------------------------------------------------------------------ Norwegian
     "no": dict(
-        title="Körlogg – kjøreboken som fører seg selv (app for iPhone)",
+        title="Körlogg – kjørebok for skatten og kjøregodtgjørelse (iPhone)",
         desc="Körlogg logger biltturene dine automatisk. Sveip jobb eller privat og eksporter kjøreboken med dato, adresser, formål og kilometerstand. Ingen innlogging.",
         h1="Kjøreboken som fører seg selv",
         lede="Körlogg merker når du begynner å kjøre, og logger turen med GPS. Du sveiper jobb eller privat – og rapporten er klar når du trenger den.",
@@ -389,7 +389,7 @@ HOME = {
     ),
     # ------------------------------------------------------------------ Dutch
     "nl": dict(
-        title="Körlogg – de rittenregistratie die zichzelf bijhoudt (iPhone)",
+        title="Körlogg – rittenregistratie voor de Belastingdienst (iPhone)",
         desc="Körlogg legt je autoritten automatisch vast. Kies zakelijk, woon-werk of privé en exporteer je rittenregistratie met datum, adressen en kilometerstanden.",
         h1="De rittenregistratie die zichzelf bijhoudt",
         lede="Körlogg merkt wanneer je gaat rijden en legt de rit vast met gps. Jij kiest alleen nog: zakelijk, woon-werk of privé.",
@@ -411,7 +411,7 @@ HOME = {
     ),
     # ------------------------------------------------------------------ Finnish
     "fi": dict(
-        title="Körlogg – ajopäiväkirja, joka pitää itsensä (iPhone-sovellus)",
+        title="Körlogg – ajopäiväkirja verotukseen ja kilometrikorvauksiin",
         desc="Körlogg kirjaa autoajosi automaattisesti. Pyyhkäise työ tai yksityinen ja vie ajopäiväkirja, jossa on päivämäärät, osoitteet, tarkoitus ja mittarilukemat.",
         h1="Ajopäiväkirja, joka pitää itsensä",
         lede="Körlogg huomaa, kun lähdet ajamaan, ja kirjaa ajon GPS:llä. Sinä pyyhkäiset vain: työ vai yksityinen.",
@@ -433,7 +433,7 @@ HOME = {
     ),
     # ------------------------------------------------------------------ Polish
     "pl": dict(
-        title="Körlogg – ewidencja przebiegu, która prowadzi się sama (iPhone)",
+        title="Körlogg – ewidencja przebiegu pojazdu do VAT i kilometrówki",
         desc="Körlogg zapisuje przejazdy automatycznie. Przesuń: służbowy czy prywatny, i wyeksportuj ewidencję przebiegu pojazdu z datą, trasą, celem i stanem licznika.",
         h1="Ewidencja przebiegu, która prowadzi się sama",
         lede="Körlogg zauważa, że ruszasz, i zapisuje przejazd GPS-em. Ty tylko przesuwasz: służbowy czy prywatny.",
@@ -453,4 +453,145 @@ HOME = {
         cta_h2="Zacznij ewidencję już dziś", cta_text="Zainstaluj Körlogg, zezwól na dostęp do lokalizacji „Zawsze” i jedź. Pierwszy przejazd pojawi się sam.",
         alts=["Lista przejazdów zapisanych automatycznie", "Raport ewidencji przebiegu pojazdu", "Beacon Bluetooth w samochodzie uruchamia przejazd", "Przejazd na mapie z adresami i celem", "Kilometrówka wyliczona w raporcie", "Strona samochodu z iBeaconem i stanem licznika", "Pomoc i częste pytania w aplikacji", "Ustawienia: synchronizacja we własnym iCloud"],
     ),
+}
+
+
+# ---------------------------------------------------------------------------
+# Redesign 2026-10-10 (Amir: "say WHY"): tax-first hero, who it is for, and the
+# official per-km rates as facts. Rates checked 10 October 2026 against the
+# linked official sources; they are the countries' rates, never Körlogg prices.
+# ---------------------------------------------------------------------------
+STORE_LABEL = {   # two-line App Store button: small line, big line
+    "en": ("Download on the", "App Store"), "sv": ("Hämta i", "App Store"), "de": ("Laden im", "App Store"),
+    "da": ("Hent i", "App Store"), "no": ("Last ned fra", "App Store"), "nl": ("Download in de", "App Store"),
+    "fi": ("Lataa", "App Storesta"), "pl": ("Pobierz z", "App Store"),
+}
+SOURCE_WORD = {"en": "Source", "sv": "Källa", "de": "Quellen", "da": "Kilde", "no": "Kilde", "nl": "Bron", "fi": "Lähde", "pl": "Źródło"}
+
+SRC_SE = ("Skatteverket – Belopp och procent, inkomstår 2026", "https://www.skatteverket.se/privat/skatter/beloppochprocent/2026.4.1522bf3f19aea8075ba21.html")
+SRC_DK = ("Skattestyrelsen – Skema til kørselsgodtgørelse 2026 (skat.dk)", "https://skat.dk/media/r0ne4sgm/skema_koerselsgodtgoerelses2026.pdf")
+SRC_NO = ("Skatteetaten – Car allowance, distance-based rate", "https://www.skatteetaten.no/en/rates/car-allowance-distance-based-allowance/")
+SRC_FI = ("Verohallinto – Tax-exempt allowances in 2026 for business travel", "https://www.vero.fi/en/detailed-guidance/decisions/47405/tax-exempt-allowances-in-2026-for-business-travel/")
+SRC_DE = ("BRKG § 5 – Bundesreisekostengesetz (gesetze-im-internet.de)", "https://www.gesetze-im-internet.de/brkg_2005/__5.html")
+SRC_DE2 = ("EStG § 9 – Einkommensteuergesetz (gesetze-im-internet.de)", "https://www.gesetze-im-internet.de/estg/__9.html")
+SRC_AT = ("BMF Österreich – Kilometergeld", "https://www.bmf.gv.at/themen/steuern/kraftfahrzeuge/kilometergeld.html")
+SRC_NL = ("Belastingdienst – Verhoging onbelaste kilometervergoeding", "https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/berichten/nieuws/verhoging-onbelaste-kilometervergoeding-hoe-verwerkt-u-dit-in-de-loonaangifte")
+SRC_PL = ("Dz.U. 2023 poz. 5 – rozporządzenie Ministra Infrastruktury (isap.sejm.gov.pl)", "https://isap.sejm.gov.pl/isap.nsf/download.xsp/WDU20230000005/O/D20230005.pdf")
+
+TAX = {
+    "en": dict(
+        h1="Your mileage log for taxes – kept automatically.",
+        lede="Mileage allowance, company car, tax-office reports — every trip logged without lifting a finger.",
+        who=dict(h2="Who is Körlogg for?", cards=[
+            ("Company-car drivers", "Keep the log that shows how much of the driving was private – for Sweden's förmånsbil, Germany's logbook method instead of the 1 % rule, or Austria's half Sachbezug."),
+            ("The self-employed", "Driving for your business: business and private separated trip by trip, with the dates, addresses and purpose your bookkeeping needs."),
+            ("Employees using their own car", "Körlogg works out the mileage allowance at the official rate of the car's country, ready for your expense claim."),
+        ]),
+        money=dict(h2="What your business kilometres are worth",
+                   intro="Official tax-free rates for business trips in your own car, set by each country. Körlogg applies the rate of the car's country.",
+                   head=("Country", "Official rate (own car)"),
+                   rows=[("Sweden", "25 kr per mil (10 km)", SRC_SE), ("Denmark", "3.94 kr/km up to 20,000 km a year, 2.28 kr/km above", SRC_DK),
+                         ("Norway", "3.50 kr/km tax-free", SRC_NO), ("Finland", "€0.55/km", SRC_FI),
+                         ("Germany", "€0.30/km", SRC_DE), ("Austria", "€0.50/km, up to 30,000 km a year", SRC_AT),
+                         ("Netherlands", "€0.25/km tax-free", SRC_NL), ("Poland", "up to 1.15 zł/km (car over 900 cm³)", SRC_PL)],
+                   example="Example: 2,000 business kilometres in your own car in Germany = €600.",
+                   note="Official rates in force for 2026, checked on 10 October 2026. These are the countries' rates – not the price of Körlogg.")),
+    "sv": dict(
+        h1="Körjournal för skatten – utan att du skriver.",
+        lede="Milersättning, förmånsbil och Skatteverkets uppgifter – Körlogg loggar varje resa automatiskt.",
+        who=dict(h2="Vem är Körlogg för?", cards=[
+            ("Du som har förmånsbil", "Visa att den privata körningen håller sig inom ringa omfattning – högst 10 tillfällen och 100 mil per år – med en körjournal som för sig själv."),
+            ("Du som har egen firma", "Kör du i tjänsten med egen bil får du göra avdrag per mil. Körlogg samlar underlaget: datum, adresser, ärende och kilometer, resa för resa."),
+            ("Du som är anställd och kör egen bil", "Körlogg räknar ihop månadens tjänstemil och den skattefria milersättningen – klart för reseräkningen."),
+        ]),
+        money=dict(h2="Vad dina tjänstemil är värda",
+                   intro="Skatteverkets schablonbelopp för skattefri milersättning, inkomstår 2026.",
+                   stats=[("25 kr", "per mil i egen bil"), ("12 kr", "per mil i förmånsbil"), ("9,50 kr", "per mil i förmånsbil som är elbil")],
+                   example="Exempel: 300 mil i tjänsten med egen bil = 7 500 kr i skattefri milersättning.",
+                   note="Officiella belopp – inte priset för Körlogg. För förmånsbil gäller beloppen bara om du själv betalar allt drivmedel. Kontrollerat den 10 oktober 2026.",
+                   sources=[SRC_SE])),
+    "de": dict(
+        h1="Ihr Fahrtenbuch fürs Finanzamt – automatisch geführt.",
+        lede="Firmenwagen, 1-%-Regel, Kilometerpauschale: Körlogg erfasst jede Fahrt mit allen Pflichtangaben.",
+        who=dict(h2="Für wen ist Körlogg?", cards=[
+            ("Firmenwagen", "Fahrtenbuch statt 1-%-Regel: Fahren Sie wenig privat, kann der Nutzungswert nach Fahrtenbuch niedriger sein. In Österreich: halber Sachbezug bei höchstens 500 km privat pro Monat im Jahresschnitt."),
+            ("Selbständige", "Dienstfahrten mit dem eigenen Auto oder dem Firmenwagen: Körlogg trennt betrieblich und privat, Fahrt für Fahrt, mit Datum, Adressen und Zweck für Ihre Buchhaltung."),
+            ("Angestellte mit eigenem Auto", "Körlogg berechnet die Kilometerpauschale – in Österreich das Kilometergeld – für Ihre Reisekostenabrechnung."),
+        ]),
+        money=dict(h2="Was Ihre Dienstkilometer wert sind",
+                   intro="Gesetzliche Sätze für Dienstreisen mit dem eigenen Pkw, 2026.",
+                   stats=[("0,30 €", "pro km – Kilometerpauschale, Deutschland"), ("0,50 €", "pro km – amtliches Kilometergeld, Österreich, bis 30.000 km im Jahr")],
+                   example="Beispiel: 4.000 dienstliche Kilometer mit dem eigenen Auto = 1.200 € in Deutschland bzw. 2.000 € in Österreich.",
+                   note="Gesetzliche Sätze – nicht der Preis von Körlogg. Geprüft am 10. Oktober 2026.",
+                   sources=[SRC_DE, SRC_DE2, SRC_AT])),
+    "da": dict(
+        h1="Kørebog til skatten – helt automatisk.",
+        lede="Skattefri kørselsgodtgørelse, firmabil og Skattestyrelsens oplysninger – Körlogg registrerer hver tur af sig selv.",
+        who=dict(h2="Hvem er Körlogg til?", cards=[
+            ("Firmabil", "Dokumentér tur for tur, hvilke ture der er erhverv, og hvilke der er private."),
+            ("Selvstændige", "Erhverv og privat adskilt tur for tur, med dato, adresser og formål til regnskabet."),
+            ("Ansatte i egen bil", "Körlogg beregner den skattefri kørselsgodtgørelse efter Skatterådets satser – også når du passerer 20.000 km."),
+        ]),
+        money=dict(h2="Hvad dine erhvervskilometer er værd",
+                   intro="Skatterådets satser for skattefri kørselsgodtgørelse i egen bil, 2026.",
+                   stats=[("3,94 kr.", "pr. km op til 20.000 km om året"), ("2,28 kr.", "pr. km ud over 20.000 km")],
+                   example="Eksempel: 5.000 km erhvervskørsel i egen bil = 19.700 kr. i skattefri godtgørelse.",
+                   note="Officielle satser – ikke prisen for Körlogg. Kontrolleret den 10. oktober 2026.",
+                   sources=[SRC_DK])),
+    "no": dict(
+        h1="Kjørebok for skatten – helt automatisk.",
+        lede="Kjøregodtgjørelse, firmabil og opplysningene Skatteetaten ber om – Körlogg logger hver tur av seg selv.",
+        who=dict(h2="Hvem er Körlogg for?", cards=[
+            ("Firmabil", "Dokumenter tur for tur hvilke turer som er jobb og hvilke som er private."),
+            ("Selvstendig næringsdrivende", "Jobb og privat skilt tur for tur, med dato, adresser og formål til regnskapet."),
+            ("Ansatte med egen bil", "Körlogg beregner kjøregodtgjørelsen og viser den skattefrie delen for seg."),
+        ]),
+        money=dict(h2="Hva jobbkilometerne dine er verdt",
+                   intro="Skatteetatens sats for skattefri bilgodtgjørelse med egen bil, 2026.",
+                   stats=[("3,50 kr", "per km skattefritt, uansett kjørelengde")],
+                   example="Eksempel: 4 000 km yrkeskjøring i egen bil = 14 000 kr i skattefri godtgjørelse.",
+                   note="Offisiell sats – ikke prisen for Körlogg. Kontrollert 10. oktober 2026.",
+                   sources=[SRC_NO])),
+    "nl": dict(
+        h1="Rittenregistratie voor de Belastingdienst – vanzelf bijgehouden.",
+        lede="Auto van de zaak, 500 km privé en kilometervergoeding – Körlogg legt elke rit automatisch vast.",
+        who=dict(h2="Voor wie is Körlogg?", cards=[
+            ("Auto van de zaak", "Houd je privékilometers bij voor de grens van 500 km per kalenderjaar, rit voor rit."),
+            ("Zzp'ers", "Zakelijk en privé gescheiden per rit, met datum, adressen en doel voor je administratie."),
+            ("Werknemers met eigen auto", "Körlogg berekent de onbelaste kilometervergoeding voor je declaratie."),
+        ]),
+        money=dict(h2="Wat je zakelijke kilometers waard zijn",
+                   intro="Onbelaste kilometervergoeding voor zakelijke ritten en woon-werkverkeer met je eigen auto, 2026.",
+                   stats=[("€ 0,25", "per km onbelast (was € 0,23)")],
+                   example="Voorbeeld: 6.000 zakelijke kilometers = € 1.500 onbelast.",
+                   note="Officieel bedrag, met terugwerkende kracht vanaf 1 januari 2026 – geen prijs van Körlogg. Gecontroleerd op 10 oktober 2026.",
+                   sources=[SRC_NL])),
+    "fi": dict(
+        h1="Ajopäiväkirja verotusta varten – automaattisesti.",
+        lede="Kilometrikorvaus, työsuhdeauto ja Verohallinnon edellyttämät tiedot – Körlogg kirjaa jokaisen ajon itse.",
+        who=dict(h2="Kenelle Körlogg on?", cards=[
+            ("Työsuhdeauto", "Osoita, paljonko autolla on ajettu yksityisesti: työ- ja yksityisajot erikseen koko vuodelta."),
+            ("Yrittäjät", "Työ- ja yksityisajot eroteltuina ajo kerrallaan, päivämäärineen, osoitteineen ja tarkoituksineen."),
+            ("Työntekijät omalla autolla", "Körlogg laskee verovapaan kilometrikorvauksen jokaisesta työajosta."),
+        ]),
+        money=dict(h2="Mitä työajokilometrisi ovat arvoltaan",
+                   intro="Verohallinnon päätös verovapaista matkakustannusten korvauksista vuodelle 2026.",
+                   stats=[("0,55 €", "kilometriltä omalla autolla"), ("0,11 €", "kilometriltä käyttöetuautolla, kun maksat polttoaineen itse")],
+                   example="Esimerkki: 3 000 työajokilometriä omalla autolla = 1 650 € verotonta kilometrikorvausta.",
+                   note="Viralliset määrät – eivät Körloggin hinta. Tarkistettu 10.10.2026.",
+                   sources=[SRC_FI])),
+    "pl": dict(
+        h1="Ewidencja przebiegu do VAT i kilometrówki – prowadzi się sama.",
+        lede="Odliczenie 100% VAT, kilometrówka, samochód w firmie – Körlogg zapisuje każdy przejazd automatycznie.",
+        who=dict(h2="Dla kogo jest Körlogg?", cards=[
+            ("Firma z samochodem (VAT)", "Pełne odliczenie VAT od auta używanego wyłącznie w firmie wymaga ewidencji przebiegu (art. 86a ustawy o VAT). Körlogg zapisuje wymagane pola."),
+            ("Przedsiębiorcy (JDG)", "Przejazdy służbowe i prywatne rozdzielone, z datą, trasą i celem wyjazdu."),
+            ("Pracownicy z prywatnym autem", "Körlogg wylicza kilometrówkę według limitu stawki za 1 km."),
+        ]),
+        money=dict(h2="Ile są warte twoje służbowe kilometry",
+                   intro="Maksymalne stawki za 1 km przebiegu prywatnego samochodu używanego służbowo.",
+                   stats=[("1,15 zł", "za km – samochód powyżej 900 cm³"), ("0,89 zł", "za km – samochód do 900 cm³")],
+                   example="Przykład: 2 000 km służbowo autem powyżej 900 cm³ = maksymalnie 2 300 zł.",
+                   note="Stawki obowiązujące 10 października 2026 – nie cena Körlogg.",
+                   sources=[SRC_PL])),
 }

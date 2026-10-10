@@ -11,14 +11,14 @@ SHOTS = APP / "fastlane/screenshots_2_0"
 ICON = APP / "Korlogg/Resources/Assets.xcassets/AppIcon.appiconset/icon-1024.png"
 LOCALES = {"en": "en-GB", "sv": "sv", "de": "de-DE", "da": "da", "no": "no", "nl": "nl-NL", "fi": "fi", "pl": "pl"}
 OG_LINES = {
-    "en": ("The mileage log", "that keeps itself."),
-    "sv": ("Körjournalen som", "sköter sig själv."),
-    "de": ("Das Fahrtenbuch, das", "sich von selbst führt."),
-    "da": ("Kørebogen, der", "passer sig selv."),
-    "no": ("Kjøreboken som", "fører seg selv."),
-    "nl": ("De rittenregistratie die", "zichzelf bijhoudt."),
-    "fi": ("Ajopäiväkirja, joka", "pitää itsensä."),
-    "pl": ("Ewidencja przebiegu,", "która prowadzi się sama."),
+    "en": ("Your mileage log for taxes", "– kept automatically."),
+    "sv": ("Körjournal för skatten", "– utan att du skriver."),
+    "de": ("Ihr Fahrtenbuch fürs Finanzamt", "– automatisch geführt."),
+    "da": ("Kørebog til skatten", "– helt automatisk."),
+    "no": ("Kjørebok for skatten", "– helt automatisk."),
+    "nl": ("Rittenregistratie voor de", "Belastingdienst – vanzelf."),
+    "fi": ("Ajopäiväkirja verotusta", "varten – automaattisesti."),
+    "pl": ("Ewidencja przebiegu do VAT", "i kilometrówki – sama."),
 }
 
 def webp(src: Image.Image, out: pathlib.Path, width: int, q=78):
@@ -82,6 +82,18 @@ def og(rounded):
         bg.save(d / f"{lang}.png", optimize=True)
         subprocess.run(["pngquant", "--force", "--quality", "70-90", "--ext", ".png", str(d / f"{lang}.png")], check=False)
 
+RAW = APP / "fastlane/raw_2_0"
+HERO_RAW = {"en": "en_trips", "sv": "sv_trips", "de": "de_trips_DE", "da": "da_trips", "no": "nb_trips",
+            "nl": "nl_trips", "fi": "fi_trips", "pl": "pl_trips"}
+
+def hero():
+    """Unframed trip-list screens for the CSS phone frame in the hero."""
+    d = ROOT / "assets/hero"; d.mkdir(parents=True, exist_ok=True)
+    for lang, name in HERO_RAW.items():
+        im = Image.open(RAW / f"{name}.png").convert("RGB")
+        for w in (360, 720):
+            webp(im, d / f"{lang}-{w}.webp", w, q=82)
+
 if __name__ == "__main__":
-    shots(); r = icons(); og(r)
+    shots(); r = icons(); og(r); hero()
     print("done")
