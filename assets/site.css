@@ -186,3 +186,10 @@ thead th{font-size:14px;color:var(--muted);font-weight:600}
 .foot-links a:hover,.foot-langs a:hover{text-decoration:underline}
 .foot-langs{list-style:none;padding:0;display:flex;flex-wrap:wrap;gap:6px 14px;margin:12px 0}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+
+/* Apple's App Store badge: unmodified, clear space of at least a quarter of its height */
+.store-badge{display:inline-block;padding:12px;margin:-12px;line-height:0;border-radius:12px}
+.store-badge img{display:block;height:54px;width:auto}
+.store-badge.small img{height:44px}
+.store-badge:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.hero .store-badge:focus-visible{outline-color:#fff}

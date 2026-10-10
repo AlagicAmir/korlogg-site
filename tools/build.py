@@ -58,11 +58,24 @@ def store_url(lang):
 def v2_label(lang):
     return UI[lang]["v2_released" if C.KORLOGG_2_0_RELEASED else "v2_pending"]
 
-def store_button(lang, extra=""):
-    small, big = STORE_LABEL[lang]
-    return (f'<a class="store-btn{extra}" href="{store_url(lang)}" aria-label="{esc(UI[lang]["store_btn"])}">'
-            f'<svg aria-hidden="true" viewBox="0 0 24 24" width="26" height="26"><rect x="6" y="2.5" width="12" height="19" rx="3" fill="none" stroke="currentColor" stroke-width="1.8"/><path fill="currentColor" d="M12 7.2a.9.9 0 0 1 .9.9v4.6l1.6-1.6a.9.9 0 1 1 1.3 1.3l-3.1 3.1a.9.9 0 0 1-1.3 0l-3.1-3.1a.9.9 0 1 1 1.3-1.3l1.5 1.6V8.1a.9.9 0 0 1 .9-.9z"/></svg>'
-            f'<span class="sb-text"><span class="sb-small">{esc(small)}</span><span class="sb-big">{esc(big)}</span></span></a>')
+BADGE_W = {}   # badge width per language at height 40 (from Apple's SVG)
+
+def badge_width(lang):
+    if lang not in BADGE_W:
+        svg = (ROOT / f"assets/badges/{lang}-black.svg").read_text()
+        BADGE_W[lang] = float(re.search(r'width="([0-9.]+)"', svg).group(1))
+    return BADGE_W[lang]
+
+def store_button(lang, extra="", dark_bg=False):
+    """Apple's official localized badge, unmodified. Black on light backgrounds, white
+    in dark mode; always black on the blue hero (dark_bg=False keeps black)."""
+    h = 44 if "small" in extra else 54
+    w = round(badge_width(lang) * h / 40)
+    black, white = f"/assets/badges/{lang}-black.svg", f"/assets/badges/{lang}-white.svg"
+    alt = esc(UI[lang]["store_btn"])
+    dark = "" if dark_bg else f'<source srcset="{white}" media="(prefers-color-scheme: dark)">'
+    return (f'<a class="store-badge{extra}" href="{store_url(lang)}"><picture>{dark}'
+            f'<img src="{black}" width="{w}" height="{h}" alt="{alt}"></picture></a>')
 
 def placeholders(text, lang):
     def link(page, l):
@@ -175,7 +188,7 @@ def layout(pg):
 <p>{esc(ui["independent"])}</p>
 <p>{esc(ui["publisher"])} <a href="mailto:{C.SUPPORT_EMAIL}">{C.SUPPORT_EMAIL}</a></p>
 <ul class="foot-langs">{"".join(f'<li><a href="{P(l, "home")}" hreflang="{v["hreflang"]}" lang="{v["html"]}">{v["name"]}</a></li>' for l, v in LANGS.items())}</ul>
-<p class="small">App Store is a service mark of Apple Inc. iPhone and iPad are trademarks of Apple Inc.</p>
+<p class="small">Apple, the Apple logo, iPhone and iPad are trademarks of Apple Inc., registered in the U.S. and other countries. App Store is a service mark of Apple Inc.</p>
 </div>
 </footer>
 </body>
@@ -229,7 +242,7 @@ def build_home(lang):
 <div class="hero-text">
 <h1>{esc(tx["h1"])}</h1>
 <p class="lede">{esc(tx["lede"])}</p>
-<div class="cta-row">{store_button(lang)}</div>
+<div class="cta-row">{store_button(lang, dark_bg=True)}</div>
 <p class="hero-note">{esc(ui["platform"])}</p>
 {at}
 </div>
