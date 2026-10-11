@@ -595,3 +595,40 @@ TAX = {
                    note="Stawki obowiązujące 10 października 2026 – nie cena Körlogg.",
                    sources=[SRC_PL])),
 }
+
+
+# ---------------------------------------------------------------------------
+# "What you save" examples (Amir 2026-10-11). Examples with their assumptions
+# in the text; money = official rates only (same sources as the rates block).
+# 500 trips x 1–2 min = 500–1,000 min = 8.3–16.7 h -> "8–17".
+# Forgotten trip: 30 km (3 mil) once a week, 52 weeks.
+#   SE 3 x 25 = 75 kr, x52 = 3 900 · DE 30 x 0,30 = 9 €, x52 = 468 ≈ 470 · AT 30 x 0,50 = 15 €, x52 = 780
+#   DK 30 x 3,94 = 118,20, x52 = 6 146 ≈ 6 150 · NO 30 x 3,50 = 105, x52 = 5 460 · FI 30 x 0,55 = 16,50, x52 = 858 ≈ 860
+#   NL 30 x 0,25 = 7,50, x52 = 390 · PL 30 x 1,15 = 34,50, x52 = 1 794 ≈ 1 790 (maximum rate)
+# ---------------------------------------------------------------------------
+SAVE = {   # card: (big number, one plain sentence, small calculation line)
+    "en": dict(h2="What you save", sources=[SRC_DE],
+               time=("8–17 hours", "a year you don't spend writing up your logbook.", "Example: 1–2 min × 500 trips"),
+               money=("≈ €470", "a year, if you would otherwise forget one business trip a week (Germany).", "Example: 30 km × €0.30/km × 52 weeks")),
+    "sv": dict(h2="Vad du sparar", sources=[SRC_SE],
+               time=("8–17 timmar", "om året som du slipper lägga på körjournalen.", "Exempel: 1–2 min × 500 resor"),
+               money=("≈ 3 900 kr", "om året, om du annars glömmer en tjänsteresa i veckan.", "Exempel: 3 mil × 25 kr/mil × 52 veckor")),
+    "de": dict(h2="Was Sie sparen", sources=[SRC_DE, SRC_AT],
+               time=("8–17 Stunden", "pro Jahr, die Sie nicht mit dem Fahrtenbuch verbringen.", "Beispiel: 1–2 Min. × 500 Fahrten"),
+               money=("≈ 470 €", "pro Jahr, wenn Sie sonst eine Dienstfahrt pro Woche vergessen. In Österreich ≈ 780 €.", "Beispiel: 30 km × 0,30 €/km × 52 Wochen (Österreich: 0,50 €/km)")),
+    "da": dict(h2="Hvad du sparer", sources=[SRC_DK],
+               time=("8–17 timer", "om året, som du ikke bruger på kørebogen.", "Eksempel: 1–2 min. × 500 ture"),
+               money=("≈ 6.150 kr.", "om året, hvis du ellers glemmer én erhvervstur om ugen.", "Eksempel: 30 km × 3,94 kr./km × 52 uger")),
+    "no": dict(h2="Hva du sparer", sources=[SRC_NO],
+               time=("8–17 timer", "i året som du slipper å bruke på kjøreboken.", "Eksempel: 1–2 min × 500 turer"),
+               money=("≈ 5 460 kr", "i året, hvis du ellers glemmer én jobbtur i uken.", "Eksempel: 30 km × 3,50 kr/km × 52 uker")),
+    "nl": dict(h2="Wat je bespaart", sources=[SRC_NL],
+               time=("8–17 uur", "per jaar die je niet kwijt bent aan je rittenregistratie.", "Voorbeeld: 1–2 min × 500 ritten"),
+               money=("≈ € 390", "per jaar, als je anders één zakelijke rit per week vergeet.", "Voorbeeld: 30 km × € 0,25/km × 52 weken")),
+    "fi": dict(h2="Mitä säästät", sources=[SRC_FI],
+               time=("8–17 tuntia", "vuodessa, joita et käytä ajopäiväkirjaan.", "Esimerkki: 1–2 min × 500 ajoa"),
+               money=("≈ 860 €", "vuodessa, jos muuten unohtaisit yhden työajon viikossa.", "Esimerkki: 30 km × 0,55 €/km × 52 viikkoa")),
+    "pl": dict(h2="Co zyskujesz", sources=[SRC_PL],
+               time=("8–17 godzin", "rocznie, których nie spędzasz nad ewidencją.", "Przykład: 1–2 min × 500 przejazdów"),
+               money=("do ≈ 1 790 zł", "rocznie, jeśli inaczej zapominasz jeden przejazd służbowy w tygodniu.", "Przykład: 30 km × maks. 1,15 zł/km × 52 tygodnie")),
+}

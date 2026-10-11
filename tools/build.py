@@ -13,7 +13,7 @@ from datetime import date
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 import config as C
-from content import LANGS, UI, HOME, HELP_LANG, BEACON_SHOTS, BEACON_HERO_SHOT, COUNTRY_LIST, TAX, STORE_LABEL, SOURCE_WORD
+from content import LANGS, UI, HOME, HELP_LANG, BEACON_SHOTS, BEACON_HERO_SHOT, COUNTRY_LIST, TAX, STORE_LABEL, SOURCE_WORD, SAVE
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 SRC = ROOT / "src"
@@ -231,6 +231,20 @@ def device(lang, alt, eager=True):
     return (f'<div class="device"><img src="{base}-360.webp" srcset="{base}-360.webp 360w, {base}-720.webp 720w" '
             f'sizes="(min-width: 900px) 340px, 72vw" width="360" height="782" alt="{esc(alt)}" {load} decoding="async"></div>')
 
+ICON_CLOCK = '<svg aria-hidden="true" viewBox="0 0 24 24" width="28" height="28"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 7v5l3.5 2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>'
+ICON_COIN = '<svg aria-hidden="true" viewBox="0 0 24 24" width="28" height="28"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="5.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M12 9.5v5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>'
+
+def save_block(lang):
+    s = SAVE[lang]
+    def card(icon, item):
+        big, line, calc = item
+        return (f'<li class="save-card"><span class="save-icon">{icon}</span><p class="save-big">{esc(big)}</p>'
+                f'<p class="save-line">{esc(line)}</p><p class="save-calc">{esc(calc)}</p></li>')
+    src = " · ".join(f'<a href="{u}">{esc(n.split(" – ")[0])}</a>' for n, u in s["sources"])
+    return (f'<div class="save" id="save"><h3>{esc(s["h2"])}</h3><ul class="save-cards" role="list">'
+            f'{card(ICON_CLOCK, s["time"])}{card(ICON_COIN, s["money"])}</ul>'
+            f'<p class="src">{esc(SOURCE_WORD[lang])}: {src}</p></div>')
+
 def build_home(lang):
     h, ui, tx = HOME[lang], UI[lang], TAX[lang]
     full = lang in ("en", "sv", "de")
@@ -275,6 +289,7 @@ def build_home(lang):
 <p class="example">{esc(m["example"])}</p>
 <p class="muted small-note">{esc(m["note"])}</p>
 {srcs}
+{save_block(lang)}
 </div>
 </section>"""
     feats = "".join(f'<li class="card"><h3>{esc(t)}</h3><p>{esc(x)}</p></li>' for t, x in h["features"])

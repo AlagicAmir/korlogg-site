@@ -193,3 +193,15 @@ thead th{font-size:14px;color:var(--muted);font-weight:600}
 .store-badge.small img{height:44px}
 .store-badge:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
 .hero .store-badge:focus-visible{outline-color:#fff}
+
+/* "What you save" examples, inside the rates section */
+.save{margin-top:64px}
+.save h3{font-size:clamp(26px,3.6vw,32px);font-weight:800;letter-spacing:-.02em;margin:0 0 22px}
+.save-cards{list-style:none;padding:0;margin:0 auto;display:grid;gap:18px;max-width:720px}
+@media (min-width:700px){.save-cards{grid-template-columns:1fr 1fr}}
+.save-card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:30px 24px;box-shadow:var(--shadow);text-align:center}
+.save-icon{display:inline-grid;place-items:center;width:52px;height:52px;border-radius:16px;background:var(--soft);color:var(--accent);margin-bottom:14px}
+.save-big{font-size:clamp(36px,6vw,46px);font-weight:800;letter-spacing:-.03em;line-height:1.05;margin:0 0 10px;color:var(--ink)}
+.save-line{font-size:17px;margin:0 0 14px;color:var(--ink)}
+.save-calc{font-size:13.5px;color:var(--muted);margin:0}
+.save .src{margin-top:14px}

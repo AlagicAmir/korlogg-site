@@ -2,7 +2,7 @@
 """Full-page screenshots of the sv/de/en home pages at phone and desktop width,
 light and dark, via headless Chrome's DevTools protocol -> docs/screens/.
 Needs the site served on 127.0.0.1:8766 (python3 -m http.server 8766 --bind 127.0.0.1)."""
-import asyncio, base64, json, pathlib, subprocess, time, urllib.request
+import tempfile, asyncio, base64, json, pathlib, subprocess, time, urllib.request
 import websockets
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
@@ -44,7 +44,7 @@ async def shoot(ws_url):
 
 def main():
     proc = subprocess.Popen([CHROME, "--headless=new", "--remote-debugging-port=9333", "--hide-scrollbars",
-                             "--user-data-dir=/tmp/korlogg-screens-profile", "about:blank"],
+                             f"--user-data-dir={tempfile.mkdtemp(prefix='korlogg-screens-')}", "about:blank"],
                             stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
     try:
         for _ in range(150):
