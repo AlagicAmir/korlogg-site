@@ -8,7 +8,7 @@
 #        screenshots join the gallery.
 # Flip to True the day Amir releases 2.0 in App Store Connect.
 # ---------------------------------------------------------------------------
-KORLOGG_2_0_RELEASED = False
+KORLOGG_2_0_RELEASED = True
 
 SITE = "https://korlogg.com"
 APP_ID = "6809322275"
