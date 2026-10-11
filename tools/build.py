@@ -66,7 +66,7 @@ def badge_width(lang):
         BADGE_W[lang] = float(re.search(r'width="([0-9.]+)"', svg).group(1))
     return BADGE_W[lang]
 
-def store_button(lang, extra="", dark_bg=False):
+def store_button(lang, extra="", dark_bg=False, position="other"):
     """Apple's official localized badge, unmodified. Black on light backgrounds, white
     in dark mode; always black on the blue hero (dark_bg=False keeps black)."""
     h = 44 if "small" in extra else 54
@@ -74,7 +74,7 @@ def store_button(lang, extra="", dark_bg=False):
     black, white = f"/assets/badges/{lang}-black.svg", f"/assets/badges/{lang}-white.svg"
     alt = esc(UI[lang]["store_btn"])
     dark = "" if dark_bg else f'<source srcset="{white}" media="(prefers-color-scheme: dark)">'
-    return (f'<a class="store-badge{extra}" href="{store_url(lang)}"><picture>{dark}'
+    return (f'<a class="store-badge{extra}" href="{store_url(lang)}" data-position="{position}"><picture>{dark}'
             f'<img src="{black}" width="{w}" height="{h}" alt="{alt}"></picture></a>')
 
 def placeholders(text, lang):
@@ -157,6 +157,9 @@ def layout(pg):
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
 <link rel="stylesheet" href="/assets/site.css?v={CSS_VERSION}">
+<link rel="preconnect" href="https://nom.telemetrydeck.com" crossorigin>
+<script src="https://cdn.telemetrydeck.com/websdk/telemetrydeck.min.js" data-app-id="{C.TELEMETRYDECK_APP_ID}"></script>
+<script src="/assets/stats.js?v={STATS_VERSION}" defer></script>
 {jsonld}</head>
 <body>
 <a class="skip" href="#main">{esc(ui["skip"])}</a>
@@ -182,7 +185,7 @@ def layout(pg):
 <div class="wrap">
 <div class="foot-top">
 <a class="brand" href="{home}"><img src="/assets/logo-96.webp" width="28" height="28" alt="" loading="lazy"><span>Körlogg</span></a>
-{store_button(lang, " small")}
+{store_button(lang, " small", position="footer")}
 </div>
 <nav class="foot-links" aria-label="{esc(ui["support"])}">{foot_legal}</nav>
 <p>{esc(ui["independent"])}</p>
@@ -256,7 +259,7 @@ def build_home(lang):
 <div class="hero-text">
 <h1>{esc(tx["h1"])}</h1>
 <p class="lede">{esc(tx["lede"])}</p>
-<div class="cta-row">{store_button(lang, dark_bg=True)}</div>
+<div class="cta-row">{store_button(lang, dark_bg=True, position="hero")}</div>
 <p class="hero-note">{esc(ui["platform"])}</p>
 {at}
 </div>
@@ -366,7 +369,7 @@ def build_home(lang):
 <div class="wrap narrow center">
 <h2>{esc(h["cta_h2"])}</h2>
 <p>{esc(h["cta_text"])}</p>
-{store_button(lang)}
+{store_button(lang, position="end")}
 <p class="hero-note">{esc(ui["platform"])}</p>
 </div>
 </section>"""
@@ -512,7 +515,7 @@ def build_guides():
         h1 = re.search(r"<h1>(.*?)</h1>", body).group(1)
         crumbs = f'<nav class="crumbs" aria-label="Breadcrumb"><a href="{P(lang, "home")}">Körlogg</a> › <a href="{GUIDE_INDEX[lang]}">{esc(UI[lang]["guides"])}</a></nav>'
         cta = (f'<aside class="card guide-cta"><img src="/assets/logo-96.webp" width="56" height="56" alt="" loading="lazy">'
-               f'<div><p><strong>Körlogg</strong> – {esc(HOME[lang]["h1"])}.</p>{store_button(lang, " small")}</div></aside>')
+               f'<div><p><strong>Körlogg</strong> – {esc(HOME[lang]["h1"])}.</p>{store_button(lang, " small", position="middle")}</div></aside>')
         article = {"@context": "https://schema.org", "@type": "Article", "headline": re.sub("<[^>]+>", "", h1),
                    "description": meta["description"], "inLanguage": LANGS[lang]["html"], "dateModified": "2026-10-10",
                    "author": {"@type": "Person", "name": "Amir Alagic"}, "mainEntityOfPage": C.SITE + path,
@@ -559,6 +562,8 @@ def main():
     global CSS_VERSION
     import hashlib
     CSS_VERSION = hashlib.sha1((ROOT / "assets/site.css").read_bytes()).hexdigest()[:8]
+    global STATS_VERSION
+    STATS_VERSION = hashlib.sha1((ROOT / "assets/stats.js").read_bytes()).hexdigest()[:8]
     clean()
     for lang in LANGS:
         build_home(lang); build_help(lang); build_support(lang)
@@ -585,5 +590,6 @@ def main():
     print(f"{len(PAGES)} pages; 2.0 released: {C.KORLOGG_2_0_RELEASED}")
 
 CSS_VERSION = "0"
+STATS_VERSION = "0"
 if __name__ == "__main__":
     main()

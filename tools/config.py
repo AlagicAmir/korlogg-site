@@ -18,3 +18,8 @@ APP_ID = "6809322275"
 SUPPORT_EMAIL = "support@korlogg.com"
 FALLBACK_EMAIL = "avelan.sverige@gmail.com"
 SUPPORT_EMAIL_LIVE = False
+
+# Anonymous, cookieless visitor statistics (Amir 2026-10-11). TelemetryDeck web
+# app "korlogg.com", namespace se.avelan. Page views come from TelemetryDeck's
+# Web SDK; App Store badge clicks from assets/stats.js.
+TELEMETRYDECK_APP_ID = "22120ED7-73AC-47F1-8E16-CAF4203EE530"
