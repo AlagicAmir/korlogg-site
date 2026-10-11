@@ -12,6 +12,9 @@ KORLOGG_2_0_RELEASED = True
 
 SITE = "https://korlogg.com"
 APP_ID = "6809322275"
+# App Store Connect provider ID: campaign links (pt=…&ct=…) count downloads per
+# button in App Analytics → Acquisition → Campaigns. Not secret.
+PROVIDER_ID = "127865703"
 
 # support@korlogg.com is being set up; the support page also lists the old
 # address until SUPPORT_EMAIL_LIVE is True.

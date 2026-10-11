@@ -51,9 +51,12 @@ DELETE_LANGS = {"en", "sv", "de"}
 
 def esc(s): return html.escape(s, quote=True)
 
-def store_url(lang):
+def store_url(lang, campaign=None):
+    """With a campaign, App Store Connect counts the downloads from that link:
+    web_<lang>_<position>, e.g. web_de_hero (40 characters at most)."""
     cc = LANGS[lang]["store"]
-    return f"https://apps.apple.com/{cc + '/' if cc else ''}app/id{C.APP_ID}"
+    url = f"https://apps.apple.com/{cc + '/' if cc else ''}app/id{C.APP_ID}"
+    return f"{url}?pt={C.PROVIDER_ID}&ct={campaign[:40]}&mt=8" if campaign else url
 
 def v2_label(lang):
     return UI[lang]["v2_released" if C.KORLOGG_2_0_RELEASED else "v2_pending"]
@@ -74,7 +77,7 @@ def store_button(lang, extra="", dark_bg=False, position="other"):
     black, white = f"/assets/badges/{lang}-black.svg", f"/assets/badges/{lang}-white.svg"
     alt = esc(UI[lang]["store_btn"])
     dark = "" if dark_bg else f'<source srcset="{white}" media="(prefers-color-scheme: dark)">'
-    return (f'<a class="store-badge{extra}" href="{store_url(lang)}" data-position="{position}"><picture>{dark}'
+    return (f'<a class="store-badge{extra}" href="{esc(store_url(lang, f'web_{lang}_{position}'))}" data-position="{position}"><picture>{dark}'
             f'<img src="{black}" width="{w}" height="{h}" alt="{alt}"></picture></a>')
 
 def placeholders(text, lang):
@@ -252,7 +255,7 @@ def build_home(lang):
     h, ui, tx = HOME[lang], UI[lang], TAX[lang]
     full = lang in ("en", "sv", "de")
     trust = "".join(f'<li><svg aria-hidden="true" viewBox="0 0 20 20" width="18" height="18"><path fill="currentColor" d="M8.2 13.6 4.6 10l-1.2 1.2 4.8 4.8 9-9-1.2-1.2z"/></svg>{esc(t)}</li>' for t in h["trust"])
-    at = (f'<p class="hero-note">{esc(h["at_note"])} <a href="https://apps.apple.com/at/app/id{C.APP_ID}">{esc(h["at_link"])}</a></p>'
+    at = (f'<p class="hero-note">{esc(h["at_note"])} <a href="https://apps.apple.com/at/app/id{C.APP_ID}?pt={C.PROVIDER_ID}&amp;ct=web_de_at&amp;mt=8">{esc(h["at_link"])}</a></p>'
           if lang == "de" else "")
     hero = f"""<section class="hero">
 <div class="wrap hero-grid">
