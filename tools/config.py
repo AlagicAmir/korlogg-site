@@ -20,7 +20,7 @@ PROVIDER_ID = "127865703"
 # address until SUPPORT_EMAIL_LIVE is True.
 SUPPORT_EMAIL = "support@korlogg.com"
 FALLBACK_EMAIL = "avelan.sverige@gmail.com"
-SUPPORT_EMAIL_LIVE = False
+SUPPORT_EMAIL_LIVE = True
 
 # Anonymous, cookieless visitor statistics (Amir 2026-10-11). TelemetryDeck web
 # app "korlogg.com", namespace se.avelan. Page views come from TelemetryDeck's
