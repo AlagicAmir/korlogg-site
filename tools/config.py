@@ -9,6 +9,9 @@
 # Flip to True the day Amir releases 2.0 in App Store Connect.
 # ---------------------------------------------------------------------------
 KORLOGG_2_0_RELEASED = True
+# The UK edition ships in 2.0.2. Until then the English pages keep the 2.0
+# screenshots (the 2.0.2 English set shows the UK edition).
+UK_RELEASED = False
 
 SITE = "https://korlogg.com"
 APP_ID = "6809322275"

@@ -8,6 +8,7 @@ from PIL import Image, ImageDraw, ImageFont, ImageFilter
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 APP = pathlib.Path.home() / "repo/Korlogg"
 SHOTS = APP / "fastlane/screenshots_2_0"
+SHOTS_2_0_2 = APP / "fastlane/screenshots_2_0_2"
 ICON = APP / "Korlogg/Resources/Assets.xcassets/AppIcon.appiconset/icon-1024.png"
 LOCALES = {"en": "en-GB", "sv": "sv", "de": "de-DE", "da": "da", "no": "no", "nl": "nl-NL", "fi": "fi", "pl": "pl"}
 OG_LINES = {
@@ -29,9 +30,12 @@ def webp(src: Image.Image, out: pathlib.Path, width: int, q=78):
     tmp.unlink()
 
 def shots():
+    import config as C
     for lang, loc in LOCALES.items():
         d = ROOT / "assets/shots" / lang; d.mkdir(parents=True, exist_ok=True)
-        for f in sorted(glob.glob(str(SHOTS / loc / "*_APP_IPHONE_69_*.png"))):
+        # 2.0.2 sets ("No beacon needed"); English waits for the UK release.
+        src = SHOTS if lang == "en" and not C.UK_RELEASED else SHOTS_2_0_2
+        for f in sorted(glob.glob(str(src / loc / "*_APP_IPHONE_69_*.png"))):
             n = pathlib.Path(f).name.split("_")[0]
             im = Image.open(f).convert("RGB")
             for w in (400, 800):

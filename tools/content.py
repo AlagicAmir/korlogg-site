@@ -272,6 +272,8 @@ HOME = {
         guides_h2="Guides",
         cta_h2="Start your mileage log today", cta_text="Install Körlogg, allow location “Always”, and drive. The first trip appears by itself.",
         alts=["Trip list with automatically logged trips marked business or private", "Onboarding page: a Bluetooth beacon in the car starts the trip", "A trip on the map with addresses, purpose and the people visited", "Exporting the mileage log as PDF or Excel", "Report with the month's mileage allowance and business and private kilometres", "Car page with its iBeacon and the latest odometer reading", "Help and FAQ inside the app", "Settings: sync in your own iCloud, automatic logging and beacon options"],
+        # The 2.0.2 (UK) screenshots, used once config.UK_RELEASED is on.
+        alts_2_0_2=["Trip list with automatically logged trips marked business or private", "Onboarding page: trips are logged automatically as you drive", "A trip on the map with addresses, purpose and the people visited", "Exporting the mileage log as PDF or Excel", "Report with the month's mileage allowance and business and private kilometres", "Car page with plate, odometer and an optional iBeacon", "Help and FAQ inside the app", "Settings: sync in your own iCloud, automatic logging and beacon options"],
     ),
     # ------------------------------------------------------------------ Swedish
     "sv": dict(
@@ -304,7 +306,7 @@ HOME = {
         help_h2="Frågor?", help_text="Appens hjälp och vanliga frågor finns också på webben, med samma svar.",
         guides_h2="Guider",
         cta_h2="Börja din körjournal i dag", cta_text="Installera Körlogg, tillåt platsåtkomst ”Alltid” och kör. Den första resan dyker upp av sig själv.",
-        alts=["Reselistan med automatiskt loggade resor märkta tjänst eller privat", "Introduktionssida: en Bluetooth-beacon i bilen startar resan", "En resa på kartan med adresser, ärende och besökta personer", "Export av körjournalen som PDF eller Excel", "Rapport med månadens milersättning och tjänste- och privatkörning", "Bilens sida med dess iBeacon och senaste mätarställning", "Hjälp och vanliga frågor i appen", "Rapport med räknaren för privat körning i ringa omfattning", "Inställningar: synk i din egen iCloud, automatisk loggning och beacon"],
+        alts=["Reselistan med automatiskt loggade resor märkta tjänst eller privat", "Introduktionssida: resor loggas automatiskt när du kör", "En resa på kartan med adresser, ärende och besökta personer", "Export av körjournalen som PDF eller Excel", "Rapport med månadens milersättning och tjänste- och privatkörning", "Bilens sida med regnummer, mätarställning och valfri iBeacon", "Hjälp och vanliga frågor i appen", "Rapport med räknaren för privat körning i ringa omfattning", "Inställningar: synk i din egen iCloud, automatisk loggning och beacon"],
     ),
     # ------------------------------------------------------------------ German
     "de": dict(
@@ -341,7 +343,7 @@ HOME = {
         guides_h2="Ratgeber",
         cta_h2="Starten Sie Ihr Fahrtenbuch noch heute", cta_text="Installieren Sie Körlogg, erlauben Sie den Standortzugriff „Immer“ und fahren Sie los. Die erste Fahrt erscheint von selbst.",
         at_note="In Österreich:", at_link="Körlogg im App Store Österreich",
-        alts=["Fahrtenliste mit automatisch aufgezeichneten Fahrten, dienstlich oder privat", "Einführung: Ein Bluetooth-Beacon im Auto startet die Fahrt", "Eine Fahrt auf der Karte mit Adressen, Zweck und Kilometerstand", "Export des Fahrtenbuchs als PDF oder Excel", "Bericht mit der Kilometerpauschale des Monats und dienstlichen und privaten Kilometern", "Fahrzeugseite mit iBeacon und letzter Ablesung des Kilometerstands", "Auswahl der Steuerregeln: Deutschland oder Österreich", "Hilfe und häufige Fragen in der App", "Einstellungen: Synchronisierung in der eigenen iCloud, automatische Aufzeichnung und Beacon"],
+        alts=["Fahrtenliste mit automatisch aufgezeichneten Fahrten, dienstlich oder privat", "Einführung: Fahrten werden beim Fahren automatisch erfasst", "Eine Fahrt auf der Karte mit Adressen, Zweck und Kilometerstand", "Export des Fahrtenbuchs als PDF oder Excel", "Bericht mit der Kilometerpauschale des Monats und dienstlichen und privaten Kilometern", "Fahrzeugseite mit Kennzeichen, Kilometerstand und optionalem iBeacon", "Auswahl der Steuerregeln: Deutschland oder Österreich", "Hilfe und häufige Fragen in der App", "Einstellungen: Synchronisierung in der eigenen iCloud, automatische Aufzeichnung und Beacon"],
     ),
     # ------------------------------------------------------------------ Danish
     "da": dict(
@@ -363,7 +365,7 @@ HOME = {
         pro_note="Ture registreres uden begrænsning, også uden Pro. Pro (PDF- og Excel-eksport, flere biler, kørselsgodtgørelse, synkronisering i egen iCloud) fås som abonnement eller engangskøb; prisen ser du i App Store.",
         help_h2="Spørgsmål?", help_text="Appens hjælp og ofte stillede spørgsmål findes også på nettet.",
         cta_h2="Start din kørebog i dag", cta_text="Installér Körlogg, giv adgang til placering ”Altid”, og kør. Den første tur dukker selv op.",
-        alts=["Turlisten med automatisk registrerede ture", "En Bluetooth-beacon i bilen starter turen", "En tur på kortet med adresser og formål", "Eksport af kørebogen som PDF eller Excel", "Rapport med kørselsgodtgørelse", "Bilens side med iBeacon og kilometerstand", "Hjælp og ofte stillede spørgsmål i appen", "Indstillinger: synkronisering i egen iCloud"],
+        alts=["Turlisten med automatisk registrerede ture", "Ture registreres automatisk, når du kører", "En tur på kortet med adresser og formål", "Eksport af kørebogen som PDF eller Excel", "Rapport med kørselsgodtgørelse", "Bilens side med nummerplade, kilometerstand og valgfri iBeacon", "Hjælp og ofte stillede spørgsmål i appen", "Indstillinger: synkronisering i egen iCloud"],
     ),
     # ------------------------------------------------------------------ Norwegian
     "no": dict(
@@ -385,7 +387,7 @@ HOME = {
         pro_note="Turer logges uten begrensning, også uten Pro. Pro (PDF- og Excel-eksport, flere biler, kjøregodtgjørelse, synkronisering i egen iCloud) finnes som abonnement eller engangskjøp; prisen ser du i App Store.",
         help_h2="Spørsmål?", help_text="Appens hjelp og vanlige spørsmål finnes også på nettet.",
         cta_h2="Start kjøreboken i dag", cta_text="Installer Körlogg, gi stedstilgang «Alltid», og kjør. Den første turen dukker opp av seg selv.",
-        alts=["Turlisten med automatisk loggede turer", "En Bluetooth-beacon i bilen starter turen", "En tur på kartet med adresser og formål", "Eksport av kjøreboken som PDF eller Excel", "Rapport med kjøregodtgjørelse", "Bilens side med iBeacon og kilometerstand", "Hjelp og vanlige spørsmål i appen", "Innstillinger: synkronisering i egen iCloud"],
+        alts=["Turlisten med automatisk loggede turer", "Turer registreres automatisk når du kjører", "En tur på kartet med adresser og formål", "Eksport av kjøreboken som PDF eller Excel", "Rapport med kjøregodtgjørelse", "Bilens side med skiltnummer, kilometerstand og valgfri iBeacon", "Hjelp og vanlige spørsmål i appen", "Innstillinger: synkronisering i egen iCloud"],
     ),
     # ------------------------------------------------------------------ Dutch
     "nl": dict(
@@ -407,7 +409,7 @@ HOME = {
         pro_note="Ritten vastleggen is onbeperkt, ook zonder Pro. Pro (export als pdf en Excel, meerdere auto's, kilometervergoeding, synchronisatie in je eigen iCloud) is er als abonnement of eenmalige aankoop; de prijs zie je in de App Store.",
         help_h2="Vragen?", help_text="De hulp en veelgestelde vragen uit de app staan ook op het web.",
         cta_h2="Begin vandaag met je rittenregistratie", cta_text="Installeer Körlogg, sta locatietoegang „Altijd” toe en rijd. De eerste rit verschijnt vanzelf.",
-        alts=["Rittenlijst met automatisch vastgelegde ritten", "Een Bluetooth-beacon in de auto start de rit", "Teller voor de 500 km privé met een auto van de zaak", "Een rit op de kaart met adressen en doel", "Export van de rittenregistratie als pdf of Excel", "Autopagina met iBeacon en kilometerstand", "Hulp en veelgestelde vragen in de app", "Instellingen: synchronisatie in je eigen iCloud"],
+        alts=["Rittenlijst met automatisch vastgelegde ritten", "Ritten worden automatisch vastgelegd terwijl je rijdt", "Teller voor de 500 km privé met een auto van de zaak", "Een rit op de kaart met adressen en doel", "Export van de rittenregistratie als pdf of Excel", "Autopagina met kenteken, kilometerstand en optionele iBeacon", "Hulp en veelgestelde vragen in de app", "Instellingen: synchronisatie in je eigen iCloud"],
     ),
     # ------------------------------------------------------------------ Finnish
     "fi": dict(
@@ -429,7 +431,7 @@ HOME = {
         pro_note="Ajojen kirjaus on rajatonta myös ilman Prota. Pro (PDF- ja Excel-vienti, useita autoja, kilometrikorvaus, synkronointi omaan iCloudiin) on saatavana tilauksena tai kertaostona; hinnan näet App Storessa.",
         help_h2="Kysyttävää?", help_text="Sovelluksen ohjeet ja usein kysytyt kysymykset löytyvät myös verkosta.",
         cta_h2="Aloita ajopäiväkirja tänään", cta_text="Asenna Körlogg, salli sijainti ”Aina” ja aja. Ensimmäinen ajo ilmestyy itsestään.",
-        alts=["Ajolista automaattisesti kirjatuista ajoista", "Bluetooth-beacon autossa aloittaa ajon", "Ajo kartalla osoitteineen ja tarkoituksineen", "Ajopäiväkirjan vienti PDF- tai Excel-muodossa", "Raportti kilometrikorvauksesta", "Auton sivu: iBeacon ja mittarilukema", "Ohjeet ja usein kysytyt kysymykset sovelluksessa", "Asetukset: synkronointi omaan iCloudiin"],
+        alts=["Ajolista automaattisesti kirjatuista ajoista", "Ajot kirjautuvat automaattisesti, kun ajat", "Ajo kartalla osoitteineen ja tarkoituksineen", "Ajopäiväkirjan vienti PDF- tai Excel-muodossa", "Raportti kilometrikorvauksesta", "Auton sivu: rekisterinumero, mittarilukema ja valinnainen iBeacon", "Ohjeet ja usein kysytyt kysymykset sovelluksessa", "Asetukset: synkronointi omaan iCloudiin"],
     ),
     # ------------------------------------------------------------------ Polish
     "pl": dict(
@@ -451,7 +453,7 @@ HOME = {
         pro_note="Zapisywanie przejazdów jest bez limitu, także bez Pro. Pro (eksport do PDF i Excela, kilka pojazdów, kilometrówka, synchronizacja we własnym iCloud) jest dostępny jako subskrypcja lub jednorazowy zakup; cenę zobaczysz w App Store.",
         help_h2="Pytania?", help_text="Pomoc i częste pytania z aplikacji są też w sieci.",
         cta_h2="Zacznij ewidencję już dziś", cta_text="Zainstaluj Körlogg, zezwól na dostęp do lokalizacji „Zawsze” i jedź. Pierwszy przejazd pojawi się sam.",
-        alts=["Lista przejazdów zapisanych automatycznie", "Raport ewidencji przebiegu pojazdu", "Beacon Bluetooth w samochodzie uruchamia przejazd", "Przejazd na mapie z adresami i celem", "Kilometrówka wyliczona w raporcie", "Strona samochodu z iBeaconem i stanem licznika", "Pomoc i częste pytania w aplikacji", "Ustawienia: synchronizacja we własnym iCloud"],
+        alts=["Lista przejazdów zapisanych automatycznie", "Raport ewidencji przebiegu pojazdu", "Przejazdy zapisują się same, gdy jedziesz", "Przejazd na mapie z adresami i celem", "Kilometrówka wyliczona w raporcie", "Strona samochodu z numerem rejestracyjnym, stanem licznika i opcjonalnym iBeaconem", "Pomoc i częste pytania w aplikacji", "Ustawienia: synchronizacja we własnym iCloud"],
     ),
 }
 

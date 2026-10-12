@@ -223,11 +223,15 @@ def read_guide(stem):
     body = re.sub(r"<!-- \w+: .*? -->\n?", "", raw)
     return meta, body
 
+def alts(lang):
+    h = HOME[lang]
+    return h["alts_2_0_2"] if C.UK_RELEASED and "alts_2_0_2" in h else h["alts"]
+
 def gallery(lang):
     h = HOME[lang]
     beacon = set(BEACON_SHOTS[lang])
     nums = [n for n in shot_numbers(lang) if C.KORLOGG_2_0_RELEASED or n not in beacon]
-    figs = "".join(f'<li>{shot_img(lang, n, h["alts"][n - 1])}</li>' for n in nums)
+    figs = "".join(f'<li>{shot_img(lang, n, alts(lang)[n - 1])}</li>' for n in nums)
     return f'<ul class="gallery" role="list">{figs}</ul>'
 
 # --------------------------------------------------------------------- home
@@ -266,7 +270,7 @@ def build_home(lang):
 <p class="hero-note">{esc(ui["platform"])}</p>
 {at}
 </div>
-<div class="hero-shot">{device(lang, h["alts"][0])}</div>
+<div class="hero-shot">{device(lang, alts(lang)[0])}</div>
 </div>
 <div class="wrap"><ul class="trust" role="list">{trust}</ul></div>
 </section>"""
@@ -319,7 +323,7 @@ def build_home(lang):
 {f'<ul class="ticks">{blist}</ul>' if blist else ""}
 {blink}
 </div>
-<div class="split-shot">{shot_img(lang, bshot, h["alts"][bshot - 1], sizes="(min-width: 900px) 280px, 62vw")}</div>
+<div class="split-shot">{shot_img(lang, bshot, alts(lang)[bshot - 1], sizes="(min-width: 900px) 280px, 62vw")}</div>
 </div>
 </section>"""
     report = build_report_table(lang) if full else ""
