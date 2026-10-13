@@ -478,6 +478,7 @@ SRC_DE = ("BRKG § 5 – Bundesreisekostengesetz (gesetze-im-internet.de)", "htt
 SRC_DE2 = ("EStG § 9 – Einkommensteuergesetz (gesetze-im-internet.de)", "https://www.gesetze-im-internet.de/estg/__9.html")
 SRC_AT = ("BMF Österreich – Kilometergeld", "https://www.bmf.gv.at/themen/steuern/kraftfahrzeuge/kilometergeld.html")
 SRC_NL = ("Belastingdienst – Verhoging onbelaste kilometervergoeding", "https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/berichten/nieuws/verhoging-onbelaste-kilometervergoeding-hoe-verwerkt-u-dit-in-de-loonaangifte")
+SRC_UK = ("GOV.UK – Travel – mileage and fuel rates and allowances", "https://www.gov.uk/government/publications/rates-and-allowances-travel-mileage-and-fuel-allowances/travel-mileage-and-fuel-rates-and-allowances")
 SRC_PL = ("Dz.U. 2023 poz. 5 – rozporządzenie Ministra Infrastruktury (isap.sejm.gov.pl)", "https://isap.sejm.gov.pl/isap.nsf/download.xsp/WDU20230000005/O/D20230005.pdf")
 
 TAX = {
@@ -492,7 +493,8 @@ TAX = {
         money=dict(h2="What your business kilometres are worth",
                    intro="Official tax-free rates for business trips in your own car, set by each country. Körlogg applies the rate of the car's country.",
                    head=("Country", "Official rate (own car)"),
-                   rows=[("Sweden", "25 kr per mil (10 km)", SRC_SE), ("Denmark", "3.94 kr/km up to 20,000 km a year, 2.28 kr/km above", SRC_DK),
+                   rows=[("United Kingdom", "55p per mile for the first 10,000 business miles of the tax year (from 6 April 2026), 25p above", SRC_UK),
+                         ("Sweden", "25 kr per mil (10 km)", SRC_SE), ("Denmark", "3.94 kr/km up to 20,000 km a year, 2.28 kr/km above", SRC_DK),
                          ("Norway", "3.50 kr/km tax-free", SRC_NO), ("Finland", "€0.55/km", SRC_FI),
                          ("Germany", "€0.30/km", SRC_DE), ("Austria", "€0.50/km, up to 30,000 km a year", SRC_AT),
                          ("Netherlands", "€0.25/km tax-free", SRC_NL), ("Poland", "up to 1.15 zł/km (car over 900 cm³)", SRC_PL)],
