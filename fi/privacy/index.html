@@ -58,10 +58,10 @@
 </header>
 <main id="main" class="">
 <div class="wrap narrow page"><article class="card legal"><h1>Körloggin tietosuojaseloste</h1>
-<p class="upd"><strong>Päivitetty viimeksi:</strong> 2. lokakuuta 2026</p>
+<p class="upd"><strong>Päivitetty viimeksi:</strong> 13. lokakuuta 2026</p>
 <h2>Lupauksemme</h2>
 <p>Ajopäiväkirja tietää, missä ajat. Juuri siksi Körlogg säilyttää sen puhelimessasi – ja halutessasi omassa iCloudissasi – eikä koskaan meidän palvelimellamme.</p>
-<p>Körlogg on ajopäiväkirjasovellus kuljettajille Suomessa, Ruotsissa, Tanskassa, Norjassa, Itävallassa, Saksassa ja Alankomaissa. Sen on kehittänyt yksityisyrittäjä Ruotsissa. <strong>Meillä ei ole palvelinta, emme koskaan myy tietojasi, emme näytä mainoksia, eivätkä ajosi koskaan tule meille.</strong> Ne lähtevät laitteestasi vain, jos itse viet raportin tai otat käyttöön iCloud-synkronoinnin, jolloin ne tallennetaan omaan iCloud-tiliisi.</p>
+<p>Körlogg on ajopäiväkirjasovellus kuljettajille Suomessa, Ruotsissa, Tanskassa, Norjassa, Itävallassa, Saksassa ja Alankomaissa. Sen on kehittänyt yksityisyrittäjä Ruotsissa. <strong>Meillä ei ole palvelinta, emme koskaan myy tietojasi, emme näytä mainoksia, eivätkä ajosi koskaan tule meille.</strong> Ne lähtevät laitteestasi vain, jos itse viet raportin tai otat käyttöön iCloud-synkronoinnin, jolloin ne tallennetaan omaan iCloud-tiliisi. Osoitehaku ja kartat lähettävät vain tarvittavat koordinaatit tai hakutekstin, eivät ajojasi.</p>
 <h2>Sijaintitiedot</h2>
 <p>Körlogg pyytää sijainnin käyttöoikeutta tunnistaakseen, milloin ajat, ja mitatakseen jokaisen ajon. Näin sitä käytetään:</p>
 <ul>
@@ -72,6 +72,19 @@
 <li><strong>Mitään ei lähetetä meille.</strong> Körloggilla ei ole palvelinta. Työnantajasi tai kukaan muu ei voi seurata sinua tämän sovelluksen kautta; he näkevät vain raportin, jonka itse päätät lähettää.</li>
 </ul>
 <p>Voit poistaa automaattisen kirjauksen käytöstä milloin tahansa Asetuksissa tai perua sijainnin käyttöoikeuden iOS:n asetuksista.</p>
+<h2>Androidilla</h2>
+<p>Körlogg Androidille toimii samalla tavalla Androidin omien rakennuspalikoiden avulla:</p>
+<ul>
+<li>Sijaintilupaa <strong>”Salli aina”</strong> käytetään vain ajojesi automaattiseen kirjaamiseen, myös silloin, kun sovellus on suljettu. Ajojen välillä sovellus pyytää Androidin sijaintipalvelulta (Google Play Palvelut) vain satunnaisia, enimmäkseen vähän virtaa kuluttavia sijainteja, jotta se tietää, mihin auto on pysäköity, huomaa, että auto on liikkunut, ja saa ajon alun mukaan. Jatkuva GPS-tallennus on käynnissä vain ajon aikana etualan palvelussa, ja Android näyttää koko sen ajan ilmoituksen (”Ajo käynnissä”). Valinnalla ”Salli vain sovelluksen käytön aikana” aloitat ajot itse.</li>
+<li>Lupaa <strong>Fyysinen aktiivisuus</strong> (Google Play Palveluiden liikkeentunnistus) käytetään vain sen huomaamiseen, että olet noussut ajoneuvoon, jotta GPS voi olla muun ajan pois päältä.</li>
+<li>Pieni <strong>geoaita</strong> auton viimeisimmän pysäköintipaikan ympärillä, jota Google Play Palvelut ylläpitävät puhelimessa, on toinen tapa huomata ajon alkaminen.</li>
+<li>Kun poistat käytöstä asetuksen <em>Kirjaa ajot automaattisesti</em> kohdassa <em>Asetukset</em>, taustasijainnit, liikkeentunnistus ja geoaita loppuvat. Voit myös milloin tahansa perua nämä luvat Androidin asetuksista.</li>
+<li><strong>Osoitteet</strong> haetaan puhelimen sisäänrakennetulla Androidin osoitepalvelulla (Geocoder), jonka useimmissa puhelimissa tarjoaa Google. Tätä varten ajon alku- ja loppupisteen koordinaatit lähetetään palvelulle, samoin teksti, jonka kirjoitat hakiessasi osoitetta. Palautettu osoite tallennetaan ajon mukana puhelimeesi. Googlen tietosuojakäytäntö: <a href="https://policies.google.com/privacy?hl=fi">https://policies.google.com/privacy</a></li>
+<li><strong>Kartat (Mapbox).</strong> Ajon kartta näytetään Mapbox, Inc:n palvelulla, joten alueen karttakuvat ladataan Mapboxin palvelimilta, kun avaat kartan. Jos GPS ei antanut sijainteja osalla ajoa (esimerkiksi heti liikkeelle lähdön jälkeen), sovellus lähettää kartan avautuessa Mapboxille myös jokaisen tällaisen osuuden kahden päätepisteen koordinaatit, jotta osuus voidaan piirtää tietä pitkin eikä suorana viivana. Mitään muuta sinusta tai ajosta ei lähetetä: ei tiliä, nimeä, sähköpostiosoitetta eikä laitetunnistetta. Palautettu tie vain piirretään kartalle ja pidetään hetken sovelluksen muistissa. Sitä ei tallenneta, eikä se muuta ajoa tai sen pituutta. Mapboxin telemetria (käyttö- ja sijaintitapahtumat, joita kartta voi lähettää) on sovelluksessa pois päältä; jäljelle jää vain Mapboxin nimetön karttalatausten laskenta, jonka perusteella Mapbox laskuttaa ja jota ei voi poistaa käytöstä. Mapboxin tietosuojakäytäntö: <a href="https://www.mapbox.com/legal/privacy">https://www.mapbox.com/legal/privacy</a></li>
+<li>Ajot tallennetaan sovelluksen omaan tietokantaan puhelimessa, eikä niitä koskaan lähetetä meille; Körloggilla ei ole palvelinta tässäkään. Jos Google-tilisi varmuuskopiointi on päällä, Androidin oma varmuuskopio voi sisältää sovelluksen tiedot; Google säilyttää sen tililläsi, emmekä me voi lukea sitä.</li>
+<li>Ostot tehdään <strong>Google Play Billingin</strong> kautta; Google käsittelee maksun, ja RevenueCat saa Google Playn ostotiedot ja satunnaisen sovelluskäyttäjätunnuksen oston tarkistamiseksi, kuten alla on kuvattu.</li>
+<li>Sovellus voi silloin tällöin näyttää <strong>Google Playn oman arvosteluikkunan</strong>. Se, mitä siinä valitset, menee Google Playlle, ei meille.</li>
+</ul>
 <h2>Laitteellasi olevat tiedot</h2>
 <p>Tallennetaan vain laitteellesi (SwiftData ja UserDefaults), <strong>eikä niitä lähetetä meille tai millekään palvelimellemme</strong>:</p>
 <ul>
@@ -91,15 +104,15 @@
 <h2>Vienti</h2>
 <p>PDF- ja CSV-raportit luodaan laitteella. Sinä päätät, minne ne lähetät (sähköposti, Tiedostot, työnantajasi järjestelmä), ja silloin sovelletaan vastaanottajan tietosuojakäytäntöä.</p>
 <h2>Ostot</h2>
-<p>Körlogg tarjoaa valinnaisen <strong>Pro</strong>-päivityksen Applen sovelluksen sisäisenä ostona, vuositilauksena tai pysyvänä kertaostona. Ostojen hallintaan ja palauttamiseen laitteillesi käytämme <strong>RevenueCatia</strong>, ostojenhallintapalvelua, joka toimii henkilötietojen käsittelijänämme.</p>
+<p>Körlogg tarjoaa valinnaisen <strong>Pro</strong>-päivityksen Applen sovelluksen sisäisenä ostona iPhonessa tai Google Play Billingin kautta Androidilla, vuositilauksena tai pysyvänä kertaostona. Ostojen hallintaan ja palauttamiseen laitteillesi käytämme <strong>RevenueCatia</strong>, ostojenhallintapalvelua, joka toimii henkilötietojen käsittelijänämme.</p>
 <ul>
-<li>Maksun käsittelee kokonaan <strong>Apple</strong>. Emme koskaan näe tai saa korttisi numeroa, pankkitietojasi tai laskutusosoitettasi.</li>
+<li>Maksun käsittelee kokonaan <strong>Apple</strong> tai <strong>Google</strong>. Emme koskaan näe tai saa korttisi numeroa, pankkitietojasi tai laskutusosoitettasi.</li>
 <li>RevenueCat saa <strong>satunnaisesti luodun sovelluskäyttäjätunnuksen</strong>, osto- ja kuittitietosi sekä perustiedot laitteesta ja sovelluksesta oston tarkistamiseksi ja Pron avaamiseksi. Tunnus ei ole nimesi, eikä sitä käytetä seuraamaan sinua muissa sovelluksissa tai verkkosivustoilla.</li>
 <li>Käytämme näitä tietoja vain Pro-käyttöoikeutesi antamiseen ja palauttamiseen.</li>
 </ul>
 <p>RevenueCatin tietosuoja: <a href="https://www.revenuecat.com/privacy">https://www.revenuecat.com/privacy</a></p>
 <h2>Nimettömät käyttötilastot</h2>
-<p>Nähdäksemme, ovatko ensimmäiset vaiheet helppoja suorittaa ja mitä ominaisuuksia käytetään, iPhone-sovellus lähettää <strong>nimettömiä käyttösignaaleja</strong> <strong>TelemetryDeckille</strong> (TelemetryDeck GmbH, Saksa), joka toimii henkilötietojen käsittelijänämme. Signaali on tapahtuma, kuten ”käyttöönotto valmis”, ”ensimmäinen ajo kirjattu” tai ”Pro ostettu vientinäkymästä”, ja siihen liittyy muutama arvo: valitut verosäännöt, sovelluksen kieli, onko Pro käytössä sekä ostoissa tilaus ja näkymä, josta osto tehtiin.</p>
+<p>Nähdäksemme, ovatko ensimmäiset vaiheet helppoja suorittaa ja mitä ominaisuuksia käytetään, sovellus lähettää iPhonessa ja Androidilla <strong>nimettömiä käyttösignaaleja</strong> <strong>TelemetryDeckille</strong> (TelemetryDeck GmbH, Saksa), joka toimii henkilötietojen käsittelijänämme. Signaali on tapahtuma, kuten ”käyttöönotto valmis”, ”ensimmäinen ajo kirjattu” tai ”Pro ostettu vientinäkymästä”, ja siihen liittyy muutama arvo: valitut verosäännöt, sovelluksen kieli, onko Pro käytössä sekä ostoissa tilaus ja näkymä, josta osto tehtiin.</p>
 <ul>
 <li><strong>Ajoja, sijainteja, osoitteita, paikkoja, reittejä, rekisteritunnuksia, kuljettajien nimiä tai summia ei koskaan lähetetä.</strong></li>
 <li>Nimeä, sähköpostiosoitetta, puhelinnumeroa tai mainostunnistetta ei lähetetä.</li>
@@ -115,7 +128,7 @@
 <li><strong>Sijaintitietoja ei koskaan tule meille.</strong> Emme voisi myydä niitä, vaikka haluaisimme; meillä ei ole niitä.</li>
 </ul>
 <h2>Tietojen jakaminen kolmansille osapuolille</h2>
-<p>Ainoat kolmannet osapuolet ovat <strong>Apple</strong> (sovelluksen jakelu, maksut, geokoodaus, Apple Karttojen reitit ja liikkeen tunnistus Applen tietosuojakäytännön mukaisesti), <strong>RevenueCat</strong> (ostojen tarkistus ja palautus) ja <strong>TelemetryDeck</strong> (nimettömät käyttötilastot), kuten yllä on kuvattu. Ei tietovälittäjiä, ei mainosverkostoja, ei sosiaalisen median seurantaa.</p>
+<p>Ainoat kolmannet osapuolet ovat <strong>Apple</strong> iPhonessa (sovelluksen jakelu, maksut, geokoodaus, Apple Karttojen reitit ja liikkeen tunnistus Applen tietosuojakäytännön mukaisesti), <strong>Google</strong> Androidilla (sovelluksen jakelu, maksut, osoitehaku, sijaintipalvelut ja liikkeen tunnistus Googlen tietosuojakäytännön mukaisesti), <strong>Mapbox</strong> Androidilla (ajojen kartat ja GPS-katkosten yli piirretty tie), <strong>RevenueCat</strong> (ostojen tarkistus ja palautus) ja <strong>TelemetryDeck</strong> (nimettömät käyttötilastot), kuten yllä on kuvattu. Ei tietovälittäjiä, ei mainosverkostoja, ei sosiaalisen median seurantaa.</p>
 <h2>Oikeutesi</h2>
 <p>Ruotsissa/EU:ssa toimivana kehittäjänä noudatamme <strong>EU:n yleistä tietosuoja-asetusta (GDPR)</strong> kaikkien käyttäjien kohdalla, missä tahansa he ovat. Koska tietosi ovat laitteellasi, ne ovat omissa käsissäsi:</p>
 <ul>

@@ -52,10 +52,10 @@
 </header>
 <main id="main" class="">
 <div class="wrap narrow page"><p class="note">Denne teksten finnes på engelsk, nederlandsk og finsk. Den engelske versjonen står nedenfor. <a href="/privacy/" hreflang="en">English</a> · <a href="/nl/privacy/" hreflang="nl">Nederlands</a> · <a href="/fi/privacy/" hreflang="fi">Suomi</a></p><article class="card legal" lang="en"><h1>Privacy Policy for Körlogg</h1>
-<p class="upd"><strong>Last Updated:</strong> 30 September 2026</p>
+<p class="upd"><strong>Last Updated:</strong> 13 October 2026</p>
 <h2>Our Privacy Commitment</h2>
 <p>A mileage log knows where you drive. That is exactly why <strong>Körlogg keeps it on your phone, and in your own iCloud if you choose, and never on a server of ours.</strong></p>
-<p>Körlogg is a mileage log app for drivers in Sweden, Denmark, Norway, Finland, Austria, Germany and the Netherlands, developed by a sole proprietor based in Sweden. <strong>We run no server, we never sell your data, we show no advertising, and your trips never reach us.</strong> They leave your device only if you export a report yourself or turn on iCloud sync, which stores them in your own iCloud account.</p>
+<p>Körlogg is a mileage log app for drivers in Sweden, Denmark, Norway, Finland, Austria, Germany and the Netherlands, developed by a sole proprietor based in Sweden. <strong>We run no server, we never sell your data, we show no advertising, and your trips never reach us.</strong> They leave your device only if you export a report yourself or turn on iCloud sync, which stores them in your own iCloud account. Address lookups and maps send only the coordinates or search text they need, not your trips.</p>
 <h2>Location Data</h2>
 <p>Körlogg asks for location access in order to detect when you drive and to measure each trip. This is what happens with it:</p>
 <ul><li><strong>Automatic detection ("Always" access):</strong> between trips the app only listens for significant movement and motion activity, which uses very little battery. When the phone appears to be in a moving car, the app records GPS positions until the car has been still for about three minutes. iOS shows the location indicator while this happens.</li>
@@ -68,12 +68,15 @@
 <h2>On Android</h2>
 <p>Körlogg for Android works the same way, with Android's own building blocks:</p>
 <ul>
-<li><strong>Location "Allow all the time"</strong> lets a trip start by itself while the app is closed. GPS runs only during a trip, inside a foreground service, and Android shows a notification ("Trip in progress") for as long as it runs. With "Only while using the app" you start trips yourself.</li>
+<li><strong>Location "Allow all the time"</strong> is used only to record your trips automatically, also while the app is closed. Between trips the app only asks Android's location service (Google Play services) for occasional positions, mostly low-power ones, so it knows where the car is parked, notices that it has moved and can include the start of the drive. Continuous GPS recording runs only during a trip, inside a foreground service, and Android shows a notification ("Trip in progress") for as long as it runs. With "Only while using the app" you start trips yourself.</li>
 <li><strong>Physical activity</strong> (Google Play services activity recognition) is used only to notice that you got into a vehicle, so GPS can stay off the rest of the time.</li>
 <li>A small <strong>geofence</strong> around where the car was last parked, kept by Google Play services on the phone, is a second way to notice a trip starting.</li>
-<li><strong>Addresses</strong> are looked up with Android's built-in geocoder, provided on the device by Google Play services.</li>
-<li>Trips are stored in the app's private database on the phone. Nothing is uploaded; there is still no Körlogg server.</li>
-<li>Purchases go through <strong>Google Play Billing</strong>; Google handles the payment and RevenueCat validates it exactly as described below.</li>
+<li>If you switch off <em>Log trips automatically</em> in <em>Settings</em>, the background positions, activity recognition and the geofence stop. You can also withdraw these permissions in Android's settings at any time.</li>
+<li><strong>Addresses</strong> are looked up with the phone's built-in Android address service (Geocoder), which on most phones is provided by Google. For this, the start and end coordinates of a trip are sent to that service, as is the text you type when you search for an address. The address that comes back is saved with the trip on your phone. Google's privacy policy: <a href="https://policies.google.com/privacy?hl=en">https://policies.google.com/privacy</a></li>
+<li><strong>Maps (Mapbox).</strong> The map of a trip is shown with Mapbox, Inc., so the map images for that area are loaded from Mapbox's servers when you open it. If GPS was silent over part of the trip (for example just after you drove off), the app also sends Mapbox the coordinates of the two ends of each such stretch when you open the trip's map, so that stretch can be drawn along the road instead of as a straight line. Nothing else about you or the trip is sent: no account, name, email or device identifier. The road returned is only drawn on the map and kept briefly in the app's memory. It is not saved, and it does not change the trip or its distance. Mapbox's telemetry (the usage and location events its map can send) is switched off in the app; only Mapbox's anonymous count of map loads, which Mapbox bills by and which cannot be switched off, remains. Mapbox's privacy policy: <a href="https://www.mapbox.com/legal/privacy">https://www.mapbox.com/legal/privacy</a></li>
+<li>Trips are stored in the app's private database on the phone and are never uploaded to us; there is still no Körlogg server. If backup is switched on for your Google account, Android's own backup may include the app's data; it is then kept by Google in your account, and we cannot read it.</li>
+<li>Purchases go through <strong>Google Play Billing</strong>; Google handles the payment, and RevenueCat receives the Google Play purchase record and a random app user ID to validate it, exactly as described below.</li>
+<li>Now and then the app may show <strong>Google Play's own rating window</strong>. Whatever you choose there goes to Google Play, not to us.</li>
 </ul>
 <h2>Information Stored Locally on Your Device</h2>
 <p>Stored only on your device (SwiftData and UserDefaults) and <strong>not transmitted to us or to any server we control</strong>:</p>
@@ -87,7 +90,7 @@
 <li>This data is held by <strong>Apple</strong> under <a href="https://www.apple.com/legal/privacy/">Apple's privacy policy</a>. It is not sent to us and we have no way to read it.</li>
 <li>Turning sync off stops copying; everything stays on the device. If Pro ends, sync pauses and nothing is deleted.</li>
 <li>To remove the iCloud copy, delete the trips in the app while sync is on (deletions sync too; trips on German or Austrian rules can only be cancelled, not deleted), or remove Körlogg's data under <em>Settings › your name › iCloud › Manage Account Storage</em>.</li></ul>
-<p>Körlogg for Android has no iCloud sync; its data stays on the phone.</p>
+<p>Körlogg for Android has no iCloud sync; its data stays on the phone, apart from Android's own backup described above.</p>
 <h2>Exports</h2>
 <p>PDF and CSV reports are generated on the device. Where you send them (email, Files, your employer's system) is your choice, and that recipient's privacy terms apply.</p>
 <h2>Vehicle Data from RDW (Netherlands)</h2>
@@ -99,7 +102,7 @@
 <li>We use this information only to grant and restore your Pro access.</li></ul>
 <p>RevenueCat's own privacy information: <a href="https://www.revenuecat.com/privacy">https://www.revenuecat.com/privacy</a></p>
 <h2>Anonymous Usage Statistics</h2>
-<p>To see whether setup is easy to finish and which features people use, the iPhone app sends <strong>anonymous usage signals</strong> to <strong>TelemetryDeck</strong> (TelemetryDeck GmbH, Germany), acting as our data processor. A signal is an event name such as "setup finished", "first trip logged" or "Pro bought from the export screen", with a few values: the country rules chosen in the app, the app language, whether Pro is active, and for purchases the plan and the screen it was bought from.</p>
+<p>To see whether setup is easy to finish and which features people use, the app, on iPhone and on Android, sends <strong>anonymous usage signals</strong> to <strong>TelemetryDeck</strong> (TelemetryDeck GmbH, Germany), acting as our data processor. A signal is an event name such as "setup finished", "first trip logged" or "Pro bought from the export screen", with a few values: the country rules chosen in the app, the app language, whether Pro is active, and for purchases the plan and the screen it was bought from.</p>
 <ul>
 <li><strong>No trips, positions, addresses, places, routes, registration numbers, driver names or amounts are ever sent.</strong></li>
 <li>No name, email, phone number or advertising identifier is sent.</li>
@@ -114,7 +117,7 @@
 <li><strong>No camera, microphone, photos or contacts access.</strong></li>
 <li><strong>No location data ever reaches us.</strong> We could not sell it if we wanted to; we do not have it.</li></ul>
 <h2>Data Sharing and Third Parties</h2>
-<p>The only third parties involved are <strong>Apple</strong> on iPhone and <strong>Google</strong> on Android (app distribution, payment processing and on-device geocoding and activity recognition, subject to their privacy policies), <strong>RevenueCat</strong> (purchase validation and restoration), <strong>TelemetryDeck</strong> (anonymous usage statistics) and, only when you ask for it, the <strong>RDW</strong> (make and model of a Dutch car from its registration number), as described above. No data brokers, no advertising networks, no social-media trackers.</p>
+<p>The only third parties involved are <strong>Apple</strong> on iPhone and <strong>Google</strong> on Android (app distribution, payment processing, address lookup, location services and activity recognition, subject to their privacy policies), <strong>Mapbox</strong> on Android (trip maps and the road drawn across GPS gaps), <strong>RevenueCat</strong> (purchase validation and restoration), <strong>TelemetryDeck</strong> (anonymous usage statistics) and, only when you ask for it, the <strong>RDW</strong> (make and model of a Dutch car from its registration number), as described above. No data brokers, no advertising networks, no social-media trackers.</p>
 <h2>Your Rights</h2>
 <p>As a Sweden/EU-based developer we follow the <strong>General Data Protection Regulation (GDPR)</strong> for everyone who uses the app, wherever they are. Because your data lives on your device, you are in direct control of it:</p>
 <ul><li><strong>Access &amp; portability:</strong> every trip is visible in the app and exportable as PDF or CSV</li>

@@ -1,8 +1,8 @@
 <h1>Privacyverklaring van Körlogg</h1>
-<p class="upd"><strong>Laatst bijgewerkt:</strong> 30 september 2026</p>
+<p class="upd"><strong>Laatst bijgewerkt:</strong> 13 oktober 2026</p>
 <h2>Onze belofte</h2>
 <p>Een rittenregistratie weet waar je rijdt. Juist daarom bewaart Körlogg die op je telefoon, en als je dat wilt in je eigen iCloud, en nooit op een server van ons.</p>
-<p>Körlogg is een app voor rittenregistratie voor bestuurders in Zweden, Denemarken, Noorwegen, Oostenrijk, Duitsland en Nederland, ontwikkeld door een eenmanszaak in Zweden. <strong>Wij hebben geen server, verkopen nooit je gegevens, tonen geen advertenties en je ritten bereiken ons nooit.</strong> Ze verlaten je apparaat alleen als je zelf een rapport exporteert of iCloud-synchronisatie aanzet, waarmee ze in je eigen iCloud-account worden bewaard.</p>
+<p>Körlogg is een app voor rittenregistratie voor bestuurders in Zweden, Denemarken, Noorwegen, Oostenrijk, Duitsland en Nederland, ontwikkeld door een eenmanszaak in Zweden. <strong>Wij hebben geen server, verkopen nooit je gegevens, tonen geen advertenties en je ritten bereiken ons nooit.</strong> Ze verlaten je apparaat alleen als je zelf een rapport exporteert of iCloud-synchronisatie aanzet, waarmee ze in je eigen iCloud-account worden bewaard. Adressen opzoeken en kaarten sturen alleen de coördinaten of zoektekst die daarvoor nodig zijn, niet je ritten.</p>
 <h2>Locatiegegevens</h2>
 <p>Körlogg vraagt om locatietoegang om te herkennen wanneer je rijdt en om elke rit te meten. Dit gebeurt ermee:</p>
 <ul>
@@ -14,6 +14,19 @@
 <li><strong>Er wordt niets naar ons geüpload.</strong> Körlogg heeft geen server. Je werkgever of iemand anders kan je via deze app niet volgen; zij zien alleen een rapport dat jij besluit te sturen.</li>
 </ul>
 <p>Je kunt automatisch vastleggen altijd uitzetten bij Instellingen, of de locatietoegang intrekken in de instellingen van iOS.</p>
+<h2>Op Android</h2>
+<p>Körlogg voor Android werkt op dezelfde manier, met de eigen bouwstenen van Android:</p>
+<ul>
+<li><strong>Locatie ‘Altijd toestaan’</strong> wordt alleen gebruikt om je ritten automatisch vast te leggen, ook als de app gesloten is. Tussen de ritten vraagt de app de locatiedienst van Android (Google Play-services) alleen af en toe om een positie, meestal zuinig met de batterij, zodat hij weet waar de auto geparkeerd staat, merkt dat de auto is verplaatst en het begin van de rit kan meenemen. Doorlopend vastleggen met gps gebeurt alleen tijdens een rit, in een voorgrondservice, en Android toont zolang dat duurt een melding (‘Rit actief’). Met ‘Alleen toestaan als de app wordt gebruikt’ start je ritten zelf.</li>
+<li><strong>Fysieke activiteit</strong> (activiteitsherkenning van Google Play-services) wordt alleen gebruikt om te merken dat je in een voertuig bent gestapt, zodat de gps de rest van de tijd uit kan blijven.</li>
+<li>Een kleine <strong>geofence</strong> rond de plek waar de auto het laatst geparkeerd stond, bijgehouden door Google Play-services op de telefoon, is een tweede manier om te merken dat een rit begint.</li>
+<li>Zet je <em>Ritten automatisch vastleggen</em> uit bij <em>Instellingen</em>, dan stoppen de posities op de achtergrond, de activiteitsherkenning en de geofence. Je kunt deze toestemmingen ook altijd intrekken in de instellingen van Android.</li>
+<li><strong>Adressen</strong> worden opgezocht met de ingebouwde adresdienst van Android (Geocoder), die op de meeste telefoons door Google wordt geleverd. Daarvoor worden de coördinaten van het begin- en eindpunt van een rit naar die dienst gestuurd, net als de tekst die je typt als je een adres zoekt. Het adres dat terugkomt, wordt met de rit op je telefoon bewaard. Privacybeleid van Google: <a href="https://policies.google.com/privacy?hl=nl">https://policies.google.com/privacy</a></li>
+<li><strong>Kaarten (Mapbox).</strong> De kaart van een rit wordt getoond met Mapbox, Inc.; de kaartbeelden van dat gebied worden dus van de servers van Mapbox geladen als je de kaart opent. Gaf de gps tijdens een deel van de rit geen posities (bijvoorbeeld net na het wegrijden), dan stuurt de app bij het openen van de kaart ook de coördinaten van de twee uiteinden van elk zo’n stuk naar Mapbox, zodat dat stuk langs de weg kan worden getekend in plaats van als rechte lijn. Verder wordt er niets over jou of de rit gestuurd: geen account, naam, e-mailadres of apparaat-ID. De weg die terugkomt, wordt alleen op de kaart getekend en kort in het geheugen van de app gehouden. Hij wordt niet bewaard en verandert de rit en de afstand niet. De telemetrie van Mapbox (de gebruiks- en locatiegebeurtenissen die de kaart kan sturen) staat in de app uit; alleen de anonieme telling van geladen kaarten, waarop Mapbox factureert en die niet uit te zetten is, blijft over. Privacybeleid van Mapbox: <a href="https://www.mapbox.com/legal/privacy">https://www.mapbox.com/legal/privacy</a></li>
+<li>Ritten worden in de eigen database van de app op de telefoon bewaard en nooit naar ons geüpload; ook hier is er geen Körlogg-server. Staat de back-up voor je Google-account aan, dan kan de eigen back-up van Android de gegevens van de app bevatten; die wordt dan door Google in je account bewaard en wij kunnen hem niet lezen.</li>
+<li>Aankopen lopen via <strong>Google Play Billing</strong>; Google handelt de betaling af en RevenueCat ontvangt de aankoopgegevens van Google Play en een willekeurige app-gebruikers-ID om de aankoop te controleren, precies zoals hieronder beschreven.</li>
+<li>Af en toe kan de app het <strong>eigen beoordelingsvenster van Google Play</strong> tonen. Wat je daar kiest, gaat naar Google Play, niet naar ons.</li>
+</ul>
 <h2>Gegevens op je apparaat</h2>
 <p>Alleen op je apparaat bewaard (SwiftData en UserDefaults) en <strong>niet naar ons of naar een server van ons gestuurd</strong>:</p>
 <ul>
@@ -35,15 +48,15 @@
 <h2>Voertuiggegevens van de RDW (Nederland)</h2>
 <p>Bij een auto onder Nederlandse regels kun je tikken op <em>Merk en type ophalen bij de RDW</em>. De app stuurt dan <strong>alleen het kenteken</strong> naar de open data van de RDW (opendata.rdw.nl) en vult het merk, het type en het jaar van eerste toelating in die de RDW teruggeeft. Dit zijn openbare voertuiggegevens; er wordt geen naam, rit of locatie meegestuurd en er komt niets bij ons. Het gebeurt alleen als je op de knop tikt. Privacy bij de RDW: <a href="https://www.rdw.nl/privacy">https://www.rdw.nl/privacy</a></p>
 <h2>Aankopen</h2>
-<p>Körlogg biedt een optionele <strong>Pro</strong>-upgrade via de In-App Purchase van Apple, als jaarabonnement of als eenmalige aankoop voor altijd. Om aankopen te beheren en op je apparaten te herstellen gebruiken we <strong>RevenueCat</strong>, een dienst voor aankoopbeheer die als onze verwerker optreedt.</p>
+<p>Körlogg biedt een optionele <strong>Pro</strong>-upgrade via de In-App Purchase van Apple op de iPhone of Google Play Billing op Android, als jaarabonnement of als eenmalige aankoop voor altijd. Om aankopen te beheren en op je apparaten te herstellen gebruiken we <strong>RevenueCat</strong>, een dienst voor aankoopbeheer die als onze verwerker optreedt.</p>
 <ul>
-<li>De betaling zelf wordt volledig door <strong>Apple</strong> afgehandeld. Wij zien of ontvangen nooit je kaartnummer, bankgegevens of factuuradres.</li>
+<li>De betaling zelf wordt volledig door <strong>Apple</strong> of <strong>Google</strong> afgehandeld. Wij zien of ontvangen nooit je kaartnummer, bankgegevens of factuuradres.</li>
 <li>RevenueCat ontvangt een <strong>willekeurig gemaakte app-gebruikers-ID</strong>, je aankoop- en betaalbewijsgegevens en eenvoudige apparaat- en appgegevens om de aankoop te controleren en Pro te ontgrendelen. Deze ID is niet je naam en wordt niet gebruikt om je in andere apps of op websites te volgen.</li>
 <li>We gebruiken deze gegevens alleen om je Pro-toegang te geven en te herstellen.</li>
 </ul>
 <p>Privacy bij RevenueCat: <a href="https://www.revenuecat.com/privacy">https://www.revenuecat.com/privacy</a></p>
 <h2>Anonieme gebruiksstatistieken</h2>
-<p>Om te zien of de eerste stappen makkelijk af te ronden zijn en welke functies mensen gebruiken, stuurt de iPhone-app <strong>anonieme gebruikssignalen</strong> naar <strong>TelemetryDeck</strong> (TelemetryDeck GmbH, Duitsland), die als onze verwerker optreedt. Een signaal is een gebeurtenis zoals ‘instellen afgerond’, ‘eerste rit vastgelegd’ of ‘Pro gekocht vanuit het exportscherm’, met een paar waarden: de gekozen belastingregels, de taal van de app, of Pro actief is, en bij aankopen het abonnement en het scherm waar het werd gekocht.</p>
+<p>Om te zien of de eerste stappen makkelijk af te ronden zijn en welke functies mensen gebruiken, stuurt de app, op iPhone en op Android, <strong>anonieme gebruikssignalen</strong> naar <strong>TelemetryDeck</strong> (TelemetryDeck GmbH, Duitsland), die als onze verwerker optreedt. Een signaal is een gebeurtenis zoals ‘instellen afgerond’, ‘eerste rit vastgelegd’ of ‘Pro gekocht vanuit het exportscherm’, met een paar waarden: de gekozen belastingregels, de taal van de app, of Pro actief is, en bij aankopen het abonnement en het scherm waar het werd gekocht.</p>
 <ul>
 <li><strong>Er worden nooit ritten, posities, adressen, plaatsen, routes, kentekens, namen van bestuurders of bedragen verstuurd.</strong></li>
 <li>Er wordt geen naam, e-mailadres, telefoonnummer of advertentie-ID verstuurd.</li>
@@ -59,7 +72,7 @@
 <li><strong>Er komen nooit locatiegegevens bij ons.</strong> We zouden ze niet kunnen verkopen als we wilden; we hebben ze niet.</li>
 </ul>
 <h2>Delen met derden</h2>
-<p>De enige derden zijn <strong>Apple</strong> (verspreiding van de app, betalingen, geocoding, routes in Apple Kaarten en herkenning van activiteit, onder het privacybeleid van Apple), <strong>RevenueCat</strong> (controle en herstel van aankopen), <strong>TelemetryDeck</strong> (anonieme gebruiksstatistieken) en, alleen als jij erom vraagt, de <strong>RDW</strong> (merk en type van een Nederlandse auto op basis van het kenteken), zoals hierboven beschreven. Geen databrokers, geen advertentienetwerken, geen trackers van sociale media.</p>
+<p>De enige derden zijn <strong>Apple</strong> op de iPhone (verspreiding van de app, betalingen, geocoding, routes in Apple Kaarten en herkenning van activiteit, onder het privacybeleid van Apple), <strong>Google</strong> op Android (verspreiding van de app, betalingen, adressen opzoeken, locatiediensten en herkenning van activiteit, onder het privacybeleid van Google), <strong>Mapbox</strong> op Android (kaarten van ritten en de weg die over gps-gaten wordt getekend), <strong>RevenueCat</strong> (controle en herstel van aankopen), <strong>TelemetryDeck</strong> (anonieme gebruiksstatistieken) en, alleen als jij erom vraagt, de <strong>RDW</strong> (merk en type van een Nederlandse auto op basis van het kenteken), zoals hierboven beschreven. Geen databrokers, geen advertentienetwerken, geen trackers van sociale media.</p>
 <h2>Je rechten</h2>
 <p>Als ontwikkelaar in Zweden/de EU volgen we de <strong>Algemene verordening gegevensbescherming (AVG)</strong> voor iedereen die de app gebruikt, waar ook ter wereld. Omdat je gegevens op je apparaat staan, heb je ze zelf in handen:</p>
 <ul>

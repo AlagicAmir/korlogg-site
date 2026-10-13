@@ -1,8 +1,8 @@
 <h1>Integritetspolicy för Körlogg</h1>
-<p class="upd"><strong>Senast uppdaterad:</strong> 30 september 2026</p>
+<p class="upd"><strong>Senast uppdaterad:</strong> 13 oktober 2026</p>
 <h2>Vårt integritetslöfte</h2>
 <p>En körjournal vet var du kör. Det är just därför <strong>Körlogg sparar den på din telefon, och i ditt eget iCloud om du väljer det, och aldrig på någon server som tillhör oss.</strong></p>
-<p>Körlogg är en körjournalsapp för förare i Sverige, Danmark, Norge, Finland, Österrike, Tyskland och Nederländerna, utvecklad av en enskild näringsidkare (enskild firma) med säte i Sverige. <strong>Vi driver ingen server, vi säljer aldrig dina uppgifter, vi visar ingen reklam och dina resor når aldrig oss.</strong> De lämnar din enhet endast om du själv exporterar en rapport eller slår på iCloud-synkning, som sparar dem i ditt eget iCloud-konto.</p>
+<p>Körlogg är en körjournalsapp för förare i Sverige, Danmark, Norge, Finland, Österrike, Tyskland och Nederländerna, utvecklad av en enskild näringsidkare (enskild firma) med säte i Sverige. <strong>Vi driver ingen server, vi säljer aldrig dina uppgifter, vi visar ingen reklam och dina resor når aldrig oss.</strong> De lämnar din enhet endast om du själv exporterar en rapport eller slår på iCloud-synkning, som sparar dem i ditt eget iCloud-konto. Adressuppslag och kartor skickar bara de koordinater eller den söktext som behövs, inte dina resor.</p>
 <h2>Platsdata</h2>
 <p>Körlogg ber om åtkomst till din plats för att upptäcka när du kör och för att mäta varje resa. Så här används den:</p>
 <ul><li><strong>Automatisk identifiering (åtkomst ”Alltid”):</strong> mellan resorna lyssnar appen bara efter betydande förflyttningar och rörelseaktivitet, vilket drar mycket lite batteri. När telefonen verkar befinna sig i en bil i rörelse registrerar appen GPS-positioner tills bilen har stått still i ungefär tre minuter. iOS visar platsindikatorn medan detta pågår.</li>
@@ -15,12 +15,15 @@
 <h2>På Android</h2>
 <p>Körlogg för Android fungerar på samma sätt, med Androids egna byggstenar:</p>
 <ul>
-<li><strong>Plats ”Tillåt alltid”</strong> gör att en resa kan starta av sig själv medan appen är stängd. GPS körs bara under en resa, i en förgrundstjänst, och Android visar en avisering (”Resa pågår”) så länge den körs. Med ”Bara när appen används” startar du resorna själv.</li>
+<li><strong>Plats ”Tillåt alltid”</strong> används endast för att logga dina resor automatiskt, även när appen är stängd. Mellan resorna ber appen bara Androids platstjänst (Google Play-tjänster) om enstaka positioner, oftast strömsnåla, så att den vet var bilen står parkerad, märker att den har flyttats och kan få med början av resan. Kontinuerlig GPS-loggning körs bara under en resa, i en förgrundstjänst, och Android visar en avisering (”Resa pågår”) så länge den körs. Med ”Bara när appen används” startar du resorna själv.</li>
 <li><strong>Fysisk aktivitet</strong> (aktivitetsigenkänning i Google Play-tjänster) används endast för att märka att du har satt dig i ett fordon, så att GPS kan vara avstängd resten av tiden.</li>
 <li>Ett litet <strong>geostaket</strong> runt den plats där bilen senast parkerades, som hanteras av Google Play-tjänster på telefonen, är ett andra sätt att märka att en resa börjar.</li>
-<li><strong>Adresser</strong> slås upp med Androids inbyggda geokodare, som tillhandahålls på enheten av Google Play-tjänster.</li>
-<li>Resor sparas i appens privata databas på telefonen. Ingenting laddas upp; det finns inte heller här någon Körlogg-server.</li>
-<li>Köp går via <strong>Google Play Billing</strong>; Google hanterar betalningen och RevenueCat validerar den exakt så som beskrivs nedan.</li>
+<li>Om du stänger av <em>Logga resor automatiskt</em> under <em>Inställningar</em> upphör bakgrundspositionerna, aktivitetsigenkänningen och geostaketet. Du kan också när som helst dra tillbaka behörigheterna i Androids inställningar.</li>
+<li><strong>Adresser</strong> slås upp med telefonens inbyggda adresstjänst i Android (Geocoder), som på de flesta telefoner tillhandahålls av Google. För det skickas resans start- och slutkoordinater till tjänsten, liksom texten du skriver när du söker efter en adress. Adressen som kommer tillbaka sparas med resan på telefonen. Googles integritetspolicy: <a href="https://policies.google.com/privacy?hl=sv">https://policies.google.com/privacy</a></li>
+<li><strong>Kartor (Mapbox).</strong> Kartan för en resa visas med Mapbox, Inc., så kartbilderna för området hämtas från Mapbox servrar när du öppnar den. Om GPS:en var tyst under en del av resan (till exempel precis efter att du kört iväg) skickar appen också koordinaterna för de två ändarna av varje sådan sträcka till Mapbox när du öppnar resans karta, så att sträckan kan ritas längs vägen i stället för som en rak linje. Inget annat om dig eller resan skickas: inget konto, inget namn, ingen e-postadress och ingen enhetsidentifierare. Vägen som kommer tillbaka ritas bara på kartan och hålls en kort stund i appens minne. Den sparas inte och ändrar varken resan eller dess sträcka. Mapbox telemetri (de användnings- och platshändelser som kartan kan skicka) är avstängd i appen; kvar finns bara Mapbox anonyma räkning av kartladdningar, som Mapbox debiterar efter och som inte går att stänga av. Mapbox integritetspolicy: <a href="https://www.mapbox.com/legal/privacy">https://www.mapbox.com/legal/privacy</a></li>
+<li>Resor sparas i appens privata databas på telefonen och laddas aldrig upp till oss; det finns inte heller här någon Körlogg-server. Om säkerhetskopiering är påslagen för ditt Google-konto kan Androids egen säkerhetskopia innehålla appens data; den förvaras då av Google i ditt konto, och vi kan inte läsa den.</li>
+<li>Köp går via <strong>Google Play Billing</strong>; Google hanterar betalningen, och RevenueCat tar emot köpposten från Google Play och ett slumpmässigt app-användar-ID för att validera den, exakt så som beskrivs nedan.</li>
+<li>Ibland kan appen visa <strong>Google Plays eget betygsfönster</strong>. Det du väljer där går till Google Play, inte till oss.</li>
 </ul>
 <h2>Uppgifter som sparas lokalt på din enhet</h2>
 <p>Sparas endast på din enhet (SwiftData och UserDefaults) och <strong>överförs inte till oss eller till någon server som vi kontrollerar</strong>:</p>
@@ -34,7 +37,7 @@
 <li>Dessa uppgifter förvaras av <strong>Apple</strong> enligt <a href="https://www.apple.com/legal/privacy/">Apples integritetspolicy</a>. De skickas inte till oss och vi har inget sätt att läsa dem.</li>
 <li>Om du stänger av synkningen upphör kopieringen; allt finns kvar på enheten. Om Pro upphör pausas synkningen och ingenting raderas.</li>
 <li>För att ta bort kopian i iCloud raderar du resorna i appen medan synkningen är på (raderingar synkas också; resor som följer tyska eller österrikiska regler kan bara makuleras, inte raderas), eller tar bort Körloggs data under <em>Inställningar › ditt namn › iCloud › Hantera kontolagring</em>.</li></ul>
-<p>Körlogg för Android har ingen iCloud-synkning; dess data stannar på telefonen.</p>
+<p>Körlogg för Android har ingen iCloud-synkning; dess data stannar på telefonen, bortsett från Androids egen säkerhetskopia som beskrivs ovan.</p>
 <h2>Exporter</h2>
 <p>PDF- och CSV-rapporter skapas på enheten. Vart du skickar dem (e-post, Filer, din arbetsgivares system) väljer du själv, och mottagarens integritetsvillkor gäller.</p>
 <h2>Fordonsuppgifter från RDW (Nederländerna)</h2>
@@ -46,7 +49,7 @@
 <li>Vi använder dessa uppgifter endast för att ge och återställa din Pro-åtkomst.</li></ul>
 <p>RevenueCats egen integritetsinformation: <a href="https://www.revenuecat.com/privacy">https://www.revenuecat.com/privacy</a></p>
 <h2>Anonym användningsstatistik</h2>
-<p>För att se om installationen är lätt att slutföra och vilka funktioner som används skickar iPhone-appen <strong>anonyma användningssignaler</strong> till <strong>TelemetryDeck</strong> (TelemetryDeck GmbH, Tyskland), som agerar som vårt personuppgiftsbiträde. En signal är ett händelsenamn som ”installation slutförd”, ”första resan loggad” eller ”Pro köpt från exportskärmen”, med några få värden: de landsregler som valts i appen, appens språk, om Pro är aktivt och, för köp, abonnemangsformen och den skärm som köpet gjordes från.</p>
+<p>För att se om installationen är lätt att slutföra och vilka funktioner som används skickar appen, på iPhone och på Android, <strong>anonyma användningssignaler</strong> till <strong>TelemetryDeck</strong> (TelemetryDeck GmbH, Tyskland), som agerar som vårt personuppgiftsbiträde. En signal är ett händelsenamn som ”installation slutförd”, ”första resan loggad” eller ”Pro köpt från exportskärmen”, med några få värden: de landsregler som valts i appen, appens språk, om Pro är aktivt och, för köp, abonnemangsformen och den skärm som köpet gjordes från.</p>
 <ul>
 <li><strong>Inga resor, positioner, adresser, platser, rutter, registreringsnummer, förarnamn eller belopp skickas någonsin.</strong></li>
 <li>Inget namn, ingen e-postadress, inget telefonnummer och ingen reklamidentifierare skickas.</li>
@@ -61,7 +64,7 @@
 <li><strong>Ingen åtkomst till kamera, mikrofon, bilder eller kontakter.</strong></li>
 <li><strong>Inga platsdata når någonsin oss.</strong> Vi skulle inte kunna sälja dem även om vi ville; vi har dem inte.</li></ul>
 <h2>Delning av uppgifter och tredje parter</h2>
-<p>De enda tredje parter som är inblandade är <strong>Apple</strong> på iPhone och <strong>Google</strong> på Android (distribution av appen, betalningshantering samt geokodning och aktivitetsigenkänning på enheten, enligt deras integritetspolicyer), <strong>RevenueCat</strong> (validering och återställning av köp), <strong>TelemetryDeck</strong> (anonym användningsstatistik) och, endast när du själv begär det, <strong>RDW</strong> (märke och modell för en nederländsk bil utifrån dess registreringsnummer), så som beskrivs ovan. Inga datamäklare, inga annonsnätverk, inga spårare från sociala medier.</p>
+<p>De enda tredje parter som är inblandade är <strong>Apple</strong> på iPhone och <strong>Google</strong> på Android (distribution av appen, betalningshantering, adressuppslag, platstjänster och aktivitetsigenkänning, enligt deras integritetspolicyer), <strong>Mapbox</strong> på Android (resekartor och vägen som ritas över GPS-luckor), <strong>RevenueCat</strong> (validering och återställning av köp), <strong>TelemetryDeck</strong> (anonym användningsstatistik) och, endast när du själv begär det, <strong>RDW</strong> (märke och modell för en nederländsk bil utifrån dess registreringsnummer), så som beskrivs ovan. Inga datamäklare, inga annonsnätverk, inga spårare från sociala medier.</p>
 <h2>Dina rättigheter</h2>
 <p>Som utvecklare med säte i Sverige/EU följer vi <strong>dataskyddsförordningen (GDPR)</strong> för alla som använder appen, var de än befinner sig. Eftersom dina uppgifter finns på din enhet har du själv direkt kontroll över dem:</p>
 <ul><li><strong>Tillgång och dataportabilitet:</strong> varje resa syns i appen och kan exporteras som PDF eller CSV</li>
