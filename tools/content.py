@@ -236,9 +236,9 @@ UI = {
 }
 
 COUNTRY_LIST = {
-    "en": "Sweden, Denmark, Norway, Finland, Germany, Austria, the Netherlands and Poland",
-    "sv": "Sverige, Danmark, Norge, Finland, Tyskland, Österrike, Nederländerna och Polen",
-    "de": "Deutschland, Österreich, Schweden, Dänemark, Norwegen, Finnland, die Niederlande und Polen",
+    "en": "the United Kingdom, Sweden, Denmark, Norway, Finland, Germany, Austria, the Netherlands and Poland",
+    "sv": "Sverige, Danmark, Norge, Finland, Tyskland, Österrike, Nederländerna, Polen och Storbritannien",
+    "de": "Deutschland, Österreich, Schweden, Dänemark, Norwegen, Finnland, die Niederlande, Polen und Großbritannien",
 }
 
 HOME = {
