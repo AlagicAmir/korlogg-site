@@ -44,8 +44,14 @@ GUIDES = {   # file stem -> (lang, path, cluster)
     "sv-formansbil-ringa-omfattning": ("sv", "/se/guider/formansbil-privat-korning-ringa-omfattning/", None),
     "de-fahrtenbuch-inhalt": ("de", "/de/ratgeber/was-muss-ein-fahrtenbuch-enthalten/", None),
     "de-fahrtenbuch-oesterreich": ("de", "/de/ratgeber/fahrtenbuch-oesterreich-sachbezug-kilometergeld/", None),
+    "en-hmrc-mileage-log": ("en", "/guides/hmrc-mileage-log/", None),
+    "en-hmrc-mileage-rates": ("en", "/guides/hmrc-mileage-rates-2026-27/", None),
+    "en-commuting-vs-business": ("en", "/guides/commuting-vs-business-mileage/", None),
+    "nl-rittenregistratie-inhoud": ("nl", "/nl/gidsen/rittenregistratie-wat-moet-erin/", None),
+    "nl-500-km-prive": ("nl", "/nl/gidsen/500-km-prive-bewijzen/", None),
+    "nl-kilometervergoeding-2026": ("nl", "/nl/gidsen/kilometervergoeding-2026/", None),
 }
-GUIDE_INDEX = {"en": "/guides/", "sv": "/se/guider/", "de": "/de/ratgeber/"}
+GUIDE_INDEX = {"en": "/guides/", "sv": "/se/guider/", "de": "/de/ratgeber/", "nl": "/nl/gidsen/"}
 LEGAL_LANGS = {"en", "sv", "de", "nl", "fi"}      # privacy/terms exist in these languages
 DELETE_LANGS = {"en", "sv", "de"}
 
@@ -69,7 +75,7 @@ def badge_width(lang):
         BADGE_W[lang] = float(re.search(r'width="([0-9.]+)"', svg).group(1))
     return BADGE_W[lang]
 
-def store_button(lang, extra="", dark_bg=False, position="other"):
+def store_button(lang, extra="", dark_bg=False, position="other", campaign=None):
     """Apple's official localized badge, unmodified. Black on light backgrounds, white
     in dark mode; always black on the blue hero (dark_bg=False keeps black)."""
     h = 44 if "small" in extra else 54
@@ -77,7 +83,7 @@ def store_button(lang, extra="", dark_bg=False, position="other"):
     black, white = f"/assets/badges/{lang}-black.svg", f"/assets/badges/{lang}-white.svg"
     alt = esc(UI[lang]["store_btn"])
     dark = "" if dark_bg else f'<source srcset="{white}" media="(prefers-color-scheme: dark)">'
-    return (f'<a class="store-badge{extra}" href="{esc(store_url(lang, f'web_{lang}_{position}'))}" data-position="{position}"><picture>{dark}'
+    return (f'<a class="store-badge{extra}" href="{esc(store_url(lang, campaign or f'web_{lang}_{position}'))}" data-position="{position}"><picture>{dark}'
             f'<img src="{black}" width="{w}" height="{h}" alt="{alt}"></picture></a>')
 
 def placeholders(text, lang):
@@ -518,18 +524,28 @@ def build_guides():
     for stem, (lang, path, cluster) in GUIDES.items():
         meta, body = read_guide(stem)
         body = placeholders(body, lang)
+        # a guide may name its own App Store campaign (guide_<slug>); {{store}} in the text links with it
+        campaign = meta.get("campaign")
+        body = body.replace("{{store}}", esc(store_url(lang, campaign)))
         badge = f'<p class="badge">{esc(v2_label(lang))}</p>' if meta.get("v2") == "true" else ""
         h1 = re.search(r"<h1>(.*?)</h1>", body).group(1)
         crumbs = f'<nav class="crumbs" aria-label="Breadcrumb"><a href="{P(lang, "home")}">Körlogg</a> › <a href="{GUIDE_INDEX[lang]}">{esc(UI[lang]["guides"])}</a></nav>'
         cta = (f'<aside class="card guide-cta"><img src="/assets/logo-96.webp" width="56" height="56" alt="" loading="lazy">'
-               f'<div><p><strong>Körlogg</strong> – {esc(HOME[lang]["h1"])}.</p>{store_button(lang, " small", position="middle")}</div></aside>')
+               f'<div><p><strong>Körlogg</strong> – {esc(HOME[lang]["h1"])}.</p>{store_button(lang, " small", position="middle", campaign=campaign)}</div></aside>')
         article = {"@context": "https://schema.org", "@type": "Article", "headline": re.sub("<[^>]+>", "", h1),
-                   "description": meta["description"], "inLanguage": LANGS[lang]["html"], "dateModified": "2026-10-10",
+                   "description": meta["description"], "inLanguage": LANGS[lang]["html"], "dateModified": meta.get("modified", "2026-10-10"),
                    "author": {"@type": "Person", "name": "Amir Alagic"}, "mainEntityOfPage": C.SITE + path,
                    "image": f"{C.SITE}/assets/og/{lang}.png"}
+        jl = [article, breadcrumb(lang, [("Körlogg", P(lang, "home")), (UI[lang]["guides"], GUIDE_INDEX[lang]), (re.sub("<[^>]+>", "", h1), path)])]
+        faq = re.search(r'(?s)<section class="guide-faq">(.*?)</section>', body)
+        if faq:   # questions as <h3>, each answered by the <p> after it
+            plain = lambda s: html.unescape(re.sub("<[^>]+>", "", s)).strip()
+            qa = [{"@type": "Question", "name": plain(q), "acceptedAnswer": {"@type": "Answer", "text": plain(a)}}
+                  for q, a in re.findall(r"(?s)<h3>(.*?)</h3>\s*<p>(.*?)</p>", faq.group(1))]
+            jl.append({"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": qa})
         add(lang, cluster, path, meta["title"], meta["description"],
             f'<div class="wrap narrow page">{crumbs}{badge}<article class="guide">{body}</article>{cta}</div>',
-            jsonld=[article, breadcrumb(lang, [("Körlogg", P(lang, "home")), (UI[lang]["guides"], GUIDE_INDEX[lang]), (re.sub("<[^>]+>", "", h1), path)])])
+            jsonld=jl)
     for lang, path in GUIDE_INDEX.items():
         ui = UI[lang]
         items = ""
