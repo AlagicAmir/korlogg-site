@@ -13,13 +13,13 @@ from datetime import date
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 import config as C
-from content import LANGS, UI, HOME, HELP_LANG, BEACON_SHOTS, BEACON_HERO_SHOT, COUNTRY_LIST, TAX, STORE_LABEL, SOURCE_WORD, SAVE
+from content import LANGS, UI, HOME, HELP_LANG, BEACON_SHOTS, BEACON_HERO_SHOT, COUNTRY_LIST, TAX, STORE_LABEL, SOURCE_WORD, SAVE, REDEEM
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 SRC = ROOT / "src"
 TODAY = date.today().isoformat()
 GENERATED = [l["prefix"].strip("/") for k, l in LANGS.items() if k != "en"] + \
-            ["help", "support", "privacy", "terms", "delete-data", "guides"]
+            ["help", "support", "privacy", "terms", "delete-data", "guides", "code"]
 
 # --------------------------------------------------------------------- pages
 PAGES = []          # dicts: lang, cluster, path, title, desc, body, noindex, canonical, jsonld, og
@@ -50,10 +50,15 @@ GUIDES = {   # file stem -> (lang, path, cluster)
     "nl-rittenregistratie-inhoud": ("nl", "/nl/gidsen/rittenregistratie-wat-moet-erin/", None),
     "nl-500-km-prive": ("nl", "/nl/gidsen/500-km-prive-bewijzen/", None),
     "nl-kilometervergoeding-2026": ("nl", "/nl/gidsen/kilometervergoeding-2026/", None),
+    "sv-automatisk-korjournal": ("sv", "/se/guider/automatisk-korjournal/", None),
+    "sv-korjournal-enskild-firma": ("sv", "/se/guider/korjournal-enskild-firma/", None),
+    "de-fahrtenbuch-oder-1-prozent": ("de", "/de/ratgeber/fahrtenbuch-oder-1-prozent-regelung/", None),
+    "de-kilometerpauschale-2026": ("de", "/de/ratgeber/kilometerpauschale-2026/", None),
 }
 GUIDE_INDEX = {"en": "/guides/", "sv": "/se/guider/", "de": "/de/ratgeber/", "nl": "/nl/gidsen/"}
 LEGAL_LANGS = {"en", "sv", "de", "nl", "fi"}      # privacy/terms exist in these languages
 DELETE_LANGS = {"en", "sv", "de"}
+REDEEM_LANGS = set(REDEEM)                        # "redeem a code" page (en, sv, de, nl)
 
 def esc(s): return html.escape(s, quote=True)
 
@@ -462,12 +467,40 @@ def build_help(lang):
                f'<p><a class="btn" href="{P(lang, "support")}">{esc(help_text(lang, "faqContactButton"))}</a></p></section>')
     body = f"""<div class="wrap narrow page">
 <h1>{esc(help_text(lang, "faqRow"))}</h1>
-<p class="lede">{esc(ui["help_intro"])}</p>
+<p class="lede">{esc(ui["help_intro"])}</p>{redeem_pointer(lang)}
 {sections}
 {contact}
 </div>"""
     jl = [{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": qa}]
     add(lang, "help", P(lang, "help"), ui["help_title"], ui["help_desc"], body, jsonld=jl)
+
+# ------------------------------------------------------------------ redeem
+def redeem_path(lang):
+    return P(lang, REDEEM[lang]["slug"])
+
+def redeem_pointer(lang):
+    """One line on the help and support pages that leads to the redeem page."""
+    if lang not in REDEEM_LANGS: return ""
+    r = REDEEM[lang]
+    return f'<p class="help-pointer">{esc(r["pointer"])} <a href="{redeem_path(lang)}">{esc(r["h1"])}</a>.</p>'
+
+def build_redeem(lang):
+    """How to redeem an offer code (iPhone and Android). Not in the main nav;
+    linked from the help and support pages. No Apple redemption URLs here."""
+    r, ui = REDEEM[lang], UI[lang]
+    steps = lambda items, first="": "<ol>" + "".join(
+        f"<li>{t}{first if i == 0 else ''}</li>" for i, t in enumerate(items)) + "</ol>"
+    badge = f'<p>{store_button(lang, " small", position="code")}</p>'
+    email = f'<a href="mailto:{C.SUPPORT_EMAIL}?subject=K%C3%B6rlogg%20code">{C.SUPPORT_EMAIL}</a>'
+    support = f'<a href="{P(lang, "support")}">{esc(ui["support"])}</a>'
+    inner = (f'<h1>{esc(r["h1"])}</h1>\n<p class="lede">{esc(r["lede"])}</p>\n'
+             f'<h2>iPhone</h2>\n{steps(r["ios"], badge)}\n'
+             f'<h2>Android</h2>\n{steps(r["android"])}\n'
+             f'<h2>{esc(r["after_h"])}</h2>\n' + "".join(f"<p>{t}</p>" for t in r["after"]) + "\n"
+             f'<p class="note">{r["contact"].format(email=email, support=support)}</p>')
+    jl = [breadcrumb(lang, [("Körlogg", P(lang, "home")), (r["h1"], redeem_path(lang))])]
+    add(lang, "code", redeem_path(lang), r["title"], r["desc"],
+        f'<div class="wrap narrow page"><article class="card legal">{inner}</article></div>', jsonld=jl)
 
 # ------------------------------------------------------------------ support
 def contact_block(lang):
@@ -482,10 +515,10 @@ def build_support(lang):
     src = SRC / "legal" / lang / "support.html"
     if src.exists():
         inner = placeholders(src.read_text(), lang).replace("{{contact}}", contact_block(lang))
-        inner = inner.replace("</h1>", f'</h1>\n<p class="help-pointer">{esc(ui["support_help"])} <a href="{P(lang, "help")}">{esc(ui["help"])}</a>.</p>', 1)
+        inner = inner.replace("</h1>", f'</h1>\n<p class="help-pointer">{esc(ui["support_help"])} <a href="{P(lang, "help")}">{esc(ui["help"])}</a>.</p>{redeem_pointer(lang)}', 1)
     else:
         inner = (f'<h1>{esc(ui["support_title"].split(" – ")[0])}</h1>{contact_block(lang)}'
-                 f'<p>{esc(ui["support_help"])} <a href="{P(lang, "help")}">{esc(ui["help"])}</a>.</p>'
+                 f'<p>{esc(ui["support_help"])} <a href="{P(lang, "help")}">{esc(ui["help"])}</a>.</p>{redeem_pointer(lang)}'
                  f'<ul><li><a href="{P(lang if lang in LEGAL_LANGS else "en", "privacy")}">{esc(ui["privacy"])}</a></li>'
                  f'<li><a href="{P(lang if lang in LEGAL_LANGS else "en", "terms")}">{esc(ui["terms"])}</a></li>'
                  f'<li><a href="{P("en", "delete-data")}">{esc(ui["delete"])}</a></li></ul>')
@@ -592,6 +625,7 @@ def main():
         build_home(lang); build_help(lang); build_support(lang)
         build_legal(lang, "privacy"); build_legal(lang, "terms")
         if lang in DELETE_LANGS: build_legal(lang, "delete-data")
+        if lang in REDEEM_LANGS: build_redeem(lang)
     build_guides(); build_404()
     for pg in PAGES:
         write(pg["path"], layout(pg))
