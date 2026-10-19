@@ -35,7 +35,7 @@ TELEMETRYDECK_APP_ID = "22120ED7-73AC-47F1-8E16-CAF4203EE530"
 PLAY_PACKAGE = "se.mobix.korlogg"
 PLAY_RELEASED = False
 
-# Real App Store reviews shown on the home pages ("What drivers say"), newest first.
+# Real App Store reviews shown on the home pages ("What users say"), newest first.
 # Copy each one verbatim from App Store Connect / the store, in its own language;
 # never edit, translate or shorten the reviewer's words. `country` is the App Store
 # country code, `date` the day Apple shows. No review JSON-LD (self-serving reviews

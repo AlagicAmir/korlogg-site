@@ -495,14 +495,14 @@ def qr_block(lang):
             f'<span>{esc(UI[lang]["qr_note"])}</span></a>')
 
 REVIEW_TEXT = {   # heading, "App Store <country>", months
-    "en": ("What drivers say", "App Store {c}", "January February March April May June July August September October November December"),
-    "sv": ("Det säger förarna", "App Store {c}", "januari februari mars april maj juni juli augusti september oktober november december"),
-    "de": ("Das sagen Fahrer", "App Store {c}", "Januar Februar März April Mai Juni Juli August September Oktober November Dezember"),
-    "da": ("Det siger bilisterne", "App Store {c}", "januar februar marts april maj juni juli august september oktober november december"),
-    "no": ("Dette sier sjåførene", "App Store {c}", "januar februar mars april mai juni juli august september oktober november desember"),
-    "nl": ("Wat bestuurders zeggen", "App Store {c}", "januari februari maart april mei juni juli augustus september oktober november december"),
-    "fi": ("Kuljettajat kertovat", "App Store, {c}", "tammikuu helmikuu maaliskuu huhtikuu toukokuu kesäkuu heinäkuu elokuu syyskuu lokakuu marraskuu joulukuu"),
-    "pl": ("Co mówią kierowcy", "App Store {c}", "styczeń luty marzec kwiecień maj czerwiec lipiec sierpień wrzesień październik listopad grudzień"),
+    "en": ("What users say", "App Store {c}", "January February March April May June July August September October November December"),
+    "sv": ("Det säger användarna", "App Store {c}", "januari februari mars april maj juni juli augusti september oktober november december"),
+    "de": ("Das sagen Nutzer", "App Store {c}", "Januar Februar März April Mai Juni Juli August September Oktober November Dezember"),
+    "da": ("Det siger brugerne", "App Store {c}", "januar februar marts april maj juni juli august september oktober november december"),
+    "no": ("Dette sier brukerne", "App Store {c}", "januar februar mars april mai juni juli august september oktober november desember"),
+    "nl": ("Wat gebruikers zeggen", "App Store {c}", "januari februari maart april mei juni juli augustus september oktober november december"),
+    "fi": ("Käyttäjät kertovat", "App Store, {c}", "tammikuu helmikuu maaliskuu huhtikuu toukokuu kesäkuu heinäkuu elokuu syyskuu lokakuu marraskuu joulukuu"),
+    "pl": ("Co mówią użytkownicy", "App Store {c}", "styczeń luty marzec kwiecień maj czerwiec lipiec sierpień wrzesień październik listopad grudzień"),
 }
 REVIEW_COUNTRY = {   # App Store country names per site language
     "at": {"en": "Austria", "sv": "Österrike", "de": "Österreich", "da": "Østrig", "no": "Østerrike",
