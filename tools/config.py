@@ -29,3 +29,8 @@ SUPPORT_EMAIL_LIVE = True
 # app "korlogg.com", namespace se.avelan. Page views come from TelemetryDeck's
 # Web SDK; App Store badge clicks from assets/stats.js.
 TELEMETRYDECK_APP_ID = "22120ED7-73AC-47F1-8E16-CAF4203EE530"
+
+# Körlogg for Android (Google Play). Guides show their Play link ({{play}}…{{/play}})
+# only when this is True. Flip it the day the Play listing is live.
+PLAY_PACKAGE = "se.mobix.korlogg"
+PLAY_RELEASED = False

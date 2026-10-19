@@ -17,7 +17,10 @@ from content import LANGS, UI, HOME, HELP_LANG, BEACON_SHOTS, BEACON_HERO_SHOT, 
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 SRC = ROOT / "src"
-TODAY = date.today().isoformat()
+# The build date. Guides with a later `<!-- publish: YYYY-MM-DD -->` are left out
+# entirely (no page, no index entry, no sitemap, no hreflang) until that day;
+# `--as-of YYYY-MM-DD` builds the site as it will look on another day (preview only).
+TODAY = (sys.argv[sys.argv.index("--as-of") + 1] if "--as-of" in sys.argv else date.today().isoformat())
 GENERATED = [l["prefix"].strip("/") for k, l in LANGS.items() if k != "en"] + \
             ["help", "support", "privacy", "terms", "delete-data", "guides", "code"]
 
@@ -54,6 +57,7 @@ GUIDES = {   # file stem -> (lang, path, cluster)
     "sv-korjournal-enskild-firma": ("sv", "/se/guider/korjournal-enskild-firma/", None),
     "de-fahrtenbuch-oder-1-prozent": ("de", "/de/ratgeber/fahrtenbuch-oder-1-prozent-regelung/", None),
     "de-kilometerpauschale-2026": ("de", "/de/ratgeber/kilometerpauschale-2026/", None),
+    "de-fahrtenbuch-vorlage-oder-app": ("de", "/de/ratgeber/fahrtenbuch-vorlage-oder-app/", None),
 }
 GUIDE_INDEX = {"en": "/guides/", "sv": "/se/guider/", "de": "/de/ratgeber/", "nl": "/nl/gidsen/"}
 LEGAL_LANGS = {"en", "sv", "de", "nl", "fi"}      # privacy/terms exist in these languages
@@ -228,11 +232,32 @@ def breadcrumb(lang, items):
             "itemListElement": [{"@type": "ListItem", "position": i + 1, "name": n, "item": C.SITE + u}
                                 for i, (n, u) in enumerate(items)]}
 
-def read_guide(stem):
-    raw = (SRC / "guides" / f"{stem}.html").read_text()
+def _parse_guide(path):
+    raw = path.read_text()
     meta = dict(re.findall(r"<!-- (\w+): (.*?) -->", raw))
     body = re.sub(r"<!-- \w+: .*? -->\n?", "", raw)
     return meta, body
+
+def read_guide(stem):
+    """The version of a guide that is live on TODAY. `src/guides/<stem>.html` is the
+    guide; a queued rewrite of a live guide sits next to it as `<stem>@YYYY-MM-DD.html`
+    with the same `publish` date and replaces it from that day (same URL)."""
+    meta, body = _parse_guide(SRC / "guides" / f"{stem}.html")
+    for rev in sorted((SRC / "guides").glob(f"{stem}@*.html")):
+        m, b = _parse_guide(rev)
+        if m.get("publish", rev.stem.split("@")[1]) <= TODAY:
+            meta, body = m, b
+    return meta, body
+
+def is_live(stem):
+    """False until the guide's own publish date (a guide without one is live)."""
+    return _parse_guide(SRC / "guides" / f"{stem}.html")[0].get("publish", "") <= TODAY
+
+def play_url(lang, campaign=None):
+    """Google Play listing; the campaign goes into the install referrer (utm_campaign)."""
+    hl = {"en": "en_GB", "sv": "sv", "de": "de", "nl": "nl", "da": "da", "no": "no", "fi": "fi", "pl": "pl"}[lang]
+    ref = f"&referrer=utm_source%3Dkorlogg.com%26utm_medium%3Dweb%26utm_campaign%3D{campaign}" if campaign else ""
+    return f"https://play.google.com/store/apps/details?id={C.PLAY_PACKAGE}&hl={hl}{ref}"
 
 def alts(lang):
     h = HOME[lang]
@@ -365,7 +390,7 @@ def build_home(lang):
     if lang in GUIDE_INDEX:
         items = ""
         for stem, (l, path, _) in GUIDES.items():
-            if l != lang: continue
+            if l != lang or not is_live(stem): continue
             meta, _b = read_guide(stem)
             items += f'<li class="card link-card"><a href="{path}"><h3>{re.search(r"<h1>(.*?)</h1>", _b).group(1)}</h3><p>{esc(meta["description"])}</p></a></li>'
         guides = f"""<div class="guides-block">
@@ -555,11 +580,15 @@ def build_legal(lang, page):
 # ------------------------------------------------------------------- guides
 def build_guides():
     for stem, (lang, path, cluster) in GUIDES.items():
+        if not is_live(stem): continue
         meta, body = read_guide(stem)
         body = placeholders(body, lang)
         # a guide may name its own App Store campaign (guide_<slug>); {{store}} in the text links with it
         campaign = meta.get("campaign")
         body = body.replace("{{store}}", esc(store_url(lang, campaign)))
+        # {{play}} … {{/play}}: the Google Play link, shown only once the Android app is live
+        body = body.replace("{{playurl}}", esc(play_url(lang, campaign)))
+        body = re.sub(r"(?s)\{\{play\}\}(.*?)\{\{/play\}\}", r"\1" if C.PLAY_RELEASED else "", body)
         badge = f'<p class="badge">{esc(v2_label(lang))}</p>' if meta.get("v2") == "true" else ""
         h1 = re.search(r"<h1>(.*?)</h1>", body).group(1)
         crumbs = f'<nav class="crumbs" aria-label="Breadcrumb"><a href="{P(lang, "home")}">Körlogg</a> › <a href="{GUIDE_INDEX[lang]}">{esc(UI[lang]["guides"])}</a></nav>'
@@ -583,7 +612,7 @@ def build_guides():
         ui = UI[lang]
         items = ""
         for stem, (l, p, _) in GUIDES.items():
-            if l != lang: continue
+            if l != lang or not is_live(stem): continue
             meta, _b = read_guide(stem)
             h1 = re.search(r"<h1>(.*?)</h1>", _b).group(1)
             items += f'<li class="card link-card"><a href="{p}"><h2>{h1}</h2><p>{esc(meta["description"])}</p></a></li>'

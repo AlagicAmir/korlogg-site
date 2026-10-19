@@ -1,0 +1,62 @@
+# Builds korlogg.com and deploys it to GitHub Pages.
+#
+# Runs on every push to main, on Tuesdays and Fridays at 05:00 UTC (07:00 in
+# Stockholm in summer, 06:00 in winter – always before 07:00 local), and by hand.
+# tools/build.py leaves out every guide whose `<!-- publish: YYYY-MM-DD -->` is
+# later than the build day, so a scheduled run is what makes a queued guide go
+# live. See docs/CONTENT_QUEUE.md.
+#
+# Only the built site is uploaded (src/, tools/, docs/ are not), so a queued
+# guide is not reachable on korlogg.com before its day.
+#
+# Needs Settings → Pages → Build and deployment → Source = "GitHub Actions"
+# (once; until then Pages keeps serving the main branch as before).
+name: Publish site
+
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: "0 5 * * 2,5"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Build (today's date decides which guides are live)
+        run: python3 tools/build.py
+      - name: Check links
+        run: python3 tools/check.py
+      - name: Collect the public files
+        run: |
+          mkdir _site
+          rsync -a ./ _site/ \
+            --exclude '.git*' --exclude '_site' --exclude 'src' --exclude 'tools' \
+            --exclude 'docs' --exclude '.chrome_tmp' --exclude 'README.md' --exclude '.DS_Store'
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
