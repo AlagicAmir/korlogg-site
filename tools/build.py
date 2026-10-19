@@ -423,7 +423,7 @@ def build_home(lang):
 <p class="hero-note">{esc(ui["platform"])}</p>{play_line(lang, f"web_{lang}_mid")}
 </div>
 </section>"""
-    body = hero + whosec + money + features + report + mid + shots + beacon + privacy + pro + helpsec + cta
+    body = hero + whosec + money + features + report + reviews_block(lang) + mid + shots + beacon + privacy + pro + helpsec + cta
     add(lang, "home", P(lang, "home"), h["title"], h["desc"], body, jsonld=[app_jsonld(lang), home_faq_jsonld(lang)], main_class="home")
     base = f"/assets/hero/{lang}"
     PAGES[-1]["head"] = (f'<link rel="preload" as="image" href="{base}-360.webp" imagesrcset="{base}-360.webp 360w, {base}-720.webp 720w" '
@@ -493,6 +493,42 @@ def qr_block(lang):
     return (f'<a class="qr" href="{esc(store_url(lang, f"web_{lang}_qr"))}" data-position="qr">'
             f'<img src="/assets/qr/{lang}.svg" width="96" height="96" alt="" loading="lazy">'
             f'<span>{esc(UI[lang]["qr_note"])}</span></a>')
+
+REVIEW_TEXT = {   # heading, "App Store <country>", months
+    "en": ("What drivers say", "App Store {c}", "January February March April May June July August September October November December"),
+    "sv": ("Det säger förarna", "App Store {c}", "januari februari mars april maj juni juli augusti september oktober november december"),
+    "de": ("Das sagen Fahrer", "App Store {c}", "Januar Februar März April Mai Juni Juli August September Oktober November Dezember"),
+    "da": ("Det siger bilisterne", "App Store {c}", "januar februar marts april maj juni juli august september oktober november december"),
+    "no": ("Dette sier sjåførene", "App Store {c}", "januar februar mars april mai juni juli august september oktober november desember"),
+    "nl": ("Wat bestuurders zeggen", "App Store {c}", "januari februari maart april mei juni juli augustus september oktober november december"),
+    "fi": ("Kuljettajat kertovat", "App Store, {c}", "tammikuu helmikuu maaliskuu huhtikuu toukokuu kesäkuu heinäkuu elokuu syyskuu lokakuu marraskuu joulukuu"),
+    "pl": ("Co mówią kierowcy", "App Store {c}", "styczeń luty marzec kwiecień maj czerwiec lipiec sierpień wrzesień październik listopad grudzień"),
+}
+REVIEW_COUNTRY = {   # App Store country names per site language
+    "at": {"en": "Austria", "sv": "Österrike", "de": "Österreich", "da": "Østrig", "no": "Østerrike",
+           "nl": "Oostenrijk", "fi": "Itävalta", "pl": "Austria"},
+}
+
+def reviews_block(lang):
+    """Real App Store reviews (config.REVIEWS), quoted verbatim in their own language,
+    with a localised source line. Empty when there are none."""
+    if not C.REVIEWS: return ""
+    h2, store, months = REVIEW_TEXT[lang]
+    items = ""
+    for r in C.REVIEWS:
+        y, m, _d = r["date"].split("-")
+        when = f'{months.split()[int(m) - 1]} {y}'
+        stars = "★" * r["rating"] + "☆" * (5 - r["rating"])
+        src = f'{stars} – {esc(r["author"])}, {esc(store.format(c=REVIEW_COUNTRY[r["country"]][lang]))}, <time datetime="{r["date"]}">{esc(when)}</time>'
+        items += (f'<li><figure class="review"><blockquote lang="{r["lang"]}"><p class="review-title">{esc(r["title"])}</p>'
+                  f'<p>{esc(r["text"])}</p></blockquote><figcaption><span class="stars" aria-label="{r["rating"]}/5">{stars}</span>'
+                  f'{src[len(stars):]}</figcaption></figure></li>')
+    return f"""<section class="section reviews">
+<div class="wrap narrow">
+<h2 class="center">{esc(h2)}</h2>
+<ul class="review-list" role="list">{items}</ul>
+</div>
+</section>"""
 
 def play_line(lang, campaign):
     """Google Play link, only once the Android app is live (config.PLAY_RELEASED)."""

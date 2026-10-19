@@ -225,3 +225,12 @@ thead th{font-size:14px;color:var(--muted);font-weight:600}
 }
 .section.mid-cta{padding:8px 0 56px}
 .mid-cta .hero-note{margin:12px 0 0}
+/* "What drivers say": real App Store reviews, quoted verbatim */
+.section.reviews{padding-bottom:24px}
+.review-list{list-style:none;margin:0;padding:0;display:grid;gap:16px}
+.review{margin:0;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:24px 26px;box-shadow:var(--shadow)}
+.review blockquote{margin:0}
+.review blockquote p{margin:0 0 .6em;font-size:17px;line-height:1.55}
+.review .review-title{font-weight:700}
+.review figcaption{font-size:14px;color:var(--muted)}
+.review .stars{color:#f5a623;letter-spacing:.06em}

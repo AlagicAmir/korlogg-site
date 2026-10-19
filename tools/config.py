@@ -34,3 +34,16 @@ TELEMETRYDECK_APP_ID = "22120ED7-73AC-47F1-8E16-CAF4203EE530"
 # only when this is True. Flip it the day the Play listing is live.
 PLAY_PACKAGE = "se.mobix.korlogg"
 PLAY_RELEASED = False
+
+# Real App Store reviews shown on the home pages ("What drivers say"), newest first.
+# Copy each one verbatim from App Store Connect / the store, in its own language;
+# never edit, translate or shorten the reviewer's words. `country` is the App Store
+# country code, `date` the day Apple shows. No review JSON-LD (self-serving reviews
+# are not eligible for rich results).
+REVIEWS = [
+    dict(author="bösches501", country="at", rating=5, date="2026-10-08", lang="en",
+         title="Fantastic!",
+         text="Great app for company car drivers in Austria! Easy to use, affordable compared to "
+              "alternatives, and the developer really listens to user feedback. Looking forward to "
+              "the new beacon feature. Highly recommended! 👍"),
+]
