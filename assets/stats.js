@@ -28,7 +28,7 @@
   }
 
   document.addEventListener("click", function (e) {
-    var a = e.target && e.target.closest ? e.target.closest("a.store-badge") : null;
+    var a = e.target && e.target.closest ? e.target.closest("a.store-badge, a[data-position]") : null;
     if (!a) return;
     send("AppStoreBadge.clicked", { language: lang, path: location.pathname, position: a.getAttribute("data-position") || "other" });
   }, true);

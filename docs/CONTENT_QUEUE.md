@@ -66,3 +66,11 @@ Slots from Fri 30 Oct to Tue 22 Dec 2026. AT = Austria-specific (Kilometergeld
 | Tue 15 Dec | landlord mileage claim | fahrtenbuch jahreswechsel kilometerstand | NL: rittenregistratie zzp |
 | Fri 18 Dec | hmrc mileage rates 2027/28 (update when published) | fahrtenbuch für 2027 vorbereiten | DK: kørebog app |
 | Tue 22 Dec | year-end mileage checklist (tax year ends 5 April) | kilometerpauschale 2027 (update) | SE: körjournal årsskifte |
+
+## Planned pages (later, approved 2026-10-19; not scheduled yet)
+
+| Page | Languages | Notes |
+|---|---|---|
+| Feature: iBeacon per car | en, sv, de (then nl) | How a beacon picks the car; links to the existing "Which iBeacon" guides |
+| Feature: the PDF/Excel report, with a sample | en, sv, de (then nl) | Downloadable sample PDF made from demo data, one per country format; the "What the exported log contains" table |
+| Criteria comparison: "Fahrtenbuch-Apps im Vergleich: worauf es ankommt" | de first, then sv, en, nl | Criteria, not brands (no competitor named, per docs/competitor-notes.md): edits shown in the export, delete vs cancel, odometer read vs calculated, 7-day rule, commute category, account needed, where data is stored, export formats, iBeacon, price model |

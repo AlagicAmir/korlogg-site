@@ -176,9 +176,9 @@ def layout(pg):
 <link rel="manifest" href="/site.webmanifest">
 <link rel="stylesheet" href="/assets/site.css?v={CSS_VERSION}">
 <link rel="preconnect" href="https://nom.telemetrydeck.com" crossorigin>
-<script src="https://cdn.telemetrydeck.com/websdk/telemetrydeck.min.js" data-app-id="{C.TELEMETRYDECK_APP_ID}"></script>
+<script src="https://cdn.telemetrydeck.com/websdk/telemetrydeck.min.js" data-app-id="{C.TELEMETRYDECK_APP_ID}" defer></script>
 <script src="/assets/stats.js?v={STATS_VERSION}" defer></script>
-{jsonld}</head>
+{pg.get("head", "")}{jsonld}</head>
 <body>
 <a class="skip" href="#main">{esc(ui["skip"])}</a>
 <header class="site-header">
@@ -190,6 +190,7 @@ def layout(pg):
 {guides_link}
 <a href="{P(lang, "support")}">{esc(ui["nav_support"])}</a>
 </nav>
+<a class="get-app" href="{esc(store_url(lang, f"web_{lang}_header"))}" data-position="header">{esc(ui["get_app"])}</a>
 <details class="lang">
 <summary aria-label="{esc(ui["lang_label"])}"><svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18"><path fill="none" stroke="currentColor" stroke-width="1.8" d="M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zm-9 9h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></svg><span>{lang.upper()}</span></summary>
 <ul>{items}</ul>
@@ -273,9 +274,9 @@ def gallery(lang):
 # --------------------------------------------------------------------- home
 def device(lang, alt, eager=True):
     base = f"/assets/hero/{lang}"
-    load = 'fetchpriority="high"' if eager else 'loading="lazy"'
+    load = 'fetchpriority="high" decoding="sync"' if eager else 'loading="lazy" decoding="async"'
     return (f'<div class="device"><img src="{base}-360.webp" srcset="{base}-360.webp 360w, {base}-720.webp 720w" '
-            f'sizes="(min-width: 900px) 340px, 72vw" width="360" height="782" alt="{esc(alt)}" {load} decoding="async"></div>')
+            f'sizes="(min-width: 900px) 340px, 72vw" width="360" height="782" alt="{esc(alt)}" {load}></div>')
 
 ICON_CLOCK = '<svg aria-hidden="true" viewBox="0 0 24 24" width="28" height="28"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 7v5l3.5 2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>'
 ICON_COIN = '<svg aria-hidden="true" viewBox="0 0 24 24" width="28" height="28"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="5.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M12 9.5v5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>'
@@ -302,7 +303,7 @@ def build_home(lang):
 <div class="hero-text">
 <h1>{esc(tx["h1"])}</h1>
 <p class="lede">{esc(tx["lede"])}</p>
-<div class="cta-row">{store_button(lang, dark_bg=True, position="hero")}</div>
+<div class="cta-row">{store_button(lang, dark_bg=True, position="hero")}{qr_block(lang)}</div>
 <p class="hero-note">{esc(ui["platform"])}</p>
 {at}
 </div>
@@ -416,8 +417,17 @@ def build_home(lang):
 <p class="hero-note">{esc(ui["platform"])}</p>
 </div>
 </section>"""
-    body = hero + whosec + money + features + report + shots + beacon + privacy + pro + helpsec + cta
-    add(lang, "home", P(lang, "home"), h["title"], h["desc"], body, jsonld=[app_jsonld(lang)], main_class="home")
+    mid = f"""<section class="section mid-cta">
+<div class="wrap narrow center">
+{store_button(lang, position="mid")}
+<p class="hero-note">{esc(ui["platform"])}</p>{play_line(lang, f"web_{lang}_mid")}
+</div>
+</section>"""
+    body = hero + whosec + money + features + report + mid + shots + beacon + privacy + pro + helpsec + cta
+    add(lang, "home", P(lang, "home"), h["title"], h["desc"], body, jsonld=[app_jsonld(lang), home_faq_jsonld(lang)], main_class="home")
+    base = f"/assets/hero/{lang}"
+    PAGES[-1]["head"] = (f'<link rel="preload" as="image" href="{base}-360.webp" imagesrcset="{base}-360.webp 360w, {base}-720.webp 720w" '
+                         f'imagesizes="(min-width: 900px) 340px, 72vw" fetchpriority="high">\n')
 
 def build_report_table(lang):
     """What the exported log contains – the facts, not a promise (en/sv/de)."""
@@ -470,8 +480,27 @@ def help_text(lang, key):
         t = t.replace("Skatteverket frågar efter", "Skatteverket frågar efter")
     return t
 
+HOME_FAQ_KEYS = ["faqStartHow", "faqOdoHow", "faqStartMissed", "faqProWhat", "faqPrivacyWhere", "faqProCancel"]
+
+def home_faq_jsonld(lang):
+    """FAQPage for the home page: exactly the questions and answers shown in its FAQ."""
+    return {"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": LANGS[lang]["html"],
+            "mainEntity": [{"@type": "Question", "name": help_text(lang, k + "Q"),
+                            "acceptedAnswer": {"@type": "Answer", "text": help_text(lang, k + "A")}} for k in HOME_FAQ_KEYS]}
+
+def qr_block(lang):
+    """QR code to the App Store, beside the hero badge; CSS shows it on desktop widths only."""
+    return (f'<a class="qr" href="{esc(store_url(lang, f"web_{lang}_qr"))}" data-position="qr">'
+            f'<img src="/assets/qr/{lang}.svg" width="96" height="96" alt="" loading="lazy">'
+            f'<span>{esc(UI[lang]["qr_note"])}</span></a>')
+
+def play_line(lang, campaign):
+    """Google Play link, only once the Android app is live (config.PLAY_RELEASED)."""
+    if not C.PLAY_RELEASED: return ""
+    return f'<p><a class="more" href="{esc(play_url(lang, campaign))}">Google Play →</a></p>'
+
 def build_home_faq(lang):
-    keys = ["faqStartHow", "faqOdoHow", "faqStartMissed", "faqProWhat", "faqPrivacyWhere", "faqProCancel"]
+    keys = HOME_FAQ_KEYS
     return '<div class="faq">' + "".join(
         f'<details><summary>{esc(help_text(lang, k + "Q"))}</summary><p>{esc(help_text(lang, k + "A"))}</p></details>'
         for k in keys) + "</div>"

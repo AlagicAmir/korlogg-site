@@ -28,7 +28,7 @@ BEACON_HERO_SHOT = {"pl": 3}   # default 2
 UI = {
     "en": dict(
         skip="Skip to content", nav_features="Features", nav_help="Help", nav_guides="Guides", nav_support="Support",
-        lang_label="Language", store_btn="Download on the App Store",
+        lang_label="Language", store_btn="Download on the App Store", get_app="Get the app", qr_note="Scan with your iPhone camera to open Körlogg on the App Store",
         platform="For iPhone and iPad. An Android version is in development.",
         v2_pending="New in Körlogg 2.0 · coming soon", v2_released="New in Körlogg 2.0 · available now",
         privacy="Privacy Policy", terms="Terms of Use", support="Support", help="Help and FAQ", delete="Request data deletion",
@@ -57,7 +57,7 @@ UI = {
     ),
     "sv": dict(
         skip="Hoppa till innehållet", nav_features="Funktioner", nav_help="Hjälp", nav_guides="Guider", nav_support="Support",
-        lang_label="Språk", store_btn="Hämta i App Store",
+        lang_label="Språk", store_btn="Hämta i App Store", get_app="Hämta appen", qr_note="Skanna med iPhonens kamera för att öppna Körlogg i App Store",
         platform="För iPhone och iPad. En Android-version är under utveckling.",
         v2_pending="Nytt i Körlogg 2.0 · kommer snart", v2_released="Nytt i Körlogg 2.0 · finns nu",
         privacy="Integritetspolicy", terms="Användarvillkor", support="Support", help="Hjälp och vanliga frågor", delete="Begär radering av data",
@@ -86,7 +86,7 @@ UI = {
     ),
     "de": dict(
         skip="Zum Inhalt springen", nav_features="Funktionen", nav_help="Hilfe", nav_guides="Ratgeber", nav_support="Support",
-        lang_label="Sprache", store_btn="Laden im App Store",
+        lang_label="Sprache", store_btn="Laden im App Store", get_app="App laden", qr_note="Mit der iPhone-Kamera scannen und Körlogg im App Store öffnen",
         platform="Für iPhone und iPad. Eine Android-Version ist in Entwicklung.",
         v2_pending="Neu in Körlogg 2.0 · demnächst", v2_released="Neu in Körlogg 2.0 · jetzt verfügbar",
         privacy="Datenschutz", terms="Nutzungsbedingungen", support="Support", help="Hilfe und häufige Fragen", delete="Löschung von Daten anfordern",
@@ -115,7 +115,7 @@ UI = {
     ),
     "da": dict(
         skip="Gå til indholdet", nav_features="Funktioner", nav_help="Hjælp", nav_guides="Guides", nav_support="Support",
-        lang_label="Sprog", store_btn="Hent i App Store",
+        lang_label="Sprog", store_btn="Hent i App Store", get_app="Hent appen", qr_note="Scan med iPhonens kamera for at åbne Körlogg i App Store",
         platform="Til iPhone og iPad. En Android-version er under udvikling.",
         v2_pending="Nyt i Körlogg 2.0 · kommer snart", v2_released="Nyt i Körlogg 2.0 · fås nu",
         privacy="Privatlivspolitik", terms="Vilkår", support="Support", help="Hjælp og ofte stillede spørgsmål", delete="Anmod om sletning af data",
@@ -139,7 +139,7 @@ UI = {
     ),
     "no": dict(
         skip="Gå til innholdet", nav_features="Funksjoner", nav_help="Hjelp", nav_guides="Guider", nav_support="Support",
-        lang_label="Språk", store_btn="Last ned fra App Store",
+        lang_label="Språk", store_btn="Last ned fra App Store", get_app="Last ned appen", qr_note="Skann med iPhone-kameraet for å åpne Körlogg i App Store",
         platform="For iPhone og iPad. En Android-versjon er under utvikling.",
         v2_pending="Nytt i Körlogg 2.0 · kommer snart", v2_released="Nytt i Körlogg 2.0 · tilgjengelig nå",
         privacy="Personvern", terms="Vilkår", support="Support", help="Hjelp og vanlige spørsmål", delete="Be om sletting av data",
@@ -163,7 +163,7 @@ UI = {
     ),
     "nl": dict(
         skip="Naar de inhoud", nav_features="Functies", nav_help="Hulp", nav_guides="Gidsen", nav_support="Support",
-        lang_label="Taal", store_btn="Download in de App Store",
+        lang_label="Taal", store_btn="Download in de App Store", get_app="Download de app", qr_note="Scan met de camera van je iPhone om Körlogg in de App Store te openen",
         platform="Voor iPhone en iPad. Een Android-versie is in ontwikkeling.",
         v2_pending="Nieuw in Körlogg 2.0 · binnenkort", v2_released="Nieuw in Körlogg 2.0 · nu beschikbaar",
         privacy="Privacybeleid", terms="Gebruiksvoorwaarden", support="Support", help="Hulp en veelgestelde vragen", delete="Verwijdering van gegevens aanvragen",
@@ -191,7 +191,7 @@ UI = {
     ),
     "fi": dict(
         skip="Siirry sisältöön", nav_features="Ominaisuudet", nav_help="Ohjeet", nav_guides="Oppaat", nav_support="Tuki",
-        lang_label="Kieli", store_btn="Lataa App Storesta",
+        lang_label="Kieli", store_btn="Lataa App Storesta", get_app="Lataa sovellus", qr_note="Skannaa iPhonen kameralla ja avaa Körlogg App Storessa",
         platform="iPhonelle ja iPadille. Android-versio on kehitteillä.",
         v2_pending="Uutta Körlogg 2.0:ssa · tulossa pian", v2_released="Uutta Körlogg 2.0:ssa · saatavilla nyt",
         privacy="Tietosuojakäytäntö", terms="Käyttöehdot", support="Tuki", help="Ohjeet ja usein kysytyt kysymykset", delete="Pyydä tietojen poistamista",
@@ -215,7 +215,7 @@ UI = {
     ),
     "pl": dict(
         skip="Przejdź do treści", nav_features="Funkcje", nav_help="Pomoc", nav_guides="Poradniki", nav_support="Wsparcie",
-        lang_label="Język", store_btn="Pobierz z App Store",
+        lang_label="Język", store_btn="Pobierz z App Store", get_app="Pobierz aplikację", qr_note="Zeskanuj aparatem iPhone’a, aby otworzyć Körlogg w App Store",
         platform="Na iPhone’a i iPada. Wersja na Androida jest w przygotowaniu.",
         v2_pending="Nowość w Körlogg 2.0 · wkrótce", v2_released="Nowość w Körlogg 2.0 · już dostępna",
         privacy="Polityka prywatności", terms="Warunki korzystania", support="Wsparcie", help="Pomoc i częste pytania", delete="Wniosek o usunięcie danych",
