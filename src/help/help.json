@@ -56,6 +56,7 @@
     "faqProWhat",
     "faqProTrial",
     "faqProRestore",
+    "faqProInvoice",
     "faqProCancel"
    ]
   },
@@ -147,7 +148,9 @@
    "faqPrivacyICloudQ": "Vad gör synk via iCloud?",
    "faqPrivacyICloudA": "Med Pro kan du slå på synk under Inställningar. Resor, fordon, mätarställningar, platser och fasta rutter sparas då även i ditt eget privata iCloud och syns på dina andra enheter med samma Apple-ID. Körlogg kan inte läsa dem. Stänger du av synk ligger allt kvar på telefonen.",
    "faqContactTitle": "Har du fler frågor?",
-   "faqContactButton": "Mejla supporten"
+   "faqContactButton": "Mejla supporten",
+   "faqProInvoiceQ": "Jag behöver ett kvitto till företaget.",
+   "faqProInvoiceA": "Körlogg Pro köps via App Store, så Apple är säljaren och skickar kvittot till e-postadressen för ditt Apple-ID efter varje betalning. Alla kvitton finns också på reportaproblem.apple.com och under Inställningar › ditt namn › Medier och köp › Visa konto › Köphistorik. Vill du betala med företagets kort lägger du in det under Inställningar › ditt namn › Betalning och leverans, med företagets fakturaadress. Vi kan inte utfärda en egen faktura, eftersom betalningen inte går via oss."
   },
   "en": {
    "faqBeaconSettingsQ": "Which settings control automatic logging?",
@@ -227,7 +230,9 @@
    "faqPrivacyICloudQ": "What does iCloud sync do?",
    "faqPrivacyICloudA": "With Pro you can turn on sync under Settings. Trips, vehicles, odometer readings, places and preset routes are then also kept in your own private iCloud and appear on your other devices with the same Apple ID. Körlogg cannot read them. If you turn sync off, everything stays on the phone.",
    "faqContactTitle": "Still have a question?",
-   "faqContactButton": "Email support"
+   "faqContactButton": "Email support",
+   "faqProInvoiceQ": "I need an invoice for my company.",
+   "faqProInvoiceA": "Körlogg Pro is bought through the App Store, so Apple is the seller and emails a receipt to your Apple ID's address after every payment. You also find all receipts at reportaproblem.apple.com and under Settings › your name › Media & Purchases › View Account › Purchase History. To pay with a company card, add it under Settings › your name › Payment & Shipping, with your company's billing address. We can't issue our own invoice, because the payment doesn't go through us."
   },
   "da": {
    "faqBeaconSettingsQ": "Hvilke indstillinger styrer den automatiske registrering?",
@@ -307,7 +312,9 @@
    "faqPrivacyICloudQ": "Hvad gør synkronisering via iCloud?",
    "faqPrivacyICloudA": "Med Pro kan du slå synkronisering til under Indstillinger. Ture, køretøjer, kilometerstande, steder og faste ruter gemmes så også i din egen private iCloud og vises på dine andre enheder med samme Apple-id. Körlogg kan ikke læse dem. Slår du synkronisering fra, bliver alt liggende på telefonen.",
    "faqContactTitle": "Har du flere spørgsmål?",
-   "faqContactButton": "Skriv til support"
+   "faqContactButton": "Skriv til support",
+   "faqProInvoiceQ": "Jeg skal bruge en faktura til firmaet.",
+   "faqProInvoiceA": "Körlogg Pro købes via App Store, så Apple er sælgeren og sender kvitteringen til e-mailadressen for dit Apple-id efter hver betaling. Du finder også alle kvitteringer på reportaproblem.apple.com og under Indstillinger › dit navn › Medier og køb › Vis konto › Købshistorik. Vil du betale med firmaets kort, tilføjer du det under Indstillinger › dit navn › Betaling og levering, med firmaets faktureringsadresse. Vi kan ikke udstede vores egen faktura, fordi betalingen ikke går gennem os."
   },
   "nb": {
    "faqBeaconSettingsQ": "Hvilke innstillinger styrer den automatiske registreringen?",
@@ -387,7 +394,9 @@
    "faqPrivacyICloudQ": "Hva gjør synkronisering via iCloud?",
    "faqPrivacyICloudA": "Med Pro kan du slå på synkronisering under Innstillinger. Turer, kjøretøy, kilometerstander, steder og faste ruter lagres da også i din egen private iCloud og vises på de andre enhetene dine med samme Apple-ID. Körlogg kan ikke lese dem. Slår du av synkronisering, ligger alt fortsatt på telefonen.",
    "faqContactTitle": "Har du flere spørsmål?",
-   "faqContactButton": "Skriv til kundestøtte"
+   "faqContactButton": "Skriv til kundestøtte",
+   "faqProInvoiceQ": "Jeg trenger en faktura til firmaet.",
+   "faqProInvoiceA": "Körlogg Pro kjøpes via App Store, så Apple er selgeren og sender kvitteringen til e-postadressen for Apple-ID-en din etter hver betaling. Du finner også alle kvitteringer på reportaproblem.apple.com og under Innstillinger › navnet ditt › Medier og kjøp › Vis konto › Kjøpshistorikk. Vil du betale med firmakortet, legger du det inn under Innstillinger › navnet ditt › Betaling og frakt, med firmaets fakturaadresse. Vi kan ikke utstede en egen faktura, fordi betalingen ikke går via oss."
   },
   "de": {
    "faqBeaconSettingsQ": "Welche Einstellungen steuern die automatische Aufzeichnung?",
@@ -467,7 +476,9 @@
    "faqPrivacyICloudQ": "Was macht die Synchronisierung über iCloud?",
    "faqPrivacyICloudA": "Mit Pro können Sie die Synchronisierung in den Einstellungen einschalten. Fahrten, Fahrzeuge, Kilometerstände, Orte und feste Routen werden dann auch in Ihrer eigenen privaten iCloud gespeichert und erscheinen auf Ihren anderen Geräten mit derselben Apple-ID. Körlogg kann sie nicht lesen. Schalten Sie die Synchronisierung aus, bleibt alles auf dem iPhone.",
    "faqContactTitle": "Noch eine Frage?",
-   "faqContactButton": "E-Mail an den Support"
+   "faqContactButton": "E-Mail an den Support",
+   "faqProInvoiceQ": "Ich brauche eine Rechnung für mein Unternehmen.",
+   "faqProInvoiceA": "Körlogg Pro wird über den App Store gekauft. Verkäufer ist daher Apple, und Apple schickt nach jeder Zahlung einen Beleg an die E-Mail-Adresse Ihrer Apple-ID. Alle Belege finden Sie auch unter reportaproblem.apple.com und unter Einstellungen › Ihr Name › Medien & Käufe › Account anzeigen › Kaufverlauf. Möchten Sie mit der Firmenkarte bezahlen, hinterlegen Sie sie unter Einstellungen › Ihr Name › Zahlung & Versand, mit der Rechnungsadresse Ihres Unternehmens. Eine eigene Rechnung können wir nicht ausstellen, da die Zahlung nicht über uns läuft."
   },
   "nl": {
    "faqBeaconSettingsQ": "Welke instellingen bepalen het automatisch vastleggen?",
@@ -547,7 +558,9 @@
    "faqPrivacyICloudQ": "Wat doet synchronisatie via iCloud?",
    "faqPrivacyICloudA": "Met Pro zet je synchronisatie aan bij Instellingen. Ritten, voertuigen, kilometerstanden, plaatsen en vaste routes worden dan ook bewaard in je eigen privé-iCloud en verschijnen op je andere apparaten met dezelfde Apple ID. Körlogg kan ze niet lezen. Zet je synchronisatie uit, dan blijft alles op je telefoon.",
    "faqContactTitle": "Nog een vraag?",
-   "faqContactButton": "Mail de support"
+   "faqContactButton": "Mail de support",
+   "faqProInvoiceQ": "Ik heb een factuur nodig voor mijn bedrijf.",
+   "faqProInvoiceA": "Körlogg Pro koop je via de App Store, dus Apple is de verkoper en stuurt na elke betaling een aankoopbewijs naar het e-mailadres van je Apple ID. Alle aankoopbewijzen vind je ook op reportaproblem.apple.com en onder Instellingen › je naam › Media en aankopen › Toon account › Aankoopgeschiedenis. Wil je met de zakelijke kaart betalen, voeg die dan toe onder Instellingen › je naam › Betaling en verzending, met het factuuradres van je bedrijf. Een eigen factuur kunnen we niet maken, omdat de betaling niet via ons loopt."
   },
   "fi": {
    "faqBeaconSettingsQ": "Mitkä asetukset ohjaavat automaattista kirjausta?",
@@ -627,7 +640,9 @@
    "faqPrivacyICloudQ": "Mitä iCloud-synkronointi tekee?",
    "faqPrivacyICloudA": "Prolla voit ottaa synkronoinnin käyttöön Asetuksissa. Ajot, ajoneuvot, mittarilukemat, paikat ja tallennetut reitit tallentuvat silloin myös omaan yksityiseen iCloudiisi ja näkyvät muilla laitteillasi samalla Apple ID:llä. Körlogg ei voi lukea niitä. Jos poistat synkronoinnin käytöstä, kaikki jää puhelimeen.",
    "faqContactTitle": "Vielä kysyttävää?",
-   "faqContactButton": "Lähetä sähköpostia tukeen"
+   "faqContactButton": "Lähetä sähköpostia tukeen",
+   "faqProInvoiceQ": "Tarvitsen laskun yritykselle.",
+   "faqProInvoiceA": "Körlogg Pro ostetaan App Storesta, joten myyjä on Apple, joka lähettää kuitin Apple ID:si sähköpostiosoitteeseen jokaisen maksun jälkeen. Kaikki kuitit löydät myös osoitteesta reportaproblem.apple.com ja kohdasta Asetukset › nimesi › Media ja ostot › Näytä tili › Ostohistoria. Jos haluat maksaa yrityksen kortilla, lisää se kohdassa Asetukset › nimesi › Maksu ja toimitus yrityksen laskutusosoitteella. Emme voi laatia omaa laskua, koska maksu ei kulje kauttamme."
   },
   "pl": {
    "faqBeaconSettingsQ": "Które ustawienia sterują automatycznym zapisywaniem?",
@@ -707,7 +722,9 @@
    "faqPrivacyICloudQ": "Co daje synchronizacja przez iCloud?",
    "faqPrivacyICloudA": "Z Pro możesz włączyć synchronizację w Ustawieniach. Przejazdy, pojazdy, stany licznika, miejsca i gotowe trasy są wtedy przechowywane także w twoim prywatnym iCloud i pojawiają się na innych urządzeniach z tym samym Apple ID. Körlogg nie może ich odczytać. Po wyłączeniu synchronizacji wszystko zostaje na telefonie.",
    "faqContactTitle": "Masz jeszcze pytanie?",
-   "faqContactButton": "Napisz do pomocy technicznej"
+   "faqContactButton": "Napisz do pomocy technicznej",
+   "faqProInvoiceQ": "Potrzebuję faktury dla firmy.",
+   "faqProInvoiceA": "Körlogg Pro kupuje się w App Store, więc sprzedawcą jest Apple, które po każdej płatności wysyła potwierdzenie na adres e-mail Twojego Apple ID. Wszystkie potwierdzenia znajdziesz też na reportaproblem.apple.com oraz w Ustawieniach › Twoje imię › Multimedia i zakupy › Pokaż konto › Historia zakupów. Aby płacić kartą firmową, dodaj ją w Ustawieniach › Twoje imię › Płatności i wysyłka, z adresem rozliczeniowym firmy. Nie możemy wystawić własnej faktury, ponieważ płatność nie przechodzi przez nas."
   }
  }
 }
