@@ -152,7 +152,8 @@ def layout(pg):
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{esc(pg["title"])}</title>
 <meta name="description" content="{esc(pg["desc"])}">
-{robots}<link rel="canonical" href="{C.SITE}{pg["canonical"]}">
+{robots}<meta name="msvalidate.01" content="5FF1FF39E13E2AFE59F82628C0224226">
+<link rel="canonical" href="{C.SITE}{pg["canonical"]}">
 {alts}<meta name="apple-itunes-app" content="app-id={C.APP_ID}">
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#1669d9" media="(prefers-color-scheme: light)">
