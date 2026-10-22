@@ -3,7 +3,7 @@
 > Körlogg is an automatic mileage log app (driving log; Swedish körjournal, German Fahrtenbuch, Dutch rittenregistratie, Danish kørebog, Norwegian kjørebok, Finnish ajopäiväkirja, Polish ewidencja przebiegu pojazdu). It records car trips by itself; the driver swipes each trip business or private and exports a log with date, start and end address, distance, purpose and odometer readings as PDF or Excel.
 
 Key facts:
-- Platforms: iPhone and iPad (App Store).
+- Platforms: iPhone and iPad (App Store) and Android (Google Play).
 - Country rules and mileage rates built in for the United Kingdom, Sweden, Denmark, Norway, Finland, Germany, Austria, the Netherlands and Poland.
 - App languages: Swedish, English, Danish, Norwegian, German, Dutch, Finnish and Polish.
 - Privacy: no account and no Körlogg server. Trips stay on the phone, or in the user's own iCloud if they turn on sync. No ads.

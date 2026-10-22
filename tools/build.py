@@ -88,6 +88,17 @@ def badge_width(lang):
         BADGE_W[lang] = float(re.search(r'width="([0-9.]+)"', svg).group(1))
     return BADGE_W[lang]
 
+PLAY_BADGE = {"en": "en", "sv": "sv", "de": "de", "nl": "nl", "da": "da", "no": "no", "fi": "fi", "pl": "pl"}
+
+def play_button(lang, extra="", position="other"):
+    """Google's official localized Play badge (transparent margin trimmed), shown once
+    the Android app is live (config.PLAY_RELEASED). Same height as the App Store badge."""
+    if not C.PLAY_RELEASED: return ""
+    h = 44 if "small" in extra else 54
+    w = round(646 * h / 192) if lang != "en" else round(564 * h / 168)
+    return (f'<a class="store-badge{extra}" href="{esc(play_url(lang, f"web_{lang}_play_{position}"))}" data-position="play_{position}">'
+            f'<img src="/assets/badges/play-{PLAY_BADGE[lang]}.png" width="{w}" height="{h}" alt="Google Play"></a>')
+
 def store_button(lang, extra="", dark_bg=False, position="other", campaign=None):
     """Apple's official localized badge, unmodified. Black on light backgrounds, white
     in dark mode; always black on the blue hero (dark_bg=False keeps black)."""
@@ -308,7 +319,7 @@ def build_home(lang):
 <div class="hero-text">
 <h1>{esc(tx["h1"])}</h1>
 <p class="lede">{esc(tx["lede"])}</p>
-<div class="cta-row">{store_button(lang, dark_bg=True, position="hero")}{qr_block(lang)}</div>
+<div class="cta-row"><span class="badges">{store_button(lang, dark_bg=True, position="hero")}{play_button(lang, position="hero")}</span>{qr_block(lang)}</div>
 <p class="hero-note">{esc(ui["platform"])}</p>
 {at}
 </div>
@@ -418,14 +429,14 @@ def build_home(lang):
 <div class="wrap narrow center">
 <h2>{esc(h["cta_h2"])}</h2>
 <p>{esc(h["cta_text"])}</p>
-{store_button(lang, position="end")}
+<p class="badges">{store_button(lang, position="end")}{play_button(lang, position="end")}</p>
 <p class="hero-note">{esc(ui["platform"])}</p>
 </div>
 </section>"""
     mid = f"""<section class="section mid-cta">
 <div class="wrap narrow center">
-{store_button(lang, position="mid")}
-<p class="hero-note">{esc(ui["platform"])}</p>{play_line(lang, f"web_{lang}_mid")}
+<p class="badges">{store_button(lang, position="mid")}{play_button(lang, position="mid")}</p>
+<p class="hero-note">{esc(ui["platform"])}</p>
 </div>
 </section>"""
     body = hero + whosec + money + features + report + reviews_block(lang) + mid + shots + beacon + privacy + pro + helpsec + cta
@@ -534,11 +545,6 @@ def reviews_block(lang):
 <ul class="review-list" role="list">{items}</ul>
 </div>
 </section>"""
-
-def play_line(lang, campaign):
-    """Google Play link, only once the Android app is live (config.PLAY_RELEASED)."""
-    if not C.PLAY_RELEASED: return ""
-    return f'<p><a class="more" href="{esc(play_url(lang, campaign))}">Google Play →</a></p>'
 
 def build_home_faq(lang):
     keys = HOME_FAQ_KEYS

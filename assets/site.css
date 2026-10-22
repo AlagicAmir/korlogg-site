@@ -222,6 +222,7 @@ thead th{font-size:14px;color:var(--muted);font-weight:600}
 .get-app:hover{filter:brightness(1.08)}
 .get-app:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
 @media (max-width:440px){.nav a:last-child{display:none}.get-app{padding:8px 11px;font-size:13.5px}}
+.badges{display:inline-flex;flex-wrap:wrap;align-items:center;gap:14px 20px}
 .cta-row{display:flex;align-items:center;gap:28px;flex-wrap:wrap}
 .qr{display:none}
 @media (min-width:900px) and (hover:hover){

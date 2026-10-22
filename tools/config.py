@@ -33,7 +33,7 @@ TELEMETRYDECK_APP_ID = "22120ED7-73AC-47F1-8E16-CAF4203EE530"
 # Körlogg for Android (Google Play). Guides show their Play link ({{play}}…{{/play}})
 # only when this is True. Flip it the day the Play listing is live.
 PLAY_PACKAGE = "se.mobix.korlogg"
-PLAY_RELEASED = False
+PLAY_RELEASED = True
 
 # Real App Store reviews shown on the home pages ("What users say"), newest first.
 # Copy each one verbatim from App Store Connect / the store, in its own language;
