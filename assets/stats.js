@@ -1,4 +1,4 @@
-/* korlogg.com – App Store badge clicks to TelemetryDeck. No cookies, no storage:
+/* korlogg.com – App Store / Google Play badge clicks to TelemetryDeck. No cookies, no storage:
    one random id per page load, hashed, never kept. Page views are sent by
    TelemetryDeck's Web SDK. Fire and forget; navigation is never delayed. */
 (function () {
@@ -25,6 +25,17 @@
                         headers: { "Content-Type": "application/json" }, body: JSON.stringify([body]) })
         .catch(function () {});
     } catch (e) {}
+  }
+
+  // Android visitors: links with data-play (the header "Get the app") go to Google Play.
+  if (/Android/i.test(navigator.userAgent)) {
+    var swap = function () {
+      Array.prototype.forEach.call(document.querySelectorAll("a[data-play]"), function (a) {
+        a.href = a.getAttribute("data-play");
+        a.setAttribute("data-position", a.getAttribute("data-position") + "_play");
+      });
+    };
+    if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", swap); else swap();
   }
 
   document.addEventListener("click", function (e) {

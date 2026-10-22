@@ -99,6 +99,10 @@ def play_button(lang, extra="", position="other"):
     return (f'<a class="store-badge{extra}" href="{esc(play_url(lang, f"web_{lang}_play_{position}"))}" data-position="play_{position}">'
             f'<img src="/assets/badges/play-{PLAY_BADGE[lang]}.png" width="{w}" height="{h}" alt="Google Play"></a>')
 
+def play_attr(lang, position):
+    """data-play on a store link: stats.js points it at Google Play for Android visitors."""
+    return f' data-play="{esc(play_url(lang, f"web_{lang}_play_{position}"))}"' if C.PLAY_RELEASED else ""
+
 def store_button(lang, extra="", dark_bg=False, position="other", campaign=None):
     """Apple's official localized badge, unmodified. Black on light backgrounds, white
     in dark mode; always black on the blue hero (dark_bg=False keeps black)."""
@@ -206,7 +210,7 @@ def layout(pg):
 {guides_link}
 <a href="{P(lang, "support")}">{esc(ui["nav_support"])}</a>
 </nav>
-<a class="get-app" href="{esc(store_url(lang, f"web_{lang}_header"))}" data-position="header">{esc(ui["get_app"])}</a>
+<a class="get-app" href="{esc(store_url(lang, f"web_{lang}_header"))}" data-position="header"{play_attr(lang, "header")}>{esc(ui["get_app"])}</a>
 <details class="lang">
 <summary aria-label="{esc(ui["lang_label"])}"><svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18"><path fill="none" stroke="currentColor" stroke-width="1.8" d="M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zm-9 9h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></svg><span>{lang.upper()}</span></summary>
 <ul>{items}</ul>
