@@ -4,4 +4,20 @@ Disallow: /src/
 Disallow: /tools/
 Disallow: /docs/
 
+User-agent: GPTBot
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: ClaudeBot
+User-agent: Claude-SearchBot
+User-agent: Claude-User
+User-agent: Google-Extended
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+User-agent: Applebot-Extended
+User-agent: xAI-Bot
+Allow: /
+Disallow: /src/
+Disallow: /tools/
+Disallow: /docs/
+
 Sitemap: https://korlogg.com/sitemap.xml

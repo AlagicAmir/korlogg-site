@@ -140,11 +140,13 @@ thead th{font-size:14px;color:var(--muted);font-weight:600}
 
 /* faq */
 .faq details{border-bottom:1px solid var(--line)}
-.faq summary{cursor:pointer;list-style:none;padding:14px 32px 14px 0;font-weight:600;position:relative}
+.faq summary{cursor:pointer;list-style:none;padding:14px 32px 14px 0;font-weight:650;font-size:1.12rem;color:var(--link);position:relative}
+.faq summary:hover{text-decoration:underline}
+.faq details[open] summary{color:var(--ink)}
 .faq summary::-webkit-details-marker{display:none}
 .faq summary::after{content:"";position:absolute;right:6px;top:22px;width:9px;height:9px;border-right:2px solid var(--muted);border-bottom:2px solid var(--muted);transform:rotate(45deg);transition:transform .15s}
 .faq details[open] summary::after{transform:rotate(-135deg);top:26px}
-.faq details p{margin:0 0 16px;color:var(--muted)}
+.faq details p{margin:0 0 16px;color:var(--ink)}
 .help-topic{margin:36px 0}
 .help-topic h2{font-size:23px;margin-bottom:.2em}
 .contact{margin-top:40px}

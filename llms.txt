@@ -1,0 +1,82 @@
+# Körlogg
+
+> Körlogg is an automatic mileage log app (driving log; Swedish körjournal, German Fahrtenbuch, Dutch rittenregistratie, Danish kørebog, Norwegian kjørebok, Finnish ajopäiväkirja, Polish ewidencja przebiegu pojazdu). It records car trips by itself; the driver swipes each trip business or private and exports a log with date, start and end address, distance, purpose and odometer readings as PDF or Excel.
+
+Key facts:
+- Platforms: iPhone and iPad (App Store).
+- Country rules and mileage rates built in for the United Kingdom, Sweden, Denmark, Norway, Finland, Germany, Austria, the Netherlands and Poland.
+- App languages: Swedish, English, Danish, Norwegian, German, Dutch, Finnish and Polish.
+- Privacy: no account and no Körlogg server. Trips stay on the phone, or in the user's own iCloud if they turn on sync. No ads.
+- Free download with unlimited automatic logging. Körlogg Pro (subscription or one-time purchase) adds PDF and Excel export, several cars and drivers, the mileage allowance and odometer check, preset routes, iCloud sync and Bluetooth beacon logging.
+- Not affiliated with any tax authority; the log contains the details the tax authorities list for a mileage log in each country.
+- Made in Sweden by Amir Alagic.
+- App Store: https://apps.apple.com/gb/app/id6809322275
+
+## English
+
+- [Körlogg – automatic mileage log for taxes and allowances](https://korlogg.com/): Körlogg logs your car trips automatically. Swipe business or private, then export a mileage log with date, addresses, purpose and odometer. No account.
+- [Körlogg Help and FAQ – answers from the app](https://korlogg.com/help/): How automatic logging, cars, the Bluetooth beacon, odometer readings, reports, Körlogg Pro and privacy work – the same answers as in the app.
+- [Körlogg Support – contact and common problems](https://korlogg.com/support/): Contact Körlogg support by email and find answers to common questions about missed trips, distance, battery, subscriptions and privacy.
+- [Körlogg guides – mileage logs, beacons and tax rules](https://korlogg.com/guides/): Practical guides for keeping a mileage log: HMRC records, approved mileage rates and commuting in the UK, and which iBeacon to buy for Körlogg.
+- [Commuting vs business mileage: HMRC's rules explained](https://korlogg.com/guides/commuting-vs-business-mileage/): Ordinary commuting is private for HMRC; trips to a temporary workplace can be business. The 24-month and 40% rules, with HMRC's own examples.
+- [What HMRC needs in a business mileage log (UK, 2026)](https://korlogg.com/guides/hmrc-mileage-log/): What to record for each business journey, how long to keep a mileage log, and how the rules differ for employees and the self-employed – with GOV.UK sources.
+- [HMRC approved mileage rates 2026/27: 55p and 25p explained](https://korlogg.com/guides/hmrc-mileage-rates-2026-27/): From 6 April 2026 HMRC's approved rate for cars is 55p a mile for the first 10,000 business miles, then 25p. Worked examples and Mileage Allowance Relief.
+- [Which iBeacon should I buy for Körlogg? A buyer's guide](https://korlogg.com/guides/which-ibeacon/): Any standard iBeacon works with Körlogg. What to look for, which brands are found automatically, why AirTag and Tile don't work, and what a beacon costs.
+
+## Svenska
+
+- [Körlogg – automatisk körjournal för förmånsbil och milersättning](https://korlogg.com/se/): Körlogg loggar dina bilresor automatiskt. Svep tjänst eller privat och exportera körjournalen med de uppgifter Skatteverket frågar efter. Inget konto.
+- [Körlogg hjälp och vanliga frågor – svaren från appen](https://korlogg.com/se/help/): Så fungerar automatisk loggning, bilar, Bluetooth-beacon, mätarställning, rapporter, Körlogg Pro och integritet – samma svar som i appen.
+- [Körlogg support – kontakt och vanliga problem](https://korlogg.com/se/support/): Kontakta Körloggs support via e-post och hitta svar om missade resor, sträcka, batteri, prenumerationer och integritet.
+- [Guider om körjournal, förmånsbil och beacon – Körlogg](https://korlogg.com/se/guider/): Guider om vad en körjournal ska innehålla, automatisk körjournal, körjournal för enskild firma, förmånsbil i ringa omfattning och vilken iBeacon som passar Körlogg.
+- [Automatisk körjournal – så fungerar det i mobilen](https://korlogg.com/se/guider/automatisk-korjournal/): Så loggar en automatisk körjournal resor med mobilens rörelsesensor och GPS, vad Skatteverket vill se, för- och nackdelar mot papper och teknikens gränser.
+- [Förmånsbil och privat körning i ringa omfattning](https://korlogg.com/se/guider/formansbil-privat-korning-ringa-omfattning/): Högst 10 tillfällen och högst 100 mil per år – så fungerar ringa omfattning för förmånsbil, vad som räknas som privat och hur du visar det med körjournal.
+- [Körjournal för enskild firma – egen bil eller firmabil](https://korlogg.com/se/guider/korjournal-enskild-firma/): När du med enskild firma behöver körjournal: egen bil med 25 kr per mil, bil i firman och ringa privat körning, vad du ska skriva och hur länge du sparar den.
+- [Vad ska en körjournal innehålla? Skatteverkets lista](https://korlogg.com/se/guider/vad-ska-en-korjournal-innehalla/): Vilka uppgifter Skatteverket rekommenderar i en körjournal, när du behöver en, hur länge du sparar den och milersättningen för 2026: 25, 12 och 9,50 kr/mil.
+- [Vilken iBeacon ska jag köpa till Körlogg? – guide](https://korlogg.com/se/guider/vilken-ibeacon/): Alla vanliga iBeacon-beacons fungerar med Körlogg. Vad du ska titta efter, vilka märken som hittas automatiskt, varför AirTag inte fungerar och vad det kostar.
+
+## Deutsch
+
+- [Körlogg – Fahrtenbuch-App fürs Finanzamt, automatisch geführt](https://korlogg.com/de/): Körlogg zeichnet Ihre Fahrten automatisch auf. Dienstlich oder privat per Wischen, Export mit allen Angaben fürs Fahrtenbuch. Für Deutschland und Österreich.
+- [Körlogg Hilfe und häufige Fragen – die Antworten aus der App](https://korlogg.com/de/help/): So funktionieren automatische Aufzeichnung, Fahrzeuge, Bluetooth-Beacon, Kilometerstand, Bericht, Körlogg Pro und Datenschutz – dieselben Antworten wie in der App.
+- [Körlogg Support – Kontakt und häufige Probleme](https://korlogg.com/de/support/): Kontaktieren Sie den Körlogg-Support per E-Mail und finden Sie Antworten zu fehlenden Fahrten, Strecke, Akku, Abos und Datenschutz.
+- [Ratgeber Fahrtenbuch, Sachbezug und Beacon – Körlogg](https://korlogg.com/de/ratgeber/): Ratgeber: Pflichtangaben im Fahrtenbuch, Fahrtenbuch oder 1-%-Regelung, Kilometerpauschale 2026, Fahrtenbuch in Österreich und welcher iBeacon zu Körlogg passt.
+- [Fahrtenbuch-Methode oder 1-%-Regelung? Vergleich mit Rechenbeispiel](https://korlogg.com/de/ratgeber/fahrtenbuch-oder-1-prozent-regelung/): 1-%-Regelung oder Fahrtenbuch beim Firmenwagen: wie beide Methoden funktionieren, wann sich das Fahrtenbuch lohnt und was BFH und Finanzverwaltung verlangen.
+- [Fahrtenbuch in Österreich: Sachbezug und Kilometergeld](https://korlogg.com/de/ratgeber/fahrtenbuch-oesterreich-sachbezug-kilometergeld/): Fahrtenbuch in Österreich 2026: Sachbezug fürs Firmenauto, halber Sachbezug bis 500 km im Monat, E-Autos ab 2027 und amtliches Kilometergeld 0,50 € je km.
+- [Kilometerpauschale 2026: 0,30 € Dienstreise, 0,38 € Arbeitsweg](https://korlogg.com/de/ratgeber/kilometerpauschale-2026/): 2026 gelten 0,30 € je km für Dienstreisen mit dem eigenen Pkw und 0,38 € Entfernungspauschale ab dem ersten Kilometer. Für Arbeitnehmer und Selbstständige.
+- [Was muss ein Fahrtenbuch enthalten? Pflichtangaben 2026](https://korlogg.com/de/ratgeber/was-muss-ein-fahrtenbuch-enthalten/): Welche Angaben ein Fahrtenbuch in Deutschland braucht: dienstliche und private Fahrten, elektronisches Fahrtenbuch, Folgen von Mängeln und 0,30 € je km.
+- [Welchen iBeacon für Körlogg kaufen? – Ratgeber](https://korlogg.com/de/ratgeber/welcher-ibeacon/): Jeder gängige iBeacon funktioniert mit Körlogg. Worauf Sie achten sollten, welche Marken automatisch gefunden werden, warum AirTag nicht geht und was ein Beacon kostet.
+
+## Dansk
+
+- [Körlogg – kørebog til skatten og kørselsgodtgørelse (iPhone)](https://korlogg.com/da/): Körlogg registrerer dine bilture automatisk. Stryg erhverv eller privat og eksportér kørebogen med dato, adresser, formål og kilometerstand. Intet login.
+- [Körlogg hjælp og ofte stillede spørgsmål](https://korlogg.com/da/help/): Sådan virker automatisk registrering, biler, Bluetooth-beacon, kilometerstand, rapporter, Körlogg Pro og privatliv – de samme svar som i appen.
+- [Körlogg support – kontakt og hjælp](https://korlogg.com/da/support/): Kontakt Körloggs support på e-mail. Svar på de fleste spørgsmål om kørebogen finder du under Hjælp.
+
+## Norsk
+
+- [Körlogg – kjørebok for skatten og kjøregodtgjørelse (iPhone)](https://korlogg.com/no/): Körlogg logger biltturene dine automatisk. Sveip jobb eller privat og eksporter kjøreboken med dato, adresser, formål og kilometerstand. Ingen innlogging.
+- [Körlogg hjelp og vanlige spørsmål](https://korlogg.com/no/help/): Slik fungerer automatisk logging, biler, Bluetooth-beacon, kilometerstand, rapporter, Körlogg Pro og personvern – de samme svarene som i appen.
+- [Körlogg support – kontakt og hjelp](https://korlogg.com/no/support/): Kontakt Körloggs support på e-post. Svar på de fleste spørsmål om kjøreboken finner du under Hjelp.
+
+## Nederlands
+
+- [Körlogg – rittenregistratie voor de Belastingdienst (iPhone)](https://korlogg.com/nl/): Körlogg legt je autoritten automatisch vast. Kies zakelijk, woon-werk of privé en exporteer je rittenregistratie met datum, adressen en kilometerstanden.
+- [Körlogg hulp en veelgestelde vragen](https://korlogg.com/nl/help/): Zo werken automatisch vastleggen, auto's, de Bluetooth-beacon, kilometerstanden, rapporten, Körlogg Pro en privacy – dezelfde antwoorden als in de app.
+- [Körlogg support – contact](https://korlogg.com/nl/support/): Neem per e-mail contact op met de support van Körlogg. Antwoord op de meeste vragen vind je bij Hulp.
+- [Gidsen over rittenregistratie, 500 km privé en kilometervergoeding](https://korlogg.com/nl/gidsen/): Gidsen met bronnen: wat er in een rittenregistratie moet, hoe je 500 km privé aantoont en wat de onbelaste kilometervergoeding in 2026 is.
+- [500 km privé met je auto van de zaak: hoe bewijs je het?](https://korlogg.com/nl/gidsen/500-km-prive-bewijzen/): Geen bijtelling als je maximaal 500 km per jaar privé rijdt – als je het kunt aantonen. Wat telt als privé, de Verklaring geen privégebruik en welk bewijs je nodig hebt.
+- [Kilometervergoeding 2026: € 0,25 per km onbelast](https://korlogg.com/nl/gidsen/kilometervergoeding-2026/): De onbelaste kilometervergoeding is in 2026 € 0,25 per km (was € 0,23 per km), met terugwerkende kracht. Voor werknemers, woon-werkverkeer en zzp'ers, met bronnen.
+- [Rittenregistratie: wat moet erin? De eisen van de Belastingdienst](https://korlogg.com/nl/gidsen/rittenregistratie-wat-moet-erin/): Welke gegevens de Belastingdienst per auto en per rit vraagt in een rittenregistratie: datum, kilometerstanden, adressen, route, zakelijk of privé en omrijkilometers.
+
+## Suomi
+
+- [Körlogg – ajopäiväkirja verotukseen ja kilometrikorvauksiin](https://korlogg.com/fi/): Körlogg kirjaa autoajosi automaattisesti. Pyyhkäise työ tai yksityinen ja vie ajopäiväkirja, jossa on päivämäärät, osoitteet, tarkoitus ja mittarilukemat.
+- [Körlogg – ohjeet ja usein kysytyt kysymykset](https://korlogg.com/fi/help/): Näin automaattinen kirjaus, autot, Bluetooth-beacon, mittarilukemat, raportit, Körlogg Pro ja tietosuoja toimivat – samat vastaukset kuin sovelluksessa.
+- [Körlogg-tuki – yhteystiedot](https://korlogg.com/fi/support/): Ota yhteyttä Körloggin tukeen sähköpostilla. Vastaukset useimpiin kysymyksiin löydät ohjeista.
+
+## Polski
+
+- [Körlogg – ewidencja przebiegu pojazdu do VAT i kilometrówki](https://korlogg.com/pl/): Körlogg zapisuje przejazdy automatycznie. Przesuń: służbowy czy prywatny, i wyeksportuj ewidencję przebiegu pojazdu z datą, trasą, celem i stanem licznika.
+- [Körlogg – pomoc i częste pytania](https://korlogg.com/pl/help/): Jak działa automatyczny zapis, samochody, beacon Bluetooth, stan licznika, raporty, Körlogg Pro i prywatność – te same odpowiedzi co w aplikacji.
+- [Körlogg – wsparcie i kontakt](https://korlogg.com/pl/support/): Napisz do wsparcia Körlogg. Odpowiedzi na większość pytań o ewidencję przebiegu znajdziesz w Pomocy.

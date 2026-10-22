@@ -612,8 +612,23 @@ def build_support(lang):
                  f'<ul><li><a href="{P(lang if lang in LEGAL_LANGS else "en", "privacy")}">{esc(ui["privacy"])}</a></li>'
                  f'<li><a href="{P(lang if lang in LEGAL_LANGS else "en", "terms")}">{esc(ui["terms"])}</a></li>'
                  f'<li><a href="{P("en", "delete-data")}">{esc(ui["delete"])}</a></li></ul>')
+    inner, qa = support_faq(inner)
+    jl = [{"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": LANGS[lang]["html"], "mainEntity": qa}] if qa else None
     add(lang, "support", P(lang, "support"), ui["support_title"], ui["support_desc"],
-        f'<div class="wrap narrow page"><article class="card legal">{inner}</article></div>')
+        f'<div class="wrap narrow page"><article class="card legal">{inner}</article></div>', jsonld=jl)
+
+def support_faq(inner):
+    """The support page's FAQ (<h3> question + <p> answer pairs after the first <h2>) as tap-to-open
+    <details>, the same pattern as the help page. Answers stay in the HTML, so search engines and
+    AI assistants still read them; returns the FAQPage entries for JSON-LD too."""
+    m = re.search(r"(?s)(<h2>[^<]*</h2>)\s*((?:<h3>.*?</h3>\s*<p>.*?</p>\s*)+)", inner)
+    if not m:
+        return inner, []
+    pairs = re.findall(r"(?s)<h3>(.*?)</h3>\s*<p>(.*?)</p>", m.group(2))
+    items = "".join(f"<details><summary>{q}</summary><p>{a}</p></details>" for q, a in pairs)
+    qa = [{"@type": "Question", "name": html.unescape(re.sub(r"<[^>]+>", "", q)),
+           "acceptedAnswer": {"@type": "Answer", "text": html.unescape(re.sub(r"<[^>]+>", "", a))}} for q, a in pairs]
+    return inner[:m.start(2)] + f'<div class="faq">{items}</div>\n' + inner[m.end(2):], qa
 
 # -------------------------------------------------------------------- legal
 def build_legal(lang, page):
@@ -737,8 +752,57 @@ def main():
         urls += f"<url><loc>{C.SITE}{pg['path']}</loc><lastmod>{TODAY}</lastmod>{alt}</url>\n"
     (ROOT / "sitemap.xml").write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" '
                                       'xmlns:xhtml="http://www.w3.org/1999/xhtml">\n' + urls + "</urlset>\n")
-    (ROOT / "robots.txt").write_text(f"User-agent: *\nAllow: /\nDisallow: /src/\nDisallow: /tools/\nDisallow: /docs/\n\nSitemap: {C.SITE}/sitemap.xml\n")
+    # AI assistants (ChatGPT, Claude, Gemini, Perplexity, Apple, Grok's fetcher) are welcome: the
+    # catch-all already allows them; naming them makes the choice explicit for their crawlers.
+    ai_bots = ["GPTBot", "OAI-SearchBot", "ChatGPT-User", "ClaudeBot", "Claude-SearchBot", "Claude-User",
+               "Google-Extended", "PerplexityBot", "Perplexity-User", "Applebot-Extended", "xAI-Bot"]
+    private = "Disallow: /src/\nDisallow: /tools/\nDisallow: /docs/\n"
+    (ROOT / "robots.txt").write_text(f"User-agent: *\nAllow: /\n{private}\n"
+                                     + "".join(f"User-agent: {b}\n" for b in ai_bots) + f"Allow: /\n{private}\n"
+                                     f"Sitemap: {C.SITE}/sitemap.xml\n")
+    write_llms_txt()
     print(f"{len(PAGES)} pages; 2.0 released: {C.KORLOGG_2_0_RELEASED}")
+
+def write_llms_txt():
+    """/llms.txt: a plain-text map of the site for AI assistants (llmstxt.org). Facts only, no claims
+    the app cannot back; the page list is generated from PAGES, so new guides appear by themselves."""
+    platforms = "iPhone and iPad (App Store) and Android (Google Play)" if C.PLAY_RELEASED else "iPhone and iPad (App Store)"
+    out = [
+        "# Körlogg",
+        "",
+        "> Körlogg is an automatic mileage log app (driving log; Swedish körjournal, German Fahrtenbuch, "
+        "Dutch rittenregistratie, Danish kørebog, Norwegian kjørebok, Finnish ajopäiväkirja, Polish "
+        "ewidencja przebiegu pojazdu). It records car trips by itself; the driver swipes each trip "
+        "business or private and exports a log with date, start and end address, distance, purpose and "
+        "odometer readings as PDF or Excel.",
+        "",
+        "Key facts:",
+        f"- Platforms: {platforms}.",
+        f"- Country rules and mileage rates built in for {COUNTRY_LIST['en']}.",
+        "- App languages: Swedish, English, Danish, Norwegian, German, Dutch, Finnish and Polish.",
+        "- Privacy: no account and no Körlogg server. Trips stay on the phone, or in the user's own iCloud "
+        "if they turn on sync. No ads.",
+        "- Free download with unlimited automatic logging. Körlogg Pro (subscription or one-time purchase) "
+        "adds PDF and Excel export, several cars and drivers, the mileage allowance and odometer check, "
+        "preset routes, iCloud sync and Bluetooth beacon logging.",
+        "- Not affiliated with any tax authority; the log contains the details the tax authorities list for "
+        "a mileage log in each country.",
+        "- Made in Sweden by Amir Alagic.",
+        f"- App Store: {store_url('en')}",
+        "",
+    ]
+    names = {"home": "Home", "help": "Help and FAQ", "support": "Support"}
+    for lang in LANGS:
+        pages = [p for p in PAGES if p["lang"] == lang and not p["noindex"] and p["path"] != "/404.html"
+                 and p["cluster"] not in ("privacy", "terms", "delete-data", "code")]
+        if not pages:
+            continue
+        out.append(f"## {LANGS[lang]['name']}")
+        out.append("")
+        for p in sorted(pages, key=lambda p: (p["cluster"] not in names, p["path"])):
+            out.append(f"- [{p['title']}]({C.SITE}{p['path']}): {p['desc']}")
+        out.append("")
+    (ROOT / "llms.txt").write_text("\n".join(out))
 
 CSS_VERSION = "0"
 STATS_VERSION = "0"
