@@ -47,3 +47,4 @@ REVIEWS = [
               "alternatives, and the developer really listens to user feedback. Looking forward to "
               "the new beacon feature. Highly recommended! 👍"),
 ]
+INDEXNOW_KEY = "9f1c02629638730410e41824c4d32468"   # IndexNow (Bing, Yandex, Seznam…): key file /9f1c02629638730410e41824c4d32468.txt in the repo root

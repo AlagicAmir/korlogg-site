@@ -60,3 +60,24 @@ jobs:
     steps:
       - id: deployment
         uses: actions/deploy-pages@v4
+
+  # Tells Bing (and the other IndexNow engines) which pages are new, once they are live.
+  # Push: pages whose built HTML changed in the push. Schedule: guides published today.
+  indexnow:
+    needs: deploy
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Ping IndexNow
+        run: |
+          if [ "${{ github.event_name }}" = "push" ] && git cat-file -e "${{ github.event.before }}" 2>/dev/null; then
+            python3 tools/indexnow.py --since "${{ github.event.before }}"
+          else
+            python3 tools/indexnow.py --published-today
+          fi
