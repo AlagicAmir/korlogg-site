@@ -394,7 +394,7 @@ def build_home(lang):
         for stem, (l, path, _) in GUIDES.items():
             if l != lang or not is_live(stem): continue
             meta, _b = read_guide(stem)
-            items += f'<li class="card link-card"><a href="{path}"><h3>{re.search(r"<h1>(.*?)</h1>", _b).group(1)}</h3><p>{esc(meta["description"])}</p></a></li>'
+            items += f'<li class="card link-card"><a href="{path}"><h3>{re.search(r"<h1>(.*?)</h1>", _b).group(1)}</h3><p>{esc(meta["description"])}</p><span class="more">{esc(UI[lang]["read_more"])} <span aria-hidden="true">→</span></span></a></li>'
         guides = f"""<div class="guides-block">
 <h2>{esc(h["guides_h2"])}</h2>
 <ul class="cards" role="list">{items}</ul>
@@ -686,6 +686,9 @@ def build_guides():
             qa = [{"@type": "Question", "name": plain(q), "acceptedAnswer": {"@type": "Answer", "text": plain(a)}}
                   for q, a in re.findall(r"(?s)<h3>(.*?)</h3>\s*<p>(.*?)</p>", faq.group(1))]
             jl.append({"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": qa})
+            # shown as tap-to-open questions, like the support and help pages (answers stay in the HTML)
+            items = re.sub(r"(?s)<h3>(.*?)</h3>\s*<p>(.*?)</p>", r"<details><summary>\1</summary><p>\2</p></details>", faq.group(1))
+            body = body[:faq.start(1)] + re.sub(r"(?s)(<h2>.*?</h2>)", r'\1<div class="faq">', items, count=1) + "</div>" + body[faq.end(1):]
         add(lang, cluster, path, meta["title"], meta["description"],
             f'<div class="wrap narrow page">{crumbs}{badge}<article class="guide">{body}</article>{cta}</div>',
             jsonld=jl)
@@ -696,7 +699,7 @@ def build_guides():
             if l != lang or not is_live(stem): continue
             meta, _b = read_guide(stem)
             h1 = re.search(r"<h1>(.*?)</h1>", _b).group(1)
-            items += f'<li class="card link-card"><a href="{p}"><h2>{h1}</h2><p>{esc(meta["description"])}</p></a></li>'
+            items += f'<li class="card link-card"><a href="{p}"><h2>{h1}</h2><p>{esc(meta["description"])}</p><span class="more">{esc(ui["read_more"])} <span aria-hidden="true">→</span></span></a></li>'
         others = " · ".join(f'<a href="{p}" hreflang="{LANGS[l]["hreflang"]}">{LANGS[l]["name"]}</a>' for l, p in GUIDE_INDEX.items() if l != lang)
         body = (f'<div class="wrap narrow page"><h1>{esc(ui["guides_h1"])}</h1><p class="lede">{esc(ui["guides_intro"])}</p>'
                 f'<ul class="cards one" role="list">{items}</ul><p class="muted">{esc(ui["other_lang_guides"])}: {others}</p></div>')
