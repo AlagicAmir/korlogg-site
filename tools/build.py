@@ -58,6 +58,10 @@ GUIDES = {   # file stem -> (lang, path, cluster)
     "de-fahrtenbuch-oder-1-prozent": ("de", "/de/ratgeber/fahrtenbuch-oder-1-prozent-regelung/", None),
     "de-kilometerpauschale-2026": ("de", "/de/ratgeber/kilometerpauschale-2026/", None),
     "de-fahrtenbuch-vorlage-oder-app": ("de", "/de/ratgeber/fahrtenbuch-vorlage-oder-app/", None),
+    "en-hmrc-mileage-log-template": ("en", "/guides/hmrc-mileage-log-template/", None),
+    "de-elektronisches-fahrtenbuch": ("de", "/de/ratgeber/elektronisches-fahrtenbuch-anforderungen/", None),
+    "nl-rittenregistratie-bijhouden": ("nl", "/nl/gidsen/rittenregistratie-bijhouden/", None),
+    "nl-zzp-zakelijke-kilometers": ("nl", "/nl/gidsen/zakelijke-kilometers-zzp/", None),
 }
 GUIDE_INDEX = {"en": "/guides/", "sv": "/se/guider/", "de": "/de/ratgeber/", "nl": "/nl/gidsen/"}
 LEGAL_LANGS = {"en", "sv", "de", "nl", "fi"}      # privacy/terms exist in these languages

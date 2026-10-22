@@ -40,6 +40,10 @@ Order: switch the source, then push.
 | Fri 2026-10-23 | UK | /guides/hmrc-mileage-log/ (rewrite) | en-hmrc-mileage-log@2026-10-23.html | hmrc mileage log |
 | Tue 2026-10-27 | DE | /de/ratgeber/was-muss-ein-fahrtenbuch-enthalten/ (rewrite) | de-fahrtenbuch-inhalt@2026-10-27.html | fahrtenbuch führen |
 | Tue 2026-10-27 | SE | /se/guider/vad-ska-en-korjournal-innehalla/ (rewrite) | sv-korjournal-innehall@2026-10-27.html | körjournal skatteverket |
+| Fri 2026-10-30 | UK | /guides/hmrc-mileage-log-template/ (new) | en-hmrc-mileage-log-template.html | hmrc mileage log template |
+| Fri 2026-10-30 | DE | /de/ratgeber/elektronisches-fahrtenbuch-anforderungen/ (new) | de-elektronisches-fahrtenbuch.html | elektronisches fahrtenbuch anforderungen |
+| Fri 2026-10-30 | NL | /nl/gidsen/rittenregistratie-bijhouden/ (new) | nl-rittenregistratie-bijhouden.html | rittenregistratie bijhouden |
+| Tue 2026-11-03 | NL | /nl/gidsen/zakelijke-kilometers-zzp/ (new, extra NL slot) | nl-zzp-zakelijke-kilometers.html | zakelijke kilometers zzp |
 
 If the push happens after a date above, that guide goes live with the push.
 
@@ -50,7 +54,6 @@ Slots from Fri 30 Oct to Tue 22 Dec 2026. AT = Austria-specific (Kilometergeld
 
 | Slot | UK | DE | Third |
 |---|---|---|---|
-| Fri 30 Oct | hmrc mileage log template | elektronisches fahrtenbuch anforderungen | NL: rittenregistratie bijhouden |
 | Tue 3 Nov | mileage allowance relief (claim the difference) | fahrtenbuch app | SE: körjournal mall |
 | Fri 6 Nov | self employed mileage claim (simplified expenses) | fahrtenbuch selbstständige | AT: kilometergeld 2026 |
 | Tue 10 Nov | mileage log app uk | fahrtenbuch nachträglich erstellen | NL: rittenregistratie app |
