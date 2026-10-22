@@ -8,3 +8,4 @@ Static site for Körlogg (plain HTML/CSS, no JS, no cookies). Served by GitHub P
 - Scheduled guides: `<!-- publish: YYYY-MM-DD -->`; deployed by `.github/workflows/publish.yml` (push + Tue/Fri 05:00 UTC). See `docs/CONTENT_QUEUE.md`.
 - Help/FAQ comes from the app: `python3 tools/extract_help.py <git-ref>`; images: `python3 tools/images.py`.
 - Screenshots of the home pages: serve with `python3 -m http.server 8766 --bind 127.0.0.1`, then `python3 tools/screens.py`.
+- Search engines: Google Search Console (alagic.se@gmail.com, domain property) and Bing Webmaster Tools (meta tag msvalidate.01) have the sitemap. IndexNow (`tools/indexnow.py`, key file in the root) pings Bing after every deploy: changed pages on push, new guides on their publish day. `--all` resubmits everything.
