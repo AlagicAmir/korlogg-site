@@ -62,6 +62,7 @@ GUIDES = {   # file stem -> (lang, path, cluster)
     "de-elektronisches-fahrtenbuch": ("de", "/de/ratgeber/elektronisches-fahrtenbuch-anforderungen/", None),
     "nl-rittenregistratie-bijhouden": ("nl", "/nl/gidsen/rittenregistratie-bijhouden/", None),
     "nl-zzp-zakelijke-kilometers": ("nl", "/nl/gidsen/zakelijke-kilometers-zzp/", None),
+    "nl-automatische-rittenregistratie": ("nl", "/nl/gidsen/automatische-rittenregistratie/", None),
 }
 GUIDE_INDEX = {"en": "/guides/", "sv": "/se/guider/", "de": "/de/ratgeber/", "nl": "/nl/gidsen/"}
 LEGAL_LANGS = {"en", "sv", "de", "nl", "fi"}      # privacy/terms exist in these languages
