@@ -44,6 +44,7 @@ Order: switch the source, then push.
 | Fri 2026-10-30 | DE | /de/ratgeber/elektronisches-fahrtenbuch-anforderungen/ (new) | de-elektronisches-fahrtenbuch.html | elektronisches fahrtenbuch anforderungen |
 | Fri 2026-10-30 | NL | /nl/gidsen/rittenregistratie-bijhouden/ (new) | nl-rittenregistratie-bijhouden.html | rittenregistratie bijhouden |
 | Tue 2026-11-03 | NL | /nl/gidsen/zakelijke-kilometers-zzp/ (new, extra NL slot) | nl-zzp-zakelijke-kilometers.html | zakelijke kilometers zzp |
+| Tue 2026-11-03 | SE | /se/guider/milersattning/ (new; Amir OK 2026-10-29) | sv-milersattning.html | milersättning 2026 / milersättning skatteverket |
 
 If the push happens after a date above, that guide goes live with the push.
 
