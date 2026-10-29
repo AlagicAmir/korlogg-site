@@ -13,7 +13,7 @@ from datetime import date
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 import config as C
-from content import LANGS, UI, HOME, HELP_LANG, BEACON_SHOTS, BEACON_HERO_SHOT, COUNTRY_LIST, TAX, STORE_LABEL, SOURCE_WORD, SAVE, REDEEM
+from content import LANGS, UI, HOME, HELP_LANG, ANDROID_HELP, BEACON_SHOTS, BEACON_HERO_SHOT, COUNTRY_LIST, TAX, STORE_LABEL, SOURCE_WORD, SAVE, REDEEM
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 SRC = ROOT / "src"
@@ -513,13 +513,29 @@ def help_text(lang, key):
         t = t.replace("Skatteverket frågar efter", "Skatteverket frågar efter")
     return t
 
+HELP_ANDROID = json.loads((SRC / "help/help_android.json").read_text())["strings"]
+
+def android_answer(lang, key):
+    """The Android paragraph for an iPhone-only answer, or "" (help_android.json, then content.ANDROID_HELP)."""
+    l = HELP_LANG.get(lang, lang)
+    return HELP_ANDROID.get(l, {}).get(key) or ANDROID_HELP.get(l, {}).get(key, "")
+
+def answer_html(lang, key):
+    a = f'<p>{esc(help_text(lang, key))}</p>'
+    android = android_answer(lang, key)
+    return a + (f'<p><strong>Android:</strong> {esc(android)}</p>' if android else "")
+
+def answer_text(lang, key):
+    android = android_answer(lang, key)
+    return help_text(lang, key) + (f" Android: {android}" if android else "")
+
 HOME_FAQ_KEYS = ["faqStartHow", "faqOdoHow", "faqStartMissed", "faqProWhat", "faqPrivacyWhere", "faqProCancel"]
 
 def home_faq_jsonld(lang):
     """FAQPage for the home page: exactly the questions and answers shown in its FAQ."""
     return {"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": LANGS[lang]["html"],
             "mainEntity": [{"@type": "Question", "name": help_text(lang, k + "Q"),
-                            "acceptedAnswer": {"@type": "Answer", "text": help_text(lang, k + "A")}} for k in HOME_FAQ_KEYS]}
+                            "acceptedAnswer": {"@type": "Answer", "text": answer_text(lang, k + "A")}} for k in HOME_FAQ_KEYS]}
 
 def qr_block(lang):
     """QR code to the App Store, beside the hero badge; CSS shows it on desktop widths only."""
@@ -566,7 +582,7 @@ def reviews_block(lang):
 def build_home_faq(lang):
     keys = HOME_FAQ_KEYS
     return '<div class="faq">' + "".join(
-        f'<details><summary>{esc(help_text(lang, k + "Q"))}</summary><p>{esc(help_text(lang, k + "A"))}</p></details>'
+        f'<details><summary>{esc(help_text(lang, k + "Q"))}</summary>{answer_html(lang, k + "A")}</details>'
         for k in keys) + "</div>"
 
 def build_help(lang):
@@ -576,9 +592,9 @@ def build_help(lang):
         badge = f'<p class="badge">{esc(v2_label(lang))}</p>' if tp["key"] == "faqBeacon" else ""
         items = ""
         for q in tp["questions"]:
-            Q, A = help_text(lang, q + "Q"), help_text(lang, q + "A")
+            Q, A = help_text(lang, q + "Q"), answer_text(lang, q + "A")
             anchor = re.sub(r"(?<!^)(?=[A-Z])", "-", q[3:]).lower()
-            items += f'<details id="{anchor}"><summary>{esc(Q)}</summary><p>{esc(A)}</p></details>'
+            items += f'<details id="{anchor}"><summary>{esc(Q)}</summary>{answer_html(lang, q + "A")}</details>'
             qa.append({"@type": "Question", "name": Q, "acceptedAnswer": {"@type": "Answer", "text": A}})
         sections += f'<section class="help-topic">{badge}<h2>{esc(help_text(lang, tp["key"] + "Title"))}</h2><div class="faq">{items}</div></section>'
     contact = (f'<section class="card contact"><h2>{esc(help_text(lang, "faqContactTitle"))}</h2>'

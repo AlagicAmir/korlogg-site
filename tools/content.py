@@ -20,6 +20,28 @@ LANGS = {
 }
 HELP_LANG = {"no": "nb"}   # key of the app's string table for a site language
 
+# Help answers that are iPhone-only: the "Android:" paragraph under them. The rest
+# come from the Android app's own Help (src/help/help_android.json); these two are
+# written here because Körlogg for Android has no iCloud sync.
+ANDROID_HELP = {
+    "en": {"faqPrivacyWhereA": "On your phone too. iCloud sync is only on iPhone and iPad.",
+           "faqPrivacyICloudA": "iCloud sync is for iPhone and iPad only. Körlogg for Android has no sync between devices."},
+    "sv": {"faqPrivacyWhereA": "Också på din telefon. Synk via iCloud finns bara på iPhone och iPad.",
+           "faqPrivacyICloudA": "Synk via iCloud finns bara för iPhone och iPad. Körlogg för Android synkar inte mellan enheter."},
+    "de": {"faqPrivacyWhereA": "Ebenfalls auf Ihrem Telefon. Die Synchronisierung über iCloud gibt es nur auf iPhone und iPad.",
+           "faqPrivacyICloudA": "Die Synchronisierung über iCloud gibt es nur für iPhone und iPad. Körlogg für Android synchronisiert nicht zwischen Geräten."},
+    "da": {"faqPrivacyWhereA": "Også på din telefon. Synkronisering via iCloud findes kun på iPhone og iPad.",
+           "faqPrivacyICloudA": "Synkronisering via iCloud findes kun til iPhone og iPad. Körlogg til Android synkroniserer ikke mellem enheder."},
+    "nb": {"faqPrivacyWhereA": "Også på telefonen din. Synkronisering via iCloud finnes bare på iPhone og iPad.",
+           "faqPrivacyICloudA": "Synkronisering via iCloud finnes bare for iPhone og iPad. Körlogg for Android synkroniserer ikke mellom enheter."},
+    "nl": {"faqPrivacyWhereA": "Ook op je telefoon. Synchronisatie via iCloud is er alleen op iPhone en iPad.",
+           "faqPrivacyICloudA": "Synchronisatie via iCloud is er alleen voor iPhone en iPad. Körlogg voor Android synchroniseert niet tussen apparaten."},
+    "fi": {"faqPrivacyWhereA": "Myös puhelimessasi. iCloud-synkronointi on käytössä vain iPhonessa ja iPadissa.",
+           "faqPrivacyICloudA": "iCloud-synkronointi on vain iPhonelle ja iPadille. Androidin Körlogg ei synkronoi laitteiden välillä."},
+    "pl": {"faqPrivacyWhereA": "Również na Twoim telefonie. Synchronizacja przez iCloud jest dostępna tylko na iPhonie i iPadzie.",
+           "faqPrivacyICloudA": "Synchronizacja przez iCloud jest tylko na iPhone’a i iPada. Körlogg na Androida nie synchronizuje danych między urządzeniami."},
+}
+
 # Screenshot numbers that show the iBeacon (kept out of the main gallery until 2.0 is out)
 BEACON_SHOTS = {"en": [2, 6], "sv": [2, 6], "de": [2, 6], "da": [2, 6], "no": [2, 6],
                 "nl": [2, 6], "fi": [2, 6], "pl": [3, 6]}
@@ -28,7 +50,7 @@ BEACON_HERO_SHOT = {"pl": 3}   # default 2
 UI = {
     "en": dict(
         skip="Skip to content", nav_features="Features", nav_help="Help", nav_guides="Guides", nav_support="Support",
-        lang_label="Language", store_btn="Download on the App Store", get_app="Get the app", qr_note="Scan with your iPhone camera to open Körlogg on the App Store",
+        lang_label="Language", store_btn="Download on the App Store", get_app="Get the app", qr_note="Scan with your iPhone camera to open Körlogg on the App Store. For Android, use the Google Play button.",
         platform="For iPhone, iPad and Android.",
         v2_pending="New in Körlogg 2.0 · coming soon", v2_released="New in Körlogg 2.0 · available now",
         privacy="Privacy Policy", terms="Terms of Use", support="Support", help="Help and FAQ", delete="Request data deletion",
@@ -57,7 +79,7 @@ UI = {
     ),
     "sv": dict(
         skip="Hoppa till innehållet", nav_features="Funktioner", nav_help="Hjälp", nav_guides="Guider", nav_support="Support",
-        lang_label="Språk", store_btn="Hämta i App Store", get_app="Hämta appen", qr_note="Skanna med iPhonens kamera för att öppna Körlogg i App Store",
+        lang_label="Språk", store_btn="Hämta i App Store", get_app="Hämta appen", qr_note="Skanna med iPhonens kamera för att öppna Körlogg i App Store. För Android: använd Google Play-knappen.",
         platform="För iPhone, iPad och Android.",
         v2_pending="Nytt i Körlogg 2.0 · kommer snart", v2_released="Nytt i Körlogg 2.0 · finns nu",
         privacy="Integritetspolicy", terms="Användarvillkor", support="Support", help="Hjälp och vanliga frågor", delete="Begär radering av data",
@@ -86,7 +108,7 @@ UI = {
     ),
     "de": dict(
         skip="Zum Inhalt springen", nav_features="Funktionen", nav_help="Hilfe", nav_guides="Ratgeber", nav_support="Support",
-        lang_label="Sprache", store_btn="Laden im App Store", get_app="App laden", qr_note="Mit der iPhone-Kamera scannen und Körlogg im App Store öffnen",
+        lang_label="Sprache", store_btn="Laden im App Store", get_app="App laden", qr_note="Mit der iPhone-Kamera scannen und Körlogg im App Store öffnen. Für Android nutzen Sie den Google-Play-Button.",
         platform="Für iPhone, iPad und Android.",
         v2_pending="Neu in Körlogg 2.0 · demnächst", v2_released="Neu in Körlogg 2.0 · jetzt verfügbar",
         privacy="Datenschutz", terms="Nutzungsbedingungen", support="Support", help="Hilfe und häufige Fragen", delete="Löschung von Daten anfordern",
@@ -115,7 +137,7 @@ UI = {
     ),
     "da": dict(
         skip="Gå til indholdet", nav_features="Funktioner", nav_help="Hjælp", nav_guides="Guides", nav_support="Support",
-        lang_label="Sprog", store_btn="Hent i App Store", get_app="Hent appen", qr_note="Scan med iPhonens kamera for at åbne Körlogg i App Store",
+        lang_label="Sprog", store_btn="Hent i App Store", get_app="Hent appen", qr_note="Scan med iPhonens kamera for at åbne Körlogg i App Store. Til Android: brug Google Play-knappen.",
         platform="Til iPhone, iPad og Android.",
         v2_pending="Nyt i Körlogg 2.0 · kommer snart", v2_released="Nyt i Körlogg 2.0 · fås nu",
         privacy="Privatlivspolitik", terms="Vilkår", support="Support", help="Hjælp og ofte stillede spørgsmål", delete="Anmod om sletning af data",
@@ -143,7 +165,7 @@ UI = {
     ),
     "no": dict(
         skip="Gå til innholdet", nav_features="Funksjoner", nav_help="Hjelp", nav_guides="Guider", nav_support="Support",
-        lang_label="Språk", store_btn="Last ned fra App Store", get_app="Last ned appen", qr_note="Skann med iPhone-kameraet for å åpne Körlogg i App Store",
+        lang_label="Språk", store_btn="Last ned fra App Store", get_app="Last ned appen", qr_note="Skann med iPhone-kameraet for å åpne Körlogg i App Store. For Android: bruk Google Play-knappen.",
         platform="For iPhone, iPad og Android.",
         v2_pending="Nytt i Körlogg 2.0 · kommer snart", v2_released="Nytt i Körlogg 2.0 · tilgjengelig nå",
         privacy="Personvern", terms="Vilkår", support="Support", help="Hjelp og vanlige spørsmål", delete="Be om sletting av data",
@@ -171,7 +193,7 @@ UI = {
     ),
     "nl": dict(
         skip="Naar de inhoud", nav_features="Functies", nav_help="Hulp", nav_guides="Gidsen", nav_support="Support",
-        lang_label="Taal", store_btn="Download in de App Store", get_app="Download de app", qr_note="Scan met de camera van je iPhone om Körlogg in de App Store te openen",
+        lang_label="Taal", store_btn="Download in de App Store", get_app="Download de app", qr_note="Scan met de camera van je iPhone om Körlogg in de App Store te openen. Voor Android: gebruik de Google Play-knop.",
         platform="Voor iPhone, iPad en Android.",
         v2_pending="Nieuw in Körlogg 2.0 · binnenkort", v2_released="Nieuw in Körlogg 2.0 · nu beschikbaar",
         privacy="Privacybeleid", terms="Gebruiksvoorwaarden", support="Support", help="Hulp en veelgestelde vragen", delete="Verwijdering van gegevens aanvragen",
@@ -199,7 +221,7 @@ UI = {
     ),
     "fi": dict(
         skip="Siirry sisältöön", nav_features="Ominaisuudet", nav_help="Ohjeet", nav_guides="Oppaat", nav_support="Tuki",
-        lang_label="Kieli", store_btn="Lataa App Storesta", get_app="Lataa sovellus", qr_note="Skannaa iPhonen kameralla ja avaa Körlogg App Storessa",
+        lang_label="Kieli", store_btn="Lataa App Storesta", get_app="Lataa sovellus", qr_note="Skannaa iPhonen kameralla ja avaa Körlogg App Storessa. Androidille: käytä Google Play -painiketta.",
         platform="iPhonelle, iPadille ja Androidille.",
         v2_pending="Uutta Körlogg 2.0:ssa · tulossa pian", v2_released="Uutta Körlogg 2.0:ssa · saatavilla nyt",
         privacy="Tietosuojakäytäntö", terms="Käyttöehdot", support="Tuki", help="Ohjeet ja usein kysytyt kysymykset", delete="Pyydä tietojen poistamista",
@@ -227,7 +249,7 @@ UI = {
     ),
     "pl": dict(
         skip="Przejdź do treści", nav_features="Funkcje", nav_help="Pomoc", nav_guides="Poradniki", nav_support="Wsparcie",
-        lang_label="Język", store_btn="Pobierz z App Store", get_app="Pobierz aplikację", qr_note="Zeskanuj aparatem iPhone’a, aby otworzyć Körlogg w App Store",
+        lang_label="Język", store_btn="Pobierz z App Store", get_app="Pobierz aplikację", qr_note="Zeskanuj aparatem iPhone’a, aby otworzyć Körlogg w App Store. Na Androida: użyj przycisku Google Play.",
         platform="Na iPhone’a, iPada i Androida.",
         v2_pending="Nowość w Körlogg 2.0 · wkrótce", v2_released="Nowość w Körlogg 2.0 · już dostępna",
         privacy="Polityka prywatności", terms="Warunki korzystania", support="Wsparcie", help="Pomoc i częste pytania", delete="Wniosek o usunięcie danych",
@@ -283,7 +305,7 @@ HOME = {
                      text="Körlogg has no account and no login. Your trips are on your phone and, if you want, in your own iCloud. No employer can follow you, and nobody sees anything until you send the report yourself. The app sends anonymous usage statistics – never trips, places or positions."),
         pro=dict(h2="Körlogg Pro",
                  bullets=["Export as PDF and Excel", "Several cars and drivers", "Mileage allowance worked out, and the odometer check", "Preset routes and one-tap round trips", "Every trip open, not just the last 25", "Sync between iPhone and iPad in your own iCloud", "The Bluetooth beacon (Körlogg 2.0)"],
-                 note="Logging trips is unlimited without Pro. Pro is a subscription or a one-time purchase; the App Store shows the price for your country before you buy."),
+                 note="Logging trips is unlimited without Pro. Pro is a subscription or a one-time purchase; the App Store or Google Play shows the price for your country before you buy."),
         help_h2="Questions?", help_text="The app's Help and FAQ, with the same answers, is also on the web.",
         guides_h2="Guides",
         cta_h2="Start your mileage log today", cta_text="Install Körlogg, allow location “Always”, and drive. The first trip appears by itself.",
@@ -318,7 +340,7 @@ HOME = {
                      text="Körlogg har inget konto och ingen inloggning. Resorna finns i din telefon och, om du vill, i din egen iCloud. Ingen arbetsgivare kan följa dig, och ingen ser något förrän du själv skickar rapporten. Appen skickar anonym användningsstatistik – aldrig resor, platser eller positioner."),
         pro=dict(h2="Körlogg Pro",
                  bullets=["Export som PDF och Excel", "Flera bilar och förare", "Milersättning uträknad och avstämning mot mätaren", "Räknare för privat körning i ringa omfattning med förmånsbil", "Fasta rutter och tur och retur med ett tryck", "Alla resor öppna, inte bara de 25 senaste", "Synk mellan iPhone och iPad i din egen iCloud", "Bluetooth-beacon (Körlogg 2.0)"],
-                 note="Att logga resor är obegränsat även utan Pro. Pro finns som prenumeration eller som engångsköp; priset ser du i App Store innan du köper."),
+                 note="Att logga resor är obegränsat även utan Pro. Pro finns som prenumeration eller som engångsköp; priset ser du i App Store eller Google Play innan du köper."),
         help_h2="Frågor?", help_text="Appens hjälp och vanliga frågor finns också på webben, med samma svar.",
         guides_h2="Guider",
         cta_h2="Börja din körjournal i dag", cta_text="Installera Körlogg, tillåt platsåtkomst ”Alltid” och kör. Den första resan dyker upp av sig själv.",
@@ -354,7 +376,7 @@ HOME = {
                      text="Körlogg braucht kein Konto und keine Anmeldung. Ihre Fahrten liegen auf Ihrem iPhone und, wenn Sie möchten, in Ihrer eigenen iCloud. Kein Arbeitgeber kann Sie verfolgen, und niemand sieht etwas, bevor Sie selbst den Bericht senden. Die App sendet anonyme Nutzungsstatistiken – nie Fahrten, Orte oder Positionen."),
         pro=dict(h2="Körlogg Pro",
                  bullets=["Export als PDF und Excel", "Mehrere Fahrzeuge und Fahrer", "Kilometerpauschale bzw. Kilometergeld berechnet, Abgleich mit dem Kilometerstand", "Feste Routen und Hin- und Rückfahrt mit einem Tippen", "Alle Fahrten im Detail, nicht nur die letzten 25", "Synchronisierung zwischen iPhone und iPad in Ihrer eigenen iCloud", "Bluetooth-Beacon (Körlogg 2.0)"],
-                 note="Fahrten aufzeichnen ist auch ohne Pro unbegrenzt. Pro gibt es als Abo oder als einmaligen Kauf; den Preis für Ihr Land sehen Sie im App Store, bevor Sie Pro freischalten."),
+                 note="Fahrten aufzeichnen ist auch ohne Pro unbegrenzt. Pro gibt es als Abo oder als einmaligen Kauf; den Preis für Ihr Land sehen Sie im App Store bzw. bei Google Play, bevor Sie Pro freischalten."),
         help_h2="Fragen?", help_text="Die Hilfe aus der App finden Sie mit denselben Antworten auch im Web.",
         guides_h2="Ratgeber",
         cta_h2="Starten Sie Ihr Fahrtenbuch noch heute", cta_text="Installieren Sie Körlogg, erlauben Sie den Standortzugriff „Immer“ und fahren Sie los. Die erste Fahrt erscheint von selbst.",
@@ -378,7 +400,7 @@ HOME = {
         beacon=dict(h2="Virker med eller uden iBeacon",
                     text="Körlogg registrerer dine ture af sig selv, uden at du skal købe noget ekstra. Hvis du vil, kan du lægge en lille Bluetooth-beacon i bilen: Når din iPhone opdager den, begynder Körlogg at registrere og lægger turen på den rigtige bil. En del af Körlogg Pro.",
                     bullets=[], link=""),
-        pro_note="Ture registreres uden begrænsning, også uden Pro. Pro (PDF- og Excel-eksport, flere biler, kørselsgodtgørelse, synkronisering i egen iCloud) fås som abonnement eller engangskøb; prisen ser du i App Store.",
+        pro_note="Ture registreres uden begrænsning, også uden Pro. Pro (PDF- og Excel-eksport, flere biler, kørselsgodtgørelse, synkronisering i egen iCloud) fås som abonnement eller engangskøb; prisen ser du i App Store eller Google Play.",
         help_h2="Spørgsmål?", help_text="Appens hjælp og ofte stillede spørgsmål findes også på nettet.", guides_h2="Guides",
         cta_h2="Start din kørebog i dag", cta_text="Installér Körlogg, giv adgang til placering ”Altid”, og kør. Den første tur dukker selv op.",
         alts=["Turlisten med automatisk registrerede ture", "Ture registreres automatisk, når du kører", "En tur på kortet med adresser og formål", "Eksport af kørebogen som PDF eller Excel", "Rapport med kørselsgodtgørelse", "Bilens side med nummerplade, kilometerstand og valgfri iBeacon", "Hjælp og ofte stillede spørgsmål i appen", "Indstillinger: synkronisering i egen iCloud"],
@@ -400,7 +422,7 @@ HOME = {
         beacon=dict(h2="Fungerer med eller uten iBeacon",
                     text="Körlogg logger turene dine av seg selv, uten at du må kjøpe noe ekstra. Vil du, kan du legge en liten Bluetooth-beacon i bilen: Når iPhonen din merker den, begynner Körlogg å logge og legger turen på riktig bil. En del av Körlogg Pro.",
                     bullets=[], link=""),
-        pro_note="Turer logges uten begrensning, også uten Pro. Pro (PDF- og Excel-eksport, flere biler, kjøregodtgjørelse, synkronisering i egen iCloud) finnes som abonnement eller engangskjøp; prisen ser du i App Store.",
+        pro_note="Turer logges uten begrensning, også uten Pro. Pro (PDF- og Excel-eksport, flere biler, kjøregodtgjørelse, synkronisering i egen iCloud) finnes som abonnement eller engangskjøp; prisen ser du i App Store eller Google Play.",
         help_h2="Spørsmål?", help_text="Appens hjelp og vanlige spørsmål finnes også på nettet.", guides_h2="Guider",
         cta_h2="Start kjøreboken i dag", cta_text="Installer Körlogg, gi stedstilgang «Alltid», og kjør. Den første turen dukker opp av seg selv.",
         alts=["Turlisten med automatisk loggede turer", "Turer registreres automatisk når du kjører", "En tur på kartet med adresser og formål", "Eksport av kjøreboken som PDF eller Excel", "Rapport med kjøregodtgjørelse", "Bilens side med skiltnummer, kilometerstand og valgfri iBeacon", "Hjelp og vanlige spørsmål i appen", "Innstillinger: synkronisering i egen iCloud"],
@@ -422,7 +444,7 @@ HOME = {
         beacon=dict(h2="Werkt met of zonder iBeacon",
                     text="Körlogg legt je ritten vanzelf vast, zonder dat je iets extra hoeft te kopen. Wil je, leg dan een kleine Bluetooth-beacon in de auto: zodra je iPhone hem opmerkt, begint Körlogg met vastleggen en zet de rit op de juiste auto. Onderdeel van Körlogg Pro.",
                     bullets=[], link=""),
-        pro_note="Ritten vastleggen is onbeperkt, ook zonder Pro. Pro (export als pdf en Excel, meerdere auto's, kilometervergoeding, synchronisatie in je eigen iCloud) is er als abonnement of eenmalige aankoop; de prijs zie je in de App Store.",
+        pro_note="Ritten vastleggen is onbeperkt, ook zonder Pro. Pro (export als pdf en Excel, meerdere auto's, kilometervergoeding, synchronisatie in je eigen iCloud) is er als abonnement of eenmalige aankoop; de prijs zie je in de App Store of Google Play.",
         help_h2="Vragen?", help_text="De hulp en veelgestelde vragen uit de app staan ook op het web.", guides_h2="Gidsen",
         cta_h2="Begin vandaag met je rittenregistratie", cta_text="Installeer Körlogg, sta locatietoegang „Altijd” toe en rijd. De eerste rit verschijnt vanzelf.",
         alts=["Rittenlijst met automatisch vastgelegde ritten", "Ritten worden automatisch vastgelegd terwijl je rijdt", "Teller voor de 500 km privé met een auto van de zaak", "Een rit op de kaart met adressen en doel", "Export van de rittenregistratie als pdf of Excel", "Autopagina met kenteken, kilometerstand en optionele iBeacon", "Hulp en veelgestelde vragen in de app", "Instellingen: synchronisatie in je eigen iCloud"],
@@ -444,7 +466,7 @@ HOME = {
         beacon=dict(h2="Toimii iBeaconin kanssa tai ilman",
                     text="Körlogg kirjaa ajosi itsestään, eikä mitään tarvitse ostaa lisää. Halutessasi voit laittaa pienen Bluetooth-beaconin autoon: kun iPhonesi havaitsee sen, Körlogg alkaa kirjata ja liittää ajon oikeaan autoon. Osa Körlogg Prota.",
                     bullets=[], link=""),
-        pro_note="Ajojen kirjaus on rajatonta myös ilman Prota. Pro (PDF- ja Excel-vienti, useita autoja, kilometrikorvaus, synkronointi omaan iCloudiin) on saatavana tilauksena tai kertaostona; hinnan näet App Storessa.",
+        pro_note="Ajojen kirjaus on rajatonta myös ilman Prota. Pro (PDF- ja Excel-vienti, useita autoja, kilometrikorvaus, synkronointi omaan iCloudiin) on saatavana tilauksena tai kertaostona; hinnan näet App Storessa tai Google Playssa.",
         help_h2="Kysyttävää?", help_text="Sovelluksen ohjeet ja usein kysytyt kysymykset löytyvät myös verkosta.", guides_h2="Oppaat",
         cta_h2="Aloita ajopäiväkirja tänään", cta_text="Asenna Körlogg, salli sijainti ”Aina” ja aja. Ensimmäinen ajo ilmestyy itsestään.",
         alts=["Ajolista automaattisesti kirjatuista ajoista", "Ajot kirjautuvat automaattisesti, kun ajat", "Ajo kartalla osoitteineen ja tarkoituksineen", "Ajopäiväkirjan vienti PDF- tai Excel-muodossa", "Raportti kilometrikorvauksesta", "Auton sivu: rekisterinumero, mittarilukema ja valinnainen iBeacon", "Ohjeet ja usein kysytyt kysymykset sovelluksessa", "Asetukset: synkronointi omaan iCloudiin"],
@@ -466,7 +488,7 @@ HOME = {
         beacon=dict(h2="Działa z iBeaconem lub bez niego",
                     text="Körlogg zapisuje przejazdy sam, bez kupowania czegokolwiek. Jeśli chcesz, połóż w samochodzie mały beacon Bluetooth: gdy iPhone go wykryje, Körlogg zaczyna zapis i przypisuje przejazd do właściwego auta. Część Körlogg Pro.",
                     bullets=[], link=""),
-        pro_note="Zapisywanie przejazdów jest bez limitu, także bez Pro. Pro (eksport do PDF i Excela, kilka pojazdów, kilometrówka, synchronizacja we własnym iCloud) jest dostępny jako subskrypcja lub jednorazowy zakup; cenę zobaczysz w App Store.",
+        pro_note="Zapisywanie przejazdów jest bez limitu, także bez Pro. Pro (eksport do PDF i Excela, kilka pojazdów, kilometrówka, synchronizacja we własnym iCloud) jest dostępny jako subskrypcja lub jednorazowy zakup; cenę zobaczysz w App Store lub Google Play.",
         help_h2="Pytania?", help_text="Pomoc i częste pytania z aplikacji są też w sieci.",
         cta_h2="Zacznij ewidencję już dziś", cta_text="Zainstaluj Körlogg, zezwól na dostęp do lokalizacji „Zawsze” i jedź. Pierwszy przejazd pojawi się sam.",
         alts=["Lista przejazdów zapisanych automatycznie", "Raport ewidencji przebiegu pojazdu", "Przejazdy zapisują się same, gdy jedziesz", "Przejazd na mapie z adresami i celem", "Kilometrówka wyliczona w raporcie", "Strona samochodu z numerem rejestracyjnym, stanem licznika i opcjonalnym iBeaconem", "Pomoc i częste pytania w aplikacji", "Ustawienia: synchronizacja we własnym iCloud"],
