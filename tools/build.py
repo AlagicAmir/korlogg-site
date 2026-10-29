@@ -67,8 +67,12 @@ GUIDES = {   # file stem -> (lang, path, cluster)
     "nl-rittenregistratie-bijhouden": ("nl", "/nl/gidsen/rittenregistratie-bijhouden/", None),
     "nl-zzp-zakelijke-kilometers": ("nl", "/nl/gidsen/zakelijke-kilometers-zzp/", None),
     "nl-automatische-rittenregistratie": ("nl", "/nl/gidsen/automatische-rittenregistratie/", None),
+    "no-kjoregodtgjorelse": ("no", "/no/guider/kjoregodtgjorelse/", None),
+    "da-korselsgodtgorelse": ("da", "/da/guides/korselsgodtgorelse/", None),
+    "fi-kilometrikorvaus": ("fi", "/fi/oppaat/kilometrikorvaus/", None),
 }
-GUIDE_INDEX = {"en": "/guides/", "sv": "/se/guider/", "de": "/de/ratgeber/", "nl": "/nl/gidsen/"}
+GUIDE_INDEX = {"en": "/guides/", "sv": "/se/guider/", "de": "/de/ratgeber/", "nl": "/nl/gidsen/",
+               "no": "/no/guider/", "da": "/da/guides/", "fi": "/fi/oppaat/"}   # trimmed below to languages with a live guide
 LEGAL_LANGS = {"en", "sv", "de", "nl", "fi"}      # privacy/terms exist in these languages
 DELETE_LANGS = {"en", "sv", "de"}
 REDEEM_LANGS = set(REDEEM)                        # "redeem a code" page (en, sv, de, nl)
@@ -278,6 +282,10 @@ def read_guide(stem):
 def is_live(stem):
     """False until the guide's own publish date (a guide without one is live)."""
     return _parse_guide(SRC / "guides" / f"{stem}.html")[0].get("publish", "") <= TODAY
+
+# A language gets its guide index, the Guides link and the home-page guide block
+# only once one of its guides is live (no empty index for no/da/fi before then).
+GUIDE_INDEX = {l: p for l, p in GUIDE_INDEX.items() if any(gl == l and is_live(st) for st, (gl, _, _) in GUIDES.items())}
 
 def play_url(lang, campaign=None):
     """Google Play listing; the campaign goes into the install referrer (utm_campaign)."""

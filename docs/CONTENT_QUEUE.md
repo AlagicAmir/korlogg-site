@@ -47,6 +47,9 @@ Order: switch the source, then push.
 | Tue 2026-11-03 | SE | /se/guider/milersattning/ (new; Amir OK 2026-10-29) | sv-milersattning.html | milersättning 2026 / milersättning skatteverket |
 | Fri 2026-11-06 | US | /guides/irs-mileage-log-requirements/ (new; waits for Amir's review) | en-irs-mileage-log-requirements.html | irs mileage log requirements |
 | Tue 2026-11-10 | US | /guides/mileage-log-template/ (new, + /assets/mileage-log-template.csv; waits for Amir's review) | en-mileage-log-template.html | mileage log template irs |
+| Fri 2026-11-06 | NO | /no/guider/kjoregodtgjorelse/ (new, first Norwegian guide: also opens /no/guider/ and the Guider link; waits for Amir's review) | no-kjoregodtgjorelse.html | kjøregodtgjørelse 2026 / statens satser |
+| Tue 2026-11-10 | DK | /da/guides/korselsgodtgorelse/ (new, first Danish guide: also opens /da/guides/; waits for Amir's review) | da-korselsgodtgorelse.html | kørselsgodtgørelse 2026 |
+| Fri 2026-11-13 | FI | /fi/oppaat/kilometrikorvaus/ (new, first Finnish guide: also opens /fi/oppaat/; waits for Amir's review) | fi-kilometrikorvaus.html | kilometrikorvaus 2026 |
 
 If the push happens after a date above, that guide goes live with the push.
 
