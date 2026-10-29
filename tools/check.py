@@ -19,7 +19,7 @@ VOID = {"area", "base", "br", "col", "embed", "hr", "img", "input", "link", "met
 OPTIONAL_CLOSE = {"p", "li", "dt", "dd", "tr", "td", "th", "thead", "tbody", "option"}
 BANNED = [r"finanzamtkonform", r"\bGratis\b", r"der Store\b", r"DSGVO-konform", r"kelpaa verottajalle", r"sluitend",
           r"nothing leaves your phone", r"geocod", r"\bguaranteed\b", r"\bgarantiert\b", r"(?<!eller )godkänd av Skatteverket",
-          r"\$\d", r"\d+\s?kr\b(?![^<]*(?:mil|km))", r"€\s?\d+[,.]\d\d(?!\s?(?:€\s?)?(?:pro|per|/)\s?(?:km|Kilometer))"]
+          r"\$\d", r"\d+\s?kr\b(?![^<]*(?:mil|km))", r"€\s?\d+[,.]\d\d(?!\s?(?:€\s?)?(?:pro|per|/)\s?(?:\w+\s)?(?:km|[Kk]ilometer))"]
 
 class Page(HTMLParser):
     def __init__(self):
