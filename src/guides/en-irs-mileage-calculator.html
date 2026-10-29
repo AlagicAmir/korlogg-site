@@ -1,0 +1,126 @@
+<!-- title: IRS mileage deduction calculator 2026 (72.5¢ and 76¢) -->
+<!-- description: Work out your 2026 mileage deduction at the IRS standard rates: 72.5¢ a business mile to June 30 and 76¢ from July 1, plus medical and charity miles. -->
+<!-- campaign: guide_irs-mileage-calculator -->
+<!-- modified: 2026-10-29 -->
+<h1>IRS mileage deduction calculator 2026</h1>
+<p class="lede">In 2026 the IRS changed its standard mileage rate in the middle of the year: 72.5 cents a business mile from January 1 to June 30, and 76 cents from July 1. Enter your miles for each half of the year and this calculator works out what they are worth at the IRS rates. Nothing you type leaves this page.</p>
+
+<style>
+.calc{background:var(--card);border-radius:var(--r);box-shadow:var(--shadow);padding:20px;margin:1.2em 0}
+.calc fieldset{border:0;padding:0;margin:0 0 14px}
+.calc legend{font-weight:700;margin-bottom:6px}
+.calc .row{display:flex;gap:12px;flex-wrap:wrap}
+.calc label{flex:1 1 200px;display:flex;flex-direction:column;font-size:15px;color:var(--muted);gap:4px}
+.calc input{font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:10px 12px;width:100%}
+.calc input:focus-visible{outline:3px solid var(--accent);outline-offset:1px}
+.calc-out{border-top:1px solid var(--line);margin-top:6px;padding-top:12px}
+.calc-out table{margin:0;display:table;width:100%}
+.calc-out td:last-child{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.calc-total td{font-weight:700;font-size:1.1em}
+.calc-note{font-size:14px;color:var(--muted);margin:10px 0 0}
+</style>
+
+<form class="calc" id="irs-calc" onsubmit="return false" aria-label="IRS mileage deduction calculator">
+<fieldset>
+<legend>Business miles</legend>
+<div class="row">
+<label>January 1 – June 30 (72.5¢)<input type="number" inputmode="decimal" min="0" step="any" name="b1" placeholder="0"></label>
+<label>July 1 – December 31 (76¢)<input type="number" inputmode="decimal" min="0" step="any" name="b2" placeholder="0"></label>
+</div>
+</fieldset>
+<fieldset>
+<legend>Business parking and tolls (dollars)</legend>
+<div class="row">
+<label>Deducted on top of the rate<input type="number" inputmode="decimal" min="0" step="any" name="pt" placeholder="0"></label>
+</div>
+</fieldset>
+<fieldset>
+<legend>Medical miles (optional)</legend>
+<div class="row">
+<label>January 1 – June 30 (20.5¢)<input type="number" inputmode="decimal" min="0" step="any" name="m1" placeholder="0"></label>
+<label>July 1 – December 31 (23.5¢)<input type="number" inputmode="decimal" min="0" step="any" name="m2" placeholder="0"></label>
+</div>
+</fieldset>
+<fieldset>
+<legend>Charity miles (optional)</legend>
+<div class="row">
+<label>All of 2026 (14¢)<input type="number" inputmode="decimal" min="0" step="any" name="c" placeholder="0"></label>
+</div>
+</fieldset>
+<div class="calc-out" aria-live="polite">
+<table>
+<tr><td>Business miles at the IRS rate</td><td id="o-b">–</td></tr>
+<tr><td>Business parking and tolls</td><td id="o-pt">–</td></tr>
+<tr class="calc-total"><td>Business mileage deduction</td><td id="o-bt">–</td></tr>
+<tr><td>Medical miles at the IRS rate</td><td id="o-m">–</td></tr>
+<tr><td>Charity miles at the IRS rate</td><td id="o-c">–</td></tr>
+</table>
+<p class="calc-note">An estimate at the IRS standard mileage rates, not tax advice. It is not the tax you save: a deduction lowers your taxable income.</p>
+</div>
+</form>
+<noscript><p>The calculator needs JavaScript. You can also work it out by hand: business miles to June 30 × 0.725, plus business miles from July 1 × 0.76.</p></noscript>
+<script>
+(function () {
+  var f = document.getElementById("irs-calc");
+  var fmt = new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" });
+  function n(name) { var v = parseFloat(f.elements[name].value); return isFinite(v) && v > 0 ? v : 0; }
+  function show(id, v) { document.getElementById(id).textContent = fmt.format(v); }
+  function update() {
+    var b = n("b1") * 0.725 + n("b2") * 0.76, pt = n("pt");
+    show("o-b", b); show("o-pt", pt); show("o-bt", b + pt);
+    show("o-m", n("m1") * 0.205 + n("m2") * 0.235);
+    show("o-c", n("c") * 0.14);
+  }
+  f.addEventListener("input", update);
+  update();
+})();
+</script>
+
+<h2>The 2026 rates</h2>
+<p>The IRS set the 2026 rates in <a href="https://www.irs.gov/pub/irs-drop/n-26-10.pdf">Notice 2026-10</a> and raised the business and medical rates from July 1, 2026, citing higher fuel prices. Each trip is valued at the rate in force on the day you drove it.</p>
+<table>
+<tr><th>Purpose</th><th>Jan 1 – Jun 30, 2026</th><th>Jul 1 – Dec 31, 2026</th></tr>
+<tr><td>Business</td><td>72.5¢ a mile</td><td>76¢ a mile</td></tr>
+<tr><td>Medical (and moving for Armed Forces)</td><td>20.5¢ a mile</td><td>23.5¢ a mile</td></tr>
+<tr><td>Charity</td><td>14¢ a mile</td><td>14¢ a mile</td></tr>
+</table>
+<p>The charity rate is set by law (section 170(i) of the Internal Revenue Code) and does not change with fuel prices.</p>
+
+<h2>A worked example</h2>
+<p>You are self-employed and drive 2,500 business miles in the first half of 2026 and 3,000 in the second half. Your mileage deduction is 2,500 × 72.5¢ + 3,000 × 76¢ = 1,812.50 + 2,280 = <strong>4,092.50 dollars</strong>. At a single rate of 72.5¢ for the whole year you would have claimed 3,987.50 dollars, so splitting the year correctly is worth 105 dollars here.</p>
+
+<h2>Who can use the standard mileage rate?</h2>
+<p><strong>Self-employed people</strong>, including 1099 contractors and gig drivers, can deduct business miles at the standard rate as a car expense on Schedule C, instead of their actual car costs. The IRS explains the rules, including when you must choose the standard rate, in <a href="https://www.irs.gov/publications/p463">Publication 463</a>. Business parking fees and tolls can be deducted on top of the rate.</p>
+<p><strong>Employees</strong> generally cannot deduct unreimbursed car expenses on their federal return. If your employer reimburses mileage, the IRS rate is the usual benchmark: a reimbursement at or below the standard rate under an accountable plan is not taxed as wages. Your mileage log is what supports that reimbursement.</p>
+<p><strong>Commuting</strong> between your home and your regular place of work is personal and never counts as business mileage.</p>
+<p><strong>Medical and charity miles</strong> only help if you itemize, and medical expenses only count above 7.5% of your adjusted gross income. The calculator shows their value at the IRS rates so you can add them to your other medical or charitable expenses.</p>
+
+<h2>What the IRS expects your mileage log to show</h2>
+<p>A deduction needs records. For each business trip, the IRS expects the date, the miles, the destination and the business purpose, and you need your total miles for the year to work out the business-use share. Records made at or near the time of the trip are the most reliable. Publication 463 covers recordkeeping in its chapter on records.</p>
+
+<section class="guide-faq">
+<h2>Common questions</h2>
+<h3>Why are there two business rates in 2026?</h3>
+<p>The IRS raised the business rate from 72.5 to 76 cents a mile from July 1, 2026, because of higher fuel prices. Miles driven before July 1 use 72.5 cents and miles from July 1 use 76 cents.</p>
+<h3>Can I use 76 cents for all my 2026 miles?</h3>
+<p>No. The 76-cent rate applies to miles driven on or after July 1, 2026. Miles driven earlier in the year stay at 72.5 cents.</p>
+<h3>Is the mileage deduction the money I get back?</h3>
+<p>No. It lowers your taxable income. What you save depends on your tax bracket and, for the self-employed, also on self-employment tax.</p>
+<h3>Can I deduct gas and repairs as well?</h3>
+<p>Not if you use the standard mileage rate: it already covers gas, repairs, insurance and depreciation. You can add business parking fees and tolls.</p>
+</section>
+
+<h2>Keep the log automatically</h2>
+<p><a href="/guides/">Körlogg</a> logs every trip with GPS while you drive. You swipe a trip business or personal, or mark it commute, medical or charity, and each trip is valued at the IRS rate for its own date. The yearly report shows miles by category, the value at the IRS rates and the figures for Schedule C Part IV, as PDF, Excel or CSV. No account; your trips stay on your phone. Made in Sweden. {{play}}<a href="{{playurl}}">Körlogg on Google Play</a> · {{/play}}iPhone from November 17, 2026.</p>
+
+<section class="sources">
+<h2>Sources</h2>
+<ul>
+<li><a href="https://www.irs.gov/tax-professionals/standard-mileage-rates">Standard mileage rates – irs.gov</a></li>
+<li><a href="https://www.irs.gov/newsroom/irs-sets-2026-business-standard-mileage-rate-at-725-cents-per-mile-up-25-cents">IRS sets 2026 business standard mileage rate at 72.5 cents per mile – irs.gov</a></li>
+<li><a href="https://www.irs.gov/pub/irs-drop/n-26-10.pdf">Notice 2026-10, 2026 standard mileage rates – irs.gov</a></li>
+<li><a href="https://www.irs.gov/irb/2026-29_irb">Internal Revenue Bulletin 2026-29 (rates from July 1, 2026) – irs.gov</a></li>
+<li><a href="https://www.irs.gov/publications/p463">Publication 463, Travel, Gift, and Car Expenses – irs.gov</a></li>
+</ul>
+<p class="checked">Checked against the sources on October 29, 2026. Rules change – always check irs.gov. This page is not tax advice.</p>
+</section>
