@@ -55,6 +55,7 @@ Order: switch the source, then push.
 | Fri 2026-11-13 | FI | /fi/oppaat/kilometrikorvaus-2027/ (new; Verohallinto decided 58 c on 23 Oct 2026; the 2026 guide links to it; Amir OK 2026-11-03) | fi-kilometrikorvaus-2027.html | kilometrikorvaus 2027 |
 | Tue 2026-11-17 | DE | /de/ratgeber/fahrtenbuch-app-was-das-finanzamt-prueft/ (new; from the competitor audit of 2026-11-03; Amir OK 2026-11-03) | de-fahrtenbuch-app-finanzamt-prueft.html | fahrtenbuch app finanzamt |
 | Fri 2026-11-20 | NL | /nl/gidsen/rittenregistratie-zonder-keurmerk/ (new; from the competitor audit; Amir OK 2026-11-03) | nl-rittenregistratie-zonder-keurmerk.html | rittenregistratie keurmerk |
+| Fri 2026-11-20 | CH (de) | /de/ratgeber/fahrtenbuch-schweiz-privatanteil/ (new; first Swiss page, rule-set shipped in 2.6; Wegleitung/FAQ 2026, 75 Rappen since 1.1.2026; waits for Amir's review) | de-fahrtenbuch-schweiz-privatanteil.html | privatanteil geschäftsfahrzeug / fahrtenbuch schweiz |
 | Tue 2026-11-24 | DE | /de/ratgeber/kilometerpauschale-2027/ (new; rates fixed by law, JStG 2026 changes nothing; Amir OK 2026-11-03) | de-kilometerpauschale-2027.html | kilometerpauschale 2027 |
 
 If the push happens after a date above, that guide goes live with the push.
