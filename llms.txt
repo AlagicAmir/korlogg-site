@@ -1,11 +1,11 @@
 # Körlogg
 
-> Körlogg is an automatic mileage log app (driving log; Swedish körjournal, German Fahrtenbuch, Dutch rittenregistratie, Danish kørebog, Norwegian kjørebok, Finnish ajopäiväkirja, Polish ewidencja przebiegu pojazdu). It records car trips by itself; the driver swipes each trip business or private and exports a log with date, start and end address, distance, purpose and odometer readings as PDF or Excel.
+> Körlogg is an automatic mileage log app (driving log; Swedish körjournal, German Fahrtenbuch, Dutch rittenregistratie, Danish kørebog, Norwegian kjørebok, Finnish ajopäiväkirja, Polish ewidencja przebiegu pojazdu, Hungarian útnyilvántartás). It records car trips by itself; the driver swipes each trip business or private and exports a log with date, start and end address, distance, purpose and odometer readings as PDF or Excel.
 
 Key facts:
 - Platforms: iPhone and iPad (App Store) and Android (Google Play).
 - Country rules and mileage rates built in for the United Kingdom, Sweden, Denmark, Norway, Finland, Germany, Austria, the Netherlands and Poland.
-- App languages: Swedish, English, Danish, Norwegian, German, Dutch, Finnish and Polish.
+- App languages: Swedish, English, Danish, Norwegian, German, Dutch, Finnish, Polish and Hungarian (iPhone; the Android app has no Hungarian yet).
 - Privacy: no account and no Körlogg server. Trips stay on the phone, or in the user's own iCloud if they turn on sync. No ads.
 - Free download with unlimited automatic logging. Körlogg Pro (subscription or one-time purchase) adds PDF and Excel export, several cars and drivers, the mileage allowance and odometer check, preset routes, iCloud sync and Bluetooth beacon logging.
 - Not affiliated with any tax authority; the log contains the details the tax authorities list for a mileage log in each country.
@@ -88,3 +88,9 @@ Key facts:
 - [Körlogg – ewidencja przebiegu pojazdu do VAT i kilometrówki](https://korlogg.com/pl/): Körlogg zapisuje przejazdy automatycznie. Przesuń: służbowy czy prywatny, i wyeksportuj ewidencję przebiegu pojazdu z datą, trasą, celem i stanem licznika.
 - [Körlogg – pomoc i częste pytania](https://korlogg.com/pl/help/): Jak działa automatyczny zapis, samochody, beacon Bluetooth, stan licznika, raporty, Körlogg Pro i prywatność – te same odpowiedzi co w aplikacji.
 - [Körlogg – wsparcie i kontakt](https://korlogg.com/pl/support/): Napisz do wsparcia Körlogg. Odpowiedzi na większość pytań o ewidencję przebiegu znajdziesz w Pomocy.
+
+## Magyar
+
+- [Körlogg – útnyilvántartás, amely magától elkészül](https://korlogg.com/hu/): A Körlogg automatikusan rögzíti az utakat. Egy húzás: üzleti vagy magán, és kész az útnyilvántartás dátummal, útvonallal, céllal és km-óra-állással, PDF-ben és Excelben.
+- [Körlogg – súgó és gyakori kérdések](https://korlogg.com/hu/help/): Hogyan működik az automatikus rögzítés, járművek, Bluetooth-jeladó, kilométeróra-állás, kimutatások, Körlogg Pro és adatvédelem – ugyanazok a válaszok, mint az appban.
+- [Körlogg – ügyfélszolgálat és kapcsolat](https://korlogg.com/hu/support/): Írjon a Körlogg ügyfélszolgálatának. Az útnyilvántartással kapcsolatos legtöbb kérdésre a Súgó válaszol.

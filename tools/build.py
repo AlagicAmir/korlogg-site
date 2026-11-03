@@ -75,6 +75,7 @@ GUIDES = {   # file stem -> (lang, path, cluster)
     # docs/CONTENT_QUEUE.md, "Waiting for the 2027 announcements".
     "en-hmrc-mileage-rates-2027-28": ("en", "/guides/hmrc-mileage-rates-2027-28/", None),
     "fi-kilometrikorvaus-2027": ("fi", "/fi/oppaat/kilometrikorvaus-2027/", None),
+    "hu-utnyilvantartas": ("hu", "/hu/utmutatok/utnyilvantartas/", None),
     "de-kilometergeld-2027-oesterreich": ("de", "/de/ratgeber/kilometergeld-2027-oesterreich/", None),
     "de-kilometerpauschale-2027": ("de", "/de/ratgeber/kilometerpauschale-2027/", None),
     "sv-milersattning-2027": ("sv", "/se/guider/milersattning-2027/", None),
@@ -88,7 +89,7 @@ GUIDES = {   # file stem -> (lang, path, cluster)
     "de-fahrtenbuch-schweiz-privatanteil": ("de", "/de/ratgeber/fahrtenbuch-schweiz-privatanteil/", None),
 }
 GUIDE_INDEX = {"en": "/guides/", "sv": "/se/guider/", "de": "/de/ratgeber/", "nl": "/nl/gidsen/",
-               "no": "/no/guider/", "da": "/da/guides/", "fi": "/fi/oppaat/"}   # trimmed below to languages with a live guide
+               "no": "/no/guider/", "da": "/da/guides/", "fi": "/fi/oppaat/", "hu": "/hu/utmutatok/"}   # trimmed below to languages with a live guide
 LEGAL_LANGS = {"en", "sv", "de", "nl", "fi"}      # privacy/terms exist in these languages
 DELETE_LANGS = {"en", "sv", "de"}
 REDEEM_LANGS = set(REDEEM)                        # "redeem a code" page (en, sv, de, nl)
@@ -113,7 +114,8 @@ def badge_width(lang):
         BADGE_W[lang] = float(re.search(r'width="([0-9.]+)"', svg).group(1))
     return BADGE_W[lang]
 
-PLAY_BADGE = {"en": "en", "sv": "sv", "de": "de", "nl": "nl", "da": "da", "no": "no", "fi": "fi", "pl": "pl"}
+PLAY_BADGE = {"en": "en", "sv": "sv", "de": "de", "nl": "nl", "da": "da", "no": "no", "fi": "fi", "pl": "pl",
+              "hu": "en"}   # hu: the Android app has no Hungarian UI, so the English badge is honest
 
 def play_button(lang, extra="", position="other"):
     """Google's official localized Play badge (transparent margin trimmed), shown once
@@ -210,7 +212,7 @@ def layout(pg):
 <meta property="og:image" content="{og_img}">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:locale" content="{ {"en": "en_GB", "sv": "sv_SE", "de": "de_DE", "da": "da_DK", "no": "nb_NO", "nl": "nl_NL", "fi": "fi_FI", "pl": "pl_PL"}[lang] }">
+<meta property="og:locale" content="{ {"en": "en_GB", "sv": "sv_SE", "de": "de_DE", "da": "da_DK", "no": "nb_NO", "nl": "nl_NL", "fi": "fi_FI", "pl": "pl_PL", "hu": "hu_HU"}[lang] }">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{esc(pg["title"])}">
 <meta name="twitter:description" content="{esc(pg["desc"])}">
@@ -305,7 +307,7 @@ GUIDE_INDEX = {l: p for l, p in GUIDE_INDEX.items() if any(gl == l and is_live(s
 
 def play_url(lang, campaign=None):
     """Google Play listing; the campaign goes into the install referrer (utm_campaign)."""
-    hl = {"en": "en_GB", "sv": "sv", "de": "de", "nl": "nl", "da": "da", "no": "no", "fi": "fi", "pl": "pl"}[lang]
+    hl = {"en": "en_GB", "sv": "sv", "de": "de", "nl": "nl", "da": "da", "no": "no", "fi": "fi", "pl": "pl", "hu": "hu"}[lang]
     ref = f"&referrer=utm_source%3Dkorlogg.com%26utm_medium%3Dweb%26utm_campaign%3D{campaign}" if campaign else ""
     return f"https://play.google.com/store/apps/details?id={C.PLAY_PACKAGE}&hl={hl}{ref}"
 
@@ -522,6 +524,8 @@ HELP = json.loads((SRC / "help/help.json").read_text())
 def help_text(lang, key):
     t = HELP["strings"][HELP_LANG.get(lang, lang)][key]
     t = t.replace("{authority}", LANGS[lang]["authority"])
+    if lang == "hu":   # Hungarian needs the article: "a NAV" (nominative only, see docs/HUNGARY_FACTS.md in the app repo)
+        t = t.replace("{aAuthority}", "a NAV").replace("{AAuthority}", "A NAV")
     if lang == "de":   # the site speaks to Germany and Austria at once
         t = t.replace("das Kilometergeld des Autos", "die Kilometerpauschale bzw. das Kilometergeld des Autos")
         t = t.replace("Kilometergeld und Abgleich", "Kilometerpauschale bzw. Kilometergeld und Abgleich")
@@ -568,10 +572,11 @@ REVIEW_TEXT = {   # heading, "App Store <country>", months
     "nl": ("Wat gebruikers zeggen", "App Store {c}", "januari februari maart april mei juni juli augustus september oktober november december"),
     "fi": ("Käyttäjät kertovat", "App Store, {c}", "tammikuu helmikuu maaliskuu huhtikuu toukokuu kesäkuu heinäkuu elokuu syyskuu lokakuu marraskuu joulukuu"),
     "pl": ("Co mówią użytkownicy", "App Store {c}", "styczeń luty marzec kwiecień maj czerwiec lipiec sierpień wrzesień październik listopad grudzień"),
+    "hu": ("Ezt mondják a felhasználók", "App Store, {c}", "január február március április május június július augusztus szeptember október november december"),
 }
 REVIEW_COUNTRY = {   # App Store country names per site language
     "at": {"en": "Austria", "sv": "Österrike", "de": "Österreich", "da": "Østrig", "no": "Østerrike",
-           "nl": "Oostenrijk", "fi": "Itävalta", "pl": "Austria"},
+           "nl": "Oostenrijk", "fi": "Itävalta", "pl": "Austria", "hu": "Ausztria"},
 }
 
 def reviews_block(lang):
@@ -842,14 +847,14 @@ def write_llms_txt():
         "",
         "> Körlogg is an automatic mileage log app (driving log; Swedish körjournal, German Fahrtenbuch, "
         "Dutch rittenregistratie, Danish kørebog, Norwegian kjørebok, Finnish ajopäiväkirja, Polish "
-        "ewidencja przebiegu pojazdu). It records car trips by itself; the driver swipes each trip "
+        "ewidencja przebiegu pojazdu, Hungarian útnyilvántartás). It records car trips by itself; the driver swipes each trip "
         "business or private and exports a log with date, start and end address, distance, purpose and "
         "odometer readings as PDF or Excel.",
         "",
         "Key facts:",
         f"- Platforms: {platforms}.",
         f"- Country rules and mileage rates built in for {COUNTRY_LIST['en']}.",
-        "- App languages: Swedish, English, Danish, Norwegian, German, Dutch, Finnish and Polish.",
+        "- App languages: Swedish, English, Danish, Norwegian, German, Dutch, Finnish, Polish and Hungarian (iPhone; the Android app has no Hungarian yet).",
         "- Privacy: no account and no Körlogg server. Trips stay on the phone, or in the user's own iCloud "
         "if they turn on sync. No ads.",
         "- Free download with unlimited automatic logging. Körlogg Pro (subscription or one-time purchase) "

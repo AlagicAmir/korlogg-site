@@ -1,5 +1,6 @@
 {
  "ref": "2704d10",
+ "hu_ref": "master",
  "topics": [
   {
    "key": "faqStart",
@@ -56,7 +57,6 @@
     "faqProWhat",
     "faqProTrial",
     "faqProRestore",
-    "faqProInvoice",
     "faqProCancel"
    ]
   },
@@ -148,9 +148,7 @@
    "faqPrivacyICloudQ": "Vad gör synk via iCloud?",
    "faqPrivacyICloudA": "Med Pro kan du slå på synk under Inställningar. Resor, fordon, mätarställningar, platser och fasta rutter sparas då även i ditt eget privata iCloud och syns på dina andra enheter med samma Apple-ID. Körlogg kan inte läsa dem. Stänger du av synk ligger allt kvar på telefonen.",
    "faqContactTitle": "Har du fler frågor?",
-   "faqContactButton": "Mejla supporten",
-   "faqProInvoiceQ": "Jag behöver ett kvitto till företaget.",
-   "faqProInvoiceA": "Körlogg Pro köps via App Store, så Apple är säljaren och skickar kvittot till e-postadressen för ditt Apple-ID efter varje betalning. Alla kvitton finns också på reportaproblem.apple.com och under Inställningar › ditt namn › Medier och köp › Visa konto › Köphistorik. Vill du betala med företagets kort lägger du in det under Inställningar › ditt namn › Betalning och leverans, med företagets fakturaadress. Vi kan inte utfärda en egen faktura, eftersom betalningen inte går via oss."
+   "faqContactButton": "Mejla supporten"
   },
   "en": {
    "faqBeaconSettingsQ": "Which settings control automatic logging?",
@@ -230,9 +228,7 @@
    "faqPrivacyICloudQ": "What does iCloud sync do?",
    "faqPrivacyICloudA": "With Pro you can turn on sync under Settings. Trips, vehicles, odometer readings, places and preset routes are then also kept in your own private iCloud and appear on your other devices with the same Apple ID. Körlogg cannot read them. If you turn sync off, everything stays on the phone.",
    "faqContactTitle": "Still have a question?",
-   "faqContactButton": "Email support",
-   "faqProInvoiceQ": "I need an invoice for my company.",
-   "faqProInvoiceA": "Körlogg Pro is bought through the App Store, so Apple is the seller and emails a receipt to your Apple ID's address after every payment. You also find all receipts at reportaproblem.apple.com and under Settings › your name › Media & Purchases › View Account › Purchase History. To pay with a company card, add it under Settings › your name › Payment & Shipping, with your company's billing address. We can't issue our own invoice, because the payment doesn't go through us."
+   "faqContactButton": "Email support"
   },
   "da": {
    "faqBeaconSettingsQ": "Hvilke indstillinger styrer den automatiske registrering?",
@@ -312,9 +308,7 @@
    "faqPrivacyICloudQ": "Hvad gør synkronisering via iCloud?",
    "faqPrivacyICloudA": "Med Pro kan du slå synkronisering til under Indstillinger. Ture, køretøjer, kilometerstande, steder og faste ruter gemmes så også i din egen private iCloud og vises på dine andre enheder med samme Apple-id. Körlogg kan ikke læse dem. Slår du synkronisering fra, bliver alt liggende på telefonen.",
    "faqContactTitle": "Har du flere spørgsmål?",
-   "faqContactButton": "Skriv til support",
-   "faqProInvoiceQ": "Jeg skal bruge en faktura til firmaet.",
-   "faqProInvoiceA": "Körlogg Pro købes via App Store, så Apple er sælgeren og sender kvitteringen til e-mailadressen for dit Apple-id efter hver betaling. Du finder også alle kvitteringer på reportaproblem.apple.com og under Indstillinger › dit navn › Medier og køb › Vis konto › Købshistorik. Vil du betale med firmaets kort, tilføjer du det under Indstillinger › dit navn › Betaling og levering, med firmaets faktureringsadresse. Vi kan ikke udstede vores egen faktura, fordi betalingen ikke går gennem os."
+   "faqContactButton": "Skriv til support"
   },
   "nb": {
    "faqBeaconSettingsQ": "Hvilke innstillinger styrer den automatiske registreringen?",
@@ -394,9 +388,7 @@
    "faqPrivacyICloudQ": "Hva gjør synkronisering via iCloud?",
    "faqPrivacyICloudA": "Med Pro kan du slå på synkronisering under Innstillinger. Turer, kjøretøy, kilometerstander, steder og faste ruter lagres da også i din egen private iCloud og vises på de andre enhetene dine med samme Apple-ID. Körlogg kan ikke lese dem. Slår du av synkronisering, ligger alt fortsatt på telefonen.",
    "faqContactTitle": "Har du flere spørsmål?",
-   "faqContactButton": "Skriv til kundestøtte",
-   "faqProInvoiceQ": "Jeg trenger en faktura til firmaet.",
-   "faqProInvoiceA": "Körlogg Pro kjøpes via App Store, så Apple er selgeren og sender kvitteringen til e-postadressen for Apple-ID-en din etter hver betaling. Du finner også alle kvitteringer på reportaproblem.apple.com og under Innstillinger › navnet ditt › Medier og kjøp › Vis konto › Kjøpshistorikk. Vil du betale med firmakortet, legger du det inn under Innstillinger › navnet ditt › Betaling og frakt, med firmaets fakturaadresse. Vi kan ikke utstede en egen faktura, fordi betalingen ikke går via oss."
+   "faqContactButton": "Skriv til kundestøtte"
   },
   "de": {
    "faqBeaconSettingsQ": "Welche Einstellungen steuern die automatische Aufzeichnung?",
@@ -476,9 +468,7 @@
    "faqPrivacyICloudQ": "Was macht die Synchronisierung über iCloud?",
    "faqPrivacyICloudA": "Mit Pro können Sie die Synchronisierung in den Einstellungen einschalten. Fahrten, Fahrzeuge, Kilometerstände, Orte und feste Routen werden dann auch in Ihrer eigenen privaten iCloud gespeichert und erscheinen auf Ihren anderen Geräten mit derselben Apple-ID. Körlogg kann sie nicht lesen. Schalten Sie die Synchronisierung aus, bleibt alles auf dem iPhone.",
    "faqContactTitle": "Noch eine Frage?",
-   "faqContactButton": "E-Mail an den Support",
-   "faqProInvoiceQ": "Ich brauche eine Rechnung für mein Unternehmen.",
-   "faqProInvoiceA": "Körlogg Pro wird über den App Store gekauft. Verkäufer ist daher Apple, und Apple schickt nach jeder Zahlung einen Beleg an die E-Mail-Adresse Ihrer Apple-ID. Alle Belege finden Sie auch unter reportaproblem.apple.com und unter Einstellungen › Ihr Name › Medien & Käufe › Account anzeigen › Kaufverlauf. Möchten Sie mit der Firmenkarte bezahlen, hinterlegen Sie sie unter Einstellungen › Ihr Name › Zahlung & Versand, mit der Rechnungsadresse Ihres Unternehmens. Eine eigene Rechnung können wir nicht ausstellen, da die Zahlung nicht über uns läuft."
+   "faqContactButton": "E-Mail an den Support"
   },
   "nl": {
    "faqBeaconSettingsQ": "Welke instellingen bepalen het automatisch vastleggen?",
@@ -558,9 +548,7 @@
    "faqPrivacyICloudQ": "Wat doet synchronisatie via iCloud?",
    "faqPrivacyICloudA": "Met Pro zet je synchronisatie aan bij Instellingen. Ritten, voertuigen, kilometerstanden, plaatsen en vaste routes worden dan ook bewaard in je eigen privé-iCloud en verschijnen op je andere apparaten met dezelfde Apple ID. Körlogg kan ze niet lezen. Zet je synchronisatie uit, dan blijft alles op je telefoon.",
    "faqContactTitle": "Nog een vraag?",
-   "faqContactButton": "Mail de support",
-   "faqProInvoiceQ": "Ik heb een factuur nodig voor mijn bedrijf.",
-   "faqProInvoiceA": "Körlogg Pro koop je via de App Store, dus Apple is de verkoper en stuurt na elke betaling een aankoopbewijs naar het e-mailadres van je Apple ID. Alle aankoopbewijzen vind je ook op reportaproblem.apple.com en onder Instellingen › je naam › Media en aankopen › Toon account › Aankoopgeschiedenis. Wil je met de zakelijke kaart betalen, voeg die dan toe onder Instellingen › je naam › Betaling en verzending, met het factuuradres van je bedrijf. Een eigen factuur kunnen we niet maken, omdat de betaling niet via ons loopt."
+   "faqContactButton": "Mail de support"
   },
   "fi": {
    "faqBeaconSettingsQ": "Mitkä asetukset ohjaavat automaattista kirjausta?",
@@ -640,9 +628,7 @@
    "faqPrivacyICloudQ": "Mitä iCloud-synkronointi tekee?",
    "faqPrivacyICloudA": "Prolla voit ottaa synkronoinnin käyttöön Asetuksissa. Ajot, ajoneuvot, mittarilukemat, paikat ja tallennetut reitit tallentuvat silloin myös omaan yksityiseen iCloudiisi ja näkyvät muilla laitteillasi samalla Apple ID:llä. Körlogg ei voi lukea niitä. Jos poistat synkronoinnin käytöstä, kaikki jää puhelimeen.",
    "faqContactTitle": "Vielä kysyttävää?",
-   "faqContactButton": "Lähetä sähköpostia tukeen",
-   "faqProInvoiceQ": "Tarvitsen laskun yritykselle.",
-   "faqProInvoiceA": "Körlogg Pro ostetaan App Storesta, joten myyjä on Apple, joka lähettää kuitin Apple ID:si sähköpostiosoitteeseen jokaisen maksun jälkeen. Kaikki kuitit löydät myös osoitteesta reportaproblem.apple.com ja kohdasta Asetukset › nimesi › Media ja ostot › Näytä tili › Ostohistoria. Jos haluat maksaa yrityksen kortilla, lisää se kohdassa Asetukset › nimesi › Maksu ja toimitus yrityksen laskutusosoitteella. Emme voi laatia omaa laskua, koska maksu ei kulje kauttamme."
+   "faqContactButton": "Lähetä sähköpostia tukeen"
   },
   "pl": {
    "faqBeaconSettingsQ": "Które ustawienia sterują automatycznym zapisywaniem?",
@@ -722,9 +708,87 @@
    "faqPrivacyICloudQ": "Co daje synchronizacja przez iCloud?",
    "faqPrivacyICloudA": "Z Pro możesz włączyć synchronizację w Ustawieniach. Przejazdy, pojazdy, stany licznika, miejsca i gotowe trasy są wtedy przechowywane także w twoim prywatnym iCloud i pojawiają się na innych urządzeniach z tym samym Apple ID. Körlogg nie może ich odczytać. Po wyłączeniu synchronizacji wszystko zostaje na telefonie.",
    "faqContactTitle": "Masz jeszcze pytanie?",
-   "faqContactButton": "Napisz do pomocy technicznej",
-   "faqProInvoiceQ": "Potrzebuję faktury dla firmy.",
-   "faqProInvoiceA": "Körlogg Pro kupuje się w App Store, więc sprzedawcą jest Apple, które po każdej płatności wysyła potwierdzenie na adres e-mail Twojego Apple ID. Wszystkie potwierdzenia znajdziesz też na reportaproblem.apple.com oraz w Ustawieniach › Twoje imię › Multimedia i zakupy › Pokaż konto › Historia zakupów. Aby płacić kartą firmową, dodaj ją w Ustawieniach › Twoje imię › Płatności i wysyłka, z adresem rozliczeniowym firmy. Nie możemy wystawić własnej faktury, ponieważ płatność nie przechodzi przez nas."
+   "faqContactButton": "Napisz do pomocy technicznej"
+  },
+  "hu": {
+   "faqBeaconSettingsQ": "Mely beállítások szabályozzák az automatikus rögzítést?",
+   "faqBeaconSettingsA": "A Beállítások → Automatikus rögzítés alatt: az „Utak automatikus rögzítése” be- vagy kikapcsolja az utak önálló felismerését. Az „Utak indítása jeladóval” lehetővé teszi, hogy az autó jeladója elindítson egy utat. A „Rögzítés csak jeladóval” beállítással az utak csak akkor indulnak automatikusan, ha jeladó van a közelben. Az út ahhoz az autóhoz kerül, amelynek jeladóját érzékelte a telefon, egyébként az alapértelmezett járműhöz. A Beállítások → Alapértelmezések alatt választhatja ki, hogyan legyenek megjelölve az új hétköznapi és hétvégi utak.",
+   "faqBeaconOnlyQ": "Rögzíthet a Körlogg csak akkor, amikor a saját autómat vezetem?",
+   "faqBeaconOnlyA": "Igen. Kapcsolja be a „Rögzítés csak jeladóval” opciót a Beállításokban. Az utak ezután csak akkor rögzülnek automatikusan, ha az autó jeladója a közelben van, így a más autókban, taxiban és buszon megtett utak kimaradnak. A kézi utak a megszokott módon működnek. Figyeljen a jeladó elemére: ha lemerül, nem rögzül automatikusan út.",
+   "faqBeaconBuyQ": "Milyen jeladót vásároljak?",
+   "faqBeaconBuyA": "A Körlogg az Apple iBeacon formátumát támogató jeladókkal működik. A legtöbb modern jeladó ilyen, gyakran az Eddystone vagy az AltBeacon mellett, amelyet a gyártó saját appjában választhat ki – ellenőrizze, hogy a termék leírása említi-e az iBeacont. Áruk nagyjából 10–30 €. A Minew, Feasycom, Kontakt.io és Estimote jeladókat a keresés automatikusan megtalálja; más márkák is működnek, ha kézzel adja meg az azonosítót. Az Apple maga nem árul jeladókat.",
+   "faqBeaconAirTagQ": "Használhatok AirTaget?",
+   "faqBeaconAirTagA": "Nem. Az AirTag csak az Apple Lokátor appjával működik, és folyamatosan változtatja az azonosítóját, így más appok nem tudják felismerni. Ugyanez érvényes a Samsung SmartTagre és a Tile-ra. A Körlogg iBeacont támogató jeladót igényel – lásd a fenti kérdést.",
+   "faqRow": "Súgó és GYIK",
+   "faqArtDrive": "Ön vezet",
+   "faqArtPhone": "Az iPhone észleli",
+   "faqArtList": "Út a listában",
+   "faqArtCar": "Az autó",
+   "faqArtRead": "Leolvasás",
+   "faqArtTrip": "Út",
+   "faqStartTitle": "Első lépések",
+   "faqStartHowQ": "Hogyan működik az automatikus rögzítés?",
+   "faqStartHowA": "A Körlogg a telefon mozgásérzékelője és helyadatai alapján észleli, amikor elindul, és GPS-szel méri az utat, amíg az autó néhány percig egy helyben nem áll. Az utak között az app alvó állapotban van, és szinte egyáltalán nem meríti az akkumulátort. Szüksége van „Mindig” helyhozzáférésre pontos helyzettel, valamint a Mozgás és fitnesz engedélyre.",
+   "faqStartPermsQ": "Milyen beállításokra van szüksége a Körloggnak?",
+   "faqStartPermsA": "Az iPhone Beállítások appjában a Körlogg alatt: Helyzet „Mindig”, bekapcsolt Pontos helyzettel, bekapcsolt Mozgás és fitnesz, valamint bekapcsolt Alkalmazásfrissítés a háttérben. A Körlogg Beállítások → Automatikus rögzítés menüjében láthatja, hogy a helyzet és a mozgás engedélyezve van-e, és közvetlenül megnyithatja az iPhone beállításait.",
+   "faqStartMissedQ": "Egy út nem rögzült. Mit tehetek?",
+   "faqStartMissedA": "Először ellenőrizze a fenti engedélyeket: „Az app használata közben” beállítással az utak csak akkor rögzülnek, amikor az app nyitva van. Energiatakarékos módban az iOS ritkábban ébreszti fel az appokat, így az indulás később rögzülhet. Hagyja a Körloggot a háttérben, ne zárja be az appváltóban. Egy kimaradt utat a plusz gombbal bármikor hozzáadhat saját maga.",
+   "faqStartManualQ": "Elindíthatok és leállíthatok egy utat saját magam?",
+   "faqStartManualA": "Igen. Kikapcsolt automatikus rögzítés esetén az útlistán megjelenik egy „Út indítása” gomb. Amíg egy út rögzítése folyamatban van, az útlista tetején lévő mezőben egy „Leállítás” gomb található.",
+   "faqStartSortQ": "Hogyan jelölhetem meg az utakat üzletiként vagy magánként?",
+   "faqStartSortA": "Húzza el az utat jobbra az Üzleti, vagy balra a Magán jelöléshez, vagy nyissa meg az utat, és ott válasszon. Holland autó esetén a Munkába járás (woon-werk) lehetőséget magában az útban választhatja ki. A Beállítások → Alapértelmezések alatt döntheti el, hogyan legyenek megjelölve az új hétköznapi és hétvégi utak.",
+   "faqCarsTitle": "Autók",
+   "faqCarsAddQ": "Hogyan adhatok hozzá egy autót?",
+   "faqCarsAddA": "Nyissa meg a Járművek részt, és koppintson a pluszra. Adja meg a nevet és a rendszámot, válassza ki a típust, és ha szeretné, azt is, hogy ma mit mutat a kilométeróra. Az első autója lesz az alapértelmezett jármű.",
+   "faqCarsCountryQ": "Miért nem módosíthatom egy autó országát?",
+   "faqCarsCountryA": "Minden autó egy ország adószabályait követi. Amint az autónak vannak útjai, az ország zárolódik, így a korábbi utak megtartják a szabályaikat. Ha költözik, válassza az „Autó hozzáadása egy másik országban” lehetőséget: az új utak az új autóhoz kerülnek, a régi pedig megőrzi az előzményeit.",
+   "faqCarsPlateQ": "Megváltozott a rendszám. Mit tegyek?",
+   "faqCarsPlateA": "Amíg az autó első útja egy hétnél nem régebbi, egyszerűen kijavíthatja a számot. Ezután zárolódik, és az „Új rendszám…” lehetőséggel adhat meg új számot egy adott naptól kezdve. Az ezen nap előtti utak megtartják a régi számot.",
+   "faqCarsDefaultQ": "Mi az alapértelmezett jármű?",
+   "faqCarsDefaultA": "Az automatikusan rögzített utak az alapértelmezett járműhöz kerülnek, kivéve, ha egy Bluetooth-jeladó másik autót jelöl meg. Egy út autóját magában az útban bármikor módosíthatja.",
+   "faqCarsSeveralQ": "Rögzíthetek több autót is?",
+   "faqCarsSeveralA": "Igen, a Körlogg Pro használatával. Minden autónak saját országa, kilométeróra-állásai és kimutatása van. Válassza ki az autót az útban, vagy hagyja, hogy az egyes autókban lévő Bluetooth-jeladó válasszon Ön helyett.",
+   "faqBeaconTitle": "Bluetooth-jeladó (Pro)",
+   "faqBeaconWhatQ": "Mire való a Bluetooth-jeladó?",
+   "faqBeaconWhatA": "A jeladó egy kis, elemes Bluetooth-eszköz, amely az autóban marad. Amikor az iPhone a közelébe kerül, a Körlogg elkezdi a rögzítést, és az utat ahhoz az autóhoz rendeli. Az út a megszokott módon ér véget, amikor az autó megáll.",
+   "faqBeaconSetupQ": "Hogyan kapcsolhatok össze egy jeladót?",
+   "faqBeaconSetupA": "Nyissa meg a Járművek részt, koppintson az autóra, és válassza a „Bluetooth-jeladó” lehetőséget. A keresés magától elindul. Tartsa a bekapcsolt jeladót a telefon mellett, és koppintson a „Összekapcsolás” gombra abban a sorban, ahol a „Legközelebb” felirat látható. A helyhozzáférésnek „Mindig” beállításúnak kell lennie.",
+   "faqBeaconManualQ": "A keresés nem találja a jeladómat.",
+   "faqBeaconManualA": "Az iPhone csak olyan jeladókat talál meg, amelyek azonosítóját ismeri, és a keresés a legelterjedtebb márkák alapértelmezett azonosítóit tartalmazza. Nyissa meg a jeladó saját appját, másolja ki az UUID-t (és ha szeretné, a major és minor értéket), majd adja meg az „Azonosító megadása kézzel” alatt.",
+   "faqBeaconSwitchQ": "Megakadályozhatom, hogy a jeladó utakat indítson?",
+   "faqBeaconSwitchA": "Igen. Kapcsolja ki az „Utak indítása jeladóval” opciót a Beállításokban. Az utak ezután úgy lesznek felismerve, mint jeladó nélkül, de az út közben érzékelt jeladó továbbra is kiválasztja az autót.",
+   "faqBeaconBatteryQ": "Mi történik, ha lemerül a jeladó eleme?",
+   "faqBeaconBatteryA": "Az utak továbbra is maguktól indulnak, de az alapértelmezett járműhöz kerülnek. A jeladó oldalán látható, mikor érzékelte a telefon utoljára, és ha két hétig nem érzékelte, miközben Ön vezetett, egy kártya az útlistán emlékezteti, hogy ellenőrizze az elemet. Bekapcsolt „Rögzítés csak jeladóval” opció mellett a lemerült elem azt jelenti, hogy egyáltalán nem lesznek automatikus utak, és a kártya három nap után jelenik meg.",
+   "faqOdoTitle": "Kilométeróra",
+   "faqOdoHowQ": "Hogyan működnek a kilométeróra-állások?",
+   "faqOdoHowA": "Olvassa le egyszer a kilométerórát, és adja meg az autó oldalán a „Jelenlegi kilométeróra-állás” alatt. A Körlogg ezután a rögzített kilométerek alapján kitölti minden út kezdő és záró állását. Ezek az értékek számítottként vannak jelölve (≈ az exportban); amit saját maga ír be, az soha nem változik.",
+   "faqOdoWhenQ": "Mikor adjak meg új leolvasást?",
+   "faqOdoWhenA": "Amikor csak szeretné: minden új leolvasás a körülötte lévő utak kiindulópontja lesz. A Körlogg 30 naponta emlékezteti az útlistán, illetve hetente ott, ahol a szabályok ezt előírják (például Németországban, Ausztriában, Hollandiában és Dániában).",
+   "faqReportTitle": "Kimutatás és exportálás",
+   "faqReportPeriodQ": "Hogyan tekinthetek meg egy kimutatást?",
+   "faqReportPeriodA": "Nyissa meg a Kimutatás részt, és válasszon egy hónapot vagy évet, valamint egy autót. A kimutatás összesíti az üzleti és a magáncélú vezetést, Pro esetén pedig az autó költségtérítését is.",
+   "faqReportExportQ": "Hogyan exportálhatom az útnyilvántartásomat?",
+   "faqReportExportA": "Koppintson az „Útnyilvántartás exportálása” gombra a Kimutatás alatt, és válassza a PDF vagy az Excel formátumot. Az exportálás a Körlogg Pro része. A fájlt e-mailben megoszthatja, vagy elmentheti a Fájlok appba.",
+   "faqReportContentsQ": "Mit tartalmaz a kimutatás?",
+   "faqReportContentsA": "Azokat az adatokat, amelyeket {aAuthority} előír: dátum és időpont, kiindulási és érkezési cím, távolság, az út célja és a kilométeróra-állások, valamint a sofőr és az autó. Az utakon utólag végzett módosítások is fel vannak sorolva.",
+   "faqProTitle": "Körlogg Pro",
+   "faqProWhatQ": "Mit tartalmaz a Pro?",
+   "faqProWhatA": "Exportálás PDF és Excel formátumban, több autó és sofőr, költségtérítés és kilométeróra-ellenőrzés, mentett útvonalak, az összes út megnyitható (Pro nélkül a legutóbbi 25), iCloud-szinkronizálás és a Bluetooth-jeladó. Az utak rögzítése Pro nélkül is korlátlan.",
+   "faqProTrialQ": "Van próbaidőszak?",
+   "faqProTrialA": "Az új felhasználóknak a telepítés utáni első héten egyhetes próbaidőszakot kínálunk. A próbaidőszak alatt lemondhatja az App Store-előfizetéseiben.",
+   "faqProRestoreQ": "Egy másik iPhone-on vettem meg a Pro verziót.",
+   "faqProRestoreA": "Lépjen a Beállításokba, koppintson a „Váltás Körlogg Pro-ra” elemre, és válassza a „Visszaállítás” lehetőséget. Ugyanazt az Apple-fiókot használja, mint a vásárláskor.",
+   "faqProCancelQ": "Hogyan mondhatom le az előfizetésemet?",
+   "faqProCancelA": "Az előfizetéseket az Apple kezeli: nyissa meg iPhone-ján a Beállítások appot, koppintson a nevére, majd az Előfizetések elemre, és válassza a Körloggot. Az örökös vásárlásnál nincs mit lemondani.",
+   "faqPrivacyTitle": "Adatvédelem és iCloud",
+   "faqPrivacyWhereQ": "Hol tárolódnak az útjaim?",
+   "faqPrivacyWhereA": "Az iPhone-ján. A Körloggot fiók és bejelentkezés nélkül használhatja.",
+   "faqPrivacyLocationQ": "Mikor használja a Körlogg a helyzetemet?",
+   "faqPrivacyLocationA": "A GPS csak akkor fut, amikor egy út rögzítése folyamatban van. Az utak között az app alvó állapotban van, és csak azokat a durva ébresztéseket kapja meg, amelyekkel az iOS észleli, hogy Ön elindul.",
+   "faqPrivacyICloudQ": "Mire jó az iCloud-szinkronizálás?",
+   "faqPrivacyICloudA": "Pro esetén a szinkronizálást a Beállításokban kapcsolhatja be. Az utak, járművek, kilométeróra-állások, helyek és mentett útvonalak ezután a saját, privát iCloudjában is tárolódnak, és megjelennek az ugyanazzal az Apple-fiókkal használt többi eszközén. A Körlogg nem tudja elolvasni őket. Ha kikapcsolja a szinkronizálást, minden a telefonon marad.",
+   "faqContactTitle": "Van még kérdése?",
+   "faqContactButton": "E-mail a támogatásnak"
   }
  }
 }

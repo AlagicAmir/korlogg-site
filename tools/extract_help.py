@@ -27,10 +27,18 @@ for line in strings.splitlines():
     if m and lang:
         tables[lang][m.group(1)] = m.group(2).replace('\\"', '"')
 
+# Hungarian came with 2.6 and lives in its own file (every key of every table), so it is
+# read from the current master and trimmed to the help keys the other languages have.
+HU_REF = "master"
+hu_src = subprocess.run(["git", "-C", str(REPO), "show", f"{HU_REF}:Korlogg/Localization/Strings+Hungarian.swift"],
+                        check=True, capture_output=True, text=True).stdout
+hu_all = {m.group(1): m.group(2).replace('\\"', '"') for m in re.finditer(r'^\s+"([A-Za-z0-9]+)": "(.*)",\s*$', hu_src, re.M)}
+tables["hu"] = {k: hu_all[k] for k in tables["en"] if k in hu_all}
+
 topics = [{"key": k, "questions": re.findall(r'"([A-Za-z]+)"', qs)}
           for k, qs in re.findall(r'Topic\(key: "(\w+)", questions: \[([^\]]*)\]\)', view)
           if k != "faqUs"]   # the US topic is not published (no US launch)
 
-OUT.write_text(json.dumps({"ref": REF, "topics": topics, "strings": tables},
+OUT.write_text(json.dumps({"ref": REF, "hu_ref": HU_REF, "topics": topics, "strings": tables},
                           ensure_ascii=False, indent=1))
 print(f"{OUT}: {len(topics)} topics, {sum(len(t['questions']) for t in topics)} questions, langs {list(tables)}")

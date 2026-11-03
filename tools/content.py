@@ -753,3 +753,101 @@ REDEEM = {
         pointer="Heb je een code gekregen, bijvoorbeeld van je boekhouder?",
     ),
 }
+
+# ---------------------------------------------------------------------------
+# Hungarian (2026-11-03). The app's Hungarian edition shipped in 2.6 (iPhone only;
+# the Android app has no Hungarian UI yet). Formal "Ön" register, as in the app.
+# Facts: ~/repo/Korlogg/docs/HUNGARY_FACTS.md. "a NAV" takes the article; no suffixes.
+# ---------------------------------------------------------------------------
+LANGS["hu"] = dict(prefix="/hu/", html="hu", hreflang="hu", store="hu", name="Magyar", authority="NAV")
+SRC_HU_SZJA = ("Szja tv. 3. számú melléklet – 1995. évi CXVII. törvény (net.jogtar.hu)", "https://net.jogtar.hu/jogszabaly?docid=99500117.tv")
+SRC_HU_NAV = ("NAV – 2026-ban alkalmazható üzemanyagárak", "https://nav.gov.hu/ugyfeliranytu/uzemanyag/2026-ban-alkalmazhato-uzemanyagarak")
+UI["hu"] = dict(
+    skip="Ugrás a tartalomra", nav_features="Funkciók", nav_help="Súgó", nav_guides="Útmutatók", nav_support="Ügyfélszolgálat",
+    lang_label="Nyelv", store_btn="Letöltés az App Store-ból", get_app="Az app letöltése",
+    qr_note="Olvassa be iPhone-ja kamerájával, és a Körlogg megnyílik az App Store-ban. Androidon használja a Google Play gombot.",
+    platform="iPhone-ra, iPadre és Androidra (az androidos app egyelőre angol nyelvű).",
+    v2_pending="Újdonság a Körlogg 2.0-ban · hamarosan", v2_released="Újdonság a Körlogg 2.0-ban · már elérhető",
+    privacy="Adatvédelmi tájékoztató", terms="Felhasználási feltételek", support="Ügyfélszolgálat",
+    help="Súgó és gyakori kérdések", delete="Adattörlési kérelem",
+    independent="A Körlogg független; nem áll kapcsolatban a NAV-val vagy más adóhatósággal.",
+    publisher="A Körloggot Amir Alagic (egyéni vállalkozó, Svédország) készíti.",
+    updated="Frissítve", guides="Útmutatók", read_more="Útmutató elolvasása",
+    help_title="Körlogg – súgó és gyakori kérdések",
+    help_desc="Hogyan működik az automatikus rögzítés, járművek, Bluetooth-jeladó, kilométeróra-állás, kimutatások, Körlogg Pro és adatvédelem – ugyanazok a válaszok, mint az appban.",
+    help_intro="Ugyanazok a válaszok, amelyeket az appban a Beállítások → Súgó és gyakori kérdések alatt talál.",
+    support_title="Körlogg – ügyfélszolgálat és kapcsolat",
+    support_desc="Írjon a Körlogg ügyfélszolgálatának. Az útnyilvántartással kapcsolatos legtöbb kérdésre a Súgó válaszol.",
+    support_email_intro="Írjon nekünk a következő címre:",
+    support_email_note="Általában két munkanapon belül válaszolunk. Kérjük, adja meg a telefon típusát és az iOS verzióját.",
+    support_email_fallback="Az új címünk beállítás alatt áll. Ha onnan nem kap választ, írjon ide:",
+    support_help="A legtöbb kérdésre választ ad a",
+    privacy_title="A Körlogg adatvédelmi tájékoztatója",
+    privacy_desc="A Körlogg adatvédelmi tájékoztatója angolul, hollandul és finnül érhető el.",
+    terms_title="A Körlogg felhasználási feltételei",
+    terms_desc="A Körlogg felhasználási feltételei angolul, hollandul és finnül érhetők el.",
+    delete_title="", delete_desc="",
+    site_note_h="Weboldal",
+    site_note="Névtelen látogatottsági statisztika, sütik nélkül. A TelemetryDeck (TelemetryDeck GmbH, Németország) segítségével névtelenül számoljuk, hányan látogatják az oldalakat és kattintanak az App Store gombra. Nincs süti, nincs profil, semmi, amit Önhöz köthetnénk: a TelemetryDeck az IP-címet és a böngészőt naponta változó, egyirányú kóddá alakítja. Az oldal a GitHub Pages szolgáltatáson fut; a GitHub az oldalak kiszolgálásához technikai adatokat, például IP-címeket dolgoz fel.",
+    en_only="Ez a szöveg angolul, hollandul és finnül érhető el. Alább az angol változat.",
+    translation_note="",
+    nf_title="Az oldal nem található – Körlogg", nf_h1="Ez az oldal nem létezik",
+    nf_text="A link elavult vagy hibásan lett beírva.", nf_home="A kezdőlapra",
+    guides_title="Útmutatók az útnyilvántartáshoz és a költségtérítéshez – Körlogg",
+    guides_desc="Útmutatók forrásokkal: mit kell tartalmaznia az útnyilvántartásnak és a kiküldetési rendelvénynek, és hogyan adja ki a norma és a NAV-üzemanyagár a költségtérítést.",
+    guides_h1="Útmutatók",
+    guides_intro="Gyakorlati útmutatók forrásokkal. Minden útmutató jelzi, mikor ellenőriztük utoljára az adatokat.",
+    other_lang_guides="Útmutatók más nyelveken",
+)
+HOME["hu"] = dict(
+    title="Körlogg – útnyilvántartás, amely magától elkészül",
+    desc="A Körlogg automatikusan rögzíti az utakat. Egy húzás: üzleti vagy magán, és kész az útnyilvántartás dátummal, útvonallal, céllal és km-óra-állással, PDF-ben és Excelben.",
+    h1="Útnyilvántartás, amely magától elkészül",
+    lede="A Körlogg észreveszi, amikor elindul, és GPS-szel rögzíti az utat. Önnek csak egyet kell húznia: üzleti vagy magán.",
+    trust=["Fiók és bejelentkezés nélkül", "Korlátlan számú út, Pro nélkül is", "A költségtérítést kiszámolja Ön helyett"],
+    features_h2="Minden egy appban",
+    features=[
+        ("Magától rögzíti az utakat", "Az app észreveszi, hogy vezet, és méri az utat, amíg az autó néhány percig meg nem áll. Az utak között alszik, és szinte nem fogyaszt akkumulátort."),
+        ("Üzleti vagy magán – egy húzással", "Húzza jobbra: üzleti, balra: magán. Az út célját és a felkeresett partnert akkor adja meg, amikor Önnek alkalmas."),
+        ("Az útnyilvántartás előírt adatai", "Rendszám, gyártmány és típus, fogyasztási norma, kilométeróra-állás az év elején és végén, utanként dátum, indulási és érkezési hely, az út célja, a felkeresett partner és a megtett km."),
+        ("Az útjai az Önéi", "Fiók nélkül. Az utak a telefonján vannak, és ha kéri, a saját iCloudjában. Nem látjuk és nem is adhatjuk el az útjait. Az app névtelen használati statisztikát küld – utakat és helyadatokat soha."),
+    ],
+    beacon=dict(h2="Bluetooth-jeladóval vagy anélkül",
+                text="A Körlogg magától rögzíti az utakat, nem kell semmit vásárolnia. Ha szeretné, tegyen az autóba egy kis Bluetooth-jeladót (iBeacon): amikor az iPhone észleli, a Körlogg elindítja a rögzítést, és az utat a megfelelő autóhoz rendeli. A Körlogg Pro része.",
+                bullets=[], link=""),
+    pro_note="Az utak rögzítése korlátlan, Pro nélkül is. A Pro (PDF- és Excel-export, több jármű, költségtérítés, szinkronizálás a saját iCloudban) előfizetésként vagy egyszeri vásárlásként érhető el; az árat az App Store-ban vagy a Google Playen látja.",
+    help_h2="Kérdése van?", help_text="Az app súgója és gyakori kérdései a weben is olvashatók.",
+    guides_h2="Útmutatók",
+    cta_h2="Kezdje el az útnyilvántartást még ma",
+    cta_text="Telepítse a Körloggot, engedélyezze a helyhozzáférést „Mindig” beállítással, és induljon. Az első út magától megjelenik.",
+    alts=["Automatikusan rögzített utak listája", "Útnyilvántartás exportálása PDF-ben és Excelben",
+          "Egy út a térképen címekkel és az út céljával", "Kimutatás a kiszámolt költségtérítéssel",
+          "Üzleti vagy magán egy húzással", "Beállítások: fiók nélkül, szinkronizálás a saját iCloudban"],
+)
+TAX["hu"] = dict(
+    h1="Útnyilvántartás a költségtérítéshez – magától elkészül.",
+    lede="Kiküldetési rendelvény, saját autó a munkában, egyéni vállalkozó költségelszámolása – a Körlogg minden utat automatikusan rögzít.",
+    who=dict(h2="Kinek való a Körlogg?", cards=[
+        ("Munkavállaló saját autóval", "Ha a munkáltató kiküldetési rendelvényre fizet költségtérítést, az útnyilvántartás adja hozzá az útvonalat, az út célját, a megtett km-t és a kilométeróra-állásokat."),
+        ("Egyéni vállalkozók", "A tételes költségelszámoláshoz járművenként külön útnyilvántartás kell, az üzleti utak indulási és érkezési kilométeróra-állásával. A Körlogg ezt vezeti."),
+        ("Céges autó használói", "Az üzleti és a magánutak elválasztva, dátummal, útvonallal és céllal. Céges autónál az app a nyilvántartást vezeti, költségtérítést nem számol."),
+    ]),
+    money=dict(h2="Mennyit ér egy üzleti kilométer saját autóval",
+               intro="Az igazolás nélkül elszámolható költségtérítés kilométerenként: a fogyasztási norma × a hónap NAV-üzemanyagára, plusz az általános személygépkocsi-normaköltség.",
+               stats=[("15 Ft", "kilométerenként általános normaköltség, minden autóra"),
+                      ("≈ 55 Ft", "kilométerenként üzemanyag egy 1 373 cm³-es benzines autónál: 8,6 l/100 km × 639 Ft (2026. november)")],
+               example="Példa: 2 000 üzleti km egy 1 373 cm³-es benzines autóval 2026 novemberében ≈ 140 000 Ft adómentes költségtérítés.",
+               note="A törvény és a NAV adatai 2026. november 3-án – nem a Körlogg ára.",
+               sources=[SRC_HU_SZJA, SRC_HU_NAV]),
+)
+STORE_LABEL["hu"] = ("Letöltés az", "App Store-ból")
+SOURCE_WORD["hu"] = "Forrás"
+SAVE["hu"] = dict(h2="Mit nyer vele", sources=[SRC_HU_SZJA, SRC_HU_NAV],
+                  time=("8–17 óra", "évente, amit nem az útnyilvántartással tölt.", "Példa: 1–2 perc × 500 út"),
+                  money=("≈ 109 000 Ft-ig", "évente, ha egyébként hetente egy üzleti utat elfelejt.", "Példa: 30 km × ≈ 70 Ft/km × 52 hét"))
+ANDROID_HELP["hu"] = {
+    "faqPrivacyWhereA": "Androidon is a telefonján. Az iCloud-szinkronizálás csak iPhone-on és iPaden érhető el.",
+    "faqPrivacyICloudA": "Az iCloud-szinkronizálás csak iPhone-on és iPaden érhető el. Az androidos Körlogg nem szinkronizál eszközök között.",
+}
+BEACON_SHOTS["hu"] = []        # the 2.6 Hungarian set has no beacon frame
+BEACON_HERO_SHOT["hu"] = 6     # Beállítások

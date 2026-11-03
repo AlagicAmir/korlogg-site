@@ -9,8 +9,10 @@ ROOT = pathlib.Path(__file__).resolve().parent.parent
 APP = pathlib.Path.home() / "repo/Korlogg"
 SHOTS = APP / "fastlane/screenshots_2_0"
 SHOTS_2_0_2 = APP / "fastlane/screenshots_2_0_2"
+SHOTS_2_6 = APP / "fastlane/screenshots_2_6"      # Hungarian came with 2.6
 ICON = APP / "Korlogg/Resources/Assets.xcassets/AppIcon.appiconset/icon-1024.png"
-LOCALES = {"en": "en-GB", "sv": "sv", "de": "de-DE", "da": "da", "no": "no", "nl": "nl-NL", "fi": "fi", "pl": "pl"}
+LOCALES = {"en": "en-GB", "sv": "sv", "de": "de-DE", "da": "da", "no": "no", "nl": "nl-NL", "fi": "fi", "pl": "pl", "hu": "hu"}
+ONLY = [a for a in __import__("sys").argv[1:]]   # python3 tools/images.py hu  -> only that language
 OG_LINES = {
     "en": ("Your mileage log for taxes", "– kept automatically."),
     "sv": ("Automatisk körjournal", "för förmånsbil och", "milersättning."),
@@ -20,6 +22,7 @@ OG_LINES = {
     "nl": ("Rittenregistratie voor de", "Belastingdienst – vanzelf."),
     "fi": ("Ajopäiväkirja verotusta", "varten – automaattisesti."),
     "pl": ("Ewidencja przebiegu do VAT", "i kilometrówki – sama."),
+    "hu": ("Útnyilvántartás az adóhoz", "– magától elkészül."),
 }
 
 def webp(src: Image.Image, out: pathlib.Path, width: int, q=78):
@@ -32,9 +35,10 @@ def webp(src: Image.Image, out: pathlib.Path, width: int, q=78):
 def shots():
     import config as C
     for lang, loc in LOCALES.items():
+        if ONLY and lang not in ONLY: continue
         d = ROOT / "assets/shots" / lang; d.mkdir(parents=True, exist_ok=True)
         # 2.0.2 sets ("No beacon needed"); English waits for the UK release.
-        src = SHOTS if lang == "en" and not C.UK_RELEASED else SHOTS_2_0_2
+        src = SHOTS if lang == "en" and not C.UK_RELEASED else SHOTS_2_6 if lang == "hu" else SHOTS_2_0_2
         for f in sorted(glob.glob(str(src / loc / "*_APP_IPHONE_69_*.png"))):
             n = pathlib.Path(f).name.split("_")[0]
             im = Image.open(f).convert("RGB")
@@ -64,6 +68,7 @@ def og(rounded):
     bold = ImageFont.truetype("/System/Library/Fonts/HelveticaNeue.ttc", 64, index=1)
     big = ImageFont.truetype("/System/Library/Fonts/HelveticaNeue.ttc", 54, index=1)
     for lang, loc in LOCALES.items():
+        if ONLY and lang not in ONLY: continue
         W, H = 1200, 630
         bg = Image.new("RGB", (W, H))
         top, bot = (15, 55, 121), (30, 116, 220)
@@ -71,7 +76,7 @@ def og(rounded):
         for y in range(H):
             t = y / H
             px.line([(0, y), (W, y)], fill=tuple(round(a + (b - a) * t) for a, b in zip(top, bot)))
-        shot = Image.open(SHOTS / loc / "1_APP_IPHONE_69_1.png").convert("RGB")
+        shot = Image.open((SHOTS_2_6 if lang == "hu" else SHOTS) / loc / "1_APP_IPHONE_69_1.png").convert("RGB")
         phone = shot.crop((90, 560, 1230, 2868))           # the phone, without the headline
         ph = phone.resize((round(phone.width * 700 / phone.height), 700), Image.LANCZOS)
         bg.paste(ph, (W - ph.width - 40, 70))
@@ -89,16 +94,17 @@ def og(rounded):
 
 RAW = APP / "fastlane/raw_2_0"
 HERO_RAW = {"en": "en_trips", "sv": "sv_trips", "de": "de_trips_DE", "da": "da_trips", "no": "nb_trips",
-            "nl": "nl_trips", "fi": "fi_trips", "pl": "pl_trips"}
+            "nl": "nl_trips", "fi": "fi_trips", "pl": "pl_trips", "hu": "hu_trips"}
 
 def hero():
     """Unframed trip-list screens for the CSS phone frame in the hero."""
     d = ROOT / "assets/hero"; d.mkdir(parents=True, exist_ok=True)
     for lang, name in HERO_RAW.items():
-        im = Image.open(RAW / f"{name}.png").convert("RGB")
+        if ONLY and lang not in ONLY: continue
+        im = Image.open((APP / "fastlane/raw_2_6" if lang == "hu" else RAW) / f"{name}.png").convert("RGB")
         for w in (360, 720):
             webp(im, d / f"{lang}-{w}.webp", w, q=82)
 
 if __name__ == "__main__":
-    shots(); r = icons(); og(r); hero()
+    shots(); r = icons(); og(r); hero()   # icons are language-independent and deterministic
     print("done")
