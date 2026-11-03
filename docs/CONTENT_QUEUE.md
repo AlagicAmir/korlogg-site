@@ -50,12 +50,12 @@ Order: switch the source, then push.
 | Fri 2026-11-06 | NO | /no/guider/kjoregodtgjorelse/ (new, first Norwegian guide: also opens /no/guider/ and the Guider link; waits for Amir's review) | no-kjoregodtgjorelse.html | kjøregodtgjørelse 2026 / statens satser |
 | Tue 2026-11-10 | DK | /da/guides/korselsgodtgorelse/ (new, first Danish guide: also opens /da/guides/; waits for Amir's review) | da-korselsgodtgorelse.html | kørselsgodtgørelse 2026 |
 | Fri 2026-11-13 | FI | /fi/oppaat/kilometrikorvaus/ (new, first Finnish guide: also opens /fi/oppaat/; waits for Amir's review) | fi-kilometrikorvaus.html | kilometrikorvaus 2026 |
-| Fri 2026-11-06 | UK | /guides/hmrc-mileage-rates-2027-28/ (new; 55p/35p from 6 Apr 2027 announced at Budget 2026 on 28 Oct; waits for Amir's review) | en-hmrc-mileage-rates-2027-28.html | hmrc mileage rates 2027/28 |
-| Tue 2026-11-10 | AT | /de/ratgeber/kilometergeld-2027-oesterreich/ (new; Kilometergeld unchanged 0,50 €, new E-car Sachbezug from 2027 per BGBl. II 272/2026; waits for Amir's review) | de-kilometergeld-2027-oesterreich.html | kilometergeld 2027 |
-| Fri 2026-11-13 | FI | /fi/oppaat/kilometrikorvaus-2027/ (new; Verohallinto decided 58 c on 23 Oct 2026; the 2026 guide links to it; waits for Amir's review) | fi-kilometrikorvaus-2027.html | kilometrikorvaus 2027 |
-| Tue 2026-11-17 | DE | /de/ratgeber/fahrtenbuch-app-was-das-finanzamt-prueft/ (new; from the competitor audit of 2026-11-03; waits for Amir's review) | de-fahrtenbuch-app-finanzamt-prueft.html | fahrtenbuch app finanzamt |
-| Fri 2026-11-20 | NL | /nl/gidsen/rittenregistratie-zonder-keurmerk/ (new; from the competitor audit; waits for Amir's review) | nl-rittenregistratie-zonder-keurmerk.html | rittenregistratie keurmerk |
-| Tue 2026-11-24 | DE | /de/ratgeber/kilometerpauschale-2027/ (new; rates fixed by law, JStG 2026 changes nothing; waits for Amir's review) | de-kilometerpauschale-2027.html | kilometerpauschale 2027 |
+| Fri 2026-11-06 | UK | /guides/hmrc-mileage-rates-2027-28/ (new; 55p/35p from 6 Apr 2027 announced at Budget 2026 on 28 Oct; Amir OK 2026-11-03) | en-hmrc-mileage-rates-2027-28.html | hmrc mileage rates 2027/28 |
+| Tue 2026-11-10 | AT | /de/ratgeber/kilometergeld-2027-oesterreich/ (new; Kilometergeld unchanged 0,50 €, new E-car Sachbezug from 2027 per BGBl. II 272/2026; Amir OK 2026-11-03) | de-kilometergeld-2027-oesterreich.html | kilometergeld 2027 |
+| Fri 2026-11-13 | FI | /fi/oppaat/kilometrikorvaus-2027/ (new; Verohallinto decided 58 c on 23 Oct 2026; the 2026 guide links to it; Amir OK 2026-11-03) | fi-kilometrikorvaus-2027.html | kilometrikorvaus 2027 |
+| Tue 2026-11-17 | DE | /de/ratgeber/fahrtenbuch-app-was-das-finanzamt-prueft/ (new; from the competitor audit of 2026-11-03; Amir OK 2026-11-03) | de-fahrtenbuch-app-finanzamt-prueft.html | fahrtenbuch app finanzamt |
+| Fri 2026-11-20 | NL | /nl/gidsen/rittenregistratie-zonder-keurmerk/ (new; from the competitor audit; Amir OK 2026-11-03) | nl-rittenregistratie-zonder-keurmerk.html | rittenregistratie keurmerk |
+| Tue 2026-11-24 | DE | /de/ratgeber/kilometerpauschale-2027/ (new; rates fixed by law, JStG 2026 changes nothing; Amir OK 2026-11-03) | de-kilometerpauschale-2027.html | kilometerpauschale 2027 |
 
 If the push happens after a date above, that guide goes live with the push.
 
