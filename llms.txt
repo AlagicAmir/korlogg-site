@@ -19,8 +19,10 @@ Key facts:
 - [Körlogg Support – contact and common problems](https://korlogg.com/support/): Contact Körlogg support by email and find answers to common questions about missed trips, distance, battery, subscriptions and privacy.
 - [Körlogg guides – mileage logs, beacons and tax rules](https://korlogg.com/guides/): Practical guides for keeping a mileage log: HMRC records, approved mileage rates and commuting in the UK, and which iBeacon to buy for Körlogg.
 - [Commuting vs business mileage: HMRC's rules explained](https://korlogg.com/guides/commuting-vs-business-mileage/): Ordinary commuting is private for HMRC; trips to a temporary workplace can be business. The 24-month and 40% rules, with HMRC's own examples.
-- [What HMRC needs in a business mileage log (UK, 2026)](https://korlogg.com/guides/hmrc-mileage-log/): What to record for each business journey, how long to keep a mileage log, and how the rules differ for employees and the self-employed – with GOV.UK sources.
+- [HMRC mileage log template: columns and example (UK)](https://korlogg.com/guides/hmrc-mileage-log-template/): A practical mileage log template for UK drivers: the columns to keep, a filled-in example, paper vs spreadsheet vs app, and how long to keep it.
+- [HMRC mileage log: what you need to record (2026)](https://korlogg.com/guides/hmrc-mileage-log/): What an HMRC mileage log needs for each business journey – date, start and end postcodes, reason and miles – plus the 55p and 25p rates from 6 April 2026.
 - [HMRC approved mileage rates 2026/27: 55p and 25p explained](https://korlogg.com/guides/hmrc-mileage-rates-2026-27/): From 6 April 2026 HMRC's approved rate for cars is 55p a mile for the first 10,000 business miles, then 25p. Worked examples and Mileage Allowance Relief.
+- [IRS mileage deduction calculator 2026 (72.5¢ and 76¢)](https://korlogg.com/guides/irs-mileage-deduction-calculator/): Work out your 2026 mileage deduction at the IRS standard rates: 72.5¢ a business mile to June 30 and 76¢ from July 1, plus medical and charity miles.
 - [Which iBeacon should I buy for Körlogg? A buyer's guide](https://korlogg.com/guides/which-ibeacon/): Any standard iBeacon works with Körlogg. What to look for, which brands are found automatically, why AirTag and Tile don't work, and what a beacon costs.
 
 ## Svenska
@@ -32,7 +34,8 @@ Key facts:
 - [Automatisk körjournal – så fungerar det i mobilen](https://korlogg.com/se/guider/automatisk-korjournal/): Så loggar en automatisk körjournal resor med mobilens rörelsesensor och GPS, vad Skatteverket vill se, för- och nackdelar mot papper och teknikens gränser.
 - [Förmånsbil och privat körning i ringa omfattning](https://korlogg.com/se/guider/formansbil-privat-korning-ringa-omfattning/): Högst 10 tillfällen och högst 100 mil per år – så fungerar ringa omfattning för förmånsbil, vad som räknas som privat och hur du visar det med körjournal.
 - [Körjournal för enskild firma – egen bil eller firmabil](https://korlogg.com/se/guider/korjournal-enskild-firma/): När du med enskild firma behöver körjournal: egen bil med 25 kr per mil, bil i firman och ringa privat körning, vad du ska skriva och hur länge du sparar den.
-- [Vad ska en körjournal innehålla? Skatteverkets lista](https://korlogg.com/se/guider/vad-ska-en-korjournal-innehalla/): Vilka uppgifter Skatteverket rekommenderar i en körjournal, när du behöver en, hur länge du sparar den och milersättningen för 2026: 25, 12 och 9,50 kr/mil.
+- [Milersättning 2026 – 25 kr per mil och så räknar du](https://korlogg.com/se/guider/milersattning/): Milersättning 2026: 25 kronor per mil för egen bil, 12 för förmånsbil och 9,50 för elbil. Räkneexempel, reseavdraget och underlaget du behöver.
+- [Körjournal – vad kräver Skatteverket? (2026)](https://korlogg.com/se/guider/vad-ska-en-korjournal-innehalla/): Vad Skatteverket kräver av en körjournal 2026: datum, mätarställning, start och mål, ärende och besökt företag. När du behöver den, milersättning 25 kr/mil och källor.
 - [Vilken iBeacon ska jag köpa till Körlogg? – guide](https://korlogg.com/se/guider/vilken-ibeacon/): Alla vanliga iBeacon-beacons fungerar med Körlogg. Vad du ska titta efter, vilka märken som hittas automatiskt, varför AirTag inte fungerar och vad det kostar.
 
 ## Deutsch
@@ -41,10 +44,12 @@ Key facts:
 - [Körlogg Hilfe und häufige Fragen – die Antworten aus der App](https://korlogg.com/de/help/): So funktionieren automatische Aufzeichnung, Fahrzeuge, Bluetooth-Beacon, Kilometerstand, Bericht, Körlogg Pro und Datenschutz – dieselben Antworten wie in der App.
 - [Körlogg Support – Kontakt und häufige Probleme](https://korlogg.com/de/support/): Kontaktieren Sie den Körlogg-Support per E-Mail und finden Sie Antworten zu fehlenden Fahrten, Strecke, Akku, Abos und Datenschutz.
 - [Ratgeber Fahrtenbuch, Sachbezug und Beacon – Körlogg](https://korlogg.com/de/ratgeber/): Ratgeber: Pflichtangaben im Fahrtenbuch, Fahrtenbuch oder 1-%-Regelung, Kilometerpauschale 2026, Fahrtenbuch in Österreich und welcher iBeacon zu Körlogg passt.
+- [Elektronisches Fahrtenbuch: Anforderungen 2026](https://korlogg.com/de/ratgeber/elektronisches-fahrtenbuch-anforderungen/): Elektronisches Fahrtenbuch nach R 8.1 LStR und BMF-Schreiben: zeitnah, geschlossen, Änderungen erkennbar. Was BFH-Urteile verlangen und was das Finanzamt prüft.
 - [Fahrtenbuch-Methode oder 1-%-Regelung? Vergleich mit Rechenbeispiel](https://korlogg.com/de/ratgeber/fahrtenbuch-oder-1-prozent-regelung/): 1-%-Regelung oder Fahrtenbuch beim Firmenwagen: wie beide Methoden funktionieren, wann sich das Fahrtenbuch lohnt und was BFH und Finanzverwaltung verlangen.
 - [Fahrtenbuch in Österreich: Sachbezug und Kilometergeld](https://korlogg.com/de/ratgeber/fahrtenbuch-oesterreich-sachbezug-kilometergeld/): Fahrtenbuch in Österreich 2026: Sachbezug fürs Firmenauto, halber Sachbezug bis 500 km im Monat, E-Autos ab 2027 und amtliches Kilometergeld 0,50 € je km.
+- [Fahrtenbuch-Vorlage oder App? Was das Finanzamt erwartet](https://korlogg.com/de/ratgeber/fahrtenbuch-vorlage-oder-app/): Fahrtenbuch-Vorlage in Excel, Heft oder App: warum Excel-Dateien beim Finanzamt durchfallen können, was zeitnah, geschlossen und unveränderbar heißt – mit BFH-Quellen.
 - [Kilometerpauschale 2026: 0,30 € Dienstreise, 0,38 € Arbeitsweg](https://korlogg.com/de/ratgeber/kilometerpauschale-2026/): 2026 gelten 0,30 € je km für Dienstreisen mit dem eigenen Pkw und 0,38 € Entfernungspauschale ab dem ersten Kilometer. Für Arbeitnehmer und Selbstständige.
-- [Was muss ein Fahrtenbuch enthalten? Pflichtangaben 2026](https://korlogg.com/de/ratgeber/was-muss-ein-fahrtenbuch-enthalten/): Welche Angaben ein Fahrtenbuch in Deutschland braucht: dienstliche und private Fahrten, elektronisches Fahrtenbuch, Folgen von Mängeln und 0,30 € je km.
+- [Fahrtenbuch führen: Was muss rein? Pflichtangaben 2026](https://korlogg.com/de/ratgeber/was-muss-ein-fahrtenbuch-enthalten/): Fahrtenbuch führen nach R 8.1 LStR: welche Angaben das Finanzamt je Fahrt erwartet – Datum, Kilometerstand, Ziel, Zweck, Privatfahrten –, mit Beispiel und BFH-Quellen.
 - [Welchen iBeacon für Körlogg kaufen? – Ratgeber](https://korlogg.com/de/ratgeber/welcher-ibeacon/): Jeder gängige iBeacon funktioniert mit Körlogg. Worauf Sie achten sollten, welche Marken automatisch gefunden werden, warum AirTag nicht geht und was ein Beacon kostet.
 
 ## Dansk
@@ -66,8 +71,11 @@ Key facts:
 - [Körlogg support – contact](https://korlogg.com/nl/support/): Neem per e-mail contact op met de support van Körlogg. Antwoord op de meeste vragen vind je bij Hulp.
 - [Gidsen over rittenregistratie, 500 km privé en kilometervergoeding](https://korlogg.com/nl/gidsen/): Gidsen met bronnen: wat er in een rittenregistratie moet, hoe je 500 km privé aantoont en wat de onbelaste kilometervergoeding in 2026 is.
 - [500 km privé met je auto van de zaak: hoe bewijs je het?](https://korlogg.com/nl/gidsen/500-km-prive-bewijzen/): Geen bijtelling als je maximaal 500 km per jaar privé rijdt – als je het kunt aantonen. Wat telt als privé, de Verklaring geen privégebruik en welk bewijs je nodig hebt.
+- [Automatische rittenregistratie met je telefoon: zo werkt het](https://korlogg.com/nl/gidsen/automatische-rittenregistratie/): Hoe een rittenregistratie-app je ritten zelf vastlegt met de bewegingssensor en gps van je telefoon, wat de Belastingdienst erin wil zien en de eerlijke beperkingen.
 - [Kilometervergoeding 2026: € 0,25 per km onbelast](https://korlogg.com/nl/gidsen/kilometervergoeding-2026/): De onbelaste kilometervergoeding is in 2026 € 0,25 per km (was € 0,23 per km), met terugwerkende kracht. Voor werknemers, woon-werkverkeer en zzp'ers, met bronnen.
+- [Rittenregistratie bijhouden: zo doe je het in de praktijk](https://korlogg.com/nl/gidsen/rittenregistratie-bijhouden/): Een rittenregistratie bijhouden zonder gedoe: een vaste routine, papier, Excel of app, omrijkilometers, de kilometerstand, vergeten ritten en hoe lang je alles bewaart.
 - [Rittenregistratie: wat moet erin? De eisen van de Belastingdienst](https://korlogg.com/nl/gidsen/rittenregistratie-wat-moet-erin/): Welke gegevens de Belastingdienst per auto en per rit vraagt in een rittenregistratie: datum, kilometerstanden, adressen, route, zakelijk of privé en omrijkilometers.
+- [Zakelijke kilometers als zzp'er: € 0,25 per km aftrekken in 2026](https://korlogg.com/nl/gidsen/zakelijke-kilometers-zzp/): Zzp'er met een privéauto? In 2026 trek je € 0,25 per km af voor zakelijke ritten. Wat telt als zakelijk, auto privé of op de zaak, en wat je bijhoudt.
 
 ## Suomi
 

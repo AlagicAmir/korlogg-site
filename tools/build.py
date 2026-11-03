@@ -70,6 +70,21 @@ GUIDES = {   # file stem -> (lang, path, cluster)
     "no-kjoregodtgjorelse": ("no", "/no/guider/kjoregodtgjorelse/", None),
     "da-korselsgodtgorelse": ("da", "/da/guides/korselsgodtgorelse/", None),
     "fi-kilometrikorvaus": ("fi", "/fi/oppaat/kilometrikorvaus/", None),
+    # 2027 rate pages (one URL per year, like the UK 2026-27 page). Pages whose authority has
+    # not decided yet are held with `publish: 2099-12-31` and ⟦…⟧ placeholders; see
+    # docs/CONTENT_QUEUE.md, "Waiting for the 2027 announcements".
+    "en-hmrc-mileage-rates-2027-28": ("en", "/guides/hmrc-mileage-rates-2027-28/", None),
+    "fi-kilometrikorvaus-2027": ("fi", "/fi/oppaat/kilometrikorvaus-2027/", None),
+    "de-kilometergeld-2027-oesterreich": ("de", "/de/ratgeber/kilometergeld-2027-oesterreich/", None),
+    "de-kilometerpauschale-2027": ("de", "/de/ratgeber/kilometerpauschale-2027/", None),
+    "sv-milersattning-2027": ("sv", "/se/guider/milersattning-2027/", None),
+    "no-kjoregodtgjorelse-2027": ("no", "/no/guider/kjoregodtgjorelse-2027/", None),
+    "da-korselsgodtgorelse-2027": ("da", "/da/guides/korselsgodtgorelse-2027/", None),
+    "en-irs-mileage-rate-2027": ("en", "/guides/irs-mileage-rate-2027/", None),
+    "nl-kilometervergoeding-2027": ("nl", "/nl/gidsen/kilometervergoeding-2027/", None),
+    # Guides from the competitor audit of 2026-11-03
+    "de-fahrtenbuch-app-finanzamt-prueft": ("de", "/de/ratgeber/fahrtenbuch-app-was-das-finanzamt-prueft/", None),
+    "nl-rittenregistratie-zonder-keurmerk": ("nl", "/nl/gidsen/rittenregistratie-zonder-keurmerk/", None),
 }
 GUIDE_INDEX = {"en": "/guides/", "sv": "/se/guider/", "de": "/de/ratgeber/", "nl": "/nl/gidsen/",
                "no": "/no/guider/", "da": "/da/guides/", "fi": "/fi/oppaat/"}   # trimmed below to languages with a live guide
@@ -706,6 +721,13 @@ def build_guides():
     for stem, (lang, path, cluster) in GUIDES.items():
         if not is_live(stem): continue
         meta, body = read_guide(stem)
+        # A held rate page still carries ⟦…⟧ placeholders; it must never reach the live site.
+        # `--as-of` previews only warn, so the held page can be looked at before its day.
+        if "⟦" in body or "⟦" in meta.get("title", "") or "⟦" in meta.get("description", ""):
+            if "--as-of" in sys.argv:
+                print(f"warning: {stem} still has ⟦…⟧ placeholders (preview only)")
+            else:
+                raise SystemExit(f"{stem}: ⟦…⟧ placeholders in a live guide – fill them in or move its publish date")
         body = placeholders(body, lang)
         # a guide may name its own App Store campaign (guide_<slug>); {{store}} in the text links with it
         campaign = meta.get("campaign")
