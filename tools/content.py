@@ -764,7 +764,7 @@ SRC_HU_SZJA = ("Szja tv. 3. számú melléklet – 1995. évi CXVII. törvény (
 SRC_HU_NAV = ("NAV – 2026-ban alkalmazható üzemanyagárak", "https://nav.gov.hu/ugyfeliranytu/uzemanyag/2026-ban-alkalmazhato-uzemanyagarak")
 UI["hu"] = dict(
     skip="Ugrás a tartalomra", nav_features="Funkciók", nav_help="Súgó", nav_guides="Útmutatók", nav_support="Ügyfélszolgálat",
-    lang_label="Nyelv", store_btn="Letöltés az App Store-ból", get_app="Az app letöltése",
+    lang_label="Nyelv", store_btn="Letölthető az App Store-ból", get_app="Az app letöltése",
     qr_note="Olvassa be iPhone-ja kamerájával, és a Körlogg megnyílik az App Store-ban. Androidon használja a Google Play gombot.",
     platform="iPhone-ra, iPadre és Androidra (az androidos app egyelőre angol nyelvű).",
     v2_pending="Újdonság a Körlogg 2.0-ban · hamarosan", v2_released="Újdonság a Körlogg 2.0-ban · már elérhető",
