@@ -840,7 +840,7 @@ TAX["hu"] = dict(
                note="A törvény és a NAV adatai 2026. november 3-án – nem a Körlogg ára.",
                sources=[SRC_HU_SZJA, SRC_HU_NAV]),
 )
-STORE_LABEL["hu"] = ("Letöltés az", "App Store-ból")
+STORE_LABEL["hu"] = ("Letölthető az", "App Store-ból")
 SOURCE_WORD["hu"] = "Forrás"
 SAVE["hu"] = dict(h2="Mit nyer vele", sources=[SRC_HU_SZJA, SRC_HU_NAV],
                   time=("8–17 óra", "évente, amit nem az útnyilvántartással tölt.", "Példa: 1–2 perc × 500 út"),

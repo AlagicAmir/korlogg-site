@@ -115,7 +115,7 @@ def badge_width(lang):
     return BADGE_W[lang]
 
 PLAY_BADGE = {"en": "en", "sv": "sv", "de": "de", "nl": "nl", "da": "da", "no": "no", "fi": "fi", "pl": "pl",
-              "hu": "en"}   # hu: the Android app has no Hungarian UI, so the English badge is honest
+              "hu": "hu"}
 
 def play_button(lang, extra="", position="other"):
     """Google's official localized Play badge (transparent margin trimmed), shown once
