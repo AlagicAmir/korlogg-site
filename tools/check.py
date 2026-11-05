@@ -85,7 +85,7 @@ def main():
         for b in BANNED:
             if b == r"geocod" and re.search(r"/(privacy|terms|delete-data)/$", path): continue   # verbatim legal text
             if "kr" in b and ("ibeacon" in path or "/help/" in path): continue   # third-party beacon prices
-            if "kr" in b and "/jamfor-" in path: continue   # comparison pages quote dated prices from each maker
+            if "kr" in b and ("/jamfor-" in path or "/alternativ-" in path): continue   # comparison pages quote dated prices from each maker
             if "Gratis" in b and path.startswith("/nl/"): continue   # Dutch, not German
             for m in re.finditer(b, text, re.I):
                 problems.append(f"{path}: banned/price pattern {b!r}: …{text[max(0,m.start()-40):m.end()+20]}…")

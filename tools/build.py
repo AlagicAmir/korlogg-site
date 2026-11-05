@@ -57,6 +57,7 @@ GUIDES = {   # file stem -> (lang, path, cluster)
     "sv-korjournal-enskild-firma": ("sv", "/se/guider/korjournal-enskild-firma/", None),
     "sv-milersattning": ("sv", "/se/guider/milersattning/", None),
     "sv-jamfor-korjournal-appar": ("sv", "/se/guider/jamfor-korjournal-appar/", None),
+    "sv-alternativ-till-driversnote": ("sv", "/se/guider/alternativ-till-driversnote/", None),
     "de-fahrtenbuch-oder-1-prozent": ("de", "/de/ratgeber/fahrtenbuch-oder-1-prozent-regelung/", None),
     "de-kilometerpauschale-2026": ("de", "/de/ratgeber/kilometerpauschale-2026/", None),
     "de-fahrtenbuch-vorlage-oder-app": ("de", "/de/ratgeber/fahrtenbuch-vorlage-oder-app/", None),
