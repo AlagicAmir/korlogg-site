@@ -89,6 +89,7 @@ GUIDES = {   # file stem -> (lang, path, cluster)
     "de-fahrtenbuch-app-finanzamt-prueft": ("de", "/de/ratgeber/fahrtenbuch-app-was-das-finanzamt-prueft/", None),
     "nl-rittenregistratie-zonder-keurmerk": ("nl", "/nl/gidsen/rittenregistratie-zonder-keurmerk/", None),
     "de-fahrtenbuch-schweiz-privatanteil": ("de", "/de/ratgeber/fahrtenbuch-schweiz-privatanteil/", None),
+    "de-fahrtenbuch-rechner": ("de", "/de/ratgeber/fahrtenbuch-rechner/", None),
 }
 GUIDE_INDEX = {"en": "/guides/", "sv": "/se/guider/", "de": "/de/ratgeber/", "nl": "/nl/gidsen/",
                "no": "/no/guider/", "da": "/da/guides/", "fi": "/fi/oppaat/", "hu": "/hu/utmutatok/"}   # trimmed below to languages with a live guide
