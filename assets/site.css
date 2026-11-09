@@ -93,6 +93,7 @@ code{background:var(--soft);padding:1px 6px;border-radius:6px;font-size:.88em;wo
 @media (min-width:700px){.cards{grid-template-columns:repeat(2,1fr)}}
 @media (min-width:1000px){.cards{grid-template-columns:repeat(3,1fr)}}
 .cards.one{grid-template-columns:1fr}
+@media (min-width:1000px){.cards.two{grid-template-columns:repeat(2,1fr)}}
 .card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:26px;box-shadow:var(--shadow)}
 .alt .card{background:var(--bg);box-shadow:none}
 .card h3{font-size:20px}

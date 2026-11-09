@@ -318,6 +318,13 @@ HOME = {
         title="Körlogg – automatisk körjournal för förmånsbil och milersättning",
         desc="Körlogg loggar dina bilresor automatiskt. Svep tjänst eller privat och exportera körjournalen med de uppgifter Skatteverket frågar efter. Inget konto.",
         h1="Körjournalen som sköter sig själv",
+        problems=dict(h2="Det som gör körjournalen jobbig",
+                      items=[
+            ("Risken när Skatteverket frågar", "Med förmånsbil ska du kunna visa att den privata körningen är av ringa omfattning. En körjournal som skrivs i efterhand, med glömda resor och gissade mätarställningar, är svår att stå för. Körlogg loggar varje resa när den sker, och ändringar i efterhand syns i exporten."),
+            ("Tid som går till administration", "Att i slutet av månaden leta i kalendern, minnas adresser och räkna mil tar timmar. Med Körlogg är resorna redan loggade: du sveper tjänst eller privat och exporterar körjournalen som PDF eller Excel."),
+            ("Fel milersättning", "Uppskattade sträckor ger fel ersättning – antingen för lite till dig eller för mycket från arbetsgivaren. Körlogg mäter varje resa med GPS och räknar ut milersättningen med Skatteverkets skattefria belopp."),
+            ("Oro för vad som loggas", "Körs bilen också privat vill ingen att arbetsgivaren ser var man är på fritiden. Körlogg har inget konto, och resorna finns bara på din telefon och, om du vill, i ditt eget iCloud. Ingen ser något förrän du själv skickar rapporten."),
+        ]),
         lede="Körlogg märker när du börjar köra och loggar resan med GPS. Du sveper tjänst eller privat – och rapporten är klar när du behöver den.",
         trust=["Gjord i Sverige", "Inget konto, ingen inloggning", "Byggd för varje lands regler", "Personlig support"],
         steps_h2="Så fungerar det", steps=[("Kör", "Körlogg märker resan och loggar den med GPS – ingen knapp att trycka på."), ("Svep", "Höger för tjänst, vänster för privat. Fyll i ärendet när det passar dig."), ("Exportera", "En körjournal som PDF eller Excel med datum, adresser, ärende och mätarställningar.")],

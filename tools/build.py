@@ -373,6 +373,16 @@ def build_home(lang):
 <ul class="cards three" role="list">{who}</ul>
 </div>
 </section>"""
+    probsec = ""
+    if "problems" in h:
+        pr = h["problems"]
+        cards = "".join(f'<li class="card"><h3>{esc(t)}</h3><p>{esc(x)}</p></li>' for t, x in pr["items"])
+        probsec = f"""<section class="section alt" id="problems">
+<div class="wrap">
+<h2 class="center">{esc(pr["h2"])}</h2>
+<ul class="cards two" role="list">{cards}</ul>
+</div>
+</section>"""
     m = tx["money"]
     if "rows" in m:
         rows = "".join(f'<tr><th scope="row">{esc(c)}</th><td>{esc(r)}</td><td><a href="{s[1]}">{esc(s[0].split(" – ")[0])}</a></td></tr>' for c, r, s in m["rows"])
@@ -477,7 +487,7 @@ def build_home(lang):
 <p class="hero-note">{esc(ui["platform"])}</p>
 </div>
 </section>"""
-    body = hero + whosec + money + features + report + reviews_block(lang) + mid + shots + beacon + privacy + pro + helpsec + cta
+    body = hero + probsec + whosec + money + features + report + reviews_block(lang) + mid + shots + beacon + privacy + pro + helpsec + cta
     add(lang, "home", P(lang, "home"), h["title"], h["desc"], body, jsonld=[app_jsonld(lang), home_faq_jsonld(lang)], main_class="home")
     base = f"/assets/hero/{lang}"
     PAGES[-1]["head"] = (f'<link rel="preload" as="image" href="{base}-360.webp" imagesrcset="{base}-360.webp 360w, {base}-720.webp 720w" '
