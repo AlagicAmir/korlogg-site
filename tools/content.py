@@ -284,6 +284,13 @@ HOME = {
     "en": dict(
         title="Körlogg – automatic mileage log for taxes and allowances",
         desc="Körlogg logs your car trips automatically. Swipe business or private, then export a mileage log with date, addresses, purpose and odometer. No account.",
+        problems=dict(h2='What makes a mileage log hard work',
+                      items=[
+            ('The risk when the tax office asks', 'A log written afterwards, with forgotten trips and guessed odometer readings, is hard to stand behind – whether it backs a company-car benefit, a mileage deduction or an allowance. Körlogg logs every trip as it happens, and any change made later is listed in the export.'),
+            ('Hours lost to admin', 'Going through the calendar at the end of the month, remembering addresses and adding up the distances takes hours. With Körlogg the trips are already logged: swipe business or private and export the log as PDF or Excel.'),
+            ('The wrong mileage payment', "Estimated distances mean the wrong amount – too little for you or too much from your employer. Körlogg measures every trip with GPS and works out the allowance at the official rate of the car's country."),
+            ('Worry about what is tracked', 'If the car is also used privately, nobody wants their employer to see where they go in their free time. Körlogg has no account: your trips stay on your phone and, if you want, in your own iCloud. Nobody sees anything until you send the report yourself.'),
+        ]),
         h1="The mileage log that keeps itself",
         lede="Körlogg notices when you start driving and logs the trip with GPS. You swipe business or private – and the report is ready when you need it.",
         trust=["Made in Sweden", "No account, no login", "Built for each country's rules", "Personal support"],
@@ -357,6 +364,13 @@ HOME = {
     "de": dict(
         title="Körlogg – Fahrtenbuch-App fürs Finanzamt, automatisch geführt",
         desc="Körlogg zeichnet Ihre Fahrten automatisch auf. Dienstlich oder privat per Wischen, Export mit allen Angaben fürs Fahrtenbuch. Für Deutschland und Österreich.",
+        problems=dict(h2='Was das Fahrtenbuch mühsam macht',
+                      items=[
+            ('Das Risiko bei einer Prüfung', 'Ein Fahrtenbuch muss zeitnah und lückenlos geführt werden. Wird es nachträglich aus dem Gedächtnis ergänzt, mit vergessenen Fahrten und geschätzten Kilometerständen, kann das Finanzamt es verwerfen – dann gilt die 1-%-Regelung. Körlogg erfasst jede Fahrt, während sie stattfindet, und nachträgliche Änderungen stehen im Export.'),
+            ('Zeit für Verwaltung', 'Am Monatsende im Kalender suchen, Adressen rekonstruieren und Kilometer zusammenzählen kostet Stunden. Mit Körlogg sind die Fahrten schon erfasst: Sie wischen dienstlich oder privat und exportieren das Fahrtenbuch als PDF oder Excel.'),
+            ('Falsche Erstattung', 'Geschätzte Strecken führen zu falschen Beträgen – zu wenig für Sie oder zu viel vom Arbeitgeber. Körlogg misst jede Fahrt per GPS und berechnet die Kilometerpauschale, in Österreich das Kilometergeld, mit den gesetzlichen Sätzen.'),
+            ('Sorge, was erfasst wird', 'Wird das Auto auch privat genutzt, möchte niemand, dass der Arbeitgeber sieht, wo man in der Freizeit ist. Körlogg braucht kein Konto: Ihre Fahrten liegen auf Ihrem Telefon und, wenn Sie möchten, in Ihrer eigenen iCloud. Niemand sieht etwas, bevor Sie selbst den Bericht senden.'),
+        ]),
         h1="Das Fahrtenbuch, das sich von selbst führt",
         lede="Körlogg erkennt, wenn Sie losfahren, und zeichnet die Fahrt per GPS auf. Sie wischen nur noch: dienstlich oder privat. Der Bericht ist fertig, wenn Sie ihn brauchen.",
         trust=["Entwickelt in Schweden", "Kein Konto, keine Anmeldung", "Für Deutschland und Österreich gebaut", "Persönlicher Support"],
@@ -394,6 +408,13 @@ HOME = {
     "da": dict(
         title="Körlogg – kørebog til skatten og kørselsgodtgørelse (iPhone)",
         desc="Körlogg registrerer dine bilture automatisk. Stryg erhverv eller privat og eksportér kørebogen med dato, adresser, formål og kilometerstand. Intet login.",
+        problems=dict(h2='Det, der gør kørebogen besværlig',
+                      items=[
+            ('Risikoen, når Skattestyrelsen spørger', 'En kørebog, der skrives bagefter, med glemte ture og gættede kilometertal, er svær at stå inde for. Körlogg registrerer hver tur, mens den sker, og ændringer bagefter fremgår af eksporten.'),
+            ('Tid, der går til administration', 'At lede i kalenderen sidst på måneden, huske adresser og lægge kilometer sammen tager timer. Med Körlogg er turene allerede registreret: du stryger erhverv eller privat og eksporterer kørebogen som PDF eller Excel.'),
+            ('Forkert kørselsgodtgørelse', 'Anslåede strækninger giver forkerte beløb – for lidt til dig eller for meget fra arbejdsgiveren. Körlogg måler hver tur med GPS og beregner den skattefri kørselsgodtgørelse efter Skatterådets satser.'),
+            ('Bekymring for, hvad der registreres', 'Bruges bilen også privat, vil ingen have, at arbejdsgiveren ser, hvor man er i fritiden. Körlogg har ingen konto: dine ture ligger på din telefon og, hvis du vil, i din egen iCloud. Ingen ser noget, før du selv sender rapporten.'),
+        ]),
         h1="Kørebogen, der passer sig selv",
         lede="Körlogg opdager, når du begynder at køre, og registrerer turen med GPS. Du stryger erhverv eller privat – og rapporten står klar, når du skal bruge den.",
         trust=["Intet login, ingen konto", "Ubegrænset antal ture, også uden Pro", "Satserne regnes for dig"],
@@ -416,6 +437,13 @@ HOME = {
     "no": dict(
         title="Körlogg – kjørebok for skatten og kjøregodtgjørelse (iPhone)",
         desc="Körlogg logger biltturene dine automatisk. Sveip jobb eller privat og eksporter kjøreboken med dato, adresser, formål og kilometerstand. Ingen innlogging.",
+        problems=dict(h2='Det som gjør kjøreboken tungvint',
+                      items=[
+            ('Risikoen når Skatteetaten spør', 'En kjørebok som skrives i ettertid, med glemte turer og gjettede kilometerstander, er vanskelig å stå inne for. Körlogg logger hver tur mens den skjer, og endringer i ettertid vises i eksporten.'),
+            ('Tid som går til administrasjon', 'Å lete i kalenderen på slutten av måneden, huske adresser og legge sammen kilometer tar timer. Med Körlogg er turene allerede logget: du sveiper jobb eller privat og eksporterer kjøreboken som PDF eller Excel.'),
+            ('Feil kjøregodtgjørelse', 'Anslåtte strekninger gir feil beløp – for lite til deg eller for mye fra arbeidsgiveren. Körlogg måler hver tur med GPS og beregner kjøregodtgjørelsen etter Skatteetatens sats.'),
+            ('Usikkerhet om hva som logges', 'Brukes bilen også privat, vil ingen at arbeidsgiveren skal se hvor man er på fritiden. Körlogg har ingen konto: turene dine ligger på telefonen din og, om du vil, i din egen iCloud. Ingen ser noe før du selv sender rapporten.'),
+        ]),
         h1="Kjøreboken som fører seg selv",
         lede="Körlogg merker når du begynner å kjøre, og logger turen med GPS. Du sveiper jobb eller privat – og rapporten er klar når du trenger den.",
         trust=["Ingen innlogging, ingen konto", "Ubegrenset antall turer, også uten Pro", "Kjøregodtgjørelse beregnet for deg"],
@@ -438,6 +466,13 @@ HOME = {
     "nl": dict(
         title="Körlogg – rittenregistratie voor de Belastingdienst (iPhone)",
         desc="Körlogg legt je autoritten automatisch vast. Kies zakelijk, woon-werk of privé en exporteer je rittenregistratie met datum, adressen en kilometerstanden.",
+        problems=dict(h2='Wat een rittenregistratie lastig maakt',
+                      items=[
+            ('Het risico als de Belastingdienst vraagt', 'Rijd je minder dan 500 km privé met je auto van de zaak, dan moet je dat met een rittenregistratie kunnen aantonen. Een rittenregistratie die achteraf is ingevuld, met vergeten ritten en geschatte kilometerstanden, is lastig te verdedigen. Körlogg legt elke rit vast terwijl je rijdt, en latere wijzigingen staan in de export.'),
+            ('Tijd die opgaat aan administratie', 'Aan het eind van de maand in je agenda zoeken, adressen terughalen en kilometers optellen kost uren. Met Körlogg zijn je ritten al vastgelegd: je kiest zakelijk, woon-werk of privé en exporteert de rittenregistratie als PDF of Excel.'),
+            ('Een verkeerde kilometervergoeding', 'Geschatte afstanden geven een verkeerd bedrag – te weinig voor jou of te veel van je werkgever. Körlogg meet elke rit met gps en berekent de onbelaste kilometervergoeding.'),
+            ('Zorgen over wat er wordt vastgelegd', 'Gebruik je de auto ook privé, dan wil je niet dat je werkgever ziet waar je in je vrije tijd bent. Körlogg heeft geen account: je ritten staan op je telefoon en, als je wilt, in je eigen iCloud. Niemand ziet iets totdat je zelf het rapport stuurt.'),
+        ]),
         h1="De rittenregistratie die zichzelf bijhoudt",
         lede="Körlogg merkt wanneer je gaat rijden en legt de rit vast met gps. Jij kiest alleen nog: zakelijk, woon-werk of privé.",
         trust=["Geen account, geen login", "Onbeperkt ritten, ook zonder Pro", "De 500 km privé in de gaten"],
@@ -460,6 +495,13 @@ HOME = {
     "fi": dict(
         title="Körlogg – ajopäiväkirja verotukseen ja kilometrikorvauksiin",
         desc="Körlogg kirjaa autoajosi automaattisesti. Pyyhkäise työ tai yksityinen ja vie ajopäiväkirja, jossa on päivämäärät, osoitteet, tarkoitus ja mittarilukemat.",
+        problems=dict(h2='Mikä ajopäiväkirjassa on työlästä',
+                      items=[
+            ('Riski, kun Verohallinto kysyy', 'Jälkikäteen kirjoitettu ajopäiväkirja, josta puuttuu ajoja ja jonka mittarilukemat on arvioitu, on vaikea perustella. Körlogg kirjaa jokaisen ajon sen tapahtuessa, ja jälkikäteen tehdyt muutokset näkyvät viennissä.'),
+            ('Aikaa kuluu hallintoon', 'Kalenterin selaaminen kuun lopussa, osoitteiden muistelu ja kilometrien laskeminen vie tunteja. Körloggissa ajot on jo kirjattu: pyyhkäiset ajon työ- tai yksityisajoksi ja viet ajopäiväkirjan PDF- tai Excel-tiedostona.'),
+            ('Väärä kilometrikorvaus', 'Arvioidut matkat tuottavat väärän summan – liian vähän sinulle tai liikaa työnantajalta. Körlogg mittaa jokaisen ajon GPS:llä ja laskee verovapaan kilometrikorvauksen Verohallinnon päätöksen mukaan.'),
+            ('Huoli siitä, mitä kirjataan', 'Jos autoa käytetään myös yksityisesti, kukaan ei halua työnantajan näkevän, missä vapaa-aika kuluu. Körloggissa ei ole tiliä: ajosi ovat puhelimessasi ja halutessasi omassa iCloudissasi. Kukaan ei näe mitään ennen kuin lähetät raportin itse.'),
+        ]),
         h1="Ajopäiväkirja, joka pitää itsensä",
         lede="Körlogg huomaa, kun lähdet ajamaan, ja kirjaa ajon GPS:llä. Sinä pyyhkäiset vain: työ vai yksityinen.",
         trust=["Ei tiliä, ei kirjautumista", "Rajattomasti ajoja myös ilman Prota", "Kilometrikorvaus lasketaan puolestasi"],
@@ -482,6 +524,13 @@ HOME = {
     "pl": dict(
         title="Körlogg – ewidencja przebiegu pojazdu do VAT i kilometrówki",
         desc="Körlogg zapisuje przejazdy automatycznie. Przesuń: służbowy czy prywatny, i wyeksportuj ewidencję przebiegu pojazdu z datą, trasą, celem i stanem licznika.",
+        problems=dict(h2='Co utrudnia prowadzenie ewidencji przebiegu',
+                      items=[
+            ('Ryzyko przy kontroli', 'Pełne odliczenie VAT od samochodu używanego wyłącznie w firmie wymaga ewidencji przebiegu. Ewidencja uzupełniana po fakcie, z pominiętymi przejazdami i szacowanymi stanami licznika, jest trudna do obrony przed urzędem skarbowym. Körlogg zapisuje każdy przejazd w chwili, gdy się odbywa, a późniejsze zmiany są widoczne w eksporcie.'),
+            ('Czas tracony na administrację', 'Szukanie w kalendarzu pod koniec miesiąca, odtwarzanie adresów i sumowanie kilometrów zajmuje godziny. W Körlogg przejazdy są już zapisane: przesuwasz je jako służbowe lub prywatne i eksportujesz ewidencję do PDF lub Excela.'),
+            ('Błędna kilometrówka', 'Szacowane odległości dają złe kwoty – za mało dla ciebie albo za dużo od pracodawcy. Körlogg mierzy każdy przejazd przez GPS i wylicza kilometrówkę według stawek za 1 km.'),
+            ('Obawa o to, co jest zapisywane', 'Jeśli auto służy też prywatnie, nikt nie chce, by pracodawca widział, gdzie spędza wolny czas. Körlogg nie wymaga konta: twoje przejazdy są w telefonie i, jeśli chcesz, w twoim własnym iCloud. Nikt nic nie zobaczy, dopóki sam nie wyślesz raportu.'),
+        ]),
         h1="Ewidencja przebiegu, która prowadzi się sama",
         lede="Körlogg zauważa, że ruszasz, i zapisuje przejazd GPS-em. Ty tylko przesuwasz: służbowy czy prywatny.",
         trust=["Bez konta i logowania", "Nielimitowane przejazdy, także bez Pro", "Kilometrówka wyliczona za ciebie"],
@@ -809,6 +858,13 @@ UI["hu"] = dict(
 HOME["hu"] = dict(
     title="Körlogg – útnyilvántartás, amely magától elkészül",
     desc="A Körlogg automatikusan rögzíti az utakat. Egy húzás: üzleti vagy magán, és kész az útnyilvántartás dátummal, útvonallal, céllal és km-óra-állással, PDF-ben és Excelben.",
+    problems=dict(h2='Ami az útnyilvántartást nehézzé teszi',
+                      items=[
+            ('A kockázat ellenőrzéskor', 'Az utólag, emlékezetből kitöltött útnyilvántartás – kimaradt utakkal és becsült kilométeróra-állásokkal – nehezen védhető meg a NAV előtt. A Körlogg minden utat akkor rögzít, amikor megtörténik, az utólagos módosítások pedig megjelennek az exportban.'),
+            ('Adminisztrációra menő idő', 'A hónap végén a naptárban keresgélni, címeket felidézni és kilométereket összeadni órákig tart. A Körloggban az utak már rögzítve vannak: Ön csak elhúzza őket üzletinek vagy magánnak, és PDF- vagy Excel-fájlba exportálja a nyilvántartást.'),
+            ('Hibás költségtérítés', 'A becsült távolságok hibás összeget adnak – túl keveset Önnek, vagy túl sokat a munkáltatótól. A Körlogg GPS-szel méri az utakat, és saját autónál kiszámolja a kilométerenkénti költségtérítést.'),
+            ('Aggodalom amiatt, mit rögzít az app', 'Ha az autót magáncélra is használják, senki sem szeretné, hogy a munkáltató lássa, hol tölti a szabadidejét. A Körlogghoz nem kell fiók: az utak az Ön telefonján vannak, és ha szeretné, a saját iCloudjában. Senki nem lát semmit, amíg Ön el nem küldi a jelentést.'),
+        ]),
     h1="Útnyilvántartás, amely magától elkészül",
     lede="A Körlogg észreveszi, amikor elindul, és GPS-szel rögzíti az utat. Önnek csak egyet kell húznia: üzleti vagy magán.",
     trust=["Fiók és bejelentkezés nélkül", "Korlátlan számú út, Pro nélkül is", "A költségtérítést kiszámolja Ön helyett"],
