@@ -35,6 +35,20 @@ hu_src = subprocess.run(["git", "-C", str(REPO), "show", f"{HU_REF}:Korlogg/Loca
 hu_all = {m.group(1): m.group(2).replace('\\"', '"') for m in re.finditer(r'^\s+"([A-Za-z0-9]+)": "(.*)",\s*$', hu_src, re.M)}
 tables["hu"] = {k: hu_all[k] for k in tables["en"] if k in hu_all}
 
+# Keys whose wording was changed after the snapshot ref and should show on the site at once
+# (Amir 2026-11-10: the "trip was not logged" question was renamed): read from master.
+MASTER_KEYS = ["faqStartMissedQ"]
+m_src = subprocess.run(["git", "-C", str(REPO), "show", "master:Korlogg/Localization/Strings+Help.swift"],
+                       check=True, capture_output=True, text=True).stdout
+m_lang = None
+for line in m_src.splitlines():
+    m = re.match(r"^        \.([a-z]{2}): \[", line)
+    if m:
+        m_lang = m.group(1); continue
+    m = re.match(r'^\s+"([A-Za-z0-9]+)": "(.*)",\s*$', line)
+    if m and m_lang in tables and m.group(1) in MASTER_KEYS:
+        tables[m_lang][m.group(1)] = m.group(2).replace('\\"', '"')
+
 topics = [{"key": k, "questions": re.findall(r'"([A-Za-z]+)"', qs)}
           for k, qs in re.findall(r'Topic\(key: "(\w+)", questions: \[([^\]]*)\]\)', view)
           if k != "faqUs"]   # the US topic is not published (no US launch)
