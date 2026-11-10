@@ -864,6 +864,18 @@ def write_llms_txt():
         "business or private and exports a log with date, start and end address, distance, purpose and "
         "odometer readings as PDF or Excel.",
         "",
+        "How it works:",
+        "- Automatic: the app notices from the phone's motion sensor and location when a drive starts, measures the "
+        "trip with GPS in the background and ends it when the car has stood still for a few minutes. The driver "
+        "does not start or stop anything.",
+        "- Each trip is marked business or private with one swipe (commute as well where the country's rules use it); "
+        "purpose, companies visited and people met can be added.",
+        "- The app calculates the mileage allowance or reimbursement with the country's rates and builds the yearly "
+        "and monthly report for tax and employer; export as PDF, Excel or CSV.",
+        "- Odometer readings are filled in for every trip from one reading; changes made to a trip afterwards are listed in the export.",
+        "- Optional Bluetooth beacon (iBeacon) in the car: logging starts when the phone is in that car, and trips are assigned to the right car.",
+        "- The driver reviews the log and can correct or add trips; phone settings such as location access \"Always\" are needed for background logging.",
+        "",
         "Key facts:",
         f"- Platforms: {platforms}.",
         f"- Country rules and mileage rates built in for {COUNTRY_LIST['en']}.",
