@@ -5,20 +5,11 @@ Goal: a handful of real pages that mention **Körlogg** by name and link to
 Amir submits these himself; each needs an account or a sent email.
 Check every fact against the live site on the day you post.
 
-## 1. korlogg.se (do this first, 5 minutes)
+## 1. korlogg.se (not ours)
 
-Today `korlogg.se` points at 188.66.62.59, which answers with the default
-"Synology Web Station" page and an expired certificate. `www.korlogg.se` has
-no DNS record. DNS is at Loopia.
-
-Fix in Loopia Kundzon → Domännamn → korlogg.se:
-
-- Turn on **Vidarebefordran** (URL forwarding) for `korlogg.se` and
-  `www.korlogg.se` to `https://korlogg.com/se/`, type **301 permanent**.
-- Remove the A record to 188.66.62.59 if Loopia does not replace it itself.
-
-Check afterwards: `curl -sI http://korlogg.se` should show `301` and
-`Location: https://korlogg.com/se/`.
+Amir does not own `korlogg.se` (2026-11-12). It belongs to someone else and shows a default
+"Synology Web Station" page, so there is nothing to redirect. Nothing to do here unless the
+domain ever comes up for sale.
 
 ## 2. App directories (English)
 
