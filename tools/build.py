@@ -270,13 +270,23 @@ def layout(pg):
 # ------------------------------------------------------------------ helpers
 def app_jsonld(lang):
     h = HOME[lang]
+    app_store = f"https://apps.apple.com/app/id{C.APP_ID}"
+    play = f"https://play.google.com/store/apps/details?id={C.PLAY_PACKAGE}"
+    stores = [app_store, play] if C.PLAY_RELEASED else [app_store]
     return {"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Körlogg",
-            "operatingSystem": "iOS, iPadOS", "applicationCategory": "BusinessApplication",
+            "alternateName": ["Korlogg", "Körlogg app"],
+            "operatingSystem": "iOS, iPadOS, Android" if C.PLAY_RELEASED else "iOS, iPadOS",
+            "applicationCategory": "BusinessApplication",
             "description": h["desc"], "url": C.SITE + P(lang, "home"), "inLanguage": LANGS[lang]["html"],
-            "image": f"{C.SITE}/assets/icon-512.png", "installUrl": store_url(lang), "downloadUrl": store_url(lang),
+            "image": f"{C.SITE}/assets/icon-512.png", "installUrl": stores, "downloadUrl": stores, "sameAs": stores,
             "screenshot": [f"{C.SITE}/assets/shots/{lang}/{n}-800.webp" for n in shot_numbers(lang)[:4]],
             "author": {"@type": "Person", "name": "Amir Alagic"},
             "publisher": {"@type": "Person", "name": "Amir Alagic"}}
+
+def site_jsonld():
+    """WebSite: tells search engines the site's name is the brand "Körlogg" (site name in results)."""
+    return {"@context": "https://schema.org", "@type": "WebSite", "name": "Körlogg",
+            "alternateName": ["Korlogg", "korlogg.com"], "url": C.SITE + "/"}
 
 def breadcrumb(lang, items):
     return {"@context": "https://schema.org", "@type": "BreadcrumbList",
@@ -488,7 +498,7 @@ def build_home(lang):
 </div>
 </section>"""
     body = hero + probsec + whosec + money + features + report + reviews_block(lang) + mid + shots + beacon + privacy + pro + helpsec + cta
-    add(lang, "home", P(lang, "home"), h["title"], h["desc"], body, jsonld=[app_jsonld(lang), home_faq_jsonld(lang)], main_class="home")
+    add(lang, "home", P(lang, "home"), h["title"], h["desc"], body, jsonld=[site_jsonld(), app_jsonld(lang), home_faq_jsonld(lang)], main_class="home")
     base = f"/assets/hero/{lang}"
     PAGES[-1]["head"] = (f'<link rel="preload" as="image" href="{base}-360.webp" imagesrcset="{base}-360.webp 360w, {base}-720.webp 720w" '
                          f'imagesizes="(min-width: 900px) 340px, 72vw" fetchpriority="high">\n')
@@ -889,6 +899,7 @@ def write_llms_txt():
         "a mileage log in each country.",
         "- Made in Sweden by Amir Alagic.",
         f"- App Store: {store_url('en')}",
+        *([f"- Google Play: https://play.google.com/store/apps/details?id={C.PLAY_PACKAGE}"] if C.PLAY_RELEASED else []),
         "",
     ]
     names = {"home": "Home", "help": "Help and FAQ", "support": "Support"}

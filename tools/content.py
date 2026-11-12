@@ -406,7 +406,7 @@ HOME = {
     ),
     # ------------------------------------------------------------------ Danish
     "da": dict(
-        title="Körlogg – kørebog til skatten og kørselsgodtgørelse (iPhone)",
+        title="Körlogg – kørebog til skatten og kørselsgodtgørelse",
         desc="Körlogg registrerer dine bilture automatisk. Stryg erhverv eller privat og eksportér kørebogen med dato, adresser, formål og kilometerstand. Intet login.",
         problems=dict(h2='Det, der gør kørebogen besværlig',
                       items=[
@@ -435,7 +435,7 @@ HOME = {
     ),
     # ------------------------------------------------------------------ Norwegian
     "no": dict(
-        title="Körlogg – kjørebok for skatten og kjøregodtgjørelse (iPhone)",
+        title="Körlogg – kjørebok for skatten og kjøregodtgjørelse",
         desc="Körlogg logger biltturene dine automatisk. Sveip jobb eller privat og eksporter kjøreboken med dato, adresser, formål og kilometerstand. Ingen innlogging.",
         problems=dict(h2='Det som gjør kjøreboken tungvint',
                       items=[
@@ -464,7 +464,7 @@ HOME = {
     ),
     # ------------------------------------------------------------------ Dutch
     "nl": dict(
-        title="Körlogg – rittenregistratie voor de Belastingdienst (iPhone)",
+        title="Körlogg – rittenregistratie voor de Belastingdienst",
         desc="Körlogg legt je autoritten automatisch vast. Kies zakelijk, woon-werk of privé en exporteer je rittenregistratie met datum, adressen en kilometerstanden.",
         problems=dict(h2='Wat een rittenregistratie lastig maakt',
                       items=[
@@ -595,7 +595,7 @@ TAX = {
                    example="Example: 2,000 business kilometres in your own car in Germany = €600.",
                    note="Official rates in force for 2026, checked on 10 October 2026. These are the countries' rates – not the price of Körlogg.")),
     "sv": dict(
-        h1="Automatisk körjournal för förmånsbil och milersättning.",
+        h1="Körlogg – automatisk körjournal för förmånsbil och milersättning.",
         lede="Varje resa loggas av sig själv – med uppgifterna Skatteverket kräver.",
         who=dict(h2="Vem är Körlogg för?", cards=[
             ("Du som har förmånsbil", "Visa att den privata körningen håller sig inom ringa omfattning – högst 10 tillfällen och 100 mil per år – med en körjournal som för sig själv."),

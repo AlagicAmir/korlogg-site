@@ -19,6 +19,7 @@ Key facts:
 - Not affiliated with any tax authority; the log contains the details the tax authorities list for a mileage log in each country.
 - Made in Sweden by Amir Alagic.
 - App Store: https://apps.apple.com/gb/app/id6809322275
+- Google Play: https://play.google.com/store/apps/details?id=se.mobix.korlogg
 
 ## English
 
@@ -42,8 +43,10 @@ Key facts:
 - [Körlogg hjälp och vanliga frågor – svaren från appen](https://korlogg.com/se/help/): Så fungerar automatisk loggning, bilar, Bluetooth-beacon, mätarställning, rapporter, Körlogg Pro och integritet – samma svar som i appen.
 - [Körlogg support – kontakt och vanliga problem](https://korlogg.com/se/support/): Kontakta Körloggs support via e-post och hitta svar om missade resor, sträcka, batteri, prenumerationer och integritet.
 - [Guider om körjournal, förmånsbil och beacon – Körlogg](https://korlogg.com/se/guider/): Guider om vad en körjournal ska innehålla, automatisk körjournal, körjournal för enskild firma, förmånsbil i ringa omfattning och vilken iBeacon som passar Körlogg.
+- [Alternativ till Driversnote – Körlogg, utan konto och utan resegräns](https://korlogg.com/se/guider/alternativ-till-driversnote/): Letar du efter ett billigare alternativ till Driversnote? Så skiljer sig Körlogg i pris, resegräns, konto och export, och när Driversnote ändå passar bättre.
 - [Automatisk körjournal – så fungerar det i mobilen](https://korlogg.com/se/guider/automatisk-korjournal/): Så loggar en automatisk körjournal resor med mobilens rörelsesensor och GPS, vad Skatteverket vill se, för- och nackdelar mot papper och teknikens gränser.
 - [Förmånsbil och privat körning i ringa omfattning](https://korlogg.com/se/guider/formansbil-privat-korning-ringa-omfattning/): Högst 10 tillfällen och högst 100 mil per år – så fungerar ringa omfattning för förmånsbil, vad som räknas som privat och hur du visar det med körjournal.
+- [Körjournal-appar 2026 – Körlogg, Driversnote och fler jämförda](https://korlogg.com/se/guider/jamfor-korjournal-appar/): Jämförelse av körjournal-appar 2026: Körlogg, Driversnote, Mileage Book och GPS-box i bilen. Pris, konto, var resorna sparas, export och vem varje passar.
 - [Körjournal för enskild firma – egen bil eller firmabil](https://korlogg.com/se/guider/korjournal-enskild-firma/): När du med enskild firma behöver körjournal: egen bil med 25 kr per mil, bil i firman och ringa privat körning, vad du ska skriva och hur länge du sparar den.
 - [Milersättning 2026 – 25 kr per mil och så räknar du](https://korlogg.com/se/guider/milersattning/): Milersättning 2026: 25 kronor per mil för egen bil, 12 för förmånsbil och 9,50 för elbil. Räkneexempel, reseavdraget och underlaget du behöver.
 - [Körjournal – vad kräver Skatteverket? (2026)](https://korlogg.com/se/guider/vad-ska-en-korjournal-innehalla/): Vad Skatteverket kräver av en körjournal 2026: datum, mätarställning, start och mål, ärende och besökt företag. När du behöver den, milersättning 25 kr/mil och källor.
@@ -67,7 +70,7 @@ Key facts:
 
 ## Dansk
 
-- [Körlogg – kørebog til skatten og kørselsgodtgørelse (iPhone)](https://korlogg.com/da/): Körlogg registrerer dine bilture automatisk. Stryg erhverv eller privat og eksportér kørebogen med dato, adresser, formål og kilometerstand. Intet login.
+- [Körlogg – kørebog til skatten og kørselsgodtgørelse](https://korlogg.com/da/): Körlogg registrerer dine bilture automatisk. Stryg erhverv eller privat og eksportér kørebogen med dato, adresser, formål og kilometerstand. Intet login.
 - [Körlogg hjælp og ofte stillede spørgsmål](https://korlogg.com/da/help/): Sådan virker automatisk registrering, biler, Bluetooth-beacon, kilometerstand, rapporter, Körlogg Pro og privatliv – de samme svar som i appen.
 - [Körlogg support – kontakt og hjælp](https://korlogg.com/da/support/): Kontakt Körloggs support på e-mail. Svar på de fleste spørgsmål om kørebogen finder du under Hjælp.
 - [Guides om kørebog og kørselsgodtgørelse – Körlogg](https://korlogg.com/da/guides/): Guides med kilder: Skattestyrelsens satser for skattefri kørselsgodtgørelse og hvad kørselsregnskabet og kørebogen skal indeholde.
@@ -75,7 +78,7 @@ Key facts:
 
 ## Norsk
 
-- [Körlogg – kjørebok for skatten og kjøregodtgjørelse (iPhone)](https://korlogg.com/no/): Körlogg logger biltturene dine automatisk. Sveip jobb eller privat og eksporter kjøreboken med dato, adresser, formål og kilometerstand. Ingen innlogging.
+- [Körlogg – kjørebok for skatten og kjøregodtgjørelse](https://korlogg.com/no/): Körlogg logger biltturene dine automatisk. Sveip jobb eller privat og eksporter kjøreboken med dato, adresser, formål og kilometerstand. Ingen innlogging.
 - [Körlogg hjelp og vanlige spørsmål](https://korlogg.com/no/help/): Slik fungerer automatisk logging, biler, Bluetooth-beacon, kilometerstand, rapporter, Körlogg Pro og personvern – de samme svarene som i appen.
 - [Körlogg support – kontakt og hjelp](https://korlogg.com/no/support/): Kontakt Körloggs support på e-post. Svar på de fleste spørsmål om kjøreboken finner du under Hjelp.
 - [Guider om kjørebok og kjøregodtgjørelse – Körlogg](https://korlogg.com/no/guider/): Guider med kilder: Skatteetatens satser for skattefri kjøregodtgjørelse, statens sats og hva reiseregningen og kjøreboken må inneholde.
@@ -83,7 +86,7 @@ Key facts:
 
 ## Nederlands
 
-- [Körlogg – rittenregistratie voor de Belastingdienst (iPhone)](https://korlogg.com/nl/): Körlogg legt je autoritten automatisch vast. Kies zakelijk, woon-werk of privé en exporteer je rittenregistratie met datum, adressen en kilometerstanden.
+- [Körlogg – rittenregistratie voor de Belastingdienst](https://korlogg.com/nl/): Körlogg legt je autoritten automatisch vast. Kies zakelijk, woon-werk of privé en exporteer je rittenregistratie met datum, adressen en kilometerstanden.
 - [Körlogg hulp en veelgestelde vragen](https://korlogg.com/nl/help/): Zo werken automatisch vastleggen, auto's, de Bluetooth-beacon, kilometerstanden, rapporten, Körlogg Pro en privacy – dezelfde antwoorden als in de app.
 - [Körlogg support – contact](https://korlogg.com/nl/support/): Neem per e-mail contact op met de support van Körlogg. Antwoord op de meeste vragen vind je bij Hulp.
 - [Gidsen over rittenregistratie, 500 km privé en kilometervergoeding](https://korlogg.com/nl/gidsen/): Gidsen met bronnen: wat er in een rittenregistratie moet, hoe je 500 km privé aantoont en wat de onbelaste kilometervergoeding in 2026 is.
