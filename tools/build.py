@@ -90,6 +90,21 @@ GUIDES = {   # file stem -> (lang, path, cluster)
     "nl-rittenregistratie-zonder-keurmerk": ("nl", "/nl/gidsen/rittenregistratie-zonder-keurmerk/", None),
     "de-fahrtenbuch-schweiz-privatanteil": ("de", "/de/ratgeber/fahrtenbuch-schweiz-privatanteil/", None),
     "de-fahrtenbuch-rechner": ("de", "/de/ratgeber/fahrtenbuch-rechner/", None),
+    # Queue refill of 2026-11-15 (Tue/Fri slots 17 Nov – 4 Dec) and the en/de/nl app comparisons
+    "en-temporary-workplace-24-month-rule": ("en", "/guides/temporary-workplace-24-month-rule/", None),
+    "en-director-mileage-limited-company": ("en", "/guides/limited-company-director-mileage/", None),
+    "en-how-far-back-mileage-claim": ("en", "/guides/how-far-back-can-you-claim-mileage/", None),
+    "en-mileage-vs-actual-costs": ("en", "/guides/simplified-mileage-vs-actual-costs/", None),
+    "en-passenger-payments-5p": ("en", "/guides/passenger-payments-5p/", None),
+    "en-advisory-electric-rate": ("en", "/guides/advisory-electric-rate/", None),
+    "de-fahrtenbuch-mehrere-fahrer": ("de", "/de/ratgeber/fahrtenbuch-mehrere-fahrer/", None),
+    "de-fahrtenbuch-erleichterungen-aussendienst": ("de", "/de/ratgeber/fahrtenbuch-erleichterungen-kundendienst-handelsvertreter/", None),
+    "de-50-prozent-betriebliche-nutzung": ("de", "/de/ratgeber/50-prozent-betriebliche-nutzung-nachweisen/", None),
+    "de-fahrtenbuch-vorlage-oesterreich": ("de", "/de/ratgeber/fahrtenbuch-vorlage-oesterreich/", None),
+    "nl-bijtelling-2026": ("nl", "/nl/gidsen/bijtelling-2026/", None),
+    "de-fahrtenbuch-apps-vergleich": ("de", "/de/ratgeber/fahrtenbuch-apps-vergleich/", None),
+    "en-mileage-tracker-apps-compared": ("en", "/guides/compare-mileage-tracker-apps/", None),
+    "nl-rittenregistratie-apps-vergelijken": ("nl", "/nl/gidsen/rittenregistratie-apps-vergelijken/", None),
 }
 GUIDE_INDEX = {"en": "/guides/", "sv": "/se/guider/", "de": "/de/ratgeber/", "nl": "/nl/gidsen/",
                "no": "/no/guider/", "da": "/da/guides/", "fi": "/fi/oppaat/", "hu": "/hu/utmutatok/"}   # trimmed below to languages with a live guide

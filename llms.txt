@@ -102,6 +102,9 @@ Key facts:
 - [Körlogg – ajopäiväkirja verotukseen ja kilometrikorvauksiin](https://korlogg.com/fi/): Körlogg kirjaa autoajosi automaattisesti. Pyyhkäise työ tai yksityinen ja vie ajopäiväkirja, jossa on päivämäärät, osoitteet, tarkoitus ja mittarilukemat.
 - [Körlogg – ohjeet ja usein kysytyt kysymykset](https://korlogg.com/fi/help/): Näin automaattinen kirjaus, autot, Bluetooth-beacon, mittarilukemat, raportit, Körlogg Pro ja tietosuoja toimivat – samat vastaukset kuin sovelluksessa.
 - [Körlogg-tuki – yhteystiedot](https://korlogg.com/fi/support/): Ota yhteyttä Körloggin tukeen sähköpostilla. Vastaukset useimpiin kysymyksiin löydät ohjeista.
+- [Oppaat ajopäiväkirjasta ja kilometrikorvauksesta – Körlogg](https://korlogg.com/fi/oppaat/): Oppaat lähteineen: Verohallinnon verovapaa kilometrikorvaus, korotukset sekä matkalaskun ja ajopäiväkirjan pakolliset tiedot.
+- [Kilometrikorvaus 2027 – 58 senttiä kilometriltä verovapaasti](https://korlogg.com/fi/oppaat/kilometrikorvaus-2027/): Verohallinnon päätös 23.10.2026: verovapaa kilometrikorvaus 2027 on 58 senttiä kilometriltä (2026: 55). Korotukset, käyttöetuauto 12 senttiä, päivärahat 25 ja 55 euroa.
+- [Kilometrikorvaus 2026 – 55 senttiä kilometriltä verovapaasti](https://korlogg.com/fi/oppaat/kilometrikorvaus/): Verovapaa kilometrikorvaus 2026 on 55 senttiä kilometriltä (2025: 59). Kaikki korotukset, laskuesimerkit, matkalaskun tiedot ja yrittäjän ajopäiväkirja.
 
 ## Polski
 

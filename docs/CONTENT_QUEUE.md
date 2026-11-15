@@ -58,6 +58,20 @@ Order: switch the source, then push.
 | Fri 2026-11-20 | CH (de) | /de/ratgeber/fahrtenbuch-schweiz-privatanteil/ (new; first Swiss page, rule-set shipped in 2.6; Wegleitung/FAQ 2026, 75 Rappen since 1.1.2026; waits for Amir's review) | de-fahrtenbuch-schweiz-privatanteil.html | privatanteil geschäftsfahrzeug / fahrtenbuch schweiz |
 | Tue 2026-11-10 | HU | /hu/utmutatok/utnyilvantartas/ (new; first Hungarian guide, with the Hungarian home/help/support pages that went live 3 Nov; NAV prices Nov 2026; waits for Amir's review) | hu-utnyilvantartas.html | útnyilvántartás / kiküldetési rendelvény / költségtérítés |
 | Tue 2026-11-24 | DE | /de/ratgeber/kilometerpauschale-2027/ (new; rates fixed by law, JStG 2026 changes nothing; Amir OK 2026-11-03) | de-kilometerpauschale-2027.html | kilometerpauschale 2027 |
+| Tue 2026-11-17 | UK | /guides/temporary-workplace-24-month-rule/ (new, refill 2026-11-15; waits for Amir's review) | en-temporary-workplace-24-month-rule.html | temporary workplace 24 month rule |
+| Fri 2026-11-20 | UK | /guides/limited-company-director-mileage/ (new, refill 2026-11-15; waits for Amir's review) | en-director-mileage-limited-company.html | limited company director mileage |
+| Fri 2026-11-20 | DE | /de/ratgeber/fahrtenbuch-apps-vergleich/ (new comparison, names competitors like the SE pages; waits for Amir's review) | de-fahrtenbuch-apps-vergleich.html | fahrtenbuch app vergleich |
+| Tue 2026-11-24 | UK | /guides/how-far-back-can-you-claim-mileage/ (new, refill 2026-11-15; waits for Amir's review) | en-how-far-back-mileage-claim.html | how far back can I claim mileage |
+| Tue 2026-11-24 | UK/US | /guides/compare-mileage-tracker-apps/ (new comparison, names competitors; waits for Amir's review) | en-mileage-tracker-apps-compared.html | best mileage tracker app |
+| Fri 2026-11-27 | UK | /guides/simplified-mileage-vs-actual-costs/ (new, refill 2026-11-15; waits for Amir's review) | en-mileage-vs-actual-costs.html | mileage vs actual costs self employed |
+| Fri 2026-11-27 | DE | /de/ratgeber/fahrtenbuch-mehrere-fahrer/ (new, refill 2026-11-15; waits for Amir's review) | de-fahrtenbuch-mehrere-fahrer.html | fahrtenbuch mehrere fahrer |
+| Fri 2026-11-27 | AT | /de/ratgeber/fahrtenbuch-vorlage-oesterreich/ (new, refill 2026-11-15; waits for Amir's review) | de-fahrtenbuch-vorlage-oesterreich.html | fahrtenbuch vorlage österreich |
+| Fri 2026-11-27 | NL | /nl/gidsen/rittenregistratie-apps-vergelijken/ (new comparison, names competitors; waits for Amir's review) | nl-rittenregistratie-apps-vergelijken.html | rittenregistratie app vergelijken |
+| Tue 2026-12-01 | UK | /guides/passenger-payments-5p/ (new, refill 2026-11-15; waits for Amir's review) | en-passenger-payments-5p.html | passenger payments 5p |
+| Tue 2026-12-01 | DE | /de/ratgeber/fahrtenbuch-erleichterungen-kundendienst-handelsvertreter/ (new, refill 2026-11-15; waits for Amir's review) | de-fahrtenbuch-erleichterungen-aussendienst.html | fahrtenbuch erleichterungen |
+| Tue 2026-12-01 | NL | /nl/gidsen/bijtelling-2026/ (new, refill 2026-11-15; waits for Amir's review) | nl-bijtelling-2026.html | bijtelling 2026 |
+| Fri 2026-12-04 | UK | /guides/advisory-electric-rate/ (new, refill 2026-11-15; waits for Amir's review) | en-advisory-electric-rate.html | advisory electric rate |
+| Fri 2026-12-04 | DE | /de/ratgeber/50-prozent-betriebliche-nutzung-nachweisen/ (new, refill 2026-11-15; waits for Amir's review) | de-50-prozent-betriebliche-nutzung.html | 50 % betriebliche nutzung nachweisen |
 
 If the push happens after a date above, that guide goes live with the push.
 
