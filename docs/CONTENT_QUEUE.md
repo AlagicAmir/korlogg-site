@@ -53,8 +53,7 @@ Order: switch the source, then push.
 | Fri 2026-11-06 | UK | /guides/hmrc-mileage-rates-2027-28/ (new; 55p/35p from 6 Apr 2027 announced at Budget 2026 on 28 Oct; Amir OK 2026-11-03) | en-hmrc-mileage-rates-2027-28.html | hmrc mileage rates 2027/28 |
 | Tue 2026-11-10 | AT | /de/ratgeber/kilometergeld-2027-oesterreich/ (new; Kilometergeld unchanged 0,50 €, new E-car Sachbezug from 2027 per BGBl. II 272/2026; Amir OK 2026-11-03) | de-kilometergeld-2027-oesterreich.html | kilometergeld 2027 |
 | Fri 2026-11-13 | FI | /fi/oppaat/kilometrikorvaus-2027/ (new; Verohallinto decided 58 c on 23 Oct 2026; the 2026 guide links to it; Amir OK 2026-11-03) | fi-kilometrikorvaus-2027.html | kilometrikorvaus 2027 |
-| Tue 2026-11-17 | DE | /de/ratgeber/fahrtenbuch-app-was-das-finanzamt-prueft/ (new; from the competitor audit of 2026-11-03; Amir OK 2026-11-03) | de-fahrtenbuch-app-finanzamt-prueft.html | fahrtenbuch app finanzamt |
-| Fri 2026-11-20 | NL | /nl/gidsen/rittenregistratie-zonder-keurmerk/ (new; from the competitor audit; Amir OK 2026-11-03) | nl-rittenregistratie-zonder-keurmerk.html | rittenregistratie keurmerk |
+| Tue 2026-11-17 | DE | /de/ratgeber/fahrtenbuch-app-was-das-finanzamt-prueft/ (new; Amir OK 2026-11-03) | de-fahrtenbuch-app-finanzamt-prueft.html | fahrtenbuch app finanzamt |
 | Fri 2026-11-20 | CH (de) | /de/ratgeber/fahrtenbuch-schweiz-privatanteil/ (new; first Swiss page, rule-set shipped in 2.6; Wegleitung/FAQ 2026, 75 Rappen since 1.1.2026; Amir OK 2026-11-17) | de-fahrtenbuch-schweiz-privatanteil.html | privatanteil geschäftsfahrzeug / fahrtenbuch schweiz |
 | Tue 2026-11-10 | HU | /hu/utmutatok/utnyilvantartas/ (new; first Hungarian guide, with the Hungarian home/help/support pages that went live 3 Nov; NAV prices Nov 2026; Amir OK 2026-11-17) | hu-utnyilvantartas.html | útnyilvántartás / kiküldetési rendelvény / költségtérítés |
 | Tue 2026-11-24 | DE | /de/ratgeber/kilometerpauschale-2027/ (new; rates fixed by law, JStG 2026 changes nothing; Amir OK 2026-11-03) | de-kilometerpauschale-2027.html | kilometerpauschale 2027 |
@@ -74,7 +73,7 @@ If the push happens after a date above, that guide goes live with the push.
 
 ## No comparison pages (Amir 2026-11-17)
 
-Amir 2026-11-17: korlogg.com never publishes pages that compare Körlogg with named competitors or say where a competitor is better or cheaper. The SE, DE, UK/US and NL comparison pages are held with `publish: 2099-12-31` (files kept in src/guides), the NO/DK/FI ones were deleted. Do not write or queue new ones.
+Amir 2026-11-17: korlogg.com never publishes pages that compare Körlogg with competitors, name them, or say what Körlogg does not do. Guides say Körlogg is built to the tax authority's rules, never that the authority approves no app. Do not write or queue such pages.
 
 ## Waiting for the 2027 announcements (written, held)
 
@@ -133,4 +132,3 @@ Slots from Fri 30 Oct to Tue 22 Dec 2026. AT = Austria-specific (Kilometergeld
 |---|---|---|
 | Feature: iBeacon per car | en, sv, de (then nl) | How a beacon picks the car; links to the existing "Which iBeacon" guides |
 | Feature: the PDF/Excel report, with a sample | en, sv, de (then nl) | Downloadable sample PDF made from demo data, one per country format; the "What the exported log contains" table |
-| Criteria comparison: "Fahrtenbuch-Apps im Vergleich: worauf es ankommt" | de first, then sv, en, nl | Criteria, not brands (no competitor named, per docs/competitor-notes.md): edits shown in the export, delete vs cancel, odometer read vs calculated, 7-day rule, commute category, account needed, where data is stored, export formats, iBeacon, price model |

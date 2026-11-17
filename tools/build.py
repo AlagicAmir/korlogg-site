@@ -56,8 +56,6 @@ GUIDES = {   # file stem -> (lang, path, cluster)
     "sv-automatisk-korjournal": ("sv", "/se/guider/automatisk-korjournal/", None),
     "sv-korjournal-enskild-firma": ("sv", "/se/guider/korjournal-enskild-firma/", None),
     "sv-milersattning": ("sv", "/se/guider/milersattning/", None),
-    "sv-jamfor-korjournal-appar": ("sv", "/se/guider/jamfor-korjournal-appar/", None),
-    "sv-alternativ-till-driversnote": ("sv", "/se/guider/alternativ-till-driversnote/", None),
     "de-fahrtenbuch-oder-1-prozent": ("de", "/de/ratgeber/fahrtenbuch-oder-1-prozent-regelung/", None),
     "de-kilometerpauschale-2026": ("de", "/de/ratgeber/kilometerpauschale-2026/", None),
     "de-fahrtenbuch-vorlage-oder-app": ("de", "/de/ratgeber/fahrtenbuch-vorlage-oder-app/", None),
@@ -87,7 +85,6 @@ GUIDES = {   # file stem -> (lang, path, cluster)
     "nl-kilometervergoeding-2027": ("nl", "/nl/gidsen/kilometervergoeding-2027/", None),
     # Guides from the competitor audit of 2026-11-03
     "de-fahrtenbuch-app-finanzamt-prueft": ("de", "/de/ratgeber/fahrtenbuch-app-was-das-finanzamt-prueft/", None),
-    "nl-rittenregistratie-zonder-keurmerk": ("nl", "/nl/gidsen/rittenregistratie-zonder-keurmerk/", None),
     "de-fahrtenbuch-schweiz-privatanteil": ("de", "/de/ratgeber/fahrtenbuch-schweiz-privatanteil/", None),
     "de-fahrtenbuch-rechner": ("de", "/de/ratgeber/fahrtenbuch-rechner/", None),
     # Queue refill of 2026-11-15 (Tue/Fri slots 17 Nov – 4 Dec) and the en/de/nl app comparisons
@@ -102,9 +99,6 @@ GUIDES = {   # file stem -> (lang, path, cluster)
     "de-50-prozent-betriebliche-nutzung": ("de", "/de/ratgeber/50-prozent-betriebliche-nutzung-nachweisen/", None),
     "de-fahrtenbuch-vorlage-oesterreich": ("de", "/de/ratgeber/fahrtenbuch-vorlage-oesterreich/", None),
     "nl-bijtelling-2026": ("nl", "/nl/gidsen/bijtelling-2026/", None),
-    "de-fahrtenbuch-apps-vergleich": ("de", "/de/ratgeber/fahrtenbuch-apps-vergleich/", None),
-    "en-mileage-tracker-apps-compared": ("en", "/guides/compare-mileage-tracker-apps/", None),
-    "nl-rittenregistratie-apps-vergelijken": ("nl", "/nl/gidsen/rittenregistratie-apps-vergelijken/", None),
 }
 GUIDE_INDEX = {"en": "/guides/", "sv": "/se/guider/", "de": "/de/ratgeber/", "nl": "/nl/gidsen/",
                "no": "/no/guider/", "da": "/da/guides/", "fi": "/fi/oppaat/", "hu": "/hu/utmutatok/"}   # trimmed below to languages with a live guide
