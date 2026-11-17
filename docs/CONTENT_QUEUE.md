@@ -75,6 +75,10 @@ If the push happens after a date above, that guide goes live with the push.
 
 Amir 2026-11-17: korlogg.com never publishes pages that compare Körlogg with competitors, name them, or say what Körlogg does not do. Guides say Körlogg is built to the tax authority's rules, never that the authority approves no app. Do not write or queue such pages.
 
+## Comparison pages (live 2026-11-17)
+
+/korlogg-vs-…/ pages for SE, UK (vs Driversnote), DE (vs Vimcar), NO, DK, FI, AT, CH (vs Driversnote). Only where Körlogg wins; App Store prices checked 2026-11-17 — recheck prices every quarter. After 20 Nov, link the Swiss vs page to /de/ratgeber/fahrtenbuch-schweiz-privatanteil/.
+
 ## Waiting for the 2027 announcements (written, held)
 
 Five rate pages are written and registered in `tools/build.py` with `publish: 2099-12-31`
