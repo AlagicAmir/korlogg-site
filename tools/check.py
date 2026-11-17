@@ -23,8 +23,10 @@ BANNED = [r"finanzamtkonform", r"\bGratis\b", r"der Store\b", r"DSGVO-konform", 
 
 # Amir 2026-11-17: no competitor names and no doubt-raising lines outside the legal pages.
 # The build fails if one comes back.
-DOUBT = [r"driversnote", r"vimcar", r"mileiq", r"everlance", r"mileage book", r"\babax\b", r"autogear", r"triplog", r"hurdlr",
-         r"godkänner ingen", r"keine App ist", r"approves no", r"keurt geen", r"ei hyväksy", r"godkjenner ingen", r"godkender ingen",
+COMPETITORS = [r"driversnote", r"vimcar", r"mileiq", r"everlance", r"mileage book", r"\babax\b", r"autogear", r"triplog", r"hurdlr"]
+# Comparison pages (/korlogg-vs-…/) may name competitors, but are written to sell Körlogg (Amir 2026-11-17).
+VS_PAGE = r"/korlogg-vs-[a-z]+/$"
+DOUBT = [r"godkänner ingen", r"keine App ist", r"approves no", r"keurt geen", r"ei hyväksy", r"godkjenner ingen", r"godkender ingen",
          r"not affiliated", r"no affiliation", r"inget samarbete", r"keiner Verbindung", r"geen band met", r"intet samarbejde",
          r"ikke noe samarbeid", r"fristående", r"hjälpmedel, inte en garanti", r"hulpmiddel, geen garantie", r"ärliga begränsningar",
          r"eerlijke beperkingen", r"Körlogg (doesn.t|does not|cannot|can.t) (calculate|decide|recover)", r"berechnet Körlogg (derzeit )?nicht",
@@ -95,14 +97,15 @@ def main():
         for b in BANNED:
             if b == r"geocod" and re.search(r"/(privacy|terms|delete-data)/$", path): continue   # verbatim legal text
             if "kr" in b and ("ibeacon" in path or "/help/" in path): continue   # third-party beacon prices
-            if "kr" in b and ("/jamfor-" in path or "/alternativ-" in path): continue   # comparison pages quote dated prices from each maker
+            if b in (r"\$\d", BANNED[-2], BANNED[-1]) and re.search(VS_PAGE, path): continue   # comparison pages quote dated App Store prices
             if b in (r"\$\d", BANNED[-1]) and re.search(r"/compare-|-vergleich/|-vergelijken/", path): continue   # same for the en/de/nl comparison pages ($ and € prices)
             if "Gratis" in b and path.startswith("/nl/"): continue   # Dutch, not German
             for m in re.finditer(b, text, re.I):
                 problems.append(f"{path}: banned/price pattern {b!r}: …{text[max(0,m.start()-40):m.end()+20]}…")
         if not re.search(r"/(privacy|terms|delete-data)/$", path):
-            for b in DOUBT:
+            for b in DOUBT + ([] if re.search(VS_PAGE, path) else COMPETITORS):
                 for m in re.finditer(b, text, re.I):
+                    if b in COMPETITORS and "Körlogg vs" in text[max(0, m.start() - 150):m.end()]: continue   # teaser of a vs page
                     problems.append(f"{path}: doubt/competitor line {b!r}: …{text[max(0,m.start()-40):m.end()+20]}…")
         pages[path] = p
         for l in p.links:
