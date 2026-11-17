@@ -105,6 +105,9 @@ GUIDES = {   # file stem -> (lang, path, cluster)
     "de-fahrtenbuch-apps-vergleich": ("de", "/de/ratgeber/fahrtenbuch-apps-vergleich/", None),
     "en-mileage-tracker-apps-compared": ("en", "/guides/compare-mileage-tracker-apps/", None),
     "nl-rittenregistratie-apps-vergelijken": ("nl", "/nl/gidsen/rittenregistratie-apps-vergelijken/", None),
+    "no-kjorebok-apper-sammenlignet": ("no", "/no/guider/kjorebok-apper-sammenlignet/", None),
+    "da-korebog-apps-sammenlignet": ("da", "/da/guides/korebog-apps-sammenlignet/", None),
+    "fi-ajopaivakirja-sovellukset-vertailu": ("fi", "/fi/oppaat/ajopaivakirja-sovellukset-vertailu/", None),
 }
 GUIDE_INDEX = {"en": "/guides/", "sv": "/se/guider/", "de": "/de/ratgeber/", "nl": "/nl/gidsen/",
                "no": "/no/guider/", "da": "/da/guides/", "fi": "/fi/oppaat/", "hu": "/hu/utmutatok/"}   # trimmed below to languages with a live guide

@@ -72,6 +72,9 @@ Order: switch the source, then push.
 | Tue 2026-12-01 | NL | /nl/gidsen/bijtelling-2026/ (new, refill 2026-11-15; Amir OK 2026-11-17) | nl-bijtelling-2026.html | bijtelling 2026 |
 | Fri 2026-12-04 | UK | /guides/advisory-electric-rate/ (new, refill 2026-11-15; Amir OK 2026-11-17) | en-advisory-electric-rate.html | advisory electric rate |
 | Fri 2026-12-04 | DE | /de/ratgeber/50-prozent-betriebliche-nutzung-nachweisen/ (new, refill 2026-11-15; Amir OK 2026-11-17) | de-50-prozent-betriebliche-nutzung.html | 50 % betriebliche nutzung nachweisen |
+| Tue 2026-11-24 | NO | /no/guider/kjorebok-apper-sammenlignet/ (new comparison, names Driversnote, ABAX, Autogear, Kjørebok ENK; Amir asked 2026-11-17) | no-kjorebok-apper-sammenlignet.html | kjørebok app |
+| Fri 2026-11-27 | DK | /da/guides/korebog-apps-sammenlignet/ (new comparison, names Driversnote, Mileage Book, ABAX; Amir asked 2026-11-17) | da-korebog-apps-sammenlignet.html | kørebog app |
+| Tue 2026-12-01 | FI | /fi/oppaat/ajopaivakirja-sovellukset-vertailu/ (new comparison, names Driversnote, Kilsat, ProveIt, ABAX; Amir asked 2026-11-17) | fi-ajopaivakirja-sovellukset-vertailu.html | ajopäiväkirja sovellus |
 
 If the push happens after a date above, that guide goes live with the push.
 
