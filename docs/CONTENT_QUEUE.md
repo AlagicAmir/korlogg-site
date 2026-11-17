@@ -60,23 +60,21 @@ Order: switch the source, then push.
 | Tue 2026-11-24 | DE | /de/ratgeber/kilometerpauschale-2027/ (new; rates fixed by law, JStG 2026 changes nothing; Amir OK 2026-11-03) | de-kilometerpauschale-2027.html | kilometerpauschale 2027 |
 | Tue 2026-11-17 | UK | /guides/temporary-workplace-24-month-rule/ (new, refill 2026-11-15; Amir OK 2026-11-17) | en-temporary-workplace-24-month-rule.html | temporary workplace 24 month rule |
 | Fri 2026-11-20 | UK | /guides/limited-company-director-mileage/ (new, refill 2026-11-15; Amir OK 2026-11-17) | en-director-mileage-limited-company.html | limited company director mileage |
-| Fri 2026-11-20 | DE | /de/ratgeber/fahrtenbuch-apps-vergleich/ (new comparison, names competitors like the SE pages; Amir OK 2026-11-17) | de-fahrtenbuch-apps-vergleich.html | fahrtenbuch app vergleich |
 | Tue 2026-11-24 | UK | /guides/how-far-back-can-you-claim-mileage/ (new, refill 2026-11-15; Amir OK 2026-11-17) | en-how-far-back-mileage-claim.html | how far back can I claim mileage |
-| Tue 2026-11-24 | UK/US | /guides/compare-mileage-tracker-apps/ (new comparison, names competitors; Amir OK 2026-11-17) | en-mileage-tracker-apps-compared.html | best mileage tracker app |
 | Fri 2026-11-27 | UK | /guides/simplified-mileage-vs-actual-costs/ (new, refill 2026-11-15; Amir OK 2026-11-17) | en-mileage-vs-actual-costs.html | mileage vs actual costs self employed |
 | Fri 2026-11-27 | DE | /de/ratgeber/fahrtenbuch-mehrere-fahrer/ (new, refill 2026-11-15; Amir OK 2026-11-17) | de-fahrtenbuch-mehrere-fahrer.html | fahrtenbuch mehrere fahrer |
 | Fri 2026-11-27 | AT | /de/ratgeber/fahrtenbuch-vorlage-oesterreich/ (new, refill 2026-11-15; Amir OK 2026-11-17) | de-fahrtenbuch-vorlage-oesterreich.html | fahrtenbuch vorlage österreich |
-| Fri 2026-11-27 | NL | /nl/gidsen/rittenregistratie-apps-vergelijken/ (new comparison, names competitors; Amir OK 2026-11-17) | nl-rittenregistratie-apps-vergelijken.html | rittenregistratie app vergelijken |
 | Tue 2026-12-01 | UK | /guides/passenger-payments-5p/ (new, refill 2026-11-15; Amir OK 2026-11-17) | en-passenger-payments-5p.html | passenger payments 5p |
 | Tue 2026-12-01 | DE | /de/ratgeber/fahrtenbuch-erleichterungen-kundendienst-handelsvertreter/ (new, refill 2026-11-15; Amir OK 2026-11-17) | de-fahrtenbuch-erleichterungen-aussendienst.html | fahrtenbuch erleichterungen |
 | Tue 2026-12-01 | NL | /nl/gidsen/bijtelling-2026/ (new, refill 2026-11-15; Amir OK 2026-11-17) | nl-bijtelling-2026.html | bijtelling 2026 |
 | Fri 2026-12-04 | UK | /guides/advisory-electric-rate/ (new, refill 2026-11-15; Amir OK 2026-11-17) | en-advisory-electric-rate.html | advisory electric rate |
 | Fri 2026-12-04 | DE | /de/ratgeber/50-prozent-betriebliche-nutzung-nachweisen/ (new, refill 2026-11-15; Amir OK 2026-11-17) | de-50-prozent-betriebliche-nutzung.html | 50 % betriebliche nutzung nachweisen |
-| Tue 2026-11-24 | NO | /no/guider/kjorebok-apper-sammenlignet/ (new comparison, names Driversnote, ABAX, Autogear, Kjørebok ENK; Amir asked 2026-11-17) | no-kjorebok-apper-sammenlignet.html | kjørebok app |
-| Fri 2026-11-27 | DK | /da/guides/korebog-apps-sammenlignet/ (new comparison, names Driversnote, Mileage Book, ABAX; Amir asked 2026-11-17) | da-korebog-apps-sammenlignet.html | kørebog app |
-| Tue 2026-12-01 | FI | /fi/oppaat/ajopaivakirja-sovellukset-vertailu/ (new comparison, names Driversnote, Kilsat, ProveIt, ABAX; Amir asked 2026-11-17) | fi-ajopaivakirja-sovellukset-vertailu.html | ajopäiväkirja sovellus |
 
 If the push happens after a date above, that guide goes live with the push.
+
+## No comparison pages (Amir 2026-11-17)
+
+Amir 2026-11-17: korlogg.com never publishes pages that compare Körlogg with named competitors or say where a competitor is better or cheaper. The SE, DE, UK/US and NL comparison pages are held with `publish: 2099-12-31` (files kept in src/guides), the NO/DK/FI ones were deleted. Do not write or queue new ones.
 
 ## Waiting for the 2027 announcements (written, held)
 
