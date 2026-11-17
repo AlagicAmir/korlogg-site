@@ -16,7 +16,7 @@ Key facts:
 - App languages: Swedish, English, Danish, Norwegian, German, Dutch, Finnish, Polish and Hungarian (iPhone; the Android app has no Hungarian yet).
 - Privacy: no account and no Körlogg server. Trips stay on the phone, or in the user's own iCloud if they turn on sync. No ads.
 - Free download with unlimited automatic logging. Körlogg Pro (subscription or one-time purchase) adds PDF and Excel export, several cars and drivers, the mileage allowance and odometer check, preset routes, iCloud sync and Bluetooth beacon logging.
-- Not affiliated with any tax authority; the log contains the details the tax authorities list for a mileage log in each country.
+- The log contains the details the tax authorities list for a mileage log in each country.
 - Made in Sweden by Amir Alagic.
 - App Store: https://apps.apple.com/gb/app/id6809322275
 - Google Play: https://play.google.com/store/apps/details?id=se.mobix.korlogg
@@ -91,7 +91,7 @@ Key facts:
 - [Körlogg support – contact](https://korlogg.com/nl/support/): Neem per e-mail contact op met de support van Körlogg. Antwoord op de meeste vragen vind je bij Hulp.
 - [Gidsen over rittenregistratie, 500 km privé en kilometervergoeding](https://korlogg.com/nl/gidsen/): Gidsen met bronnen: wat er in een rittenregistratie moet, hoe je 500 km privé aantoont en wat de onbelaste kilometervergoeding in 2026 is.
 - [500 km privé met je auto van de zaak: hoe bewijs je het?](https://korlogg.com/nl/gidsen/500-km-prive-bewijzen/): Geen bijtelling als je maximaal 500 km per jaar privé rijdt – als je het kunt aantonen. Wat telt als privé, de Verklaring geen privégebruik en welk bewijs je nodig hebt.
-- [Automatische rittenregistratie met je telefoon: zo werkt het](https://korlogg.com/nl/gidsen/automatische-rittenregistratie/): Hoe een rittenregistratie-app je ritten zelf vastlegt met de bewegingssensor en gps van je telefoon, wat de Belastingdienst erin wil zien en de eerlijke beperkingen.
+- [Automatische rittenregistratie met je telefoon: zo werkt het](https://korlogg.com/nl/gidsen/automatische-rittenregistratie/): Hoe een rittenregistratie-app je ritten zelf vastlegt met de bewegingssensor en gps van je telefoon, wat erin moet en hoe je een complete registratie krijgt.
 - [Kilometervergoeding 2026: € 0,25 per km onbelast](https://korlogg.com/nl/gidsen/kilometervergoeding-2026/): De onbelaste kilometervergoeding is in 2026 € 0,25 per km (was € 0,23 per km), met terugwerkende kracht. Voor werknemers, woon-werkverkeer en zzp'ers, met bronnen.
 - [Rittenregistratie bijhouden: zo doe je het in de praktijk](https://korlogg.com/nl/gidsen/rittenregistratie-bijhouden/): Een rittenregistratie bijhouden zonder gedoe: een vaste routine, papier, Excel of app, omrijkilometers, de kilometerstand, vergeten ritten en hoe lang je alles bewaart.
 - [Rittenregistratie: wat moet erin? De eisen van de Belastingdienst](https://korlogg.com/nl/gidsen/rittenregistratie-wat-moet-erin/): Welke gegevens de Belastingdienst per auto en per rit vraagt in een rittenregistratie: datum, kilometerstanden, adressen, route, zakelijk of privé en omrijkilometers.

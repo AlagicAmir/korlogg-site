@@ -21,6 +21,16 @@ BANNED = [r"finanzamtkonform", r"\bGratis\b", r"der Store\b", r"DSGVO-konform", 
           r"nothing leaves your phone", r"geocod", r"\bguaranteed\b", r"\bgarantiert\b", r"(?<!eller )godkänd av Skatteverket",
           r"\$\d", r"\d+\s?kr\b(?![^<]*(?:mil|km))", r"€\s?\d+[,.]\d\d(?!\s?(?:€\s?)?(?:pro|per|/)\s?(?:\w+\s)?(?:km|[Kk]ilometer))"]
 
+# Amir 2026-11-17: no competitor names and no doubt-raising lines outside the legal pages.
+# The build fails if one comes back.
+DOUBT = [r"driversnote", r"vimcar", r"mileiq", r"everlance", r"mileage book", r"\babax\b", r"autogear", r"triplog", r"hurdlr",
+         r"godkänner ingen", r"keine App ist", r"approves no", r"keurt geen", r"ei hyväksy", r"godkjenner ingen", r"godkender ingen",
+         r"not affiliated", r"no affiliation", r"inget samarbete", r"keiner Verbindung", r"geen band met", r"intet samarbejde",
+         r"ikke noe samarbeid", r"fristående", r"hjälpmedel, inte en garanti", r"hulpmiddel, geen garantie", r"ärliga begränsningar",
+         r"eerlijke beperkingen", r"Körlogg (doesn.t|does not|cannot|can.t) (calculate|decide|recover)", r"berechnet Körlogg (derzeit )?nicht",
+         r"rekent Körlogg niet", r"Körlogg heeft het Keurmerk", r"not tax advice", r"inte skatterådgivning", r"keine Steuerberatung",
+         r"geen belastingadvies", r"ikke skatterådgivning", r"ei ole veroneuvontaa"]
+
 class Page(HTMLParser):
     def __init__(self):
         super().__init__(convert_charrefs=True)
@@ -90,6 +100,10 @@ def main():
             if "Gratis" in b and path.startswith("/nl/"): continue   # Dutch, not German
             for m in re.finditer(b, text, re.I):
                 problems.append(f"{path}: banned/price pattern {b!r}: …{text[max(0,m.start()-40):m.end()+20]}…")
+        if not re.search(r"/(privacy|terms|delete-data)/$", path):
+            for b in DOUBT:
+                for m in re.finditer(b, text, re.I):
+                    problems.append(f"{path}: doubt/competitor line {b!r}: …{text[max(0,m.start()-40):m.end()+20]}…")
         pages[path] = p
         for l in p.links:
             u = urljoin(SITE + path, l)

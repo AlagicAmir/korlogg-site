@@ -266,7 +266,6 @@ def layout(pg):
 {store_button(lang, " small", position="footer")}
 </div>
 <nav class="foot-links" aria-label="{esc(ui["support"])}">{foot_legal}</nav>
-<p>{esc(ui["independent"])}</p>
 <p>{esc(ui["publisher"])} <a href="mailto:{C.SUPPORT_EMAIL}">{C.SUPPORT_EMAIL}</a></p>
 <ul class="foot-langs">{"".join(f'<li><a href="{P(l, "home")}" hreflang="{v["hreflang"]}" lang="{v["html"]}">{v["name"]}</a></li>' for l, v in LANGS.items())}</ul>
 <p class="small">Apple, the Apple logo, iPhone and iPad are trademarks of Apple Inc., registered in the U.S. and other countries. App Store is a service mark of Apple Inc.</p>
@@ -904,7 +903,7 @@ def write_llms_txt():
         "- Free download with unlimited automatic logging. Körlogg Pro (subscription or one-time purchase) "
         "adds PDF and Excel export, several cars and drivers, the mileage allowance and odometer check, "
         "preset routes, iCloud sync and Bluetooth beacon logging.",
-        "- Not affiliated with any tax authority; the log contains the details the tax authorities list for "
+        "- The log contains the details the tax authorities list for "
         "a mileage log in each country.",
         "- Made in Sweden by Amir Alagic.",
         f"- App Store: {store_url('en')}",
