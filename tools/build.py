@@ -524,7 +524,7 @@ def build_report_table(lang):
             ("Driver and car (registration number)", "Every trip"),
             ("Changes made afterwards", "Listed in the export"),
             ("Business and private totals", "Per month and year")],
-            "Whether a log is accepted is decided by the tax office or employer that receives it."),
+            "Körlogg is built to the details the tax authorities list for a mileage log."),
         "sv": ("Det här innehåller den exporterade körjournalen", ["Uppgift", "I Körlogg"], [
             ("Datum, start- och sluttid", "Varje resa"), ("Start- och slutadress", "Varje resa"),
             ("Sträcka och mätarställning vid start och slut", "Varje resa; beräknade värden märks ≈"),
@@ -532,7 +532,7 @@ def build_report_table(lang):
             ("Förare och bil (registreringsnummer)", "Varje resa"),
             ("Ändringar i efterhand", "Redovisas i exporten"),
             ("Summa tjänst och privat", "Per månad och år")],
-            "Om en körjournal godtas avgör Skatteverket eller arbetsgivaren som tar emot den."),
+            "Körlogg är byggd efter de uppgifter Skatteverket rekommenderar."),
         "de": ("Das steht im exportierten Fahrtenbuch", ["Angabe", "In Körlogg"], [
             ("Datum, Beginn und Ende", "Jede Fahrt"), ("Start- und Zieladresse", "Jede Fahrt"),
             ("Strecke und Kilometerstand zu Beginn und Ende", "Jede Fahrt; berechnete Werte mit ≈ markiert"),
@@ -540,7 +540,7 @@ def build_report_table(lang):
             ("Fahrer und Fahrzeug (Kennzeichen)", "Jede Fahrt"),
             ("Nachträgliche Änderungen", "Im Änderungsprotokoll des Exports"),
             ("Summen dienstlich und privat", "Pro Monat und Jahr")],
-            "Ob ein Fahrtenbuch anerkannt wird, entscheidet das Finanzamt."),
+            "Körlogg ist nach den Vorgaben der Finanzverwaltung gebaut."),
     }
     h2, head, rows, note = T[lang]
     tr = "".join(f"<tr><th scope=\"row\">{esc(a)}</th><td>{esc(b)}</td></tr>" for a, b in rows)
