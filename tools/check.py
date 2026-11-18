@@ -26,7 +26,9 @@ BANNED = [r"finanzamtkonform", r"\bGratis\b", r"der Store\b", r"DSGVO-konform", 
 COMPETITORS = [r"driversnote", r"vimcar", r"mileiq", r"everlance", r"mileage book", r"\babax\b", r"autogear", r"triplog", r"hurdlr"]
 # Comparison pages (/korlogg-vs-…/) may name competitors, but are written to sell Körlogg (Amir 2026-11-17).
 VS_PAGE = r"/korlogg-vs-[a-z-]+/$"
-DOUBT = [r"is accepted is decided", r"godtas avgör", r"anerkannt wird, entscheidet", r"godkänt i förväg", r"automatisch anerkannt", r"bedömer (dem|underlaget)", r"Zulassungsverfahren",
+DOUBT = [r"sem hagy jóvá", r"adótanácsadás", r"nem áll kapcsolatban", r"nie jest powiązan", r"porady podatkowej", r"tax advice",
+         r"ask an accountant", r"ask a tax professional", r"ask your tax professional", r"skatterådgivning\b", r"keine Steuerberatung",
+         r"is accepted is decided", r"godtas avgör", r"anerkannt wird, entscheidet", r"godkänt i förväg", r"automatisch anerkannt", r"bedömer (dem|underlaget)", r"Zulassungsverfahren",
          r"approved in advance", r"(doesn.t|does not|do not) approve", r"no app is approved", r"inga godkända", r"godkänner inte",
          r"godkänner ingen", r"keine App ist", r"approves no", r"keurt geen", r"ei hyväksy", r"godkjenner ingen", r"godkender ingen",
          r"not affiliated", r"no affiliation", r"inget samarbete", r"keiner Verbindung", r"geen band met", r"intet samarbejde",
