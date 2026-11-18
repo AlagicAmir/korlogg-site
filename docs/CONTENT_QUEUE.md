@@ -149,6 +149,8 @@ names, no doubt lines, the app paragraph at the end sells.
 |---|---|---|---|---|
 | Tue 24 Nov | /guides/how-to-track-mileage-for-taxes/ | en-track-mileage-for-taxes.html | how to track mileage for taxes (1099, self-employed) | queued for 24 Nov (Amir OK 2026-11-18) |
 | Tue 1 Dec | /guides/forgot-to-track-mileage/ | en-forgot-to-track-mileage.html | forgot to track mileage; reconstruct mileage log | queued for 1 Dec (Amir OK 2026-11-18) |
+| Fri 27 Nov | /guides/mileage-deduction-how-much-money/ | en-mileage-deduction-money-back.html | how much money do I get back for mileage; mileage deduction 2026 | queued (Amir OK 2026-11-18) |
+| Fri 4 Dec | /guides/korlogg-vs-mileiq-everlance/ | en-korlogg-vs-mileiq-everlance.html | mileiq alternative; everlance alternative; comparison chart (US App Store prices of 18 Nov – recheck on the publish day) | queued (Amir OK 2026-11-18) |
 | Tue 8 Dec | /guides/standard-mileage-rate-vs-actual-expenses/ | – | standard mileage rate vs actual expenses: which saves more | to write |
 | on the IRS announcement (14–31 Dec) | /guides/irs-mileage-rate-2027/ | en-irs-mileage-rate-2027.html | irs mileage rate 2027 | held, placeholders |
 | Tue 15 Dec | /guides/doordash-uber-mileage-deduction/ | – | which gig miles count as business | to write |

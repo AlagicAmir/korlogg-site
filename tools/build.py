@@ -93,6 +93,8 @@ GUIDES = {   # file stem -> (lang, path, cluster)
     # US guides answering search questions (Amir 2026-11-18); a new one is held with publish 2099-12-31 until he approves it.
     "en-track-mileage-for-taxes": ("en", "/guides/how-to-track-mileage-for-taxes/", None),
     "en-forgot-to-track-mileage": ("en", "/guides/forgot-to-track-mileage/", None),
+    "en-mileage-deduction-money-back": ("en", "/guides/mileage-deduction-how-much-money/", None),
+    "en-korlogg-vs-mileiq-everlance": ("en", "/guides/korlogg-vs-mileiq-everlance/", None),
     "nl-kilometervergoeding-2027": ("nl", "/nl/gidsen/kilometervergoeding-2027/", None),
     # Guides from the competitor audit of 2026-11-03
     "de-fahrtenbuch-app-finanzamt-prueft": ("de", "/de/ratgeber/fahrtenbuch-app-was-das-finanzamt-prueft/", None),
