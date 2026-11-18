@@ -90,6 +90,9 @@ GUIDES = {   # file stem -> (lang, path, cluster)
     "no-kjoregodtgjorelse-2027": ("no", "/no/guider/kjoregodtgjorelse-2027/", None),
     "da-korselsgodtgorelse-2027": ("da", "/da/guides/korselsgodtgorelse-2027/", None),
     "en-irs-mileage-rate-2027": ("en", "/guides/irs-mileage-rate-2027/", None),
+    # US guides answering search questions (Amir 2026-11-18); a new one is held with publish 2099-12-31 until he approves it.
+    "en-track-mileage-for-taxes": ("en", "/guides/how-to-track-mileage-for-taxes/", None),
+    "en-forgot-to-track-mileage": ("en", "/guides/forgot-to-track-mileage/", None),
     "nl-kilometervergoeding-2027": ("nl", "/nl/gidsen/kilometervergoeding-2027/", None),
     # Guides from the competitor audit of 2026-11-03
     "de-fahrtenbuch-app-finanzamt-prueft": ("de", "/de/ratgeber/fahrtenbuch-app-was-das-finanzamt-prueft/", None),

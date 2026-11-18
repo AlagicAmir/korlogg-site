@@ -136,3 +136,24 @@ Slots from Fri 30 Oct to Tue 22 Dec 2026. AT = Austria-specific (Kilometergeld
 |---|---|---|
 | Feature: iBeacon per car | en, sv, de (then nl) | How a beacon picks the car; links to the existing "Which iBeacon" guides |
 | Feature: the PDF/Excel report, with a sample | en, sv, de (then nl) | Downloadable sample PDF made from demo data, one per country format; the "What the exported log contains" table |
+
+## US queue (from 2026-11-18; each guide goes live only after Amir's OK)
+
+Amir 2026-11-18: one or two US guides a week that answer what people type into Google ("how to save money",
+"how to export"), because the US store search gives nothing yet (0 downloads 8–17 Nov, ranked only for the name).
+The first two were approved on 2026-11-18 and carry their publish dates; later drafts wait with `publish: 2099-12-31`.
+Rules as everywhere: IRS sources only, amounts written as "dollars" (the checker blocks `$` + digit), no competitor
+names, no doubt lines, the app paragraph at the end sells.
+
+| Proposed day | Page | File | Question it answers | State |
+|---|---|---|---|---|
+| Tue 24 Nov | /guides/how-to-track-mileage-for-taxes/ | en-track-mileage-for-taxes.html | how to track mileage for taxes (1099, self-employed) | queued for 24 Nov (Amir OK 2026-11-18) |
+| Tue 1 Dec | /guides/forgot-to-track-mileage/ | en-forgot-to-track-mileage.html | forgot to track mileage; reconstruct mileage log | queued for 1 Dec (Amir OK 2026-11-18) |
+| Tue 8 Dec | /guides/standard-mileage-rate-vs-actual-expenses/ | – | standard mileage rate vs actual expenses: which saves more | to write |
+| on the IRS announcement (14–31 Dec) | /guides/irs-mileage-rate-2027/ | en-irs-mileage-rate-2027.html | irs mileage rate 2027 | held, placeholders |
+| Tue 15 Dec | /guides/doordash-uber-mileage-deduction/ | – | which gig miles count as business | to write |
+| Tue 29 Dec | /guides/new-year-mileage-checklist/ | – | odometer on January 1, what to set up for 2027 | to write |
+| Tue 5 Jan | /guides/mileage-log-for-your-accountant/ | – | how to export a mileage log for Schedule C / your accountant | to write |
+| Tue 12 Jan | /guides/employer-mileage-reimbursement/ | – | accountable plan: 60 days, IRS rate, what is taxed | to write |
+| Tue 19 Jan | /guides/medical-and-charity-mileage/ | – | medical and charity miles and their rates | to write |
+| Tue 26 Jan | /guides/can-i-deduct-my-commute/ | – | commuting vs business miles, home office, temporary work site | to write |
