@@ -174,3 +174,12 @@ The UK has this page already (`en-how-far-back-mileage-claim`, 24 Nov). Denmark:
 (`da-korselsgodtgorelse.html`). Netherlands, Norway, Finland: not checked yet.
 In January 2027 the deadline sentences and year tables in all three move on by one year.
 The Danish 2027 page (`da-korselsgodtgorelse-2027.html`) went live the same day.
+
+## Calculator test on a rate page (live 2026-11-19)
+
+Search Console on 2026-11-19: `/de/ratgeber/kilometergeld-2027-oesterreich/` had 89 impressions and 0 clicks; 26 of the
+impressions were as a source in Google's AI answer, which states the rate itself, and the page was not among the ten
+normal results for "kilometergeld 2027" on Google Austria, where pages with a calculator rank. Amir 2026-11-19: add a
+calculator as a test. The page now opens with a Kilometergeld-Rechner (vehicle, km, passengers, what the employer pays;
+30 000 km limit, bicycle 3 000 km) and has "Rechner" in the title and H1. Read the page's clicks and position again
+around 10 December 2026; if they moved, do the same on the other rate pages (SE, DE, DK, NO, FI, NL, UK).
