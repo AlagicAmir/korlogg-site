@@ -74,7 +74,7 @@
     show("o-ag", kr(ag));
     if (!(mil > 0)) { show("o-v", ""); return; }
     var diff = Math.round((fritt - ag) * 100) / 100;
-    if (diff > 0) show("o-v", "Arbetsgivaren betalar " + kr(diff) + " mindre än schablonbeloppet." + (egen ? " Skillnaden gör du avdrag för i deklarationen." : ""));
+    if (diff > 0) show("o-v", "Arbetsgivaren betalar " + kr(diff) + " mindre än schablonbeloppet." + (egen ? " Skillnaden gör du avdrag för i deklarationen." : " Har du betalat allt drivmedel själv gör du avdrag för skillnaden i deklarationen."));
     else if (diff < 0) show("o-v", kr(fritt) + " är skattefria. De " + kr(-diff) + " därutöver beskattas som lön.");
     else show("o-v", "Arbetsgivaren betalar precis schablonbeloppet: " + kr(fritt) + " skattefritt.");
   }
@@ -83,7 +83,7 @@
   update();
 })();
 </script>
-<p>Betalar arbetsgivaren mindre för din egen bil? Guiden <a href="/se/guider/arbetsgivaren-betalar-mindre-an-25-kr-per-mil/">Får du mindre än 25 kr per mil?</a> visar hur du drar av skillnaden, upp till sex år bakåt.</p>
+<p>Betalar arbetsgivaren mindre än schablonbeloppet tar du upp ersättningen vid punkt 1.2 i deklarationen och gör avdrag med schablonbeloppet vid punkt 2.2, enligt Skatteverkets broschyr <a href="https://www.skatteverket.se/download/18.1522bf3f19aea8075ba32f7/1765962793651/traktamenten-och-andra-kostnadsersattningar-skv354-utgava-36.pdf">Traktamenten och andra kostnadsersättningar</a>. För förmånsbil gäller det när du själv har betalat allt drivmedel. Guiden <a href="/se/guider/arbetsgivaren-betalar-mindre-an-25-kr-per-mil/">Får du mindre än 25 kr per mil?</a> visar räkneexempel för egen bil och hur du rättar deklarationer upp till sex år bakåt.</p>
 <p>Kör du förmånsbil är beloppet 12 kronor per mil, eller 9,50 kronor om bilen är helt eldriven. Här nedanför finns beloppen för 2026, vad som händer när arbetsgivaren betalar mer eller mindre, hur reseavdraget fungerar och vilket underlag du behöver. Allt är kontrollerat mot Skatteverket.</p>
 
 <h2>Beloppen för 2026</h2>
@@ -168,6 +168,7 @@
 <li><a href="https://www.skatteverket.se/privat/skatter/beloppochprocent/2026.4.1522bf3f19aea8075ba21.html">Belopp och procent inkomstår 2026 – skatteverket.se</a></li>
 <li><a href="https://www.skatteverket.se/foretag/arbetsgivare/lonochersattning/traktamenteochbilersattning.4.361dc8c15312eff6fd1703e.html">Traktamente och bilersättning (för arbetsgivare) – skatteverket.se</a></li>
 <li><a href="https://www.skatteverket.se/privat/skatter/arbeteochinkomst/inkomster/kostnadsersattning.4.18e1b10334ebe8bc80005623.html">Kostnadsersättning – skatteverket.se</a></li>
+<li><a href="https://www.skatteverket.se/download/18.1522bf3f19aea8075ba32f7/1765962793651/traktamenten-och-andra-kostnadsersattningar-skv354-utgava-36.pdf">Traktamenten och andra kostnadsersättningar, SKV 354 utgåva 36 (pdf), läst den 20 november 2026 – skatteverket.se</a></li>
 <li><a href="https://www.skatteverket.se/privat/skatter/bilochtrafik/avdragforresortillochfranarbetet.4.3810a01c150939e893f25603.html">Avdrag för resor till och från arbetet – skatteverket.se</a></li>
 <li><a href="https://www.skatteverket.se/privat/skatter/bilochtrafik/avdragforresortillochfranarbetet/resormedbilmotorcykelellermopedbil.4.5c281c7015abecc2e203f23d.html">Avdrag för resor med bil, motorcykel eller mopedbil – skatteverket.se</a></li>
 <li><a href="https://www.skatteverket.se/foretag/skatterochavdrag/avdragforforetag/resorochbilkostnader/resorinaringsverksamheten.4.3152d9ac158968eb8fd47ff.html">Resor i näringsverksamheten – skatteverket.se</a></li>
