@@ -71,6 +71,7 @@ Order: switch the source, then push.
 | Fri 2026-11-20 | SE | /se/guider/starta-resan-med-carplay-eller-bluetooth/ (new; Shortcuts automation, written after a customer's mail; Amir 2026-11-19: schedule it) | sv-starta-resan-carplay-bluetooth.html | körjournal carplay / starta resa automatiskt |
 | Tue 2026-11-24 | EN | /guides/start-trips-with-carplay-or-bluetooth/ (new; same guide in English) | en-start-trips-carplay-bluetooth.html | mileage log carplay / start trip automatically bluetooth |
 | Tue 2026-12-01 | DE | /de/ratgeber/fahrtenbuch-automatisch-starten-carplay-bluetooth/ (new; same guide in German) | de-fahrtenbuch-starten-carplay-bluetooth.html | fahrtenbuch carplay / fahrtenbuch bluetooth automatisch starten |
+| Fri 2026-11-27 | SE | /se/guider/milersattning/ (rewrite: calculator at the top, new title and H1; Amir 2026-11-19 "do the same for sweden and germany … some other day") | sv-milersattning@2026-11-27.html | räkna ut milersättning 2026 |
 
 If the push happens after a date above, that guide goes live with the push.
 
@@ -183,3 +184,9 @@ normal results for "kilometergeld 2027" on Google Austria, where pages with a ca
 calculator as a test. The page now opens with a Kilometergeld-Rechner (vehicle, km, passengers, what the employer pays;
 30 000 km limit, bicycle 3 000 km) and has "Rechner" in the title and H1. Read the page's clicks and position again
 around 10 December 2026; if they moved, do the same on the other rate pages (SE, DE, DK, NO, FI, NL, UK).
+
+Amir 2026-11-19: the same for Sweden and Germany, on another day. Germany: `de-kilometerpauschale-2027.html` (goes live
+Tue 2026-11-24) has a Kilometerpauschale-Rechner (Dienstreise 0,30/0,20 € with what the employer pays, and the
+Entfernungspauschale 0,38 € × full km × days). Sweden: `sv-milersattning@2026-11-27.html` replaces the live page on
+Fri 2026-11-27 (25 / 12 / 9,50 kr per mil, mil or km, what the employer pays). From 27 November any edit to the Swedish
+rate page is made in the `@2026-11-27` file, which is the live one.

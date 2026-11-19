@@ -1,11 +1,96 @@
-<!-- title: Kilometerpauschale 2027: 0,30 € Dienstreise, 0,38 € Arbeitsweg -->
-<!-- description: Kilometerpauschale 2027: weiter 0,30 € je km für Dienstreisen mit dem eigenen Pkw und 0,38 € Entfernungspauschale ab dem ersten Kilometer. Rechtslage und Rechenbeispiele. -->
+<!-- title: Kilometerpauschale 2027 Rechner: 0,30 € und 0,38 € je km -->
+<!-- description: Kilometerpauschale-Rechner 2027: 0,30 € je km für Dienstreisen mit dem eigenen Pkw, 0,38 € Entfernungspauschale ab dem 1. km. Kilometer eingeben, Betrag sehen. -->
 <!-- campaign: guide_kilometerpauschale-2027 -->
-<!-- modified: 2026-11-17 -->
+<!-- modified: 2026-11-19 -->
 <!-- publish: 2026-11-24 -->
-<h1>Kilometerpauschale 2027</h1>
-<p class="lede">Für 2027 gibt es keine neuen Sätze: Dienstreisen mit dem eigenen Pkw bleiben bei 0,30 Euro je gefahrenem Kilometer, der Weg zur Arbeit bei 0,38 Euro Entfernungspauschale ab dem ersten Kilometer. Beide Beträge stehen im Gesetz, nicht in einem jährlichen Erlass, und das Jahressteuergesetz 2026, das der Bundestag gerade berät, rührt sie nicht an. Dieser Ratgeber zeigt, was 2027 gilt, woher die Zahlen kommen, was Selbstständige ansetzen und was sich beim Elektro-Dienstwagen tut.</p>
+<h1>Kilometerpauschale 2027: Rechner und Sätze</h1>
+<p class="lede">Für 2027 gibt es keine neuen Sätze: Dienstreisen mit dem eigenen Pkw bleiben bei 0,30 Euro je gefahrenem Kilometer, der Weg zur Arbeit bei 0,38 Euro Entfernungspauschale ab dem ersten Kilometer. Der Rechner zeigt, was Ihre Kilometer wert sind.</p>
 <p class="checked">Stand: 3. November 2026</p>
+
+<h2>Kilometerpauschale-Rechner 2027</h2>
+<style>
+.calc{background:var(--card);border-radius:var(--r);box-shadow:var(--shadow);padding:20px;margin:1.2em 0}
+.calc fieldset{border:0;padding:0;margin:0 0 4px}
+.calc legend{font-weight:700;margin-bottom:6px}
+.calc .row{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+.calc label{flex:1 1 200px;display:flex;flex-direction:column;font-size:15px;color:var(--muted);gap:4px}
+.calc input,.calc select{font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:10px 12px;width:100%}
+.calc input:focus-visible,.calc select:focus-visible{outline:3px solid var(--accent);outline-offset:1px}
+.calc-out{border-top:1px solid var(--line);margin-top:6px;padding-top:12px}
+.calc-out table{margin:0;display:table;width:100%;table-layout:fixed;background:transparent}
+.calc-out td{padding-left:4px;padding-right:4px}
+.calc-out td:last-child{text-align:right;font-variant-numeric:tabular-nums;width:38%}
+.calc-total td{font-weight:700;font-size:1.1em}
+.calc-verdict{font-weight:700;font-size:1.1em;margin:12px 0 0}
+.calc-note{font-size:14px;color:var(--muted);margin:10px 0 0}
+</style>
+<form class="calc" id="kp-calc" onsubmit="return false" aria-label="Kilometerpauschale-Rechner 2027">
+<fieldset>
+<legend>Dienstreisen mit dem eigenen Fahrzeug</legend>
+<div class="row">
+<label>Fahrzeug
+<select name="fz">
+<option value="0.3">Eigener Pkw – 0,30 € je km</option>
+<option value="0.2">Motorrad, Roller oder Moped – 0,20 € je km</option>
+</select></label>
+<label>Dienstlich gefahrene Kilometer im Jahr<input type="number" inputmode="decimal" min="0" step="any" name="km" value="6000"></label>
+</div>
+<div class="row">
+<label>Ihr Arbeitgeber erstattet je km (€)<input type="number" inputmode="decimal" min="0" step="0.01" name="ag" value="0.30"></label>
+</div>
+</fieldset>
+<fieldset>
+<legend>Weg zur Arbeit mit dem eigenen Pkw</legend>
+<div class="row">
+<label>Einfache Entfernung Wohnung – erste Tätigkeitsstätte (km)<input type="number" inputmode="decimal" min="0" step="any" name="weg" value="25"></label>
+<label>Arbeitstage im Jahr<input type="number" inputmode="numeric" min="0" max="366" step="1" name="tage" value="220"></label>
+</div>
+</fieldset>
+<div class="calc-out" aria-live="polite">
+<table>
+<tr class="calc-total"><td id="l-km">Kilometerpauschale für Dienstreisen</td><td id="o-km">–</td></tr>
+<tr><td>Vom Arbeitgeber erstattet</td><td id="o-ag">–</td></tr>
+<tr class="calc-total"><td id="l-weg">Entfernungspauschale für den Arbeitsweg</td><td id="o-weg">–</td></tr>
+</table>
+<p class="calc-verdict" id="o-v"></p>
+<p class="calc-note">Gerechnet wird mit den Sätzen der Tabelle unten; für den Arbeitsweg zählen volle Entfernungskilometer. Was Sie eingeben, bleibt auf dieser Seite und wird nicht gespeichert.</p>
+</div>
+</form>
+<noscript><p>Der Rechner braucht JavaScript. Von Hand: Dienstkilometer × 0,30 € für den eigenen Pkw (Motorrad und Roller 0,20 €); für den Arbeitsweg einfache Entfernung × Arbeitstage × 0,38 €.</p></noscript>
+<script>
+(function () {
+  var f = document.getElementById("kp-calc");
+  function n(name) { var v = parseFloat(String(f.elements[name].value).replace(",", ".")); return isFinite(v) && v > 0 ? v : 0; }
+  function tausend(x) { return String(x).replace(/\B(?=(\d{3})+(?!\d))/g, " "); }
+  function zahl(x) {
+    var c = Math.round(x * 100), ganz = Math.floor(c / 100), rest = c % 100;
+    return tausend(ganz) + (rest ? "," + (rest < 10 ? "0" : "") + rest : "");
+  }
+  function satz(x) { return x.toFixed(2).replace(".", ","); }
+  function show(id, text) { document.getElementById(id).textContent = text; }
+  function eur(x) { return zahl(x) + " €"; }
+  function update() {
+    var s = parseFloat(f.elements.fz.value), km = n("km");
+    var pausch = km * s, ag = km * n("ag");
+    var weg = Math.floor(n("weg")), tage = Math.min(Math.floor(n("tage")), 366), ep = Math.round(weg * tage * 0.38);
+    show("l-km", "Kilometerpauschale: " + tausend(Math.round(km)) + " km × " + satz(s) + " €");
+    show("o-km", eur(pausch));
+    show("o-ag", eur(ag));
+    show("l-weg", "Entfernungspauschale: " + weg + " km × " + tage + " Tage × 0,38 €");
+    show("o-weg", eur(ep));
+    if (!(km > 0)) { show("o-v", ""); return; }
+    var diff = Math.round((pausch - ag) * 100) / 100;
+    if (diff > 0) show("o-v", "Ihr Arbeitgeber erstattet " + eur(diff) + " weniger als die Kilometerpauschale. Diese Differenz setzen Sie als Werbungskosten in der Steuererklärung an.");
+    else if (diff < 0) show("o-v", eur(pausch) + " sind steuerfrei. Die " + eur(-diff) + " darüber sind steuerpflichtiger Lohn.");
+    else show("o-v", "Ihr Arbeitgeber erstattet genau die Kilometerpauschale: " + eur(pausch) + " steuerfrei.");
+  }
+  f.addEventListener("input", update);
+  f.addEventListener("change", update);
+  update();
+})();
+</script>
+<p>Erstattet Ihr Arbeitgeber weniger, zeigt der Ratgeber <a href="/de/ratgeber/arbeitgeber-zahlt-weniger-als-30-cent/">Arbeitgeber zahlt weniger als 0,30 € je Kilometer</a>, wie Sie den Rest absetzen – auch vier Jahre rückwirkend.</p>
+<p>Beide Beträge stehen im Gesetz, nicht in einem jährlichen Erlass, und das Jahressteuergesetz 2026, das der Bundestag gerade berät, rührt sie nicht an. Unten steht, was 2027 gilt, woher die Zahlen kommen, was Selbstständige ansetzen und was sich beim Elektro-Dienstwagen tut.</p>
 
 <h2>Die Sätze 2027 im Überblick</h2>
 <div class="table-wrap"><table>
