@@ -1,0 +1,75 @@
+<!-- title: Fahrtenbuch automatisch starten mit CarPlay oder Bluetooth -->
+<!-- description: Körlogg beginnt die Fahrt, sobald sich Ihr iPhone mit CarPlay oder dem Bluetooth des Autos verbindet. Einmal in Apples Kurzbefehle-App einrichten – ohne Zubehör. -->
+<!-- campaign: guide_carplay-bluetooth-start -->
+<!-- publish: 2099-12-31 -->
+<!-- modified: 2026-11-19 -->
+<!-- hold: written 2026-11-19 after a customer's mail; waits for Amir's OK. The steps and labels were read off the Shortcuts app on iOS 26.2 in the simulator, in German. The simulator does not list the CarPlay trigger: its two options (Verbinden, Trennen) are from Apple's German guide. Not tried in a real car. -->
+<h1>Das Fahrtenbuch startet, sobald sich Ihr iPhone mit dem Auto verbindet</h1>
+<p class="lede">Körlogg bringt zwei Aktionen für Apples Kurzbefehle-App mit: <strong>Fahrt starten</strong> und <strong>Fahrt beenden</strong>. Verknüpfen Sie sie mit CarPlay oder dem Bluetooth Ihres Autos, und Ihr Fahrtenbuch beginnt beim Einsteigen und endet beim Aussteigen. Sie richten das einmal ein, in wenigen Minuten, mit dem Auto, das Sie schon haben.</p>
+
+<h2>Was Sie davon haben</h2>
+<ul>
+<li><strong>Ein Fahrtenbuch ab dem ersten Meter.</strong> Die Fahrt beginnt, wenn sich das iPhone mit dem Auto verbindet, noch bevor Sie losfahren.</li>
+<li><strong>Ihr eigenes Auto, mit Namen.</strong> Bei Bluetooth wählen Sie Ihr Auto aus einer Liste; die Automation gehört dann zu genau diesem Auto.</li>
+<li><strong>Ein sauberes Ende.</strong> Mit einer zweiten Automation steht die Fahrt im Fahrtenbuch, sobald die Verbindung getrennt wird. Körlogg beendet eine Fahrt auch von selbst, wenn das Auto einige Minuten steht.</li>
+<li><strong>Auch mit Siri.</strong> Sagen Sie „Starte eine Fahrt in Körlogg“ oder „Beende die Fahrt in Körlogg“.</li>
+<li><strong>Für alle dabei.</strong> Beide Aktionen gehören zu Körlogg ab Version 3.1, auch in der kostenlosen Version. Kurzbefehle ist Apples eigene App auf Ihrem iPhone.</li>
+</ul>
+
+<h2>Bevor Sie anfangen</h2>
+<ul>
+<li><strong>Körlogg 3.1 oder neuer.</strong></li>
+<li><strong>Standortzugriff „Immer“.</strong> Damit beginnt eine Fahrt auch dann, wenn Körlogg geschlossen ist. In Körlogg sehen Sie unter <em>Einstellungen</em> den Status des Standortzugriffs, mit einer Taste, die Sie zum richtigen Schalter führt.</li>
+</ul>
+
+<h2>Fahrt starten, wenn sich das iPhone verbindet</h2>
+<ol>
+<li>Öffnen Sie die App <em>Kurzbefehle</em> und tippen Sie unten auf <em>Automation</em>.</li>
+<li>Tippen Sie auf <em>Neue Automation</em> – oder oben rechts auf das Plus, wenn Sie schon Automationen haben.</li>
+<li>Wählen Sie <em>CarPlay</em>, wenn Ihr Auto CarPlay hat. Sonst wählen Sie <em>Bluetooth</em>, tippen neben <em>Gerät</em> auf <em>Auswählen</em> und wählen Ihr Auto.</li>
+<li>Lassen Sie die Option für das Verbinden ausgewählt: <em>Verbinden</em> bei CarPlay, <em>Verbunden wird</em> bei Bluetooth.</li>
+<li>Wählen Sie <em>Sofort ausführen</em>, damit die Fahrt ohne Rückfrage auf dem Bildschirm beginnt. Tippen Sie dann auf <em>Weiter</em>.</li>
+<li>Scrollen Sie in der Liste zu <em>Körlogg</em>, tippen Sie darauf und dann auf <em>Fahrt starten</em>.</li>
+</ol>
+<p>Die Automation ist gespeichert und steht auf dem Bildschirm „Automation“. Wenn sich Ihr iPhone das nächste Mal mit dem Auto verbindet, beginnt Körlogg mit der Aufzeichnung.</p>
+
+<h2>Fahrt beenden, wenn die Verbindung getrennt wird</h2>
+<p>Legen Sie auf die gleiche Weise eine zweite Automation an. Wählen Sie diesmal die Option für das Trennen – <em>Trennen</em> bei CarPlay, <em>Getrennt wird</em> bei Bluetooth –, dann <em>Sofort ausführen</em> und unter Körlogg <em>Fahrt beenden</em>. Die Fahrt steht dann im Fahrtenbuch, sobald Sie das Auto ausschalten. Schalten Sie das Auto bei einem Zwischenhalt aus, beginnt mit der nächsten Verbindung eine neue Fahrt.</p>
+
+<h2>CarPlay oder Bluetooth?</h2>
+<ul>
+<li><strong>CarPlay</strong>, mit Kabel oder kabellos: Eine Automation gilt für jedes Auto, in dem Ihr iPhone CarPlay nutzt.</li>
+<li><strong>Bluetooth</strong>, für jedes andere Auto: Das Auto steht in der Liste <em>Gerät</em> unter dem Namen, den es in den Bluetooth-Einstellungen Ihres iPhone hat. Sie können ein Auto wählen oder mehrere.</li>
+</ul>
+
+<h2>Mehr als ein Auto</h2>
+<p>Eine Automation startet die Fahrt. Mit einem iBeacon in jedem Auto ordnet Körlogg Pro außerdem jede Fahrt dem Auto zu, das Sie wirklich gefahren sind. Beides arbeitet zusammen: Wird schon eine Fahrt erfasst, wenn eine Automation läuft, führt Körlogg diese Fahrt einfach weiter. Welcher Beacon passt, steht im Ratgeber <a href="/de/ratgeber/welcher-ibeacon/">Welchen iBeacon für Körlogg kaufen?</a></p>
+
+<section class="guide-faq">
+<h2>Häufige Fragen</h2>
+<h3>Brauche ich „Fahrten automatisch aufzeichnen“ dann noch?</h3>
+<p>Das entscheiden Sie. Ist der Schalter an, erkennt Körlogg eine Fahrt auch an der Bewegung des iPhone; so wird jede Fahrt erfasst, in jedem Auto. Ist er aus, beginnen nur Ihre Automationen und die Starttaste eine Fahrt – so führen Sie ein Fahrtenbuch für Ihr eigenes Auto und nichts sonst.</p>
+<h3>Startet die Fahrt auch, wenn Körlogg geschlossen ist?</h3>
+<p>Ja, mit Standortzugriff „Immer“. Das iPhone startet Körlogg im Hintergrund, und die Fahrt beginnt.</p>
+<h3>Fragt die Automation jedes Mal nach?</h3>
+<p>Nicht mit <em>Sofort ausführen</em>. Mit <em>Nach Bestätigung ausführen</em> zeigt das iPhone erst eine Mitteilung und wartet auf Ihr Tippen.</p>
+<h3>Und wenn ich das Auto nur ein paar Meter umparke?</h3>
+<p>Eine Aufzeichnung unter 300 Metern wird nicht als Fahrt gespeichert. Das Umparken auf dem Hof füllt Ihr Fahrtenbuch also nicht.</p>
+<h3>Kann ich eine Fahrt vom Home-Bildschirm starten?</h3>
+<p>Ja. Das Widget von Körlogg zeigt die dienstliche Strecke des Monats und hat eine Taste zum Starten und Beenden.</p>
+</section>
+
+<h2>So hilft Körlogg</h2>
+<p><a href="/de/">Körlogg</a> erfasst Ihre Fahrten mit Datum, Uhrzeit, Start- und Zieladresse und Strecke. Sie ordnen jede Fahrt mit einer Wischgeste als dienstlich oder privat zu und tragen Anlass und Geschäftspartner ein. Mit Körlogg Pro exportieren Sie das Fahrtenbuch als PDF oder Excel. Körlogg ist nach den Vorgaben des Finanzamts gebaut. <a href="{{store}}">Körlogg im App Store</a></p>
+
+<section class="sources"><h2>Quellen</h2>
+<ul>
+<li><a href="https://support.apple.com/de-de/guide/shortcuts/apd690170742/ios">Einführung in persönliche Automation – Kurzbefehle-Benutzerhandbuch, Apple Support</a></li>
+<li><a href="https://support.apple.com/de-de/guide/shortcuts/apdfbdbd7123/ios">Erstellen einer neuen persönlichen Automation – Kurzbefehle-Benutzerhandbuch, Apple Support</a></li>
+<li><a href="https://support.apple.com/de-de/guide/shortcuts/apd8ebfc4e8e/ios">Trigger für Reisen – Kurzbefehle-Benutzerhandbuch, Apple Support</a> (der Trigger CarPlay: Verbinden, Trennen)</li>
+<li><a href="https://support.apple.com/de-de/guide/shortcuts/apde31e9638b/ios">Trigger für Einstellungen – Kurzbefehle-Benutzerhandbuch, Apple Support</a> (der Trigger Bluetooth: ein Gerät oder mehrere)</li>
+<li><a href="https://support.apple.com/de-de/guide/shortcuts/apd602971e63/ios">Aktivieren oder Deaktivieren einer persönlichen Automation – Kurzbefehle-Benutzerhandbuch, Apple Support</a> (Automationen für CarPlay und Bluetooth können ohne Rückfrage laufen)</li>
+<li>Die App Kurzbefehle unter iOS 26.2: die Bildschirme und Bezeichnungen der Schritte oben.</li>
+<li>Verhalten von Körlogg 3.1: die Aktionen „Fahrt starten“ und „Fahrt beenden“, die Siri-Sätze und das Widget wie oben beschrieben.</li>
+</ul>
+<p class="checked">Geprüft am 19. November 2026.</p></section>

@@ -1,0 +1,76 @@
+<!-- title: Starta körjournalen automatiskt med CarPlay eller Bluetooth -->
+<!-- description: Körlogg börjar logga när din iPhone ansluter till CarPlay eller bilens Bluetooth. Du ställer in det en gång i Apples app Genvägar – med bilen du redan har. -->
+<!-- campaign: guide_carplay-bluetooth-start -->
+<!-- publish: 2099-12-31 -->
+<!-- modified: 2026-11-19 -->
+<!-- hold: written 2026-11-19 after a customer's mail; waits for Amir's OK. The steps and labels were read off the Shortcuts app on iOS 26.2 in the simulator, in Swedish. The simulator does not list the CarPlay trigger: its two options (Ansluter, Kopplar från) are from Apple's Swedish guide. Not tried in a real car. -->
+<h1>Körjournalen startar när din iPhone ansluter till bilen</h1>
+<p class="lede">Körlogg har två åtgärder för Apples app Genvägar: <strong>Starta resa</strong> och <strong>Avsluta resa</strong>. Koppla dem till CarPlay eller bilens Bluetooth, så börjar körjournalen när du sätter dig i bilen och slutar när du kliver ur. Du ställer in det en gång, på ett par minuter, med bilen du redan har.</p>
+
+<h2>Det här får du</h2>
+<ul>
+<li><strong>En körjournal från första metern.</strong> Resan startar när telefonen ansluter till bilen, innan du rullar iväg.</li>
+<li><strong>Din egen bil, med namn.</strong> Med Bluetooth väljer du din bil i en lista, så automatiseringen hör till just den bilen.</li>
+<li><strong>Ett tydligt slut.</strong> Med en andra automatisering finns resan i körjournalen när telefonen kopplas från. Körlogg avslutar också en resa av sig själv när bilen har stått still i några minuter.</li>
+<li><strong>Siri också.</strong> Säg ”Starta en resa i Körlogg” eller ”Avsluta resan i Körlogg”.</li>
+<li><strong>Ingår för alla.</strong> Båda åtgärderna finns i Körlogg 3.1 och senare, även i gratisversionen. Genvägar är Apples egen app på din iPhone.</li>
+</ul>
+
+<h2>Innan du börjar</h2>
+<ul>
+<li><strong>Körlogg 3.1 eller senare.</strong></li>
+<li><strong>Platsåtkomst ”Alltid”.</strong> Då kan en resa starta även när Körlogg är stängd. Under <em>Inställningar</em> i Körlogg ser du status för platsåtkomsten, med en knapp som tar dig till rätt reglage.</li>
+</ul>
+
+<h2>Starta resan när telefonen ansluter</h2>
+<ol>
+<li>Öppna appen <em>Genvägar</em> och tryck på <em>Automatisering</em> längst ned.</li>
+<li>Tryck på <em>Ny automatisering</em> – eller på plustecknet uppe till höger om du redan har automatiseringar.</li>
+<li>Välj <em>CarPlay</em> om bilen har CarPlay. Annars väljer du <em>Bluetooth</em>, trycker på <em>Välj</em> bredvid <em>Enhet</em> och väljer din bil.</li>
+<li>Låt alternativet för anslutning vara valt: <em>Ansluter</em> för CarPlay, <em>Är ansluten</em> för Bluetooth.</li>
+<li>Välj <em>Kör direkt</em>, så startar resan utan en fråga på skärmen. Tryck sedan på <em>Nästa</em>.</li>
+<li>Bläddra till <em>Körlogg</em> i listan, tryck på den och sedan på <em>Starta resa</em>.</li>
+</ol>
+<p>Automatiseringen är sparad och syns på skärmen Automatisering. Nästa gång telefonen ansluter till bilen börjar Körlogg logga.</p>
+
+<h2>Avsluta resan när telefonen kopplas från</h2>
+<p>Skapa en andra automatisering på samma sätt. Välj den här gången alternativet för frånkoppling – <em>Kopplar från</em> för CarPlay, <em>Är frånkopplad</em> för Bluetooth – sedan <em>Kör direkt</em> och <em>Avsluta resa</em> under Körlogg. Då finns resan i körjournalen så fort du stänger av bilen. Stänger du av bilen vid ett stopp på vägen börjar en ny resa vid nästa anslutning.</p>
+
+<h2>CarPlay eller Bluetooth?</h2>
+<ul>
+<li><strong>CarPlay</strong>, med sladd eller trådlöst: en automatisering gäller för alla bilar där din iPhone använder CarPlay.</li>
+<li><strong>Bluetooth</strong>, för alla andra bilar: bilen finns i listan <em>Enhet</em> under det namn den har i Bluetooth-inställningarna på din iPhone. Du kan välja en bil eller flera.</li>
+</ul>
+
+<h2>Fler än en bil</h2>
+<p>En automatisering startar resan. Med en iBeacon i varje bil lägger Körlogg Pro dessutom varje resa på den bil du faktiskt körde. De två fungerar ihop: loggas en resa redan när en automatisering körs fortsätter Körlogg med den resan. Vilken beacon du ska köpa står i guiden <a href="/se/guider/vilken-ibeacon/">Vilken iBeacon ska jag köpa till Körlogg?</a></p>
+
+<h2>Behöver jag fortfarande ”Logga resor automatiskt”?</h2>
+<p>Det väljer du själv. Med reglaget på märker Körlogg också en körning på telefonens rörelse, så varje resa kommer med, i vilken bil som helst. Med det av är det bara dina automatiseringar och startknappen som börjar en resa – så för du körjournal för din egen bil och inget annat.</p>
+
+<h2>Startar resan när Körlogg är stängd?</h2>
+<p>Ja, med platsåtkomst ”Alltid”. Din iPhone startar Körlogg i bakgrunden och resan börjar.</p>
+
+<h2>Frågar automatiseringen varje gång?</h2>
+<p>Inte med <em>Kör direkt</em>. Med <em>Kör efter bekräftelse</em> visar din iPhone först en notis och väntar på att du trycker.</p>
+
+<h2>Om jag bara flyttar bilen några meter?</h2>
+<p>En inspelning kortare än 300 meter sparas inte som en resa. Att flytta bilen på gården fyller alltså inte körjournalen.</p>
+
+<h2>Kan jag starta en resa från hemskärmen?</h2>
+<p>Ja. Körloggs widget visar månadens tjänstesträcka och har en knapp för att starta och stoppa.</p>
+
+<h2>Så hjälper Körlogg</h2>
+<p><a href="/se/">Körlogg</a> loggar resorna med datum och tid, start- och slutadress och sträcka, och du sveper för att markera en resa som tjänst eller privat. Med Körlogg Pro exporterar du körjournalen som PDF eller Excel. Körlogg är gjord efter Skatteverkets regler för körjournal. Gjord i Sverige. <a href="{{store}}">Körlogg i App Store</a></p>
+
+<section class="sources"><h2>Källor</h2>
+<ul>
+<li><a href="https://support.apple.com/sv-se/guide/shortcuts/apd690170742/ios">Introduktion till personlig automatisering – Genvägar Användarhandbok, Apple-support</a></li>
+<li><a href="https://support.apple.com/sv-se/guide/shortcuts/apdfbdbd7123/ios">Skapa en ny personlig automatisering – Genvägar Användarhandbok, Apple-support</a></li>
+<li><a href="https://support.apple.com/sv-se/guide/shortcuts/apd8ebfc4e8e/ios">Reseutlösare – Genvägar Användarhandbok, Apple-support</a> (utlösaren CarPlay: Ansluter, Kopplar från)</li>
+<li><a href="https://support.apple.com/sv-se/guide/shortcuts/apde31e9638b/ios">Inställningsutlösare – Genvägar Användarhandbok, Apple-support</a> (utlösaren Bluetooth: en enhet eller flera)</li>
+<li><a href="https://support.apple.com/sv-se/guide/shortcuts/apd602971e63/ios">Aktivera eller avaktivera en personlig automatisering – Genvägar Användarhandbok, Apple-support</a> (automatiseringar för CarPlay och Bluetooth kan köras utan att fråga)</li>
+<li>Appen Genvägar i iOS 26.2: skärmarna och orden i stegen ovan.</li>
+<li>Körlogg 3.1, appens beteende: åtgärderna Starta resa och Avsluta resa, Siri-fraserna och widgeten enligt ovan.</li>
+</ul>
+<p class="checked">Kontrollerad den 19 november 2026.</p></section>

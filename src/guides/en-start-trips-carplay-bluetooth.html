@@ -1,0 +1,75 @@
+<!-- title: Start your trip log automatically with CarPlay or Bluetooth -->
+<!-- description: Körlogg starts logging the moment your iPhone connects to CarPlay or your car's Bluetooth. Set it up once in Apple's Shortcuts app, with the car you have. -->
+<!-- campaign: guide_carplay-bluetooth-start -->
+<!-- publish: 2099-12-31 -->
+<!-- modified: 2026-11-19 -->
+<!-- hold: written 2026-11-19 after a customer's mail; waits for Amir's OK. The steps and labels were read off the Shortcuts app on iOS 26.2 in the simulator (en, de, sv). The simulator does not list the CarPlay trigger: its two options are from Apple's guide. Not tried in a real car. -->
+<h1>Start your trip log the moment your iPhone connects to the car</h1>
+<p class="lede">Körlogg has two actions for Apple's Shortcuts app: <strong>Start trip</strong> and <strong>End trip</strong>. Tie them to CarPlay or to your car's Bluetooth, and your log starts when you get in and ends when you get out. You set it up once, in a couple of minutes, with the car you already have.</p>
+
+<h2>What you get</h2>
+<ul>
+<li><strong>A log from the first metre.</strong> The trip starts when the phone connects to the car, before you pull away.</li>
+<li><strong>Your own car, by name.</strong> With Bluetooth you pick your car from a list, so the automation belongs to that car.</li>
+<li><strong>A clean end.</strong> With a second automation the trip is saved to your log when the phone disconnects. Körlogg also ends a trip by itself once the car has stood still for a few minutes.</li>
+<li><strong>Siri too.</strong> Say “Start a trip in Körlogg” or “End the trip in Körlogg”.</li>
+<li><strong>Included for everyone.</strong> Both actions are part of Körlogg 3.1 and later, in the free version as well. Shortcuts is Apple's own app on your iPhone.</li>
+</ul>
+
+<h2>Before you start</h2>
+<ul>
+<li><strong>Körlogg 3.1 or later.</strong></li>
+<li><strong>Location access “Always”.</strong> That lets a trip start while Körlogg is closed. Under <em>Settings</em> in Körlogg you see the location status, with a button that takes you to the right switch.</li>
+</ul>
+
+<h2>Start the trip when the phone connects</h2>
+<ol>
+<li>Open the <em>Shortcuts</em> app and tap <em>Automation</em> at the bottom.</li>
+<li>Tap <em>New Automation</em> – or the + at the top right if you already have automations.</li>
+<li>Choose <em>CarPlay</em> if your car has CarPlay. Otherwise choose <em>Bluetooth</em>, tap <em>Choose</em> next to <em>Device</em> and pick your car.</li>
+<li>Keep the option for connecting selected: <em>Connects</em> for CarPlay, <em>Is Connected</em> for Bluetooth.</li>
+<li>Choose <em>Run Immediately</em>, so the trip starts without a question on the screen. Then tap <em>Next</em>.</li>
+<li>Scroll to <em>Körlogg</em> in the list, tap it and tap <em>Start trip</em>.</li>
+</ol>
+<p>The automation is saved and appears on the Automation screen. The next time your phone connects to the car, Körlogg starts logging.</p>
+
+<h2>End the trip when the phone disconnects</h2>
+<p>Create a second automation in the same way. This time choose the option for disconnecting – <em>Disconnects</em> for CarPlay, <em>Is Disconnected</em> for Bluetooth – then <em>Run Immediately</em>, and pick <em>End trip</em> under Körlogg. The trip is then in your log as soon as you switch the car off. When you switch the car off at a stop on the way, the next connection starts a new trip.</p>
+
+<h2>CarPlay or Bluetooth?</h2>
+<ul>
+<li><strong>CarPlay</strong>, wired or wireless: one automation covers every car in which your iPhone uses CarPlay.</li>
+<li><strong>Bluetooth</strong>, for every other car: the car is in the <em>Device</em> list under the name it has in your iPhone's Bluetooth settings. You can pick one car or several.</li>
+</ul>
+
+<h2>More than one car</h2>
+<p>An automation starts the trip. With an iBeacon in each car, Körlogg Pro also puts every trip on the car you actually drove. The two work together: if a trip is already being logged when an automation runs, Körlogg simply carries on with that trip. Which beacon to buy is in <a href="/guides/which-ibeacon/">Which iBeacon should I buy for Körlogg?</a></p>
+
+<section class="guide-faq">
+<h2>Frequently asked questions</h2>
+<h3>Do I still need “Log trips automatically”?</h3>
+<p>That is your choice. With the switch on, Körlogg also notices a drive from the phone's motion, so every trip is caught, in any car. With it off, only your automations and the Start button begin a trip – the way to keep a log of your own car and nothing else.</p>
+<h3>Does it start while Körlogg is closed?</h3>
+<p>Yes, with location access set to “Always”. iPhone starts Körlogg in the background and the trip begins.</p>
+<h3>Does the automation ask me every time?</h3>
+<p>Not with <em>Run Immediately</em>. With <em>Run After Confirmation</em> iPhone shows a notification first and waits for your tap.</p>
+<h3>What about moving the car a few metres?</h3>
+<p>A recording shorter than 300 metres is not saved as a trip, so moving the car across the yard does not fill your log.</p>
+<h3>Can I start a trip from the Home Screen?</h3>
+<p>Yes. Körlogg's widget shows this month's business distance and has a start and stop button.</p>
+</section>
+
+<h2>How Körlogg helps</h2>
+<p><a href="/">Körlogg</a> logs your trips with the date, times, start and end address and distance; you swipe each one business or private and add the reason. With Körlogg Pro you export the log as PDF or Excel for your employer, your accountant or your tax return. <a href="{{store}}">Körlogg on the App Store</a></p>
+
+<section class="sources"><h2>Sources</h2>
+<ul>
+<li><a href="https://support.apple.com/guide/shortcuts/apd690170742/ios">Intro to personal automation – Shortcuts User Guide, Apple Support</a></li>
+<li><a href="https://support.apple.com/guide/shortcuts/apdfbdbd7123/ios">Create a new personal automation – Shortcuts User Guide, Apple Support</a></li>
+<li><a href="https://support.apple.com/guide/shortcuts/apd8ebfc4e8e/ios">Travel triggers – Shortcuts User Guide, Apple Support</a> (the CarPlay trigger: Connects, Disconnects)</li>
+<li><a href="https://support.apple.com/guide/shortcuts/apde31e9638b/ios">Setting triggers – Shortcuts User Guide, Apple Support</a> (the Bluetooth trigger: one or several devices)</li>
+<li><a href="https://support.apple.com/guide/shortcuts/apd602971e63/ios">Enable or disable a personal automation – Shortcuts User Guide, Apple Support</a> (CarPlay and Bluetooth automations can run without asking)</li>
+<li>The Shortcuts app on iOS 26.2: the screens and labels in the steps above.</li>
+<li>Körlogg 3.1 app behaviour: the Start trip and End trip actions, the Siri phrases and the widget described above.</li>
+</ul>
+<p class="checked">Checked on 19 November 2026.</p></section>
