@@ -159,3 +159,13 @@ names, no doubt lines, the app paragraph at the end sells.
 | Tue 12 Jan | /guides/employer-mileage-reimbursement/ | – | accountable plan: 60 days, IRS rate, what is taxed | to write |
 | Tue 19 Jan | /guides/medical-and-charity-mileage/ | – | medical and charity miles and their rates | to write |
 | Tue 26 Jan | /guides/can-i-deduct-my-commute/ | – | commuting vs business miles, home office, temporary work site | to write |
+
+## "Money back" pages (drafts of 2026-11-19, waiting for Amir's read)
+Amir 2026-11-19: pages that answer a money question with a title an everyday reader would type are the best kind.
+Three drafts in `docs/drafts/` (not registered in `tools/build.py`, nothing live); each answers "my employer pays less
+than the official rate, or nothing: how do I get tax back on the rest, and how many years back?"
+- `sv-milersattning-skillnaden.html` → `/se/guider/arbetsgivaren-betalar-mindre-an-25-kr-per-mil/` (six years back; 18,50 kr per mil 2020–2022).
+- `de-arbeitgeber-zahlt-weniger-als-30-cent.html` → `/de/ratgeber/arbeitgeber-zahlt-weniger-als-30-cent/` (four years; 2022 closes on 31 Dec 2026).
+- `de-kilometergeld-arbeitgeber-zahlt-weniger.html` → `/de/ratgeber/kilometergeld-arbeitgeber-zahlt-weniger/` (Austria, five years; 2021 closes on 31 Dec 2026).
+The UK has this page already (`en-how-far-back-mileage-claim`, 24 Nov). Netherlands, Norway, Denmark, Finland: not checked yet whether an employee can deduct the difference.
+On his OK: move to `src/guides/`, register, set `publish`, link each from its country's rate page, build, check, push.

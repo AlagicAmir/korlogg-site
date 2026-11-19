@@ -19,7 +19,7 @@ VOID = {"area", "base", "br", "col", "embed", "hr", "img", "input", "link", "met
 OPTIONAL_CLOSE = {"p", "li", "dt", "dd", "tr", "td", "th", "thead", "tbody", "option"}
 BANNED = [r"finanzamtkonform", r"\bGratis\b", r"der Store\b", r"DSGVO-konform", r"kelpaa verottajalle", r"sluitend",
           r"nothing leaves your phone", r"geocod", r"\bguaranteed\b", r"\bgarantiert\b", r"(?<!eller )godkänd av Skatteverket",
-          r"\$\d", r"\d+\s?kr\b(?![^<]*(?:mil|km))", r"€\s?\d+[,.]\d\d(?!\s?(?:€\s?)?(?:pro|per|/)\s?(?:\w+\s)?(?:km|[Kk]ilometer))"]
+          r"\$\d", r"\d+\s?kr\b(?![^<]*(?:mil|km))", r"€\s?\d+[,.]\d\d(?!\d)(?!\s?(?:€\s?)?(?:pro|per|/)\s?(?:\w+\s)?(?:km|[Kk]ilometer))"]
 
 # Amir 2026-11-17: no competitor names and no doubt-raising lines outside the legal pages.
 # The build fails if one comes back.
@@ -101,6 +101,7 @@ def main():
         for b in BANNED:
             if b == r"geocod" and re.search(r"/(privacy|terms|delete-data)/$", path): continue   # verbatim legal text
             if "kr" in b and ("ibeacon" in path or "/help/" in path): continue   # third-party beacon prices
+            if b == r"\$\d" and re.search(r"/guides/(ato-|cents-per-kilometre-)", path): continue   # Australian guides: tax amounts in dollars, "$4,550" (Amir 2026-11-19); app prices stay out
             if b in (r"\$\d", BANNED[-2], BANNED[-1]) and re.search(VS_PAGE, path): continue   # comparison pages quote dated App Store prices
             if b in (r"\$\d", BANNED[-1]) and re.search(r"/compare-|-vergleich/|-vergelijken/", path): continue   # same for the en/de/nl comparison pages ($ and € prices)
             if "Gratis" in b and path.startswith("/nl/"): continue   # Dutch, not German

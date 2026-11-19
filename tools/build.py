@@ -112,6 +112,10 @@ GUIDES = {   # file stem -> (lang, path, cluster)
     "de-50-prozent-betriebliche-nutzung": ("de", "/de/ratgeber/50-prozent-betriebliche-nutzung-nachweisen/", None),
     "de-fahrtenbuch-vorlage-oesterreich": ("de", "/de/ratgeber/fahrtenbuch-vorlage-oesterreich/", None),
     "nl-bijtelling-2026": ("nl", "/nl/gidsen/bijtelling-2026/", None),
+    # "Money back" pages (Amir 2026-11-19): the employer pays less than the official rate, how to deduct the rest and how far back
+    "sv-milersattning-skillnaden": ("sv", "/se/guider/arbetsgivaren-betalar-mindre-an-25-kr-per-mil/", None),
+    "de-arbeitgeber-zahlt-weniger-als-30-cent": ("de", "/de/ratgeber/arbeitgeber-zahlt-weniger-als-30-cent/", None),
+    "de-kilometergeld-arbeitgeber-zahlt-weniger": ("de", "/de/ratgeber/kilometergeld-arbeitgeber-zahlt-weniger/", None),
 }
 GUIDE_INDEX = {"en": "/guides/", "sv": "/se/guider/", "de": "/de/ratgeber/", "nl": "/nl/gidsen/",
                "no": "/no/guider/", "da": "/da/guides/", "fi": "/fi/oppaat/", "hu": "/hu/utmutatok/"}   # trimmed below to languages with a live guide
