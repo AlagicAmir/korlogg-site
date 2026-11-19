@@ -116,7 +116,7 @@ GUIDES = {   # file stem -> (lang, path, cluster)
     "sv-milersattning-skillnaden": ("sv", "/se/guider/arbetsgivaren-betalar-mindre-an-25-kr-per-mil/", None),
     "de-arbeitgeber-zahlt-weniger-als-30-cent": ("de", "/de/ratgeber/arbeitgeber-zahlt-weniger-als-30-cent/", None),
     "de-kilometergeld-arbeitgeber-zahlt-weniger": ("de", "/de/ratgeber/kilometergeld-arbeitgeber-zahlt-weniger/", None),
-    # Start/End trip with CarPlay or car Bluetooth through Apple's Shortcuts (written 2026-11-19 after a customer's mail); held with publish 2099-12-31 until Amir approves
+    # Start/End trip with CarPlay or car Bluetooth through Apple's Shortcuts (written 2026-11-19 after a customer's mail; Amir 2026-11-19: schedule it): sv 20 Nov, en 24 Nov, de 1 Dec
     "en-start-trips-carplay-bluetooth": ("en", "/guides/start-trips-with-carplay-or-bluetooth/", "guide-shortcuts"),
     "de-fahrtenbuch-starten-carplay-bluetooth": ("de", "/de/ratgeber/fahrtenbuch-automatisch-starten-carplay-bluetooth/", "guide-shortcuts"),
     "sv-starta-resan-carplay-bluetooth": ("sv", "/se/guider/starta-resan-med-carplay-eller-bluetooth/", "guide-shortcuts"),
