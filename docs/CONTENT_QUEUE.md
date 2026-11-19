@@ -160,12 +160,14 @@ names, no doubt lines, the app paragraph at the end sells.
 | Tue 19 Jan | /guides/medical-and-charity-mileage/ | – | medical and charity miles and their rates | to write |
 | Tue 26 Jan | /guides/can-i-deduct-my-commute/ | – | commuting vs business miles, home office, temporary work site | to write |
 
-## "Money back" pages (drafts of 2026-11-19, waiting for Amir's read)
+## "Money back" pages (live 2026-11-19)
 Amir 2026-11-19: pages that answer a money question with a title an everyday reader would type are the best kind.
-Three drafts in `docs/drafts/` (not registered in `tools/build.py`, nothing live); each answers "my employer pays less
-than the official rate, or nothing: how do I get tax back on the rest, and how many years back?"
+Each answers "my employer pays less than the official rate, or nothing: how do I get tax back on the rest, and how many
+years back?" Published the same day on his word ("I trust you … please do it"), linked from each country's rate page.
 - `sv-milersattning-skillnaden.html` → `/se/guider/arbetsgivaren-betalar-mindre-an-25-kr-per-mil/` (six years back; 18,50 kr per mil 2020–2022).
 - `de-arbeitgeber-zahlt-weniger-als-30-cent.html` → `/de/ratgeber/arbeitgeber-zahlt-weniger-als-30-cent/` (four years; 2022 closes on 31 Dec 2026).
 - `de-kilometergeld-arbeitgeber-zahlt-weniger.html` → `/de/ratgeber/kilometergeld-arbeitgeber-zahlt-weniger/` (Austria, five years; 2021 closes on 31 Dec 2026).
-The UK has this page already (`en-how-far-back-mileage-claim`, 24 Nov). Netherlands, Norway, Denmark, Finland: not checked yet whether an employee can deduct the difference.
-On his OK: move to `src/guides/`, register, set `publish`, link each from its country's rate page, build, check, push.
+The UK has this page already (`en-how-far-back-mileage-claim`, 24 Nov). Denmark: the difference cannot be deducted
+(`da-korselsgodtgorelse.html`). Netherlands, Norway, Finland: not checked yet.
+In January 2027 the deadline sentences and year tables in all three move on by one year.
+The Danish 2027 page (`da-korselsgodtgorelse-2027.html`) went live the same day.
