@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Start your trip log automatically with CarPlay or Bluetooth</title>
+<meta name="description" content="Körlogg starts logging the moment your iPhone connects to CarPlay or your car&#x27;s Bluetooth. Set it up once in Apple&#x27;s Shortcuts app, with the car you have.">
+<meta name="msvalidate.01" content="5FF1FF39E13E2AFE59F82628C0224226">
+<link rel="canonical" href="https://korlogg.com/guides/start-trips-with-carplay-or-bluetooth/">
+<link rel="alternate" hreflang="en" href="https://korlogg.com/guides/start-trips-with-carplay-or-bluetooth/">
+<link rel="alternate" hreflang="sv" href="https://korlogg.com/se/guider/starta-resan-med-carplay-eller-bluetooth/">
+<link rel="alternate" hreflang="x-default" href="https://korlogg.com/guides/start-trips-with-carplay-or-bluetooth/">
+<meta name="apple-itunes-app" content="app-id=6809322275">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#1669d9" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0b1220" media="(prefers-color-scheme: dark)">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Körlogg">
+<meta property="og:title" content="Start your trip log automatically with CarPlay or Bluetooth">
+<meta property="og:description" content="Körlogg starts logging the moment your iPhone connects to CarPlay or your car&#x27;s Bluetooth. Set it up once in Apple&#x27;s Shortcuts app, with the car you have.">
+<meta property="og:url" content="https://korlogg.com/guides/start-trips-with-carplay-or-bluetooth/">
+<meta property="og:image" content="https://korlogg.com/assets/og/en.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Start your trip log automatically with CarPlay or Bluetooth">
+<meta name="twitter:description" content="Körlogg starts logging the moment your iPhone connects to CarPlay or your car&#x27;s Bluetooth. Set it up once in Apple&#x27;s Shortcuts app, with the car you have.">
+<meta name="twitter:image" content="https://korlogg.com/assets/og/en.png">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/assets/favicon-32.png" type="image/png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="stylesheet" href="/assets/site.css?v=37f9ee24">
+<link rel="preconnect" href="https://nom.telemetrydeck.com" crossorigin>
+<script src="https://cdn.telemetrydeck.com/websdk/telemetrydeck.min.js" data-app-id="22120ED7-73AC-47F1-8E16-CAF4203EE530" defer></script>
+<script src="/assets/stats.js?v=79472a9e" defer></script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Start your trip log the moment your iPhone connects to the car", "description": "Körlogg starts logging the moment your iPhone connects to CarPlay or your car's Bluetooth. Set it up once in Apple's Shortcuts app, with the car you have.", "inLanguage": "en", "dateModified": "2026-11-19", "author": {"@type": "Person", "name": "Amir Alagic"}, "mainEntityOfPage": "https://korlogg.com/guides/start-trips-with-carplay-or-bluetooth/", "image": "https://korlogg.com/assets/og/en.png"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Körlogg", "item": "https://korlogg.com/"}, {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://korlogg.com/guides/"}, {"@type": "ListItem", "position": 3, "name": "Start your trip log the moment your iPhone connects to the car", "item": "https://korlogg.com/guides/start-trips-with-carplay-or-bluetooth/"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Do I still need “Log trips automatically”?", "acceptedAnswer": {"@type": "Answer", "text": "That is your choice. With the switch on, Körlogg also notices a drive from the phone's motion, so every trip is caught, in any car. With it off, only your automations and the Start button begin a trip – the way to keep a log of your own car and nothing else."}}, {"@type": "Question", "name": "Does it start while Körlogg is closed?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, with location access set to “Always”. iPhone starts Körlogg in the background and the trip begins."}}, {"@type": "Question", "name": "Does the automation ask me every time?", "acceptedAnswer": {"@type": "Answer", "text": "Not with Run Immediately. With Run After Confirmation iPhone shows a notification first and waits for your tap."}}, {"@type": "Question", "name": "What about moving the car a few metres?", "acceptedAnswer": {"@type": "Answer", "text": "A recording shorter than 300 metres is not saved as a trip, so moving the car across the yard does not fill your log."}}, {"@type": "Question", "name": "Can I start a trip from the Home Screen?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Körlogg's widget shows this month's business distance and has a start and stop button."}}]}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+<div class="wrap bar">
+<a class="brand" href="/"><img src="/assets/logo-96.webp" width="32" height="32" alt=""><span>Körlogg</span></a>
+<nav class="nav" aria-label="Körlogg">
+<a href="/#features">Features</a>
+<a href="/help/">Help</a>
+<a href="/guides/">Guides</a>
+<a href="/support/">Support</a>
+</nav>
+<a class="get-app" href="https://apps.apple.com/gb/app/id6809322275?pt=127865703&amp;ct=web_en_header&amp;mt=8" data-position="header" data-play="https://play.google.com/store/apps/details?id=se.mobix.korlogg&amp;hl=en_GB&amp;referrer=utm_source%3Dkorlogg.com%26utm_medium%3Dweb%26utm_campaign%3Dweb_en_play_header">Get the app</a>
+<details class="lang">
+<summary aria-label="Language"><svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18"><path fill="none" stroke="currentColor" stroke-width="1.8" d="M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zm-9 9h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></svg><span>EN</span></summary>
+<ul><li><a href="/guides/start-trips-with-carplay-or-bluetooth/" hreflang="en" lang="en" aria-current="true">English</a></li><li><a href="/se/guider/starta-resan-med-carplay-eller-bluetooth/" hreflang="sv" lang="sv">Svenska</a></li><li><a href="/de/" hreflang="de" lang="de">Deutsch</a></li><li><a href="/da/" hreflang="da" lang="da">Dansk</a></li><li><a href="/no/" hreflang="nb" lang="nb">Norsk</a></li><li><a href="/nl/" hreflang="nl" lang="nl">Nederlands</a></li><li><a href="/fi/" hreflang="fi" lang="fi">Suomi</a></li><li><a href="/pl/" hreflang="pl" lang="pl">Polski</a></li><li><a href="/hu/" hreflang="hu" lang="hu">Magyar</a></li></ul>
+</details>
+</div>
+</header>
+<main id="main" class="">
+<div class="wrap narrow page"><nav class="crumbs" aria-label="Breadcrumb"><a href="/">Körlogg</a> › <a href="/guides/">Guides</a></nav><article class="guide"><h1>Start your trip log the moment your iPhone connects to the car</h1>
+<p class="lede">Körlogg has two actions for Apple's Shortcuts app: <strong>Start trip</strong> and <strong>End trip</strong>. Tie them to CarPlay or to your car's Bluetooth, and your log starts when you get in and ends when you get out. You set it up once, in a couple of minutes, with the car you already have.</p>
+
+<h2>What you get</h2>
+<ul>
+<li><strong>A log from the first metre.</strong> The trip starts when the phone connects to the car, before you pull away.</li>
+<li><strong>Your own car, by name.</strong> With Bluetooth you pick your car from a list, so the automation belongs to that car.</li>
+<li><strong>A clean end.</strong> With a second automation the trip is saved to your log when the phone disconnects. Körlogg also ends a trip by itself once the car has stood still for a few minutes.</li>
+<li><strong>Siri too.</strong> Say “Start a trip in Körlogg” or “End the trip in Körlogg”.</li>
+<li><strong>Included for everyone.</strong> Both actions are part of Körlogg 3.1 and later, in the free version as well. Shortcuts is Apple's own app on your iPhone.</li>
+</ul>
+
+<h2>Before you start</h2>
+<ul>
+<li><strong>Körlogg 3.1 or later.</strong></li>
+<li><strong>Location access “Always”.</strong> That lets a trip start while Körlogg is closed. Under <em>Settings</em> in Körlogg you see the location status, with a button that takes you to the right switch.</li>
+</ul>
+
+<h2>Start the trip when the phone connects</h2>
+<ol>
+<li>Open the <em>Shortcuts</em> app and tap <em>Automation</em> at the bottom.</li>
+<li>Tap <em>New Automation</em> – or the + at the top right if you already have automations.</li>
+<li>Choose <em>CarPlay</em> if your car has CarPlay. Otherwise choose <em>Bluetooth</em>, tap <em>Choose</em> next to <em>Device</em> and pick your car.</li>
+<li>Keep the option for connecting selected: <em>Connects</em> for CarPlay, <em>Is Connected</em> for Bluetooth.</li>
+<li>Choose <em>Run Immediately</em>, so the trip starts without a question on the screen. Then tap <em>Next</em>.</li>
+<li>Scroll to <em>Körlogg</em> in the list, tap it and tap <em>Start trip</em>.</li>
+</ol>
+<p>The automation is saved and appears on the Automation screen. The next time your phone connects to the car, Körlogg starts logging.</p>
+
+<h2>End the trip when the phone disconnects</h2>
+<p>Create a second automation in the same way. This time choose the option for disconnecting – <em>Disconnects</em> for CarPlay, <em>Is Disconnected</em> for Bluetooth – then <em>Run Immediately</em>, and pick <em>End trip</em> under Körlogg. The trip is then in your log as soon as you switch the car off. When you switch the car off at a stop on the way, the next connection starts a new trip.</p>
+
+<h2>CarPlay or Bluetooth?</h2>
+<ul>
+<li><strong>CarPlay</strong>, wired or wireless: one automation covers every car in which your iPhone uses CarPlay.</li>
+<li><strong>Bluetooth</strong>, for every other car: the car is in the <em>Device</em> list under the name it has in your iPhone's Bluetooth settings. You can pick one car or several.</li>
+</ul>
+
+<h2>More than one car</h2>
+<p>An automation starts the trip. With an iBeacon in each car, Körlogg Pro also puts every trip on the car you actually drove. The two work together: if a trip is already being logged when an automation runs, Körlogg simply carries on with that trip. Which beacon to buy is in <a href="/guides/which-ibeacon/">Which iBeacon should I buy for Körlogg?</a></p>
+
+<section class="guide-faq">
+<h2>Frequently asked questions</h2><div class="faq">
+<details><summary>Do I still need “Log trips automatically”?</summary><p>That is your choice. With the switch on, Körlogg also notices a drive from the phone's motion, so every trip is caught, in any car. With it off, only your automations and the Start button begin a trip – the way to keep a log of your own car and nothing else.</p></details>
+<details><summary>Does it start while Körlogg is closed?</summary><p>Yes, with location access set to “Always”. iPhone starts Körlogg in the background and the trip begins.</p></details>
+<details><summary>Does the automation ask me every time?</summary><p>Not with <em>Run Immediately</em>. With <em>Run After Confirmation</em> iPhone shows a notification first and waits for your tap.</p></details>
+<details><summary>What about moving the car a few metres?</summary><p>A recording shorter than 300 metres is not saved as a trip, so moving the car across the yard does not fill your log.</p></details>
+<details><summary>Can I start a trip from the Home Screen?</summary><p>Yes. Körlogg's widget shows this month's business distance and has a start and stop button.</p></details>
+</div></section>
+
+<h2>How Körlogg helps</h2>
+<p><a href="/">Körlogg</a> logs your trips with the date, times, start and end address and distance; you swipe each one business or private and add the reason. With Körlogg Pro you export the log as PDF or Excel for your employer, your accountant or your tax return. <a href="https://apps.apple.com/gb/app/id6809322275?pt=127865703&amp;ct=guide_carplay-bluetooth-start&amp;mt=8">Körlogg on the App Store</a></p>
+
+<section class="sources"><h2>Sources</h2>
+<ul>
+<li><a href="https://support.apple.com/guide/shortcuts/apd690170742/ios">Intro to personal automation – Shortcuts User Guide, Apple Support</a></li>
+<li><a href="https://support.apple.com/guide/shortcuts/apdfbdbd7123/ios">Create a new personal automation – Shortcuts User Guide, Apple Support</a></li>
+<li><a href="https://support.apple.com/guide/shortcuts/apd8ebfc4e8e/ios">Travel triggers – Shortcuts User Guide, Apple Support</a> (the CarPlay trigger: Connects, Disconnects)</li>
+<li><a href="https://support.apple.com/guide/shortcuts/apde31e9638b/ios">Setting triggers – Shortcuts User Guide, Apple Support</a> (the Bluetooth trigger: one or several devices)</li>
+<li><a href="https://support.apple.com/guide/shortcuts/apd602971e63/ios">Enable or disable a personal automation – Shortcuts User Guide, Apple Support</a> (CarPlay and Bluetooth automations can run without asking)</li>
+<li>The Shortcuts app on iOS 26.2: the screens and labels in the steps above.</li>
+<li>Körlogg 3.1 app behaviour: the Start trip and End trip actions, the Siri phrases and the widget described above.</li>
+</ul>
+<p class="checked">Checked on 19 November 2026.</p></section>
+</article><aside class="card guide-cta"><img src="/assets/logo-96.webp" width="56" height="56" alt="" loading="lazy"><div><p><strong>Körlogg</strong> – The mileage log that keeps itself.</p><a class="store-badge small" href="https://apps.apple.com/gb/app/id6809322275?pt=127865703&amp;ct=guide_carplay-bluetooth-start&amp;mt=8" data-position="middle"><picture><source srcset="/assets/badges/en-white.svg" media="(prefers-color-scheme: dark)"><img src="/assets/badges/en-black.svg" width="132" height="44" alt="Download on the App Store"></picture></a></div></aside></div>
+</main>
+<footer class="site-footer">
+<div class="wrap">
+<div class="foot-top">
+<a class="brand" href="/"><img src="/assets/logo-96.webp" width="28" height="28" alt="" loading="lazy"><span>Körlogg</span></a>
+<a class="store-badge small" href="https://apps.apple.com/gb/app/id6809322275?pt=127865703&amp;ct=web_en_footer&amp;mt=8" data-position="footer"><picture><source srcset="/assets/badges/en-white.svg" media="(prefers-color-scheme: dark)"><img src="/assets/badges/en-black.svg" width="132" height="44" alt="Download on the App Store"></picture></a>
+</div>
+<nav class="foot-links" aria-label="Support"><a href="/privacy/">Privacy Policy</a><a href="/terms/">Terms of Use</a><a href="/support/">Support</a><a href="/help/">Help and FAQ</a><a href="/guides/">Guides</a></nav>
+<p>Körlogg is made by Amir Alagic (enskild firma), Sweden. <a href="mailto:support@korlogg.com">support@korlogg.com</a></p>
+<ul class="foot-langs"><li><a href="/" hreflang="en" lang="en">English</a></li><li><a href="/se/" hreflang="sv" lang="sv">Svenska</a></li><li><a href="/de/" hreflang="de" lang="de">Deutsch</a></li><li><a href="/da/" hreflang="da" lang="da">Dansk</a></li><li><a href="/no/" hreflang="nb" lang="nb">Norsk</a></li><li><a href="/nl/" hreflang="nl" lang="nl">Nederlands</a></li><li><a href="/fi/" hreflang="fi" lang="fi">Suomi</a></li><li><a href="/pl/" hreflang="pl" lang="pl">Polski</a></li><li><a href="/hu/" hreflang="hu" lang="hu">Magyar</a></li></ul>
+<p class="small">Apple, the Apple logo, iPhone and iPad are trademarks of Apple Inc., registered in the U.S. and other countries. App Store is a service mark of Apple Inc.</p>
+</div>
+</footer>
+</body>
+</html>

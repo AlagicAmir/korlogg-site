@@ -56,7 +56,7 @@ Order: switch the source, then push.
 | Tue 2026-11-17 | DE | /de/ratgeber/fahrtenbuch-app-was-das-finanzamt-prueft/ (new; Amir OK 2026-11-03) | de-fahrtenbuch-app-finanzamt-prueft.html | fahrtenbuch app finanzamt |
 | Fri 2026-11-20 | CH (de) | /de/ratgeber/fahrtenbuch-schweiz-privatanteil/ (new; first Swiss page, rule-set shipped in 2.6; Wegleitung/FAQ 2026, 75 Rappen since 1.1.2026; Amir OK 2026-11-17) | de-fahrtenbuch-schweiz-privatanteil.html | privatanteil geschäftsfahrzeug / fahrtenbuch schweiz |
 | Tue 2026-11-10 | HU | /hu/utmutatok/utnyilvantartas/ (new; first Hungarian guide, with the Hungarian home/help/support pages that went live 3 Nov; NAV prices Nov 2026; Amir OK 2026-11-17) | hu-utnyilvantartas.html | útnyilvántartás / kiküldetési rendelvény / költségtérítés |
-| Tue 2026-11-24 | DE | /de/ratgeber/kilometerpauschale-2027/ (new; rates fixed by law, JStG 2026 changes nothing; Amir OK 2026-11-03) | de-kilometerpauschale-2027.html | kilometerpauschale 2027 |
+| Sun 2026-11-22 | DE | /de/ratgeber/kilometerpauschale-2027/ (moved up from 24 Nov with its calculator, Amir 2026-11-22; new; rates fixed by law, JStG 2026 changes nothing; Amir OK 2026-11-03) | de-kilometerpauschale-2027.html | kilometerpauschale 2027 |
 | Tue 2026-11-17 | UK | /guides/temporary-workplace-24-month-rule/ (new, refill 2026-11-15; Amir OK 2026-11-17) | en-temporary-workplace-24-month-rule.html | temporary workplace 24 month rule |
 | Fri 2026-11-20 | UK | /guides/limited-company-director-mileage/ (new, refill 2026-11-15; Amir OK 2026-11-17) | en-director-mileage-limited-company.html | limited company director mileage |
 | Tue 2026-11-24 | UK | /guides/how-far-back-can-you-claim-mileage/ (new, refill 2026-11-15; Amir OK 2026-11-17) | en-how-far-back-mileage-claim.html | how far back can I claim mileage |
@@ -69,9 +69,9 @@ Order: switch the source, then push.
 | Fri 2026-12-04 | UK | /guides/advisory-electric-rate/ (new, refill 2026-11-15; Amir OK 2026-11-17) | en-advisory-electric-rate.html | advisory electric rate |
 | Fri 2026-12-04 | DE | /de/ratgeber/50-prozent-betriebliche-nutzung-nachweisen/ (new, refill 2026-11-15; Amir OK 2026-11-17) | de-50-prozent-betriebliche-nutzung.html | 50 % betriebliche nutzung nachweisen |
 | Fri 2026-11-20 | SE | /se/guider/starta-resan-med-carplay-eller-bluetooth/ (new; Shortcuts automation, written after a customer's mail; Amir 2026-11-19: schedule it) | sv-starta-resan-carplay-bluetooth.html | körjournal carplay / starta resa automatiskt |
-| Tue 2026-11-24 | EN | /guides/start-trips-with-carplay-or-bluetooth/ (new; same guide in English) | en-start-trips-carplay-bluetooth.html | mileage log carplay / start trip automatically bluetooth |
+| Sun 2026-11-22 | EN | /guides/start-trips-with-carplay-or-bluetooth/ (new; same guide in English; moved up from 24 Nov, Amir 2026-11-22) | en-start-trips-carplay-bluetooth.html | mileage log carplay / start trip automatically bluetooth |
 | Tue 2026-12-01 | DE | /de/ratgeber/fahrtenbuch-automatisch-starten-carplay-bluetooth/ (new; same guide in German) | de-fahrtenbuch-starten-carplay-bluetooth.html | fahrtenbuch carplay / fahrtenbuch bluetooth automatisch starten |
-| Fri 2026-11-27 | SE | /se/guider/milersattning/ (rewrite: calculator at the top, new title and H1; Amir 2026-11-19 "do the same for sweden and germany … some other day") | sv-milersattning@2026-11-27.html | räkna ut milersättning 2026 |
+| Sun 2026-11-22 | SE | /se/guider/milersattning/ (moved up from 27 Nov, Amir 2026-11-22; rewrite: calculator at the top, new title and H1; Amir 2026-11-19 "do the same for sweden and germany … some other day") | sv-milersattning@2026-11-22.html | räkna ut milersättning 2026 |
 
 If the push happens after a date above, that guide goes live with the push.
 
@@ -187,6 +187,6 @@ around 10 December 2026; if they moved, do the same on the other rate pages (SE,
 
 Amir 2026-11-19: the same for Sweden and Germany, on another day. Germany: `de-kilometerpauschale-2027.html` (goes live
 Tue 2026-11-24) has a Kilometerpauschale-Rechner (Dienstreise 0,30/0,20 € with what the employer pays, and the
-Entfernungspauschale 0,38 € × full km × days). Sweden: `sv-milersattning@2026-11-27.html` replaces the live page on
-Fri 2026-11-27 (25 / 12 / 9,50 kr per mil, mil or km, what the employer pays). From 27 November any edit to the Swedish
-rate page is made in the `@2026-11-27` file, which is the live one.
+Entfernungspauschale 0,38 € × full km × days). Sweden: `sv-milersattning@2026-11-22.html` replaces the live page on
+Sun 2026-11-22 (first set for 27 Nov) (25 / 12 / 9,50 kr per mil, mil or km, what the employer pays). From 22 November any edit to the Swedish
+rate page is made in the `@2026-11-22` file, which is the live one.
