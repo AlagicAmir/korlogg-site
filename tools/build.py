@@ -118,6 +118,10 @@ GUIDES = {   # file stem -> (lang, path, cluster)
     "de-kilometergeld-arbeitgeber-zahlt-weniger": ("de", "/de/ratgeber/kilometergeld-arbeitgeber-zahlt-weniger/", None),
     # Start/End trip with CarPlay or car Bluetooth through Apple's Shortcuts (written 2026-11-19 after a customer's mail; Amir 2026-11-19: schedule it): sv 20 Nov, en 24 Nov, de 1 Dec
     "en-start-trips-carplay-bluetooth": ("en", "/guides/start-trips-with-carplay-or-bluetooth/", "guide-shortcuts"),
+    # Australia, live with Körlogg 3.5 (2026-11-23).
+    "en-ato-12-week-logbook": ("en", "/guides/ato-12-week-logbook/", None),
+    "en-ato-cents-per-kilometre-2026-27": ("en", "/guides/ato-cents-per-kilometre-2026-27/", None),
+    "en-cents-per-kilometre-or-logbook-method": ("en", "/guides/cents-per-kilometre-or-logbook-method/", None),
     "de-fahrtenbuch-starten-carplay-bluetooth": ("de", "/de/ratgeber/fahrtenbuch-automatisch-starten-carplay-bluetooth/", "guide-shortcuts"),
     "sv-starta-resan-carplay-bluetooth": ("sv", "/se/guider/starta-resan-med-carplay-eller-bluetooth/", "guide-shortcuts"),
 }
