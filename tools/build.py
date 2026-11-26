@@ -28,9 +28,10 @@ GENERATED = [l["prefix"].strip("/") for k, l in LANGS.items() if k != "en"] + \
 PAGES = []          # dicts: lang, cluster, path, title, desc, body, noindex, canonical, jsonld, og
 CLUSTERS = {}       # cluster -> {lang: path}  (only indexable pages)
 
-def add(lang, cluster, path, title, desc, body, noindex=False, canonical=None, jsonld=None, main_class=""):
+def add(lang, cluster, path, title, desc, body, noindex=False, canonical=None, jsonld=None, main_class="", store_page=None):
     PAGES.append(dict(lang=lang, cluster=cluster, path=path, title=title, desc=desc, body=body,
-                      noindex=noindex, canonical=canonical or path, jsonld=jsonld or [], main_class=main_class))
+                      noindex=noindex, canonical=canonical or path, jsonld=jsonld or [], main_class=main_class,
+                      store_page=store_page))
     if not noindex and cluster:
         CLUSTERS.setdefault(cluster, {})[lang] = path
 
@@ -133,12 +134,21 @@ REDEEM_LANGS = set(REDEEM)                        # "redeem a code" page (en, sv
 
 def esc(s): return html.escape(s, quote=True)
 
-def store_url(lang, campaign=None):
+def store_url(lang, campaign=None, store_page=None):
     """With a campaign, App Store Connect counts the downloads from that link:
-    web_<lang>_<position>, e.g. web_de_hero (40 characters at most)."""
+    web_<lang>_<position>, e.g. web_de_hero (40 characters at most).
+    store_page ("ch", "at"): that country's store and, once Apple has approved it
+    (config.PRODUCT_PAGES_APPROVED), its custom product page (?ppid=…)."""
     cc = LANGS[lang]["store"]
+    ppid = C.PRODUCT_PAGES.get(store_page) if C.PRODUCT_PAGES_APPROVED else None
+    if ppid: cc = store_page
     url = f"https://apps.apple.com/{cc + '/' if cc else ''}app/id{C.APP_ID}"
-    return f"{url}?pt={C.PROVIDER_ID}&ct={campaign[:40]}&mt=8" if campaign else url
+    query = ([f"ppid={ppid}"] if ppid else []) + ([f"pt={C.PROVIDER_ID}", f"ct={campaign[:40]}", "mt=8"] if campaign else [])
+    return f"{url}?{'&'.join(query)}" if query else url
+
+def guide_store_page(stem):
+    """The custom product page a guide's App Store links go to, or None."""
+    return next((page for page, stems in C.PRODUCT_PAGE_GUIDES.items() if stem in stems), None)
 
 def v2_label(lang):
     return UI[lang]["v2_released" if C.KORLOGG_2_0_RELEASED else "v2_pending"]
@@ -167,7 +177,7 @@ def play_attr(lang, position):
     """data-play on a store link: stats.js points it at Google Play for Android visitors."""
     return f' data-play="{esc(play_url(lang, f"web_{lang}_play_{position}"))}"' if C.PLAY_RELEASED else ""
 
-def store_button(lang, extra="", dark_bg=False, position="other", campaign=None):
+def store_button(lang, extra="", dark_bg=False, position="other", campaign=None, store_page=None):
     """Apple's official localized badge, unmodified. Black on light backgrounds, white
     in dark mode; always black on the blue hero (dark_bg=False keeps black)."""
     h = 44 if "small" in extra else 54
@@ -175,7 +185,7 @@ def store_button(lang, extra="", dark_bg=False, position="other", campaign=None)
     black, white = f"/assets/badges/{lang}-black.svg", f"/assets/badges/{lang}-white.svg"
     alt = esc(UI[lang]["store_btn"])
     dark = "" if dark_bg else f'<source srcset="{white}" media="(prefers-color-scheme: dark)">'
-    return (f'<a class="store-badge{extra}" href="{esc(store_url(lang, campaign or f'web_{lang}_{position}'))}" data-position="{position}"><picture>{dark}'
+    return (f'<a class="store-badge{extra}" href="{esc(store_url(lang, campaign or f'web_{lang}_{position}', store_page))}" data-position="{position}"><picture>{dark}'
             f'<img src="{black}" width="{w}" height="{h}" alt="{alt}"></picture></a>')
 
 def placeholders(text, lang):
@@ -274,7 +284,7 @@ def layout(pg):
 {guides_link}
 <a href="{P(lang, "support")}">{esc(ui["nav_support"])}</a>
 </nav>
-<a class="get-app" href="{esc(store_url(lang, f"web_{lang}_header"))}" data-position="header"{play_attr(lang, "header")}>{esc(ui["get_app"])}</a>
+<a class="get-app" href="{esc(store_url(lang, f"web_{lang}_header", pg.get("store_page")))}" data-position="header"{play_attr(lang, "header")}>{esc(ui["get_app"])}</a>
 <details class="lang">
 <summary aria-label="{esc(ui["lang_label"])}"><svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18"><path fill="none" stroke="currentColor" stroke-width="1.8" d="M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zm-9 9h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></svg><span>{lang.upper()}</span></summary>
 <ul>{items}</ul>
@@ -288,7 +298,7 @@ def layout(pg):
 <div class="wrap">
 <div class="foot-top">
 <a class="brand" href="{home}"><img src="/assets/logo-96.webp" width="28" height="28" alt="" loading="lazy"><span>Körlogg</span></a>
-{store_button(lang, " small", position="footer")}
+{store_button(lang, " small", position="footer", store_page=pg.get("store_page"))}
 </div>
 <nav class="foot-links" aria-label="{esc(ui["support"])}">{foot_legal}</nav>
 <p>{esc(ui["publisher"])} <a href="mailto:{C.SUPPORT_EMAIL}">{C.SUPPORT_EMAIL}</a></p>
@@ -393,7 +403,9 @@ def build_home(lang):
     h, ui, tx = HOME[lang], UI[lang], TAX[lang]
     full = lang in ("en", "sv", "de")
     trust = "".join(f'<li><svg aria-hidden="true" viewBox="0 0 20 20" width="18" height="18"><path fill="currentColor" d="M8.2 13.6 4.6 10l-1.2 1.2 4.8 4.8 9-9-1.2-1.2z"/></svg>{esc(t)}</li>' for t in h["trust"])
-    at = (f'<p class="hero-note">{esc(h["at_note"])} <a href="https://apps.apple.com/at/app/id{C.APP_ID}?pt={C.PROVIDER_ID}&amp;ct=web_de_at&amp;mt=8">{esc(h["at_link"])}</a></p>'
+    at_store = (store_url("de", "web_de_at", "at") if C.PRODUCT_PAGES_APPROVED
+                else f"https://apps.apple.com/at/app/id{C.APP_ID}?pt={C.PROVIDER_ID}&ct=web_de_at&mt=8")
+    at = (f'<p class="hero-note">{esc(h["at_note"])} <a href="{esc(at_store)}">{esc(h["at_link"])}</a></p>'
           if lang == "de" else "")
     hero = f"""<section class="hero">
 <div class="wrap hero-grid">
@@ -793,7 +805,12 @@ def build_guides():
         body = placeholders(body, lang)
         # a guide may name its own App Store campaign (guide_<slug>); {{store}} in the text links with it
         campaign = meta.get("campaign")
-        body = body.replace("{{store}}", esc(store_url(lang, campaign)))
+        store_page = guide_store_page(stem)
+        body = body.replace("{{store}}", esc(store_url(lang, campaign, store_page)))
+        # a guide that writes its country's store link out in full gets the page too
+        if store_page and C.PRODUCT_PAGES_APPROVED:
+            own = f"https://apps.apple.com/{store_page}/app/id{C.APP_ID}?"
+            body = body.replace(own + "pt=", f"{own}ppid={C.PRODUCT_PAGES[store_page]}&amp;pt=")
         # {{play}} … {{/play}}: the Google Play link, shown only once the Android app is live
         body = body.replace("{{playurl}}", esc(play_url(lang, campaign)))
         body = re.sub(r"(?s)\{\{play\}\}(.*?)\{\{/play\}\}", r"\1" if C.PLAY_RELEASED else "", body)
@@ -801,7 +818,7 @@ def build_guides():
         h1 = re.search(r"<h1>(.*?)</h1>", body).group(1)
         crumbs = f'<nav class="crumbs" aria-label="Breadcrumb"><a href="{P(lang, "home")}">Körlogg</a> › <a href="{GUIDE_INDEX[lang]}">{esc(UI[lang]["guides"])}</a></nav>'
         cta = (f'<aside class="card guide-cta"><img src="/assets/logo-96.webp" width="56" height="56" alt="" loading="lazy">'
-               f'<div><p><strong>Körlogg</strong> – {esc(HOME[lang]["h1"])}.</p>{store_button(lang, " small", position="middle", campaign=campaign)}</div></aside>')
+               f'<div><p><strong>Körlogg</strong> – {esc(HOME[lang]["h1"])}.</p>{store_button(lang, " small", position="middle", campaign=campaign, store_page=store_page)}</div></aside>')
         article = {"@context": "https://schema.org", "@type": "Article", "headline": re.sub("<[^>]+>", "", h1),
                    "description": meta["description"], "inLanguage": LANGS[lang]["html"], "dateModified": meta.get("modified", "2026-10-10"),
                    "author": {"@type": "Person", "name": "Amir Alagic"}, "mainEntityOfPage": C.SITE + path,
@@ -818,7 +835,7 @@ def build_guides():
             body = body[:faq.start(1)] + re.sub(r"(?s)(<h2>.*?</h2>)", r'\1<div class="faq">', items, count=1) + "</div>" + body[faq.end(1):]
         add(lang, cluster, path, meta["title"], meta["description"],
             f'<div class="wrap narrow page">{crumbs}{badge}<article class="guide">{body}</article>{cta}</div>',
-            jsonld=jl)
+            jsonld=jl, store_page=store_page)
     for lang, path in GUIDE_INDEX.items():
         ui = UI[lang]
         items = ""

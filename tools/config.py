@@ -19,6 +19,21 @@ APP_ID = "6809322275"
 # button in App Analytics → Acquisition → Campaigns. Not secret.
 PROVIDER_ID = "127865703"
 
+# Custom product pages in the App Store (own screenshots and promotional text for
+# Switzerland and Austria; ids from App Store Connect, Körlogg docs/CUSTOM_PRODUCT_PAGES.md).
+# Sent to App Review on 2026-11-26. Flip PRODUCT_PAGES_APPROVED to True the day Apple
+# has approved both (Amir 2026-11-26: "Yes, link them"): the App Store links of the
+# guides below, and the "In Österreich" link of the German home page, then open that
+# country's page (apps.apple.com/ch|at/…?ppid=…). Until then nothing changes.
+PRODUCT_PAGES = {"ch": "add026ea-4f63-4598-a3c8-33e1eef599b7",
+                 "at": "44434dea-1c5e-484b-8db6-1dbc71ea86dc"}
+PRODUCT_PAGES_APPROVED = False
+PRODUCT_PAGE_GUIDES = {
+    "ch": ["de-fahrtenbuch-schweiz-privatanteil", "de-korlogg-vs-driversnote-schweiz"],
+    "at": ["de-fahrtenbuch-oesterreich", "de-korlogg-vs-driversnote-oesterreich",
+           "de-kilometergeld-2027-oesterreich", "de-fahrtenbuch-vorlage-oesterreich"],
+}
+
 # support@korlogg.com is being set up; the support page also lists the old
 # address until SUPPORT_EMAIL_LIVE is True.
 SUPPORT_EMAIL = "support@korlogg.com"
