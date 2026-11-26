@@ -21,13 +21,13 @@ PROVIDER_ID = "127865703"
 
 # Custom product pages in the App Store (own screenshots and promotional text for
 # Switzerland and Austria; ids from App Store Connect, Körlogg docs/CUSTOM_PRODUCT_PAGES.md).
-# Sent to App Review on 2026-11-26. Flip PRODUCT_PAGES_APPROVED to True the day Apple
+# Sent to App Review on 2026-11-26 and approved the same day; switched on then. PRODUCT_PAGES_APPROVED was to be True the day Apple
 # has approved both (Amir 2026-11-26: "Yes, link them"): the App Store links of the
 # guides below, and the "In Österreich" link of the German home page, then open that
 # country's page (apps.apple.com/ch|at/…?ppid=…). Until then nothing changes.
 PRODUCT_PAGES = {"ch": "add026ea-4f63-4598-a3c8-33e1eef599b7",
                  "at": "44434dea-1c5e-484b-8db6-1dbc71ea86dc"}
-PRODUCT_PAGES_APPROVED = False
+PRODUCT_PAGES_APPROVED = True
 PRODUCT_PAGE_GUIDES = {
     "ch": ["de-fahrtenbuch-schweiz-privatanteil", "de-korlogg-vs-driversnote-schweiz"],
     "at": ["de-fahrtenbuch-oesterreich", "de-korlogg-vs-driversnote-oesterreich",
